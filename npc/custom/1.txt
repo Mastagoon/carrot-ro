@@ -1,0 +1,118 @@
+prontera,125,205,1	script	Job Changer	726,{
+    function Get_Job_Equip;
+    function getitemarray;
+    if(Class != Novice) end;
+    mes "pick a job";
+    for (.@i = 0; .@i < getarraysize(.job); .@i++)
+		.@menu$ = .@menu$ + jobname(.job[.@i]) + ":";
+	.@s = select(.@menu$)-1;
+    jobchange .job[.@s];
+    BaseLevel = 185;
+    JobLevel = 70;
+	specialeffect2 EF_ANGEL2;
+	specialeffect2 EF_ELECTRIC;
+	callfunc "F_GetPlatinumSkills";
+	if (.GetJobEquip) Get_Job_Equip();
+    close;
+
+
+
+function	Get_Job_Equip	{
+        getitem 18670,1;
+        getitem 18894,1;
+        getitem2 18509,1,1,9,0,0,0,0,0;
+        getitem2 2115,2,1,9,0,0,0,0,0;
+        getitem 2992,2;
+        getitem 2898,2;
+        getitem 5325,1;
+        .@pos = inarray(.job,Class);
+        //getitemarray(.blackset$,1,9);
+        getitemarray(.jobequip$[.@pos]);
+        return;
+}
+function    getitemarray    {
+    .@str$ = getarg(0);
+    //.@amt = getarg(1);
+    //.@refine = getarg(2);
+    if(.@str$ == "") return;
+    if(!.@amt) .@amt = 1;
+    if(!.@refine) .@refine = 0;
+    explode(.@arr$, .@str$, "|");
+    for(.@i = 0; .@i < getarraysize(.@arr$); .@i=.@i+3) {
+        getitem2 atoi(.@arr$[.@i]), atoi(.@arr$[.@i+1]),1,atoi(.@arr$[.@i+2]),0,0,0,0,0;
+    }
+}
+OnInit:
+    .GetJobEquip = True;
+    //DEF Equipments:
+    setarray .blackset$,"2483|2586|15046|15047|2586|2484|18509|2115";//RK,RG,Mechanic,Genatic
+    setarray .redset$,"2484|2586|15047|18509|2115|1228";//GLT,SC,Ranger
+    setarray .blueset$,"2485|15048|2587|18509|2115|1228";//Warlock,Sorrcer,AB,Sura
+    setarray .job[0],JOB_RUNE_KNIGHT_T,JOB_WARLOCK_T,JOB_RANGER_T,JOB_ARCH_BISHOP_T,JOB_MECHANIC_T,JOB_GUILLOTINE_CROSS_T,JOB_ROYAL_GUARD_T,JOB_SORCERER_T,JOB_MINSTREL_T,JOB_WANDERER_T,JOB_SURA_T,JOB_GENETIC_T,JOB_SHADOW_CHASER_T,JOB_KAGEROU,JOB_OBORO,JOB_REBELLION,JOB_SUMMONER,JOB_STAR_EMPEROR,JOB_SOUL_REAPER;
+    setarray .jobequip$[0],"1436|1|9|21001|1|9"//RK
+                    ,"2115|1|0|18539|1|9|1636|1|9|2000|1|9|2016|1|9|2701|2|0"//Warlock
+                    ,"18113|1|9|18114|1|9|18111|1|9|18130|1|15|2899|1|0"//Ranger add woe ammo & unlimited arrow
+                    ,"1586|1|9|18539|1|9"//AB
+                    ,"1395|1|9|1396|1|9|1549|1|9"//mechanic
+                    ,""//GLT
+                    ,""//RG
+                    ,"2115|1|0|18539|1|9|1636|1|9|2000|1|9|2016|1|9|2701|2|0|1587|1|9"//Sorccerer
+                    ,""//Minstrel
+                    ,""//Wanderer
+                    ,""//sura
+                    ,""//genetic
+                    ,""//SC
+                    ,""//Kagerou
+                    ,""//Oboro
+                    ,""//Rebellion
+                    ,""//summoner
+                    ,""//SE
+                    ,""//SR
+}
+
+        /*
+      4060 Rune Knight    4061 Warlock                 4062 Ranger             4063 Arch Bishop
+      4064 Mechanic         4065 Guillotine Cross  4073 Royal Guard    4074 Sorcerer
+      4075 Minstrel            4076 Wanderer              4077 Sura                  4078 Genetic
+      4079 Shadow Chaser
+      4211 Kagerou            4212 Oboro             4215 Rebellion        4218 Summoner
+      4239 Star Emperor   4240 Soul Reaper
+        */
+
+
+/*
+switch (Class) {
+
+		case JOB_RUNE_KNIGHT_T:
+		case JOB_WARLOCK_T:
+		case JOB_RANGER_T:
+		case JOB_ARCH_BISHOP_T:
+		case JOB_MECHANIC_T:
+		case JOB_GUILLOTINE_CROSS_T:
+			return msg_txt(75 - JOB_RUNE_KNIGHT_T+class_);
+
+		case JOB_ROYAL_GUARD_T:
+		case JOB_SORCERER_T:
+		case JOB_MINSTREL_T:
+		case JOB_WANDERER_T:
+		case JOB_SURA_T:
+		case JOB_GENETIC_T:
+		case JOB_SHADOW_CHASER_T:
+			return msg_txt(81 - JOB_ROYAL_GUARD_T+class_);
+
+		case JOB_KAGEROU:
+		case JOB_OBORO:
+			return msg_txt(103 - JOB_KAGEROU+class_);
+
+		case JOB_REBELLION:
+			return msg_txt(106);
+
+		case JOB_SUMMONER:
+			return msg_txt(108);
+
+
+
+		case JOB_STAR_EMPEROR:
+		case JOB_SOUL_REAPER:
+			return msg_txt(114 - JOB_BABY_STAR_GLADIATOR2 + class_);
+}*/
