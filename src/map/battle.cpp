@@ -3114,17 +3114,17 @@ static int battle_get_weapon_element(struct Damage* wd, struct block_list *src, 
 		case RK_DRAGONBREATH:
 			if (sc) {
 				if (sc->data[SC_LUXANIMA]) // Lux Anima has priority over Giant Growth
-					element = ELE_DARK;
+					element = ELE_FIRE;
 				else if (sc->data[SC_GIANTGROWTH])
-					element = ELE_HOLY;
+					element = ELE_FIRE;
 			}
 			break;
 		case RK_DRAGONBREATH_WATER:
 			if (sc) {
 				if (sc->data[SC_LUXANIMA]) // Lux Anima has priority over Fighting Spirit
-					element = ELE_NEUTRAL;
+					element = ELE_WATER;
 				else if (sc->data[SC_FIGHTINGSPIRIT])
-					element = ELE_GHOST;
+					element = ELE_WATER;
 			}
 			break;
 		case LG_HESPERUSLIT:
@@ -4319,13 +4319,19 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += ((skill_lv - 1) % 5 + 1) * 100;
 			break;
 		case RK_SONICWAVE:
-			skillratio += -100 + 1050 + 150 * skill_lv;
-			RE_LVL_DMOD(100);
+			// skillratio += -100 + 1050 + 150 * skill_lv;
+            skillratio += -100 + (skill_lv + 7) * 100; // ATK = {((Skill Level + 7) x 100) x (1 + [(Caster's Base Level - 100) / 200])} %
+			skillratio = skillratio * (100 + (status_get_lv(src) - 100) / 2) / 100;
+			// RE_LVL_DMOD(100);
 			break;
 		case RK_HUNDREDSPEAR:
-			skillratio += -100 + 600 + 200 * skill_lv;
+			// skillratio += -100 + 600 + 200 * skill_lv;
+			// if (sd)
+			// 	skillratio += 50 * pc_checkskill(sd,LK_SPIRALPIERCE);
+			// RE_LVL_DMOD(100);
+            skillratio += -100 + 600 + 200 * skill_lv;
 			if (sd)
-				skillratio += 50 * pc_checkskill(sd,LK_SPIRALPIERCE);
+                skillratio += 50 * pc_checkskill(sd,LK_SPIRALPIERCE);
 			RE_LVL_DMOD(100);
 			break;
 		case RK_WINDCUTTER:
@@ -4341,8 +4347,22 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			RE_LVL_DMOD(100);
 			break;
 		case RK_IGNITIONBREAK:
-			skillratio += -100 + 450 * skill_lv;
-			RE_LVL_DMOD(100);
+			// skillratio += -100 + 450 * skill_lv;
+			// RE_LVL_DMOD(100);
+            // 3x3 cell Damage = ATK [{(Skill Level x 300) x (1 + [(Caster's Base Level - 100) / 100])}] %
+			// 7x7 cell Damage = ATK [{(Skill Level x 250) x (1 + [(Caster's Base Level - 100) / 100])}] %
+			// 11x11 cell Damage = ATK [{(Skill Level x 200) x (1 + [(Caster's Base Level - 100) / 100])}] %
+			i = distance_bl(src,target);
+			if (i < 2)
+				skillratio += -100 + 300 * skill_lv;
+			else if (i < 4)
+				skillratio += -100 + 250 * skill_lv;
+			else
+				skillratio += -100 + 200 * skill_lv;
+			skillratio = skillratio * status_get_lv(src) / 100;
+			// Elemental check, 1.5x damage if your weapon element is fire.
+			if (sstatus->rhw.ele == ELE_FIRE)
+				skillratio += 100 * skill_lv;
 			break;
 		case NPC_IGNITIONBREAK:
 			// 3x3 cell Damage   = 1000  1500  2000  2500  3000 %
@@ -5815,8 +5835,8 @@ void battle_do_reflect(int attack_type, struct Damage *wd, struct block_list* sr
 			struct block_list *d_bl = battle_check_devotion(src);
 			status_change *sc = status_get_sc(src);
 
-			if (sc && sc->data[SC_VITALITYACTIVATION])
-				rdamage /= 2;
+			// if (sc && sc->data[SC_VITALITYACTIVATION])
+				// rdamage /= 2;
 			if (tsc->data[SC_MAXPAIN]) {
 				tsc->data[SC_MAXPAIN]->val2 = (int)rdamage;
 				skill_castend_damage_id(target, src, NPC_MAXPAIN_ATK, tsc->data[SC_MAXPAIN]->val1, tick, wd->flag);
@@ -7873,8 +7893,11 @@ enum damage_lv battle_weapon_attack(struct block_list* src, struct block_list* t
 			} else
 				status_change_end(src,SC_SPELLFIST,INVALID_TIMER);
 		}
-		if (sc->data[SC_GIANTGROWTH] && (wd.flag&BF_SHORT) && rnd()%100 < sc->data[SC_GIANTGROWTH]->val2 && !is_infinite_defense(target, wd.flag) && !vellum_damage)
-			wd.damage += wd.damage * 150 / 100; // 2.5 times damage
+		if (sc->data[SC_GIANTGROWTH] && (wd.flag&BF_SHORT) && rnd()%100 < sc->data[SC_GIANTGROWTH]->val2 && !is_infinite_defense(target, wd.flag) && !vellum_damage) {
+			// wd.damage += wd.damage * 150 / 100; // 2.5 times damage
+            wd.damage <<= 1; // Double Damage
+			skill_break_equip(src, src, EQP_WEAPON, 10, BCT_SELF); // Break chance happens on successful damage increase
+    }
 
 		if( sd && battle_config.arrow_decrement && sc->data[SC_FEARBREEZE] && sc->data[SC_FEARBREEZE]->val4 > 0) {
 			short idx = sd->equip_index[EQI_AMMO];
