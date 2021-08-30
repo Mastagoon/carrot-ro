@@ -10348,7 +10348,7 @@ Body:
     Type: Weapon
     TargetType: Attack
     DamageFlags:
-      Critical: true
+      Critical: false
     Range: 4
     Hit: Single
     HitCount: 1
@@ -17579,7 +17579,7 @@ Body:
     Type: Weapon
     TargetType: Attack
     DamageFlags:
-      Critical: true
+      Critical: false
     Range:
       - Level: 1
         Size: 7
@@ -17675,32 +17675,32 @@ Body:
     Type: Weapon
     TargetType: Attack
     DamageFlags:
-      Splash: true
-    Range: 7
+      Splash: false
+    Range: 5
     Hit: Multi_Hit
     HitCount: -5
     Element: Weapon
-    SplashArea:
-      - Level: 1
-        Area: 1
-      - Level: 2
-        Area: 1
-      - Level: 3
-        Area: 1
-      - Level: 4
-        Area: 1
-      - Level: 5
-        Area: 2
-      - Level: 6
-        Area: 2
-      - Level: 7
-        Area: 2
-      - Level: 8
-        Area: 2
-      - Level: 9
-        Area: 3
-      - Level: 10
-        Area: 3
+    # SplashArea:
+    #   - Level: 1
+    #     Area: 1
+    #   - Level: 2
+    #     Area: 1
+    #   - Level: 3
+    #     Area: 1
+    #   - Level: 4
+    #     Area: 1
+    #   - Level: 5
+    #     Area: 2
+    #   - Level: 6
+    #     Area: 2
+    #   - Level: 7
+    #     Area: 2
+    #   - Level: 8
+    #     Area: 2
+    #   - Level: 9
+    #     Area: 3
+    #   - Level: 10
+    #     Area: 3
     CastTime:
       - Level: 1
         Time: 1000
@@ -17941,7 +17941,7 @@ Body:
     Hit: Single
     HitCount: 1
     AfterCastActDelay: 1000
-    Duration1: 900000
+    Duration1: 180000
     Duration2: 60000
     Requires:
       SpCost: 1
@@ -17993,7 +17993,7 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    Duration1: 900000
+    Duration1: 180000
     FixedCastTime: 1000
     CastTimeFlags:
       IgnoreDex: true
@@ -18011,7 +18011,7 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    Duration1: 900000
+    Duration1: 180000
     Duration2: 10000
     FixedCastTime: 2000
     CastTimeFlags:
@@ -18030,7 +18030,7 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    Duration1: 900000
+    Duration1: 180000
     Requires:
       SpCost: 1
   - Id: 2017
@@ -18041,13 +18041,14 @@ Body:
     TargetType: Self
     DamageFlags:
       Splash: true
-      Critical: true
+      Critical: false
     Flags:
       TargetTrap: true
     Hit: Single
     HitCount: 1
     Element: Weapon
     SplashArea: 3
+    Knockback: 7
     CastTime: 2000
     Requires:
       SpCost: 1
@@ -18062,7 +18063,7 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    Duration1: 900000
+    Duration1: 180000
     Requires:
       SpCost: 1
   - Id: 2019
@@ -18077,7 +18078,7 @@ Body:
     HitCount: 1
     Element: Holy
     CastCancel: true
-    Duration1: 900000
+    Duration1: 180000
     Requires:
       SpCost: 1
   - Id: 2020
@@ -31644,7 +31645,7 @@ Body:
       NoDamage: true
     Hit: Single
     HitCount: 1
-    Duration1: 900000
+    Duration1: 180000
     Requires:
       SpCost: 1
   - Id: 5006

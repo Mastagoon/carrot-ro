@@ -6383,7 +6383,8 @@ static unsigned short status_calc_str(struct block_list *bl, struct status_chang
 	if(sc->data[SC_SPIRIT] && sc->data[SC_SPIRIT]->val2 == SL_HIGH)
 		str += ((sc->data[SC_SPIRIT]->val3)>>16)&0xFF;
 	if(sc->data[SC_GIANTGROWTH])
-		str += sc->data[SC_GIANTGROWTH]->val2;
+		// str += sc->data[SC_GIANTGROWTH]->val2;
+        str += 30;
 	if(sc->data[SC_BEYONDOFWARCRY])
 		str -= sc->data[SC_BEYONDOFWARCRY]->val2;
 	if(sc->data[SC_SAVAGE_STEAK])
@@ -11622,11 +11623,11 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			tick_time = 10000; // [GodLesZ] tick time
 			break;
 		case SC_GIANTGROWTH:
-			val2 = 30; // Damage success rate and STR increase
+			val2 = 15; // Damage success rate and STR increase
 			break;
 		case SC_LUXANIMA:
-			val2 = 15; // Storm Blast success %
-			val3 = 30; // Damage/HP/SP % increase
+			val2 = 1; // Storm Blast success %
+			val3 = 1; // Damage/HP/SP % increase
 			break;
 
 		/* Arch Bishop */
