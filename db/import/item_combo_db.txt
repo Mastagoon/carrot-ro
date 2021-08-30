@@ -3,3 +3,6 @@
 // Structure of Database:
 // ID:ID:ID:ID,{ Script }
 
+//Carrot set
+100000:100001:100002,{ bonus bDex,5; bonus2 bSubRace,RC_DemiHuman,15; bonus2 bSubRace,RC_Player_Human,15; }
+
