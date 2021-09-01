@@ -5632,7 +5632,7 @@ static void battle_calc_attack_gvg_bg(struct Damage* wd, struct block_list *src,
 			else if( mapdata->flag[MF_BATTLEGROUND] )
 				wd->damage=battle_calc_bg_damage(src,target,wd->damage,skill_id,wd->flag);
 			if (battle_config.atk_adjustment_map)
-				wd.damage = battle_calc_damage_adjustment(src, wd.damage, wd.flag); // Global damage adjustment [Cydh]
+				wd->damage = battle_calc_damage_adjustment(src, wd->damage, wd->flag); // Global damage adjustment [Cydh]
 		}
 		else if(!wd->damage) {
 			wd->damage2 = battle_calc_damage(src,target,wd,wd->damage2,skill_id,skill_lv);
@@ -5641,7 +5641,7 @@ static void battle_calc_attack_gvg_bg(struct Damage* wd, struct block_list *src,
 			else if( mapdata->flag[MF_BATTLEGROUND] )
 				wd->damage2 = battle_calc_bg_damage(src,target,wd->damage2,skill_id,wd->flag);
 			if (battle_config.atk_adjustment_map)
-				wd.damage = battle_calc_damage_adjustment(src, wd.damage, wd.flag); // Global damage adjustment [Cydh]
+				wd->damage = battle_calc_damage_adjustment(src, wd->damage, wd->flag); // Global damage adjustment [Cydh]
 		}
 		else {
 			int64 d1 = wd->damage + wd->damage2,d2 = wd->damage2;
@@ -5651,7 +5651,7 @@ static void battle_calc_attack_gvg_bg(struct Damage* wd, struct block_list *src,
 			else if( mapdata->flag[MF_BATTLEGROUND] )
 				wd->damage = battle_calc_bg_damage(src,target,wd->damage,skill_id,wd->flag);
 			if (battle_config.atk_adjustment_map)
-				wd.damage = battle_calc_damage_adjustment(src, wd.damage, wd.flag); // Global damage adjustment [Cydh]
+				wd->damage = battle_calc_damage_adjustment(src, wd->damage, wd->flag); // Global damage adjustment [Cydh]
 			wd->damage2 = (int64)d2*100/d1 * wd->damage/100;
 			if(wd->damage > 1 && wd->damage2 < 1) wd->damage2 = 1;
 			wd->damage-=wd->damage2;
