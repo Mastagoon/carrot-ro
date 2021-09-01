@@ -1301,7 +1301,7 @@ void initChangeTables(void)
 	set_sc( GN_SPORE_EXPLOSION		, SC_SPORE_EXPLOSION	, EFST_SPORE_EXPLOSION_DEBUFF, SCB_NONE );
 	set_sc( GN_FIRE_EXPANSION_SMOKE_POWDER	, SC_SMOKEPOWDER	, EFST_FIRE_EXPANSION_SMOKE_POWDER, SCB_FLEE );
 	set_sc( GN_FIRE_EXPANSION_TEAR_GAS	, SC_TEARGAS		, EFST_FIRE_EXPANSION_TEAR_GAS	, SCB_HIT|SCB_FLEE );
-	set_sc_with_vfx( GN_HELLS_PLANT		, SC_HELLS_PLANT	, EFST_HELLS_PLANT_ARMOR	, SCB_NONE );
+	// set_sc_with_vfx( GN_HELLS_PLANT		, SC_HELLS_PLANT	, EFST_HELLS_PLANT_ARMOR	, SCB_NONE );
 	set_sc( GN_MANDRAGORA			, SC_MANDRAGORA		, EFST_MANDRAGORA			, SCB_INT );
 	set_sc_with_vfx( GN_ILLUSIONDOPING	, SC_ILLUSIONDOPING	, EFST_ILLUSIONDOPING		, SCB_HIT );
 
@@ -12160,8 +12160,10 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val3 = 30 * val1; // MDEF bonus
 			break;
 		case SC_OVERED_BOOST:
-			val2 = 400 + 40 * val1; // flee bonus
-			val3 = 180 + 2 * val1; // aspd bonus
+            val2 = 300 + 40*val1; // flee bonus
+			val3 = 179 + 2*val1; // aspd bonus
+			// val2 = 400 + 40 * val1; // flee bonus
+			// val3 = 180 + 2 * val1; // aspd bonus
 			val4 = 50; // def reduc %
 			break;
 		case SC_GRANITIC_ARMOR:
