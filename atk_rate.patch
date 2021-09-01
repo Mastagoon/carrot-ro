@@ -86,7 +86,7 @@ index 313fb79..2230755 100755
 +			mapdata->atk_rate.rate[DMGRATE_MAGIC],
 +			mapdata->atk_rate.rate[DMGRATE_MISC]);
 +		clif_displaymessage(fd,atcmd_output);
-+	
++	}
  	strcpy(atcmd_output,msg_txt(sd,1046)); // PvP Flags:
  	if (map_getmapflag(m_id, MF_PVP))
  		strcat(atcmd_output, " Pvp ON |");
@@ -179,7 +179,7 @@ index 8b3d535..822c18e 100755
  			else if( mapdata->flag[MF_BATTLEGROUND] )
  				wd->damage=battle_calc_bg_damage(src,target,wd->damage,skill_id,wd->flag);
 +			if (battle_config.atk_adjustment_map)
-+				wd.damage = battle_calc_damage_adjustment(src, wd.damage, wd.flag); // Global damage adjustment [Cydh]
++				wd->damage = battle_calc_damage_adjustment(src, wd->damage, wd->flag); // Global damage adjustment [Cydh]
  		}
  		else if(!wd->damage) {
  			wd->damage2 = battle_calc_damage(src,target,wd,wd->damage2,skill_id,skill_lv);
@@ -188,7 +188,7 @@ index 8b3d535..822c18e 100755
  			else if( mapdata->flag[MF_BATTLEGROUND] )
  				wd->damage2 = battle_calc_bg_damage(src,target,wd->damage2,skill_id,wd->flag);
 +			if (battle_config.atk_adjustment_map)
-+				wd.damage = battle_calc_damage_adjustment(src, wd.damage, wd.flag); // Global damage adjustment [Cydh]
++				wd->damage = battle_calc_damage_adjustment(src, wd->damage, wd->flag); // Global damage adjustment [Cydh]
  		}
  		else {
  			int64 d1 = wd->damage + wd->damage2,d2 = wd->damage2;
@@ -197,7 +197,7 @@ index 8b3d535..822c18e 100755
  			else if( mapdata->flag[MF_BATTLEGROUND] )
  				wd->damage = battle_calc_bg_damage(src,target,wd->damage,skill_id,wd->flag);
 +			if (battle_config.atk_adjustment_map)
-+				wd.damage = battle_calc_damage_adjustment(src, wd.damage, wd.flag); // Global damage adjustment [Cydh]
++				wd->damage = battle_calc_damage_adjustment(src, wd->damage, wd->flag); // Global damage adjustment [Cydh]
  			wd->damage2 = (int64)d2*100/d1 * wd->damage/100;
  			if(wd->damage > 1 && wd->damage2 < 1) wd->damage2 = 1;
  			wd->damage-=wd->damage2;
