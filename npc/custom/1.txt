@@ -28,7 +28,8 @@ function	Get_Job_Equip	{
         getitem2 100000,2,1,9,0,0,0,0,0;
         getitem2 100001,2,1,9,0,0,0,0,0;
         getitem2 100002,2,1,9,0,0,0,0,0;
-        getitem2 22010,2,1,9,0,0,0,0,0;
+        getitem2 22008,1,1,9,0,0,0,0,0;
+        getitem 1228,1;
 
         .@pos = inarray(.job,Class);
         //getitemarray(.blackset$,1,9);
@@ -56,69 +57,635 @@ OnInit:
     setarray .job[0],JOB_RUNE_KNIGHT_T,JOB_WARLOCK_T,JOB_RANGER_T,JOB_ARCH_BISHOP_T,JOB_MECHANIC_T,JOB_GUILLOTINE_CROSS_T,JOB_ROYAL_GUARD_T,JOB_SORCERER_T,JOB_MINSTREL_T,JOB_WANDERER_T,JOB_SURA_T,JOB_GENETIC_T,JOB_SHADOW_CHASER_T,JOB_KAGEROU,JOB_OBORO,JOB_REBELLION,JOB_SUMMONER,JOB_STAR_EMPEROR,JOB_SOUL_REAPER;
     setarray .jobequip$[0]
                     ,"1436|1|9|21001|1|9|1498|1|12|1443|1|12|5361|1|0|22006|1|9"//RK
-                    ,"2115|1|0|18539|1|9|1636|1|9|2000|1|9|2016|1|9|2701|2|0|5463|1|0|1680|1|12|18849|1|9"//Warlock
-                    ,"18113|1|9|18114|1|9|18111|1|9|18130|1|12|2899|1|0|18522|1|9|5592|1|0|5361|1|0"//Ranger add woe ammo & unlimited arrow
-                    ,"1586|1|9|18539|1|9|18849|1|9|5463|1|0"//AB
+                    ,"18539|1|9|1636|1|9|2016|1|9|2701|2|0|5463|1|0|1680|1|12|18849|1|9"//Warlock
+                    ,"18113|1|9|18114|1|9|18111|1|9|18130|1|12|2899|1|0|18522|1|9|5592|1|0|5361|1|0|15042|1|9|"//Ranger add woe ammo & unlimited arrow
+                    ,"1586|1|9|18539|1|9|18849|1|9|5463|1|0|16018|1|9|2472|1|9|2570|1|9|15030|1|9|2701|2|0"//AB
                     ,"1395|1|9|1396|1|9|1549|1|9|5361|1|0|16040|1|12|13413|1|9"//mechanic
                     ,"5389|1|0|5767|1|0|5361|1|0|22006|1|9|28007|1|12|"//GLT
                     ,"1436|1|9|21001|1|9|1498|1|12|1443|1|12|5361|1|0|22006|1|9|1433|1|9|18522|1|9|2148|1|9"//RG
-                    ,"2115|1|0|18539|1|9|1636|1|9|2000|1|9|2016|1|9|2701|2|0|1587|1|9|28604|1|12|5463|1|0|1680|1|12|18849|1|9"//Sorccerer
+                    ,"18539|1|9|1636|1|9|2016|1|9|2701|2|0|1587|1|9|28604|1|12|5463|1|0|1680|1|12|18849|1|9"//Sorccerer
                     ,"18113|1|9|18114|1|9|18111|1|9|18130|1|12|2899|2|0|18522|1|9|5592|1|0|5361|1|0|18123|1|9|1935|1|9"//Minstrel
                     ,"18113|1|9|18114|1|9|18111|1|9|18130|1|12|2899|2|0|18522|1|9|5592|1|0|5361|1|0|18123|1|9|1985|1|9"//Wanderer
-                    ,"1832|1|9|5361|1|0|16003|2|9"//sura
-                    ,"13412|1|9"//genetic
-                    ,"909|1|0"//SC
-                    ,"5361|1|0|18539|1|9|18522|1|9|5463|1|0|13090|2|9|13078|2|9|1231|2|9|13332|1|9"//Kagerou
-                    ,"5361|1|0|18539|1|9|18522|1|9|5463|1|0|13090|2|9|13078|2|9|1231|2|9|13332|1|9"//Oboro
+                    ,"1832|1|9|5361|1|0|16003|2|9|2701|2|0"//sura
+                    ,"13412|1|9|2701|2|0"//genetic
+                    ,"909|1|0|2701|2|0"//SC
+                    ,"5361|1|0|18539|1|9|18522|1|9|5463|1|0|13090|2|9|13078|2|9|1231|2|9|13332|1|9|2701|2|0"//Kagerou
+                    ,"5361|1|0|18539|1|9|18522|1|9|5463|1|0|13090|2|9|13078|2|9|1231|2|9|13332|1|9|2701|2|0"//Oboro
                     ,"5361|1|0|18522|1|9|13127|1|12|13198|1|9"//Rebellion
                     ,"5361|1|0|18522|1|9|5463|1|0|18849|1|9|1697|1|9|1693|1|9|15156|1|9|20790|1|9|22085|1|9"//summoner
-                    ,"1587|1|9"//SE
-                    ,"2115|1|0|18539|1|9|1636|1|9|2000|1|9|2016|1|9|2701|2|0|1587|1|9|28604|1|12|5463|1|0|1680|1|12|18849|1|9"//SR
+                    ,"1587|1|9|28604|1|12"//SE
+                    ,"18539|1|9|1636|1|9|2016|1|9|2701|2|0|5463|1|0|1680|1|12|18849|1|9";//SR
 }
 
-        /*
-      4060 Rune Knight    4061 Warlock                 4062 Ranger             4063 Arch Bishop
-      4064 Mechanic         4065 Guillotine Cross  4073 Royal Guard    4074 Sorcerer
-      4075 Minstrel            4076 Wanderer              4077 Sura                  4078 Genetic
-      4079 Shadow Chaser
-      4211 Kagerou            4212 Oboro             4215 Rebellion        4218 Summoner
-      4239 Star Emperor   4240 Soul Reaper
-        */
+//============================================================
+prontera,127,207,1	script	Mora Enchanter#test	521,{
+	disable_items;
+	mes "[Artifact Researcher]";
+	mes "Nice to meet you.";
+	next;
+	switch(select("Give abilities to artifacts.:Reset Enhanced abilities.")) {
+	case 1:
+		set @mora_enchant_select,1;
+		break;
+	case 2:
+		set @mora_enchant_select,2;
+		break;
+	}
+	mes "[Artifact Researcher]";
+	mes "Ok, so are you ready? Before I start working on this, what kind of equipment did you want me to enhance?";
+	next;
+	set .@i, select("1. Weapon:2. Shoes:3. Garment:4. Armor:5. Accessory")-1;
+	setarray .@parts[0], EQI_HAND_R, EQI_SHOES, EQI_GARMENT, EQI_ARMOR, EQI_ACC_L;
+	set .@part, .@parts[.@i];
+	if (!getequipisequiped(.@part)) {
+		mes "[Artifact Researcher]";
+		mes "Make sure you're wearing the equipment first.";
+		close;
+	}
+	set .@equip_id, getequipid(.@part);
+	set @mora_equip_part, .@part;
+
+	//callsub L_Socket,<enchant type>,<bonus enchant type>,<4-x enchants possible>;
+	// Enchant types:
+	//   [1]ATK [2]CRIT [3]EVA [4]Healer [5]Spell 1 [6]Assist 1 [7]Assist 2 [8]STR [9]Range [10]Physical [11]Spell 2
+	switch(.@part) {
+	case EQI_HAND_R:
+		switch(.@equip_id) {
+			case 1660: callsub L_Socket,4,5,1;  //Wand_Of_Affection2
+			case 2011: callsub L_Socket,5,11,1; //Golden_Rod_Staff2
+			case 2012: callsub L_Socket,5,11,1; //Aqua_Staff2
+			case 2013: callsub L_Socket,5,11,1; //Crimson_Staff2
+			case 2014: callsub L_Socket,5,11,1; //Forest_Staff2
+			case 16018: callsub L_Socket,1,5,1; //Mace_Of_Judgement2
+            case 1657: callsub L_Socket,14,0,2; //Wand_Of_Affection
+            case 16013: callsub L_Socket,15,0,2; //Mace_Of_Judgement
+            case 2007: callsub L_Socket,16,0,2; //Golden_Rod_Staff
+            case 2008: callsub L_Socket,16,0,2; //Aqua_Staff
+            case 2009: callsub L_Socket,16,0,2; //Crimson_Staff
+            case 2010: callsub L_Socket,16,0,2; //Forest_Staff
+		}
+		break;
+	case EQI_SHOES:
+		switch(.@equip_id) {
+			case 2475: callsub L_Socket,6,8,1;  //Ur_Greave
+			case 2476: callsub L_Socket,6,10,1; //Peuz_Greave
+			case 2477: callsub L_Socket,6,2,1;  //Sabah_Shoes
+			case 2478: callsub L_Socket,6,1,1;  //Nab_Shoes
+			case 2479: callsub L_Socket,6,2,1;  //White_Wing_Boots
+			case 2480: callsub L_Socket,6,1,1;  //Black_Wing_Boots
+            case 2471: callsub L_Socket,13,0,3; //Shoes_Of_Affection
+            case 2472: callsub L_Socket,13,0,3; //Shoes_Of_Judgement
+            case 2467: callsub L_Socket,17,0,3; //Golden_Rod_Shoes
+            case 2468: callsub L_Socket,17,0,3; //Aqua_Shoes
+            case 2469: callsub L_Socket,17,0,3; //Crimson_Shoes
+            case 2470: callsub L_Socket,17,0,3; //Forest_Shoes
+            
+		}
+		break;
+	case EQI_GARMENT:
+		switch(.@equip_id) {
+			case 2574: callsub L_Socket,3,8,1; //Ur_Manteau
+			case 2575: callsub L_Socket,3,2,1; //Peuz_Manteau
+			case 2577: callsub L_Socket,3,2,1; //Sabah_Hood
+			case 2578: callsub L_Socket,3,2,1; //Nab_Hood
+			case 2580: callsub L_Socket,3,1,1; //White_Wing_Manteau
+			case 2581: callsub L_Socket,3,1,1; //Black_Wing_Manteau
+            case 2569: callsub L_Socket,13,0,3; //Shawl_Of_Affection
+            case 2570: callsub L_Socket,13,0,3; //Shawl_Of_Judgement
+
+		}
+		break;
+	case EQI_ARMOR:
+		switch(.@equip_id) {
+			case 15036: callsub L_Socket,8,1,1;  //Ur_Plate
+			case 15037: callsub L_Socket,10,2,1; //Peuz_Plate
+			case 15038: callsub L_Socket,2,10,1; //Sabah_Cloth
+			case 15039: callsub L_Socket,1,2,1;  //Nab_Cloth
+			case 15042: callsub L_Socket,2,9,1;  //White_Wing_Suits
+			case 15043: callsub L_Socket,1,9,1;  //Black_Wing_Suits
+            case 15029: callsub L_Socket,13,0,3; //Robe_Of_Affection
+            case 15030: callsub L_Socket,13,0,3; //Robe_Of_Judgement
+            case 15025: callsub L_Socket,17,0,3; //Golden_Rod_Robe
+            case 15026: callsub L_Socket,17,0,3; //Aqua_Robe
+            case 15027: callsub L_Socket,17,0,3; //Crimson_Robe
+            case 15028: callsub L_Socket,17,0,3; //Forest_Robe
+		}
+		break;
+	case EQI_ACC_L:
+		switch(.@equip_id) {
+			case 2883: callsub L_Socket,6,0,2; //Ur_Seal
+			case 2884: callsub L_Socket,6,0,2; //Peuz_Seal
+			case 2886: callsub L_Socket,6,0,2; //Sabah_Ring
+			case 2887: callsub L_Socket,6,0,2; //Nab_Ring
+			case 2890: callsub L_Socket,6,0,2; //White_Wing_Brooch
+			case 2891: callsub L_Socket,6,0,2; //Black_wing_Brooch
+            case 2864: callsub L_Socket,12,0,2; //Light_Of_Cure
+            case 2865: callsub L_Socket,12,0,2; //Seal_Of_Cathedral
+            case 2866: callsub L_Socket,12,0,2; //Ring_Of_Archbishop
+            case 2859: callsub L_Socket,17,0,3; //Golden_Rod_Orb
+            case 2860: callsub L_Socket,17,0,3; //Aqua_Orb
+            case 2861: callsub L_Socket,17,0,3; //Crimson_Orb
+            case 2862: callsub L_Socket,17,0,3; //Forest_Orb
+		}
+		break;
+	}
+	mes "[Artifact Researcher]";
+	mes "^990099"+getequipname(.@part)+"^000000??";
+	mes "I really want to study this equipment...";
+	set @mora_equip_part,0;
+	close;
 
 
-/*
-switch (Class) {
+L_Socket:
+	set .@select, @mora_enchant_select;
+	set .@enchant_type, getarg(0);
+	.@bonus_enchant = getarg(1);
+	.@allowed_slot = getarg(2);
+	set .@part, @mora_equip_part;
+	set .@equip_id, getequipid(.@part);
+	set .@equip_name$, getitemname(.@equip_id);
+	set .@equip_refine, getequiprefinerycnt(.@part);
+	setarray .@equip_card[0], getequipcardid(.@part,0),getequipcardid(.@part,1),getequipcardid(.@part,2),getequipcardid(.@part,3);
+	set @mora_equip_part,0;
+	set @mora_enchant_select,0;
 
-		case JOB_RUNE_KNIGHT_T:
-		case JOB_WARLOCK_T:
-		case JOB_RANGER_T:
-		case JOB_ARCH_BISHOP_T:
-		case JOB_MECHANIC_T:
-		case JOB_GUILLOTINE_CROSS_T:
-			return msg_txt(75 - JOB_RUNE_KNIGHT_T+class_);
+	if (.@select == 1) {
+		// If refine is +9 or higher, unlock bonus enchant type.
+		if (.@equip_refine >= 9 && .@bonus_enchant > 0) {
+			if (.@enchant_type < 1 || .@enchant_type > 20 || .@bonus_enchant > 11) {
+				mes "[Artifact Researcher]";
+				mes "Mm-hmm something is wrong.";
+				close;
+			}
+			setarray .@enchant_type$[1],"ATK Type","Critical Type","Evasion Type","Healer Type","Spell Ability 1","Assist Ability 1","Assist Ability 2","Strength","Range Type","Physical Type","Spell Ability 2";
+			mes "[Artifact Researcher]";
+			mes "It's a considerable reinforcement to the equipment. In this case extended enhancements can be granted. Which stat do you want to enhance?";
+			next;
+			switch(select(.@enchant_type$[.@enchant_type],.@enchant_type$[.@bonus_enchant])) {
+			case 1:
+				break;
+			case 2:
+				set .@enchant_type, .@bonus_enchant;
+				break;
+			}
+		}
+		if (.@equip_card[3] == 0 && .@allowed_slot < 4) {
+			set .@slot,4;
+		} else if (.@equip_card[2] == 0 && .@allowed_slot < 3) {
+			set .@slot,3;
+		} else if (.@equip_card[1] == 0 && .@allowed_slot < 2) {
+			set .@slot,2;
+		} else {
+			mes "[Artifact Researcher]";
+			mes "This artifact has been strengthened to the limit. Further enhancement is impossible at its current state.";
+			close;
+		}
+		next;
+		switch(.@enchant_type) {
+		case 1: //Attack
+			     if (.@slot == 4) set .@i, rand(351,525);
+			else if (.@slot == 3) set .@i, rand(301,655);
+			else if (.@slot == 2) set .@i, rand(451,669);
+			else {
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
+				close;
+			}
+            debugmes "" +  .@i;
+			//      if (.@i < 101) set .@enchant,4700; //Strength1
+			// else if (.@i < 201) set .@enchant,4811; //Fighting_Spirit1
+			// else if (.@i < 301) set .@enchant,4819; //Atk1
+			// else if (.@i < 351) set .@enchant,4701; //Strength2
+			     if (.@i < 401) set .@enchant,4810; //Fighting_Spirit2
+			else if (.@i < 451) set .@enchant,4766; //Atk2
+			else if (.@i < 476) set .@enchant,4702; //Strength3
+			else if (.@i < 501) set .@enchant,4809; //Fighting_Spirit3
+			else if (.@i < 526) set .@enchant,4767; //Atk3
+			else if (.@i < 641) set .@enchant,4703; //Strength4
+			else if (.@i < 656) set .@enchant,4808; //Fighting_Spirit4
+			else if (.@i < 661) set .@enchant,4704; //Strength5
+			else if (.@i < 666) set .@enchant,4820; //Fighting_Spirit5
+			else if (.@i < 668) set .@enchant,4705; //Strength6
+			else if (.@i < 670) set .@enchant,4821; //Fighting_Spirit6
+			break;
+		case 2: //Critical
+			     if (.@slot == 4) set .@i, rand(351,470);
+			else if (.@slot == 3) set .@i, rand(201,610);
+			else if (.@slot == 2) set .@i, rand(381,618);
+			else {
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
+				close;
+			}
+			//      if (.@i < 101) set .@enchant,4750; //Luck1
+			// else if (.@i < 201) set .@enchant,4700; //Strength1
+			// else if (.@i < 261) set .@enchant,4751; //Luck2
+			// else if (.@i < 321) set .@enchant,4701; //Strength2
+			// else if (.@i < 351) set .@enchant,4752; //Luck3
+			     if (.@i < 381) set .@enchant,4702; //Strength3
+			else if (.@i < 411) set .@enchant,4764; //Critical5
+			else if (.@i < 441) set .@enchant,4818; //Sharp1
+			else if (.@i < 471) set .@enchant,4752; //Luck3
+			else if (.@i < 586) set .@enchant,4753; //Luck4
+			else if (.@i < 601) set .@enchant,4754; //Luck5
+			else if (.@i < 606) set .@enchant,4765; //Critical7
+			else if (.@i < 611) set .@enchant,4817; //Sharp2
+			else if (.@i < 616) set .@enchant,4703; //Strength4
+			else if (.@i < 618) set .@enchant,4816; //Sharp3
+			break;
+		case 3: //Evasion
+			     if (.@slot == 4) set .@i, rand(301,525);
+			else if (.@slot == 3) set .@i, rand(301,670);
+			else if (.@slot == 2) set .@i, rand(451,682);
+			else {
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
+				close;
+			}
+			//      if (.@i < 101) set .@enchant,4859; //Evasion1
+			// else if (.@i < 201) set .@enchant,4750; //Luck1
+			// else if (.@i < 301) set .@enchant,4730; //Agility1
+			     if (.@i < 351) set .@enchant,4860; //Evasion3
+			else if (.@i < 401) set .@enchant,4751; //Luck2
+			else if (.@i < 451) set .@enchant,4731; //Agility2
+			else if (.@i < 476) set .@enchant,4731; //Agility2
+			else if (.@i < 501) set .@enchant,4752; //Luck3
+			else if (.@i < 526) set .@enchant,4732; //Agility3
+			else if (.@i < 641) set .@enchant,4762; //Evasion6
+			else if (.@i < 656) set .@enchant,4753; //Luck4
+			else if (.@i < 671) set .@enchant,4733; //Agility4
+			else if (.@i < 676) set .@enchant,4763; //Evasion12
+			else if (.@i < 681) set .@enchant,4754; //Luck5
+			else if (.@i < 683) set .@enchant,4734; //Agility5
+			break;
+		case 4: //Healer
+			     if (.@slot == 4) set .@i, rand(201,375);
+			else if (.@slot == 3) set .@i, rand(201,535);
+			else if (.@slot == 2) set .@i, rand(301,549);
+			else {
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
+				close;
+			}
+			//      if (.@i < 101) set .@enchant,4710; //Inteligence1
+			// else if (.@i < 201) set .@enchant,4720; //Dexterity1
+			     if (.@i < 251) set .@enchant,4711; //Inteligence2
+			else if (.@i < 301) set .@enchant,4721; //Dexterity2
+			else if (.@i < 326) set .@enchant,4805; //Heal_Amount2
+			else if (.@i < 351) set .@enchant,4712; //Inteligence3
+			else if (.@i < 376) set .@enchant,4722; //Dexterity3
+			else if (.@i < 491) set .@enchant,4760; //Matk1
+			else if (.@i < 506) set .@enchant,4850; //Heal_Amount3
+			else if (.@i < 521) set .@enchant,4713; //Inteligence4
+			else if (.@i < 536) set .@enchant,4723; //Dexterity4
+			else if (.@i < 541) set .@enchant,4761; //Matk2
+			else if (.@i < 546) set .@enchant,4851; //Heal_Amount4
+			else if (.@i < 548) set .@enchant,4806; //Matk3
+			else if (.@i < 550) set .@enchant,4852; //Heal_Amount5
+			break;
+		case 5: //Spell 1
+			     if (.@slot == 4) set .@i, rand(301,600);
+			else if (.@slot == 3) set .@i, rand(401,760);
+			else if (.@slot == 2) set .@i, rand(401,766);
+			else {
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
+				close;
+			}
+			//      if (.@i < 101) set .@enchant,4710; //Inteligence1
+			// else if (.@i < 201) set .@enchant,4720; //Dexterity1
+			// else if (.@i < 301) set .@enchant,4795; //HP100
+			     if (.@i < 401) set .@enchant,4815; //Spell1
+			else if (.@i < 451) set .@enchant,4711; //Inteligence2
+			else if (.@i < 501) set .@enchant,4721; //Dexterity2
+			else if (.@i < 551) set .@enchant,4796; //HP200
+			else if (.@i < 601) set .@enchant,4814; //Spell2
+			else if (.@i < 716) set .@enchant,4712; //Inteligence3
+			else if (.@i < 731) set .@enchant,4722; //Dexterity3
+			else if (.@i < 746) set .@enchant,4797; //HP300
+			else if (.@i < 761) set .@enchant,4813; //Spell3
+			else if (.@i < 763) set .@enchant,4713; //Inteligence4
+			else if (.@i < 765) set .@enchant,4723; //Dexterity4
+			else if (.@i < 767) set .@enchant,4812; //Spell4
+			break;
+		case 6: //Assist 1
+			     if (.@slot == 4) set .@i, rand(1,520);
+			else if (.@slot == 3) set .@i, rand(321,720);
+			else if (.@slot == 2) set .@i, rand(521,750);
+			else {
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
+				close;
+			}
+			     if (.@i < 81)  set .@enchant,4792; //Def6
+			else if (.@i < 161) set .@enchant,4787; //Mdef4
+			else if (.@i < 241) set .@enchant,4801; //SP100
+			else if (.@i < 321) set .@enchant,4796; //HP200
+			else if (.@i < 371) set .@enchant,4700; //Strength1
+			else if (.@i < 421) set .@enchant,4720; //Dexterity1
+			else if (.@i < 471) set .@enchant,4730; //Agility1
+			else if (.@i < 521) set .@enchant,4740; //Vitality1
+			else if (.@i < 646) set .@enchant,4793; //Def9
+			else if (.@i < 671) set .@enchant,4788; //Mdef6
+			else if (.@i < 696) set .@enchant,4802; //SP150
+			else if (.@i < 721) set .@enchant,4797; //HP300
+			else if (.@i < 731) set .@enchant,4701; //Strength2
+			else if (.@i < 741) set .@enchant,4721; //Dexterity2
+			else if (.@i < 751) set .@enchant,4731; //Agility2
+			break;
+		case 7: //Assist 2
+			     if (.@slot == 4) set .@i, rand(1,520);
+			else if (.@slot == 3) set .@i, rand(321,720);
+			else if (.@slot == 2) set .@i, rand(521,750);
+			else {
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
+				close;
+			}
+			     if (.@i < 81)  set .@enchant,4792; //Def6
+			else if (.@i < 161) set .@enchant,4787; //Mdef4
+			else if (.@i < 241) set .@enchant,4801; //SP100
+			else if (.@i < 321) set .@enchant,4796; //HP200
+			else if (.@i < 371) set .@enchant,4710; //Inteligence1
+			else if (.@i < 421) set .@enchant,4720; //Dexterity1
+			else if (.@i < 471) set .@enchant,4730; //Agility1
+			else if (.@i < 521) set .@enchant,4740; //Vitality1
+			else if (.@i < 646) set .@enchant,4793; //Def9
+			else if (.@i < 671) set .@enchant,4788; //Mdef6
+			else if (.@i < 696) set .@enchant,4802; //SP150
+			else if (.@i < 721) set .@enchant,4797; //HP300
+			else if (.@i < 731) set .@enchant,4711; //Inteligence2
+			else if (.@i < 741) set .@enchant,4721; //Dexterity2
+			else if (.@i < 751) set .@enchant,4741; //Vitality2
+			break;
+		case 8: //Strength
+			     if (.@slot == 4) set .@i, rand(351,525);
+			else if (.@slot == 3) set .@i, rand(301,685);
+			else if (.@slot == 2) set .@i, rand(451,687);
+			else {
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
+				close;
+			}
+			//      if (.@i < 101) set .@enchant,4740; //Vitality1
+			// else if (.@i < 201) set .@enchant,4797; //HP300
+			// else if (.@i < 301) set .@enchant,4791; //Def3
+			// else if (.@i < 351) set .@enchant,4741; //Vitality2
+			     if (.@i < 401) set .@enchant,4798; //HP400
+			else if (.@i < 451) set .@enchant,4792; //Def6
+			else if (.@i < 476) set .@enchant,4742; //Vitality3
+			else if (.@i < 501) set .@enchant,4793; //Def9
+			else if (.@i < 526) set .@enchant,4799; //HP500
+			else if (.@i < 641) set .@enchant,4742; //Vitality3
+			else if (.@i < 656) set .@enchant,4743; //Vitality4
+			else if (.@i < 671) set .@enchant,4794; //Def12
+			//else if (.@i < 686) set .@enchant,01; // ??
+			else if (.@i < 688) set .@enchant,4744; //Vitality5
+			//else if (.@i < 690) set .@enchant,02; // ??
+			break;
+		case 9: //Range
+			     if (.@slot == 4) set .@i, rand(381,500);
+			else if (.@slot == 3) set .@i, rand(201,610);
+			else if (.@slot == 2) set .@i, rand(321,621);
+			else {
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
+				close;
+			}
+			//      if (.@i < 101) set .@enchant,4750; //Luck1
+			// else if (.@i < 201) set .@enchant,4720; //Dexterity1
+			// else if (.@i < 261) set .@enchant,4751; //Luck2
+			// else if (.@i < 321) set .@enchant,4721; //Dexterity2
+			// else if (.@i < 351) set .@enchant,4752; //Luck3
+			// else if (.@i < 381) set .@enchant,4722; //Dexterity3
+			     if (.@i < 411) set .@enchant,4764; //Critical5
+			else if (.@i < 441) set .@enchant,4832; //Expert_Archer1
+			else if (.@i < 461) set .@enchant,4833; //Expert_Archer2
+			else if (.@i < 471) set .@enchant,4753; //Luck4
+			else if (.@i < 491) set .@enchant,4834; //Expert_Archer3
+			else if (.@i < 586) set .@enchant,4723; //Dexterity4
+			else if (.@i < 601) set .@enchant,4833; //Expert_Archer2
+			else if (.@i < 606) set .@enchant,4765; //Critical7
+			else if (.@i < 611) set .@enchant,4834; //Expert_Archer3
+			else if (.@i < 616) set .@enchant,4724; //Dexterity5
+			else if (.@i < 620) set .@enchant,4835; //Expert_Archer4
+			else if (.@i < 622) set .@enchant,4836; //Expert_Archer5
+			break;
+		case 10: //Physical
+			     if (.@slot == 4) set .@i, rand(401,600);
+			else if (.@slot == 3) set .@i, rand(401,800);
+			else if (.@slot == 2) set .@i, rand(601,832);
+			else {
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
+				close;
+			}
+			//      if (.@i < 101) set .@enchant,4791; //Def3
+			// else if (.@i < 201) set .@enchant,4730; //Agility1
+			// else if (.@i < 301) set .@enchant,4750; //Luck1
+			// else if (.@i < 401) set .@enchant,4795; //HP100
+			     if (.@i < 451) set .@enchant,4792; //Def6
+			else if (.@i < 501) set .@enchant,4731; //Agility2
+			else if (.@i < 551) set .@enchant,4751; //Luck2
+			else if (.@i < 601) set .@enchant,4796; //HP200
+			else if (.@i < 726) set .@enchant,4793; //Def9
+			else if (.@i < 751) set .@enchant,4732; //Agility3
+			else if (.@i < 776) set .@enchant,4752; //Luck3
+			else if (.@i < 801) set .@enchant,4797; //HP300
+			else if (.@i < 816) set .@enchant,4733; //Agility4
+			else if (.@i < 831) set .@enchant,4753; //Luck4
+			else if (.@i < 833) set .@enchant,4807; //Atk_Speed1
+			break;
+		case 11: //Spell 2
+			     if (.@slot == 4) set .@i, rand(401,600);
+			else if (.@slot == 3) set .@i, rand(401,760);
+			else if (.@slot == 2) set .@i, rand(401,766);
+			else {
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
+				close;
+			}
+			//      if (.@i < 101) set .@enchant,4711; //Inteligence2
+			// else if (.@i < 201) set .@enchant,4721; //Dexterity2
+			// else if (.@i < 301) set .@enchant,4796; //HP200
+			     if (.@i < 401) set .@enchant,4814; //Spell2
+			else if (.@i < 451) set .@enchant,4712; //Inteligence3
+			else if (.@i < 501) set .@enchant,4722; //Dexterity3
+			else if (.@i < 551) set .@enchant,4760; //Matk1
+			else if (.@i < 601) set .@enchant,4813; //Spell3
+			else if (.@i < 716) set .@enchant,4713; //Inteligence4
+			else if (.@i < 731) set .@enchant,4723; //Dexterity4
+			else if (.@i < 746) set .@enchant,4761; //Matk2
+			else if (.@i < 761) set .@enchant,4812; //Spell4
+			else if (.@i < 763) set .@enchant,4714; //Inteligence5
+			else if (.@i < 765) set .@enchant,4724; //Dexterity5
+			else if (.@i < 767) set .@enchant,4806; //Matk3
+			break;
+        case 12: //AB Rings
+			set .@i, rand(1,1040);
+            setarray .@special[0],4803,4804,4805; //Highness_Heal_3sec,Coluceo_Heal30,Heal_Amount2
+            .@sp = .@special[.@equip_id-2863];
+			if (.@i <= 1024) {
+				// Basic combinations
+				// (raw: .@i increments by 16, 4 repeats)
+				setarray .@enchant_slot2[0],4711,4721; //Inteligence2,Dexterity2
+				setarray .@enchant_slot3[0],.@sp,4799,4788; //[sp],HP500,Mdef6
+				setarray .@enchants[2],
+					.@enchant_slot2[rand(getarraysize(.@enchant_slot2))],
+					.@enchant_slot3[rand(getarraysize(.@enchant_slot3))];
+			}
+			else if (.@i <= 1040) setarray .@enchants[2],.@sp,.@sp; //[sp] [sp]
+            delequip .@part;
+		    getitem2 .@equip_id,1,1,0,0,0,0,.@enchants[2],.@enchants[3];
+		    mes "[Relice]";
+		    mes "The strengthening went well, lucky you!";
+		    close;
+            end;
+			break;
+        case 13: //AB armors
+			set .@i, rand(1024,1040);
+			     if (.@i <= 1026) setarray .@enchants[1],4761,4761,4761; //Matk2 Matk2 Matk2
+			else if (.@i <= 1028) setarray .@enchants[1],4712,4713,4713; //Inteligence3 Inteligence4 Inteligence4
+			else if (.@i <= 1030) setarray .@enchants[1],4712,4761,4761; //Inteligence3 Matk2 Matk2
+			else if (.@i <= 1032) setarray .@enchants[1],4712,4713,4761; //Inteligence3 Inteligence4 Matk2
+			else if (.@i <= 1034) setarray .@enchants[1],4722,4723,4723; //Dexterity3 Dexterity4 Dexterity4
+			else if (.@i <= 1036) setarray .@enchants[1],4722,4703,4703; //Dexterity3 Strength4 Strength4
+			else if (.@i <= 1038) setarray .@enchants[1],4722,4767,4767; //Dexterity3 Atk3 Atk3
+			else if (.@i <= 1040) setarray .@enchants[1],4767,4767,4767; //Atk3 Atk3 Atk3
+            delequip .@part;
+		    getitem2 .@equip_id,1,1,.@equip_refine,0,0,.@enchants[1],.@enchants[2],.@enchants[3];
+		    mes "[Relice]";
+		    mes "The strengthening went well, lucky you!";
+		    close;
+            end;
+			break;
+		case 14: //Wand_Of_Affection
+            set .@i, rand(1984,1996);
+			     if (.@i <= 1986) setarray .@enchants[2],4761,4761; //Matk2 Matk2
+			else if (.@i <= 1988) setarray .@enchants[2],4761,4723; //Matk2 Dexterity4
+			else if (.@i <= 1990) setarray .@enchants[2],4761,4714; //Matk2 Inteligence5
+			else if (.@i <= 1992) setarray .@enchants[2],4714,4714; //Inteligence5 Inteligence5
+			else if (.@i <= 1994) setarray .@enchants[2],4714,4723; //Inteligence5 Dexterity4
+			else if (.@i <= 1996) setarray .@enchants[2],4723,4723; //Dexterity4 Dexterity4
+            delequip .@part;
+		    getitem2 .@equip_id,1,1,.@equip_refine,0,.@equip_card[0],.@enchants[1],.@enchants[2],.@enchants[3];
+		    mes "[Relice]";
+		    mes "The strengthening went well, lucky you!";
+		    close;
+            end;
+            break;
+        case 15: //Mace_Of_Judgement
+			set .@i, rand(1984,1996);
+			     if (.@i <= 1986) setarray .@enchants[2],4767,4767; //Atk3 Atk3
+			else if (.@i <= 1988) setarray .@enchants[2],4767,4723; //Atk3 Dexterity4
+			else if (.@i <= 1990) setarray .@enchants[2],4767,4704; //Atk3 Strength5
+			else if (.@i <= 1992) setarray .@enchants[2],4704,4704; //Strength5 Strength5
+			else if (.@i <= 1994) setarray .@enchants[2],4704,4723; //Strength5 Dexterity4
+			else if (.@i <= 1996) setarray .@enchants[2],4723,4723; //Dexterity4 Dexterity4
+            delequip .@part;
+		    getitem2 .@equip_id,1,1,.@equip_refine,0,.@equip_card[0],.@enchants[1],.@enchants[2],.@enchants[3];
+		    mes "[Relice]";
+		    mes "The strengthening went well, lucky you!";
+		    close;
+            end;
+            break;
+        case 16: //Golden_Rod_Staff,Aqua_Staff,Crimson_Staff,Forest_Staff
+            set .@i, rand(1984,1992);
+                 if (.@i <= 1986) setarray .@enchants[2],4713,4761; //Inteligence4 Matk2
+            else if (.@i <= 1988) setarray .@enchants[2],4713,4713; //Inteligence4 Inteligence4
+            else if (.@i <= 1990) setarray .@enchants[2],4761,4761; //Matk2 Matk2
+            else if (.@i <= 1992) setarray .@enchants[2],4761,4713; //Matk2 Inteligence4
+            delequip .@part;
+            getitem2 .@equip_id,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],.@enchants[2],.@enchants[3];
+            mes "[Relice]";
+            mes "The strengthening went well, lucky you!";
+            close;
+            end;
+            break;
+        case 17: //warlock equip
+            set .@i, rand(1984,2000);
+                 if (.@i <= 1986) setarray .@enchants[1],4712,4713,4761; //Inteligence3 Inteligence4 Matk2
+            else if (.@i <= 1988) setarray .@enchants[1],4712,4713,4713; //Inteligence3 Inteligence4 Inteligence4
+            else if (.@i <= 1990) setarray .@enchants[1],4712,4761,4761; //Inteligence3 Matk2 Matk2
+            else if (.@i <= 1992) setarray .@enchants[1],4712,4761,4713; //Inteligence3 Matk2 Inteligence4
+            else if (.@i <= 1994) setarray .@enchants[1],4722,4713,4761; //Dexterity3 Inteligence4 Matk2
+            else if (.@i <= 1996) setarray .@enchants[1],4722,4713,4713; //Dexterity3 Inteligence4 Inteligence4
+            else if (.@i <= 1998) setarray .@enchants[1],4722,4761,4761; //Dexterity3 Matk2 Matk2
+            else if (.@i <= 2000) setarray .@enchants[1],4722,4761,4713; //Dexterity3 Matk2 Inteligence4
+            delequip .@part;
+            getitem2 .@equip_id,1,1,.@equip_refine,0,.@equip_card[0],.@enchants[1],.@enchants[2],.@enchants[3];
+            mes "[Relice]";
+            mes "The strengthening went well, lucky you!";
+            close;
+            end;
+            break;      
+        default:
+			mes "[Artifact Researcher]";
+			mes "Well I guess I was wrong...";
+			close;
+		}
 
-		case JOB_ROYAL_GUARD_T:
-		case JOB_SORCERER_T:
-		case JOB_MINSTREL_T:
-		case JOB_WANDERER_T:
-		case JOB_SURA_T:
-		case JOB_GENETIC_T:
-		case JOB_SHADOW_CHASER_T:
-			return msg_txt(81 - JOB_ROYAL_GUARD_T+class_);
+		// anti-hack
+		if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+		    callfunc("F_IsEquipRefineHack", .@part, .@equip_refine) ||
+		    callfunc("F_IsEquipCardHack", .@part, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3]))
+			close;
 
-		case JOB_KAGEROU:
-		case JOB_OBORO:
-			return msg_txt(103 - JOB_KAGEROU+class_);
+		if (.@equip_card[3] == 0 && .@allowed_slot < 4) {
+			set .@equip_card[3],.@enchant;
+		} else if (.@equip_card[2] == 0 && .@allowed_slot < 3) {
+			set .@equip_card[2],.@enchant;
+			if (.@enchant == 0) {
+				set .@equip_card[3],0;
+			}
+		} else if (.@equip_card[1] == 0 && .@allowed_slot < 2) {
+			set .@equip_card[1],.@enchant;
+			if (.@enchant == 0) {
+				set .@equip_card[2],0;
+				set .@equip_card[3],0;
+			}
+		} else {
+			mes "[Artifact Researcher]";
+			mes "I think there was an enhancing limit to the artifacts.";
+			close;
+		}
+		delequip .@part;
+			specialeffect2 EF_REPAIRWEAPON;
+			mes "[Artifact Researcher]";
+			// Replacing original dialogue since it doesn't make sense.
+			//mes "The artifact ^990000"+.@slot+" will have the first enhancement retained.";
+			mes "I've successfully enhanced the artifact ^990000"+.@equip_name$+"^000000 at socket "+.@slot+".";
 
-		case JOB_REBELLION:
-			return msg_txt(106);
+//		GetNonSlotItemSock2 .@equip_refine .@equip_id .@equip_card[0] .@equip_card[1] .@equip_card[2] .@equip_card[3]
+		getitem2 .@equip_id,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],.@equip_card[2],.@equip_card[3];
 
-		case JOB_SUMMONER:
-			return msg_txt(108);
+		close;
+}
+	 if (.@select == 2) {
+		mes "[Artifact Researcher]";
+		mes "which slot do you want to reset.";
+        .@s = select("All slots:2nd Slot:3rd Slot:4th Slot");
+        next;
+		// anti-hack
+		if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) || callfunc("F_IsEquipCardHack", .@part, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3]) || callfunc("F_IsEquipRefineHack", .@part, .@equip_refine))
+			close;
+        if(.@s == 1){
+            mes "Are you sure you want to reset all the slots?";
+            if(select("Wait..:Reset All") == 1) end;
+    //		GetNonSlotItemSock2 .@equip_refine .@equip_id .@equip_card[0] .@equip_card[1] .@equip_card[2] .@equip_card[3]
+            for ( .@i = getiteminfo(.@equip_id, ITEMINFO_SLOT); .@i < MAX_SLOTS; .@i++ ) {
+                if (callfunc("F_IsCharm",.@equip_card[.@i]) == true)
+                    .@equip_card[.@i] = 0;// Armor Enchant System
+            }
+        }else if(.@s > 1){
+            mes "Are you sure you want to reset the slot?";
+            if(select("Wait..:Reset Now") == 1) end;
+            .@equip_card[.@s-1] = 0;
+        }
+        delequip .@part;
+        specialeffect2 EF_REPAIRWEAPON;
+		getitem2 .@equip_id,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],.@equip_card[2],.@equip_card[3];
 
-
-
-		case JOB_STAR_EMPEROR:
-		case JOB_SOUL_REAPER:
-			return msg_txt(114 - JOB_BABY_STAR_GLADIATOR2 + class_);
-}*/
+		close;
+	}
+}
