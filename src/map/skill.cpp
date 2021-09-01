@@ -5098,7 +5098,7 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case GN_SPORE_EXPLOSION:
 	case GN_DEMONIC_FIRE:
 	case GN_FIRE_EXPANSION_ACID:
-	case GN_HELLS_PLANT_ATK:
+	// case GN_HELLS_PLANT_ATK:
 	case KO_HAPPOKUNAI:
 	case KO_HUUMARANKA:
 	case KO_MUCHANAGE:
