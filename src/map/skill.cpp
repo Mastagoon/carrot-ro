@@ -7051,7 +7051,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case SR_LIGHTNINGWALK:
 	case GN_CARTBOOST:
 	case GN_BLOOD_SUCKER:
-	case GN_HELLS_PLANT:
+	// case GN_HELLS_PLANT:
 	case KO_MEIKYOUSISUI:
 	case ALL_ODINS_POWER:
 	case ALL_FULL_THROTTLE:
@@ -13584,6 +13584,8 @@ std::shared_ptr<s_skill_unit_group> skill_unitsetting(struct block_list *src, ui
 		break;
 	}
 
+    ShowDebug("A SKILL IS USED!!\n`");
+
 	// Init skill unit group
 	group = skill_initunitgroup(src, layout->count, skill_id, skill_lv, (flag & 1 ? skill->unit_id2 : skill->unit_id) + subunt, limit, interval);
 
@@ -18831,6 +18833,7 @@ static int skill_get_new_group_id(void)
  */
 std::shared_ptr<s_skill_unit_group> skill_initunitgroup(struct block_list* src, int count, uint16 skill_id, uint16 skill_lv, int unit_id, t_tick limit, int interval)
 {
+    ShowDebug("sid: %d, uid: %d, interval: %d\n", skill_id, unit_id, interval);
 	nullpo_retr(nullptr, src);
 
 	unit_data *ud = unit_bl2ud(src);
