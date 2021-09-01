@@ -4406,6 +4406,26 @@ static const char* npc_parse_mapflag(char* w1, char* w2, char* w3, char* w4, con
 			break;
 		}
 
+		case MF_ATK_RATE: {
+			union u_mapflag_args args = {};
+
+			if (!state)
+				map_setmapflag_sub(m, MF_ATK_RATE, false, &args);
+			else {
+				if (sscanf(w4, "%d,%d,%d,%d,%d,%d",
+					&args.atk_rate.rate[DMGRATE_BL], &args.atk_rate.rate[DMGRATE_SHORT], &args.atk_rate.rate[DMGRATE_LONG],
+					&args.atk_rate.rate[DMGRATE_WEAPON], &args.atk_rate.rate[DMGRATE_MAGIC], &args.atk_rate.rate[DMGRATE_MISC]
+				) == 6)
+				{
+					map_setmapflag_sub(m, MF_ATK_RATE, true, &args);
+				}
+				else {
+					ShowInfo("npc_parse_mapflag: atk_rate: Not sufficient values (file '%s', line '%d'). Skipping..\n", filepath, strline(buffer, start - buffer));
+				}
+			}
+			break;
+		}
+
 		// All others do not need special treatment
 		default:
 			map_setmapflag(m, mapflag, state);

@@ -12859,8 +12859,16 @@ BUILDIN_FUNC(getmapflag)
 
 	union u_mapflag_args args = {};
 
-	if (mf == MF_SKILL_DAMAGE && !script_hasdata(st, 4))
-		args.flag_val = SKILLDMG_MAX;
+	if (!script_hasdata(st, 4)) {
+		switch (mf) {
+			case MF_SKILL_DAMAGE:
+				args.flag_val = SKILLDMG_MAX;
+				break;
+			case MF_ATK_RATE:
+				args.flag_val = SKILLDMG_MAX;
+				break;
+		}
+	}
 	else
 		FETCH(4, args.flag_val);
 
@@ -12924,6 +12932,14 @@ BUILDIN_FUNC(setmapflag)
 			args.nightmaredrop.drop_id = -1;
 			args.nightmaredrop.drop_per = 300;
 			args.nightmaredrop.drop_type = NMDT_EQUIP;
+			break;
+		case MF_ATK_RATE:
+			if (script_hasdata(st, 4) && script_hasdata(st, 5))
+				args.atk_rate.rate[script_getnum(st, 5)] = script_getnum(st, 4);
+			else {
+				ShowWarning("buildin_setmapflag: Unable to set atk_rate mapflag as flag data is missing.\n");
+				return SCRIPT_CMD_FAILURE;
+			}
 			break;
 		default:
 			FETCH(4, args.flag_val);

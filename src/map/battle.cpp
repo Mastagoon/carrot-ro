@@ -2512,6 +2512,71 @@ static int battle_skill_damage(struct block_list *src, struct block_list *target
 	return battle_skill_damage_skill(src, target, skill_id) + battle_skill_damage_map(src, target, skill_id);
 }
 
+static inline int battle_calc_damage_adjustment_sub(struct s_global_damage_rate *rates, bool use_mapflag, int flag) {
+	if (flag&BF_SKILL) {
+		if (flag&BF_WEAPON)
+			return use_mapflag ? rates->rate[DMGRATE_WEAPON] : battle_config.atk_weapon_damage_rate;
+		if (flag&BF_MAGIC)
+			return use_mapflag ? rates->rate[DMGRATE_MAGIC] : battle_config.atk_magic_damage_rate;
+		if (flag&BF_MISC)
+			return use_mapflag ? rates->rate[DMGRATE_MISC] : battle_config.atk_misc_damage_rate;
+	}
+	else {
+		if (flag&BF_SHORT)
+			return use_mapflag ? rates->rate[DMGRATE_SHORT] : battle_config.atk_short_damage_rate;
+		if (flag&BF_LONG)
+			return use_mapflag ? rates->rate[DMGRATE_LONG] : battle_config.atk_long_damage_rate;
+	}
+	return 100;
+}
+
+/** Calculates Global Damage adjustments
+ * @author [Cydh]
+ * @param src block_list that will be checked
+ * @param bl enemy
+ * @param flag damage flag
+ * @param damage
+ **/
+static int64 battle_calc_damage_adjustment(struct block_list *src, int64 damage, int flag) {
+	unsigned int atk_maps = 0;
+	int rate = 100;
+	uint16 attacker = 0;
+	bool map_atk_rate, map_pvp, map_gvg, map_bg;
+	struct map_data *mapd;
+
+	nullpo_ret(src);
+
+	mapd = map_getmapdata(src->m);
+
+	if (!damage || !mapd)
+		return damage;
+
+	map_atk_rate = mapd->flag[MF_ATK_RATE] > 0;
+	attacker = map_atk_rate ? mapd->atk_rate.rate[DMGRATE_BL] : battle_config.atk_damage_attacker;
+
+	// Wrong attacker
+	if (!(attacker&src->type))
+		return damage;
+
+	atk_maps = battle_config.atk_adjustment_map;
+	map_pvp = map_flag_vs(src->m);
+	map_gvg = map_flag_gvg2(src->m);
+	map_bg = mapd->flag[MF_BATTLEGROUND] > 0;
+
+	//Checking mapflag
+	if ((atk_maps & 1 && (!map_pvp && !map_gvg && !map_bg && !map_atk_rate && !mapd->zone)) ||
+		(atk_maps & 2 && map_pvp) ||
+		(atk_maps & 4 && map_gvg) ||
+		(atk_maps & 8 && map_bg) ||
+		(atk_maps & 16 && map_atk_rate) ||
+		(mapd->zone && atk_maps & (8 * mapd->zone)))
+	{
+		rate = battle_calc_damage_adjustment_sub(&mapd->atk_rate, map_atk_rate, flag);
+	}
+	return apply_rate(damage, rate);
+}
+
+
 /**
  * Calculates Minstrel/Wanderer bonus for Chorus skills.
  * @param sd: Player who has Chorus skill active
@@ -5566,6 +5631,8 @@ static void battle_calc_attack_gvg_bg(struct Damage* wd, struct block_list *src,
 				wd->damage=battle_calc_gvg_damage(src,target,wd->damage,skill_id,wd->flag);
 			else if( mapdata->flag[MF_BATTLEGROUND] )
 				wd->damage=battle_calc_bg_damage(src,target,wd->damage,skill_id,wd->flag);
+			if (battle_config.atk_adjustment_map)
+				wd.damage = battle_calc_damage_adjustment(src, wd.damage, wd.flag); // Global damage adjustment [Cydh]
 		}
 		else if(!wd->damage) {
 			wd->damage2 = battle_calc_damage(src,target,wd,wd->damage2,skill_id,skill_lv);
@@ -5573,6 +5640,8 @@ static void battle_calc_attack_gvg_bg(struct Damage* wd, struct block_list *src,
 				wd->damage2 = battle_calc_gvg_damage(src,target,wd->damage2,skill_id,wd->flag);
 			else if( mapdata->flag[MF_BATTLEGROUND] )
 				wd->damage2 = battle_calc_bg_damage(src,target,wd->damage2,skill_id,wd->flag);
+			if (battle_config.atk_adjustment_map)
+				wd.damage = battle_calc_damage_adjustment(src, wd.damage, wd.flag); // Global damage adjustment [Cydh]
 		}
 		else {
 			int64 d1 = wd->damage + wd->damage2,d2 = wd->damage2;
@@ -5581,6 +5650,8 @@ static void battle_calc_attack_gvg_bg(struct Damage* wd, struct block_list *src,
 				wd->damage = battle_calc_gvg_damage(src,target,wd->damage,skill_id,wd->flag);
 			else if( mapdata->flag[MF_BATTLEGROUND] )
 				wd->damage = battle_calc_bg_damage(src,target,wd->damage,skill_id,wd->flag);
+			if (battle_config.atk_adjustment_map)
+				wd.damage = battle_calc_damage_adjustment(src, wd.damage, wd.flag); // Global damage adjustment [Cydh]
 			wd->damage2 = (int64)d2*100/d1 * wd->damage/100;
 			if(wd->damage > 1 && wd->damage2 < 1) wd->damage2 = 1;
 			wd->damage-=wd->damage2;
@@ -6953,6 +7024,8 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 		ad.damage = battle_calc_gvg_damage(src,target,ad.damage,skill_id,ad.flag);
 	else if (mapdata->flag[MF_BATTLEGROUND])
 		ad.damage = battle_calc_bg_damage(src,target,ad.damage,skill_id,ad.flag);
+	if (battle_config.atk_adjustment_map)
+		ad.damage = battle_calc_damage_adjustment(src, ad.damage, ad.flag); // Global damage adjustment [Cydh]
 
 	// Skill damage adjustment
 	if ((skill_damage = battle_skill_damage(src,target,skill_id)) != 0)
@@ -7332,6 +7405,9 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 		md.damage = battle_calc_gvg_damage(src,target,md.damage,skill_id,md.flag);
 	else if(mapdata->flag[MF_BATTLEGROUND])
 		md.damage = battle_calc_bg_damage(src,target,md.damage,skill_id,md.flag);
+
+	if (battle_config.atk_adjustment_map)
+		md.damage = battle_calc_damage_adjustment(src, md.damage, md.flag); // Global damage adjustment [Cydh]
 
 	// Skill damage adjustment
 	if ((skill_damage = battle_skill_damage(src,target,skill_id)) != 0)
@@ -8969,6 +9045,14 @@ static const struct _battle_data {
 	{ "cashshop_show_points",               &battle_config.cashshop_show_points,            0,      0,      1,              },
 	{ "mail_show_status",                   &battle_config.mail_show_status,                0,      0,      2,              },
 	{ "client_limit_unit_lv",               &battle_config.client_limit_unit_lv,            0,      0,      BL_ALL,         },
+	// Global Damage adjustment. [Cydh]
+	{ "atk_adjustment_map",                 &battle_config.atk_adjustment_map,              4082,   0,      4095,           },
+	{ "atk_damage_attacker",                &battle_config.atk_damage_attacker,             BL_PC,  BL_PC,  BL_ALL,         },
+	{ "atk_short_attack_damage_rate",       &battle_config.atk_short_damage_rate,           100,    1,      UINT16_MAX,     },
+	{ "atk_long_attack_damage_rate",        &battle_config.atk_long_damage_rate,            100,    1,      UINT16_MAX,     },
+	{ "atk_weapon_attack_damage_rate",      &battle_config.atk_weapon_damage_rate,          100,    1,      UINT16_MAX,     },
+	{ "atk_magic_attack_damage_rate",       &battle_config.atk_magic_damage_rate,           100,    1,      UINT16_MAX,     },
+	{ "atk_misc_attack_damage_rate",        &battle_config.atk_misc_damage_rate,            100,    1,      UINT16_MAX,     },
 	{ "land_protector_behavior",            &battle_config.land_protector_behavior,         0,      0,      1,              },
 	{ "npc_emotion_behavior",               &battle_config.npc_emotion_behavior,            0,      0,      1,              },
 // BattleGround Settings

@@ -3661,6 +3661,13 @@ void map_flags_init(void){
 
 		// Clear adjustment data, will be reset after loading NPC
 		mapdata->damage_adjust = {};
+		mapdata->atk_rate = {}; //Global Damage Adjustment [Cydh]
+		mapdata->atk_rate.rate[DMGRATE_BL] = BL_ALL;
+		mapdata->atk_rate.rate[DMGRATE_WEAPON] = 100;
+		mapdata->atk_rate.rate[DMGRATE_LONG] = 100;
+		mapdata->atk_rate.rate[DMGRATE_WEAPON] = 100;
+		mapdata->atk_rate.rate[DMGRATE_MAGIC] = 100;
+		mapdata->atk_rate.rate[DMGRATE_MISC] = 100;
 		mapdata->skill_damage.clear();
 		mapdata->skill_duration.clear();
 		map_free_questinfo(mapdata);
@@ -4841,6 +4848,21 @@ bool map_setmapflag_sub(int16 m, enum e_mapflag mapflag, bool status, union u_ma
 				nullpo_retr(false, args);
 
 				map_skill_duration_add(mapdata, args->skill_duration.skill_id, args->skill_duration.per);
+			}
+			mapdata->flag[mapflag] = status;
+			break;
+		case MF_ATK_RATE:
+			if (!status)
+				mapdata->atk_rate = {};
+			else {
+				nullpo_retr(false, args);
+
+				if (!args->atk_rate.rate[DMGRATE_BL]) {
+					ShowError("map_setmapflag: atk_rate without attacker type for map %s.\n", mapdata->name);
+					return false;
+				}
+
+				memcpy(&mapdata->atk_rate, &args->atk_rate, sizeof(struct s_global_damage_rate));
 			}
 			mapdata->flag[mapflag] = status;
 			break;

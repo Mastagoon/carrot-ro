@@ -7739,6 +7739,15 @@
 	export_constant(SKILLDMG_MAX);
 	export_constant(SKILLDMG_CASTER);
 
+	// Global Damage [Cydh]
+	export_constant(MF_ATK_RATE);
+	export_constant(DMGRATE_BL);
+	export_constant(DMGRATE_SHORT);
+	export_constant(DMGRATE_LONG);
+	export_constant(DMGRATE_WEAPON);
+	export_constant(DMGRATE_MAGIC);
+	export_constant(DMGRATE_MISC);
+
 	/* guild permissions */
 	export_constant(GUILD_PERM_INVITE);
 	export_constant(GUILD_PERM_EXPEL);
