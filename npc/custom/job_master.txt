@@ -1,4 +1,4 @@
-prontera,125,205,1	script	Job Master	123,{
+prontera,125,205,1	script	Job Master	123,13,13,{
     function Get_Job_Equip;
     function getitemarray;
     if(Class != Novice) end;
@@ -14,7 +14,20 @@ prontera,125,205,1	script	Job Master	123,{
 	callfunc "F_GetPlatinumSkills";
 	if (.GetJobEquip) Get_Job_Equip();
     close;
-
+OnTouchNPC:
+    if(Class != Novice) end;
+    mes "pick a job";
+    for (.@i = 0; .@i < getarraysize(.job); .@i++)
+		.@menu$ = .@menu$ + jobname(.job[.@i]) + ":";
+	.@s = select(.@menu$)-1;
+    jobchange .job[.@s];
+    BaseLevel = 185;
+    JobLevel = 70;
+	specialeffect2 EF_ANGEL2;
+	specialeffect2 EF_ELECTRIC;
+	callfunc "F_GetPlatinumSkills";
+	if (.GetJobEquip) Get_Job_Equip();
+    close;
 function	Get_Job_Equip	{
         getitem 18670,1;
         getitem 18894,1;
@@ -27,6 +40,7 @@ function	Get_Job_Equip	{
         getitem2 100001,2,1,9,0,0,0,0,0;
         getitem2 100002,2,1,9,0,0,0,0,0;
         getitem2 22008,1,1,9,0,0,0,0,0;
+        getitem2 2576,1,1,9,0,0,0,0,0;
         getitem 1228,1;
 
         .@pos = inarray(.job,Class);
