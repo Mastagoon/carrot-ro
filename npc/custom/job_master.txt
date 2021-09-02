@@ -14,7 +14,7 @@ prontera,125,205,1	script	Job Master	123,13,13,{
 	callfunc "F_GetPlatinumSkills";
 	if (.GetJobEquip) Get_Job_Equip();
     close;
-OnTouchNPC:
+OnTouch:
     if(Class != Novice) end;
     mes "pick a job";
     for (.@i = 0; .@i < getarraysize(.job); .@i++)
