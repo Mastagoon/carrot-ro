@@ -1,5 +1,5 @@
 //============================================================
-dicastes01,188,191,1	script	Mora Enchanter#test	521,{
+dicastes01,188,191,4	script	Mora Enchanter#test	521,{
 	disable_items;
 	mes "[Artifact Researcher]";
 	mes "Nice to meet you.";
