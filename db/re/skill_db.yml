@@ -10356,7 +10356,6 @@ Body:
     CastCancel: true
     CastTime: 250
     AfterCastActDelay: 1000
-    Cooldown: 250
     FixedCastTime: 250
     Requires:
       SpCost: 20
@@ -18206,36 +18205,25 @@ Body:
     Description: Frosty Misty
     MaxLevel: 5
     Type: Magic
-    TargetType: Ground
+    TargetType: Self
     DamageFlags:
       Splash: true
     Flags:
       AlterRangeRadius: true
-    Range: 11
     Hit: Multi_Hit
     HitCount:
       - Level: 1
-        Count: 1
+        Count: -3
       - Level: 2
-        Count: 2
+        Count: -4
       - Level: 3
-        Count: 3
+        Count: -5
       - Level: 4
-        Count: 4
+        Count: -6
       - Level: 5
-        Count: 5
+        Count: -7
     Element: Water
-    SplashArea:
-      - Level: 1
-        Area: 3
-      - Level: 2
-        Area: 3
-      - Level: 3
-        Area: 4
-      - Level: 4
-        Area: 4
-      - Level: 5
-        Area: 5
+    SplashArea: 9
     CopyFlags:
       Skill:
         Reproduce: true
@@ -18253,7 +18241,6 @@ Body:
         Time: 4000
     AfterCastActDelay: 1000
     Duration1: 40000
-    Duration2: 10000
     Cooldown: 4000
     FixedCastTime: 500
     Requires:
@@ -18273,7 +18260,7 @@ Body:
     Description: Jack Frost
     MaxLevel: 5
     Type: Magic
-    TargetType: Attack
+    TargetType: Self
     DamageFlags:
       Splash: true
     Range: 11
@@ -18282,15 +18269,15 @@ Body:
     Element: Water
     SplashArea:
       - Level: 1
-        Area: 3
-      - Level: 2
-        Area: 3
-      - Level: 3
-        Area: 4
-      - Level: 4
-        Area: 4
-      - Level: 5
         Area: 5
+      - Level: 2
+        Area: 6
+      - Level: 3
+        Area: 7
+      - Level: 4
+        Area: 8
+      - Level: 5
+        Area: 9
     CopyFlags:
       Skill:
         Reproduce: true
@@ -18318,7 +18305,6 @@ Body:
         Time: 27500
       - Level: 5
         Time: 32500
-    Cooldown: 4000
     FixedCastTime: 1000
     Requires:
       SpCost:
@@ -18580,7 +18566,7 @@ Body:
         Reproduce: true
     CastCancel: true
     CastTime: 5000
-    AfterCastActDelay: 500
+    AfterCastActDelay: 2000
     Duration1: 5000
     Cooldown: 5000
     FixedCastTime: 1000
@@ -18654,8 +18640,8 @@ Body:
       AlterRangeRadius: true
     Range: 11
     Hit: Multi_Hit
-    HitCount: -10
-    SplashArea: 6
+    HitCount: -20
+    SplashArea: 9
     Knockback: 2
     CopyFlags:
       Skill:
@@ -18663,32 +18649,45 @@ Body:
     CastCancel: true
     CastTime:
       - Level: 1
-        Time: 6000
-      - Level: 2
-        Time: 7000
-      - Level: 3
-        Time: 8000
-      - Level: 4
-        Time: 9000
-      - Level: 5
         Time: 10000
-    AfterCastActDelay: 1500
+      - Level: 2
+        Time: 11000
+      - Level: 3
+        Time: 12000
+      - Level: 4
+        Time: 13000
+      - Level: 5
+        Time: 14000
+    AfterCastActDelay: 2000
     Duration1: 100
     Duration2: 42000
-    Cooldown: 20000
-    FixedCastTime: 2000
+    Cooldown: 60000
+    FixedCastTime:
+      - Level: 1
+        Time: 1000
+      - Level: 2
+        Time: 1500
+      - Level: 3
+        Time: 2000
+      - Level: 4
+        Time: 2500
+      - Level: 5
+        Time: 3000
     Requires:
       SpCost:
         - Level: 1
-          Amount: 70
+          Amount: 480
         - Level: 2
-          Amount: 90
+          Amount: 560
         - Level: 3
-          Amount: 110
+          Amount: 640
         - Level: 4
-          Amount: 130
+          Amount: 720
         - Level: 5
-          Amount: 150
+          Amount: 800
+      # ItemCost:
+      #   - Item: Red_Gemstone
+      #     Amount: 2
     Unit:
       Id: Dummyskill
       Range: 9
@@ -18792,7 +18791,7 @@ Body:
         Time: 5000
       - Level: 5
         Time: 6000
-    AfterCastActDelay: 500
+    AfterCastActDelay: 1000
     Duration1: 100
     Duration2:
       - Level: 1
@@ -19268,8 +19267,8 @@ Body:
     Type: Weapon
     TargetType: Attack
     DamageFlags:
-      Critical: true
-    Range: 7
+      Critical: false
+    Range: 3
     Hit: Multi_Hit
     HitCount: -7
     Element: Weapon
@@ -19287,17 +19286,17 @@ Body:
         Time: 1000
       - Level: 5
         Time: 500
-    Cooldown: # !TODO: Confirm cooldown
-      - Level: 1
-        Time: 150
-      - Level: 1
-        Time: 200
-      - Level: 1
-        Time: 250
-      - Level: 1
-        Time: 300
-      - Level: 1
-        Time: 350
+    # Cooldown: # !TODO: Confirm cooldown
+    #   - Level: 1
+    #     Time: 150
+    #   - Level: 1
+    #     Time: 200
+    #   - Level: 1
+    #     Time: 250
+    #   - Level: 1
+    #     Time: 300
+    #   - Level: 1
+    #     Time: 350
     CastDelayFlags:
       IgnoreStatus: true
     Requires:
@@ -19640,13 +19639,13 @@ Body:
       - Level: 2
         Area: 1
       - Level: 3
-        Area: 2
+        Area: 1
       - Level: 4
-        Area: 2
+        Area: 1
       - Level: 5
-        Area: 3
+        Area: 2
     AfterCastActDelay: 200
-    Duration1: 10000
+    Duration1: 3000
     Requires:
       SpCost: 5
       Weapon:
@@ -19671,18 +19670,7 @@ Body:
     Hit: Single
     HitCount: 1
     Element: Weapon
-    AfterCastActDelay: 300
-    Cooldown: # !TODO: Confirm cooldown
-      - Level: 1
-        Time: 0
-      - Level: 1
-        Time: 50
-      - Level: 1
-        Time: 100
-      - Level: 1
-        Time: 150
-      - Level: 1
-        Time: 200
+    AfterCastActDelay: 1000
     Requires:
       SpCost:
         - Level: 1
@@ -28036,6 +28024,9 @@ Body:
     MaxLevel: 5
     Type: Misc
     TargetType: Attack
+    DamageFlags:
+      IgnoreAtkCard: true
+      IgnoreDefCard: true
     Hit: Single
     HitCount: 1
     Element: Weapon
