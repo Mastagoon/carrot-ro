@@ -136,7 +136,7 @@ malangdo,214,163,5	duplicate(pss)	Point Merchant#Malangdo	8_F_GIRL
 mora,115,118,3	duplicate(pss)	Point Merchant#Mora	8_F_GIRL
 ra_in01,256,273,3	duplicate(pss)	Point Merchant#Rachel	8_F_GIRL
 veins,202,128,5	duplicate(pss)	Point Merchant#Veins	8_F_GIRL
-dicastes01,207,200,5	duplicate(pss)	Point Merchant#Dicastes	8_F_GIRL
+// dicastes01,207,200,5	duplicate(pss)	Point Merchant#Dicastes	8_F_GIRL
 manuk,261,206,3	duplicate(pss)	Point Merchant#Manuk	8_F_GIRL
 splendide,207,160,5	duplicate(pss)	Point Merchant#Splendide	8_F_GIRL
 mid_camp,224,237,3	duplicate(pss)	Point Merchant#Midgard	8_F_GIRL
