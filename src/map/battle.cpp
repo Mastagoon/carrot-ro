@@ -1726,11 +1726,16 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 			}
 		}
 
-		if (sc->data[SC_POISONINGWEAPON] && flag&BF_SHORT && (skill_id == 0 || skill_id == GC_VENOMPRESSURE) && damage > 0) {
-			damage += damage * 10 / 100;
-			if (rnd() % 100 < sc->data[SC_POISONINGWEAPON]->val3)
-				sc_start4(src, bl, (sc_type)sc->data[SC_POISONINGWEAPON]->val2, 100, sc->data[SC_POISONINGWEAPON]->val1, 0, 1, 0, skill_get_time2(GC_POISONINGWEAPON, 1));
-		}
+        if( sc->data[SC_POISONINGWEAPON]
+			&& ((flag&BF_WEAPON) && (!skill_id || skill_id == GC_VENOMPRESSURE)) //check skill type poison_smoke is a unit
+			&& (damage > 0 && rnd()%100 < sc->data[SC_POISONINGWEAPON]->val3 )) //did some damage and chance ok (why no additional effect ??)
+			sc_start2(src,bl,(enum sc_type)sc->data[SC_POISONINGWEAPON]->val2,100,sc->data[SC_POISONINGWEAPON]->val1,sc->data[SC_POISONINGWEAPON]->val4,skill_get_time2(GC_POISONINGWEAPON, 1));
+
+		// if (sc->data[SC_POISONINGWEAPON] && flag&BF_SHORT && (skill_id == 0 || skill_id == GC_VENOMPRESSURE) && damage > 0) {
+		// 	damage += damage * 10 / 100;
+		// 	if (rnd() % 100 < sc->data[SC_POISONINGWEAPON]->val3)
+		// 		sc_start4(src, bl, (sc_type)sc->data[SC_POISONINGWEAPON]->val2, 100, sc->data[SC_POISONINGWEAPON]->val1, 0, 1, 0, skill_get_time2(GC_POISONINGWEAPON, 1));
+		// }
 
 		if( sc->data[SC__DEADLYINFECT] && (flag&(BF_SHORT|BF_MAGIC)) == BF_SHORT && damage > 0 && rnd()%100 < 30 + 10 * sc->data[SC__DEADLYINFECT]->val1 )
 			status_change_spread(src, bl, 0);
@@ -2788,13 +2793,13 @@ static bool is_attack_critical(struct Damage* wd, struct block_list *src, struct
 			case NJ_KIRIKAGE:
 				cri += 250 + 50*skill_lv;
 				break;
-#ifdef RENEWAL
-			case ASC_BREAKER:
-#endif
-			case LG_CANNONSPEAR:
-			case GC_CROSSIMPACT:
-				cri /= 2;
-				break;
+// #ifdef RENEWAL
+			// case ASC_BREAKER:
+// #endif
+			// case LG_CANNONSPEAR:
+			// case GC_CROSSIMPACT:
+				// cri /= 2;
+				// break;
 		}
 		if(tsd && tsd->bonus.critical_def)
 			cri = cri * ( 100 - tsd->bonus.critical_def ) / 100;
@@ -3769,11 +3774,11 @@ static void battle_calc_multi_attack(struct Damage* wd, struct block_list *src,s
 			if (sc && sc->data[SC_KAGEMUSYA])
 				max_rate = sc->data[SC_KAGEMUSYA]->val1 * 10; // Same rate as even levels of TF_DOUBLE
 			else
-#ifdef RENEWAL
-				max_rate = max(7 * skill_lv, sd->bonus.double_rate);
-#else
+// #ifdef RENEWAL
+				// max_rate = max(7 * skill_lv, sd->bonus.double_rate);
+// #else
 				max_rate = max(5 * skill_lv, sd->bonus.double_rate);
-#endif
+// #endif
 
 			if( rnd()%100 < max_rate ) {
 				wd->div_ = skill_get_num(TF_DOUBLE,skill_lv?skill_lv:1);
@@ -4451,8 +4456,10 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		// case NPC_PHANTOMTHRUST:	// ATK = 100% for all level
 		case GC_CROSSIMPACT:
-			skillratio += -100 + 1400 + 150 * skill_lv;
-			RE_LVL_DMOD(100);
+            skillratio += 900 + 100 * skill_lv;
+			RE_LVL_DMOD(120);
+			// skillratio += -100 + 1400 + 150 * skill_lv;
+			// RE_LVL_DMOD(100);
 			break;
 		case GC_COUNTERSLASH:
 			//ATK [{(Skill Level x 150) + 300} x Caster's Base Level / 120]% + ATK [(AGI x 2) + (Caster's Job Level x 4)]%
@@ -4466,14 +4473,17 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 200;
 			break;
 		case GC_ROLLINGCUTTER:
-			skillratio += -100 + 50 + 80 * skill_lv;
+            skillratio += -50 + 50 * skill_lv;
+			// skillratio += -100 + 50 + 80 * skill_lv;
 			RE_LVL_DMOD(100);
 			break;
 		case GC_CROSSRIPPERSLASHER:
-			skillratio += -100 + 80 * skill_lv + (sstatus->agi * 3);
+            skillratio += 300 + 80 * skill_lv;
+			// skillratio += -100 + 80 * skill_lv + (sstatus->agi * 3);
 			RE_LVL_DMOD(100);
 			if (sc && sc->data[SC_ROLLINGCUTTER])
-				skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * 200;
+                skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * status_get_agi(src);
+				// skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * 200;
 			break;
 		case GC_DARKCROW:
 			skillratio += 100 * (skill_lv - 1);
@@ -5208,10 +5218,10 @@ static void battle_attack_sc_bonus(struct Damage* wd, struct block_list *src, st
 			ATK_ADDRATE(wd->damage, wd->damage2, sc->data[SC_EXEEDBREAK]->val2);
 			RE_ALLATK_ADDRATE(wd, sc->data[SC_EXEEDBREAK]->val2);
 		}
-		if (sc->data[SC_PYREXIA] && sc->data[SC_PYREXIA]->val3 == 0) {
-			ATK_ADDRATE(wd->damage, wd->damage2, sc->data[SC_PYREXIA]->val2);
-			RE_ALLATK_ADDRATE(wd, sc->data[SC_PYREXIA]->val2);
-		}
+		// if (sc->data[SC_PYREXIA] && sc->data[SC_PYREXIA]->val3 == 0) {
+			// ATK_ADDRATE(wd->damage, wd->damage2, sc->data[SC_PYREXIA]->val2);
+			// RE_ALLATK_ADDRATE(wd, sc->data[SC_PYREXIA]->val2);
+		// }
 
 		if (sc->data[SC_MIRACLE])
 			anger_id = 2; // Always treat all monsters as star flagged monster when in miracle state
@@ -7531,7 +7541,7 @@ int64 battle_calc_return_damage(struct block_list* bl, struct block_list *src, i
 	ssc = status_get_sc(src);
 
 	if (sc) { // These statuses do not reflect any damage (off the target)
-		if (sc->data[SC_WHITEIMPRISON] || sc->data[SC_DARKCROW] || sc->data[SC_KYOMU])
+		if (sc->data[SC_WHITEIMPRISON] || sc->data[SC_KYOMU])
 			return 0;
 	}
 
@@ -7601,8 +7611,8 @@ int64 battle_calc_return_damage(struct block_list* bl, struct block_list *src, i
 			if (--(ssc->data[SC_REFLECTDAMAGE]->val3) < 1) // TODO: Confirm if reflect count still exists
 				status_change_end(bl, SC_REFLECTDAMAGE, INVALID_TIMER);
 		}
-		if (ssc->data[SC_VENOMBLEED] && ssc->data[SC_VENOMBLEED]->val3 == 0)
-			rdamage -= damage * ssc->data[SC_VENOMBLEED]->val2 / 100;
+		// if (ssc->data[SC_VENOMBLEED] && ssc->data[SC_VENOMBLEED]->val3 == 0)
+			// rdamage -= damage * ssc->data[SC_VENOMBLEED]->val2 / 100;
 
 		if (rdamage > 0 && ssc->data[SC_REF_T_POTION])
 			return 1; // Returns 1 damage

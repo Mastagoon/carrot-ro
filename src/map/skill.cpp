@@ -732,7 +732,7 @@ int skill_calc_heal(struct block_list *src, struct block_list *target, uint16 sk
 
 		if (tsc->data[SC_CRITICALWOUND])
 			penalty += tsc->data[SC_CRITICALWOUND]->val2;
-		if (tsc->data[SC_DEATHHURT] && tsc->data[SC_DEATHHURT]->val3 == 1)
+		if (tsc->data[SC_DEATHHURT])
 			penalty += 20;
 		if (tsc->data[SC_NORECOVER_STATE])
 			penalty = 100;
@@ -4783,6 +4783,7 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case NC_AXEBOOMERANG:
 	case NC_POWERSWING:
 	case NC_MAGMA_ERUPTION:
+    case GC_CROSSIMPACT:
 	case GC_WEAPONCRUSH:
 	case GC_VENOMPRESSURE:
 	case SC_TRIANGLESHOT:
@@ -5658,17 +5659,18 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		else
 		{
 			skill_attack(BF_WEAPON,src,src,bl,skill_id,skill_lv,tick,flag);
+            status_change_end(src,SC_ROLLINGCUTTER,INVALID_TIMER);   
 		}
 		break;
-	case GC_CROSSIMPACT:
-		if (skill_check_unit_movepos(0, src, bl->x, bl->y, 1, 1)) {
-			skill_blown(src, src, 1, (map_calc_dir(bl, src->x, src->y) + 4) % 8, BLOWN_IGNORE_NO_KNOCKBACK); // Target position is actually one cell next to the target
-			skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
-		} else {
-			if (sd)
-				clif_skill_fail(sd, skill_id, USESKILL_FAIL, 0);
-		}
-		break;
+	// case GC_CROSSIMPACT:
+	// 	if (skill_check_unit_movepos(0, src, bl->x, bl->y, 1, 1)) {
+	// 		skill_blown(src, src, 1, (map_calc_dir(bl, src->x, src->y) + 4) % 8, BLOWN_IGNORE_NO_KNOCKBACK); // Target position is actually one cell next to the target
+	// 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+	// 	} else {
+	// 		if (sd)
+	// 			clif_skill_fail(sd, skill_id, USESKILL_FAIL, 0);
+	// 	}
+	// 	break;
 
 	case GC_PHANTOMMENACE:
 		if (flag&1) { // Only Hits Invisible Targets
@@ -8290,7 +8292,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 				}
 				if (tsc->data[SC_CRITICALWOUND])
 					penalty += tsc->data[SC_CRITICALWOUND]->val2;
-				if (tsc->data[SC_DEATHHURT] && tsc->data[SC_DEATHHURT]->val3)
+				if (tsc->data[SC_DEATHHURT])
 					penalty += 20;
 				if (tsc->data[SC_NORECOVER_STATE])
 					penalty = 100;
@@ -9177,7 +9179,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 				}
 				if (tsc->data[SC_CRITICALWOUND])
 					penalty += tsc->data[SC_CRITICALWOUND]->val2;
-				if (tsc->data[SC_DEATHHURT] && tsc->data[SC_DEATHHURT]->val3 == 1)
+				if (tsc->data[SC_DEATHHURT])
 					penalty += 20;
 				if (tsc->data[SC_NORECOVER_STATE])
 					penalty = 100;
@@ -17442,8 +17444,8 @@ int skill_delayfix(struct block_list *bl, uint16 skill_id, uint16 skill_lv)
 				time -= time * sc->data[SC_POEMBRAGI]->val3 / 100;
 			if (sc->data[SC_WIND_INSIGNIA] && sc->data[SC_WIND_INSIGNIA]->val1 == 3 && skill_get_type(skill_id) == BF_MAGIC && skill_get_ele(skill_id, skill_lv) == ELE_WIND)
 				time /= 2; // After Delay of Wind element spells reduced by 50%.
-			if (sc->data[SC_MAGICMUSHROOM] && sc->data[SC_MAGICMUSHROOM]->val3 == 0)
-				time -= time * sc->data[SC_MAGICMUSHROOM]->val2 / 100;
+			// if (sc->data[SC_MAGICMUSHROOM] && sc->data[SC_MAGICMUSHROOM]->val3 == 0)
+				// time -= time * sc->data[SC_MAGICMUSHROOM]->val2 / 100;
 		}
 	}
 

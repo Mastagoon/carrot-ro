@@ -3800,7 +3800,7 @@ static int status_get_hpbonus(struct block_list *bl, enum e_status_bonus type) {
 				bonus += sc->data[SC_MTF_MHP]->val1;
 
 			//Decreasing
-			if (sc->data[SC_VENOMBLEED] && sc->data[SC_VENOMBLEED]->val3 == 1)
+			if (sc->data[SC_VENOMBLEED])
 				bonus -= 15;
 			if(sc->data[SC_BEYONDOFWARCRY])
 				bonus -= sc->data[SC_BEYONDOFWARCRY]->val3;
@@ -5051,8 +5051,8 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 			sd->indexed_bonus.subele[ELE_GHOST] += sc->data[SC_SYMPHONYOFLOVER]->val1 * 3;
 			sd->indexed_bonus.subele[ELE_HOLY] += sc->data[SC_SYMPHONYOFLOVER]->val1 * 3;
 		}
-		if (sc->data[SC_PYREXIA] && sc->data[SC_PYREXIA]->val3 == 0)
-			sd->bonus.crit_atk_rate += sc->data[SC_PYREXIA]->val2;
+		// if (sc->data[SC_PYREXIA] && sc->data[SC_PYREXIA]->val3 == 0)
+			// sd->bonus.crit_atk_rate += sc->data[SC_PYREXIA]->val2;
 		if (sc->data[SC_LUXANIMA]) {
 			pc_bonus2(sd, SP_ADDSIZE, SZ_ALL, sc->data[SC_LUXANIMA]->val3);
 			sd->bonus.crit_atk_rate += sc->data[SC_LUXANIMA]->val3;
@@ -7820,8 +7820,8 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			val = max( val, 75 );
 		if( sc->data[SC_CLOAKINGEXCEED] )
 			val = max( val, sc->data[SC_CLOAKINGEXCEED]->val3);
-		if (sc->data[SC_PARALYSE] && sc->data[SC_PARALYSE]->val3 == 0)
-			val = max(val, 50);
+		// if (sc->data[SC_PARALYSE] && sc->data[SC_PARALYSE]->val3 == 0)
+			// val = max(val, 50);
 		if( sc->data[SC_HOVERING] )
 			val = max( val, 10 );
 		if( sc->data[SC_GN_CARTBOOST] )
@@ -8970,7 +8970,7 @@ static int status_get_sc_interval(enum sc_type type)
 		case SC_POISON:
 		case SC_LEECHESEND:
 		case SC_DPOISON:
-		case SC_DEATHHURT:
+		// case SC_DEATHHURT:
 			return 1000;
 		case SC_BURNING:
 		case SC_PYREXIA:
@@ -9252,19 +9252,19 @@ t_tick status_get_sc_def(struct block_list *src, struct block_list *bl, enum sc_
 		else if (sc->data[SC_SIEGFRIED])
 			sc_def += sc->data[SC_SIEGFRIED]->val3*100; // Status resistance.
 #endif
-		else if (sc->data[SC_LEECHESEND] && sc->data[SC_LEECHESEND]->val3 == 0) {
-			switch (type) {
-				case SC_BLIND:
-				case SC_STUN:
-					return 0; // Immune
-			}
-		} else if (sc->data[SC_OBLIVIONCURSE] && sc->data[SC_OBLIVIONCURSE]->val3 == 0) {
-			switch (type) {
-				case SC_SILENCE:
-				case SC_CURSE:
-					return 0; // Immune
-			}
-		}
+		// else if (sc->data[SC_LEECHESEND] && sc->data[SC_LEECHESEND]->val3 == 0) {
+		// 	switch (type) {
+		// 		case SC_BLIND:
+		// 		case SC_STUN:
+		// 			return 0; // Immune
+		// 	}
+		// } else if (sc->data[SC_OBLIVIONCURSE] && sc->data[SC_OBLIVIONCURSE]->val3 == 0) {
+		// 	switch (type) {
+		// 		case SC_SILENCE:
+		// 		case SC_CURSE:
+		// 			return 0; // Immune
+		// 	}
+		// }
 	}
 
 	// When tick def not set, reduction is the same for both.
@@ -9916,8 +9916,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		for (int32 i = SC_TOXIN; i <= SC_LEECHESEND; i++) {
 			if (sc->data[i] && sc->data[i]->val3 == 1) // It doesn't stack or even renew on the target
 				return 0;
-			else if (sc->data[i] && sc->data[i]->val3 == 0)
-				status_change_end(bl, static_cast<sc_type>(i), INVALID_TIMER); // End the bonus part on the caster
+			// else if (sc->data[i] && sc->data[i]->val3 == 0)
+			// 	status_change_end(bl, static_cast<sc_type>(i), INVALID_TIMER); // End the bonus part on the caster
 		}
 		break;
 	case SC_SATURDAYNIGHTFEVER:
@@ -10994,18 +10994,18 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 				tick_time = status_get_sc_interval(type);
 				val4 = tick - tick_time; // Remaining time
 			} else // Caster
-				val2 = 15; // CRIT % and ATK % increase
+				val2 = 1; // CRIT % and ATK % increase
 			break;
 		case SC_VENOMBLEED:
 			if (val3 == 0) // Caster
-				val2 = 30; // Reflect damage % reduction
+				val2 = 1; // Reflect damage % reduction
 			break;
 		case SC_MAGICMUSHROOM:
 			if (val3 == 1) { // Target
 				tick_time = status_get_sc_interval(type);
 				val4 = tick - tick_time; // Remaining time
 			} else // Caster
-				val2 = 10; // After-cast delay % reduction
+				val2 = 1; // After-cast delay % reduction
 			break;
 
 		case SC_CONFUSION:
@@ -14406,12 +14406,13 @@ TIMER_FUNC(status_change_timer){
 				map_freeblock_lock();
 				dounlock = true;
 				status_damage(bl, bl, 1, status->max_sp * 3 / 100, clif_damage(bl, bl, tick, status->amotion, status->dmotion + 500, 1, 1, DMG_NORMAL, 0, false), 0, 0);
-			} else { // Caster
-				interval = 1000; // Assign here since status_get_sc_internval() contains the target interval.
+			} 
+            // else { // Caster
+			// 	interval = 1000; // Assign here since status_get_sc_internval() contains the target interval.
 
-				if (status->sp < status->max_sp)
-					status_heal(bl, 0, (int)status->max_sp * 1 / 100, 1);
-			}
+			// 	if (status->sp < status->max_sp)
+			// 		status_heal(bl, 0, (int)status->max_sp * 1 / 100, 1);
+			// }
 		}
 		break;
 
@@ -14478,12 +14479,12 @@ TIMER_FUNC(status_change_timer){
 		}
 		break;
 
-	case SC_DEATHHURT:
-		if (sce->val4 >= 0) {
-			if (status->hp < status->max_hp)
-				status_heal(bl, (int)status->max_hp * 1 / 100, 0, 1);
-		}
-		break;
+	// case SC_DEATHHURT:
+		// if (sce->val4 >= 0) {
+			// if (status->hp < status->max_hp)
+				// status_heal(bl, (int)status->max_hp * 1 / 100, 0, 1);
+		// }
+		// break;
 
 	case SC_TENSIONRELAX:
 		if(status->max_hp > status->hp && --(sce->val3) >= 0) {

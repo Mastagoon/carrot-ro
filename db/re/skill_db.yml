@@ -10356,7 +10356,6 @@ Body:
     CastCancel: true
     CastTime: 250
     AfterCastActDelay: 1000
-    Cooldown: 250
     FixedCastTime: 250
     Requires:
       SpCost: 20
@@ -19268,8 +19267,8 @@ Body:
     Type: Weapon
     TargetType: Attack
     DamageFlags:
-      Critical: true
-    Range: 7
+      Critical: false
+    Range: 3
     Hit: Multi_Hit
     HitCount: -7
     Element: Weapon
@@ -19287,17 +19286,17 @@ Body:
         Time: 1000
       - Level: 5
         Time: 500
-    Cooldown: # !TODO: Confirm cooldown
-      - Level: 1
-        Time: 150
-      - Level: 1
-        Time: 200
-      - Level: 1
-        Time: 250
-      - Level: 1
-        Time: 300
-      - Level: 1
-        Time: 350
+    # Cooldown: # !TODO: Confirm cooldown
+    #   - Level: 1
+    #     Time: 150
+    #   - Level: 1
+    #     Time: 200
+    #   - Level: 1
+    #     Time: 250
+    #   - Level: 1
+    #     Time: 300
+    #   - Level: 1
+    #     Time: 350
     CastDelayFlags:
       IgnoreStatus: true
     Requires:
@@ -19640,13 +19639,13 @@ Body:
       - Level: 2
         Area: 1
       - Level: 3
-        Area: 2
+        Area: 1
       - Level: 4
-        Area: 2
+        Area: 1
       - Level: 5
-        Area: 3
+        Area: 2
     AfterCastActDelay: 200
-    Duration1: 10000
+    Duration1: 3000
     Requires:
       SpCost: 5
       Weapon:
@@ -19671,18 +19670,7 @@ Body:
     Hit: Single
     HitCount: 1
     Element: Weapon
-    AfterCastActDelay: 300
-    Cooldown: # !TODO: Confirm cooldown
-      - Level: 1
-        Time: 0
-      - Level: 1
-        Time: 50
-      - Level: 1
-        Time: 100
-      - Level: 1
-        Time: 150
-      - Level: 1
-        Time: 200
+    AfterCastActDelay: 1000
     Requires:
       SpCost:
         - Level: 1
