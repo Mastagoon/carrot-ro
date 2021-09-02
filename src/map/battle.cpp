@@ -4743,19 +4743,23 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			}
 			break;
 		case GN_CARTCANNON:
-			skillratio += -100 + (250 + 20 * pc_checkskill(sd, GN_REMODELING_CART)) * skill_lv + 2 * sstatus->int_ / (6 - pc_checkskill(sd, GN_REMODELING_CART));
-			RE_LVL_DMOD(100);
+            // ATK [{( Cart Remodeling Skill Level x 50 ) x ( INT / 40 )} + ( Cart Cannon Skill Level x 60 )] %
+			skillratio += -100 + 60 * skill_lv + ((sd) ? pc_checkskill(sd, GN_REMODELING_CART) : 1) * 50 * status_get_int(src) / 40;
+			// skillratio += -100 + (250 + 20 * pc_checkskill(sd, GN_REMODELING_CART)) * skill_lv + 2 * sstatus->int_ / (6 - pc_checkskill(sd, GN_REMODELING_CART));
+			// RE_LVL_DMOD(100);
 			break;
 		case GN_SPORE_EXPLOSION:
-			skillratio += -100 + 400 + 200 * skill_lv;
+            skillratio += -100 + 150 * skill_lv + 200 + status_get_int(src);
+			// skillratio += -100 + 400 + 200 * skill_lv;
 			RE_LVL_DMOD(100);
 			break;
 		case GN_WALLOFTHORN:
 			skillratio += 10 * skill_lv;
 			break;
 		case GN_CRAZYWEED_ATK:
-			skillratio += -100 + 700 + 100 * skill_lv;
-			RE_LVL_DMOD(100);
+            skillratio += 400 + 100 * skill_lv;
+			// skillratio += -100 + 700 + 100 * skill_lv;
+			// RE_LVL_DMOD(100);
 			break;
 		case GN_SLINGITEM_RANGEMELEEATK:
 			if( sd ) {
@@ -4786,10 +4790,10 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				RE_LVL_DMOD(100);
 			}
 			break;
-		case GN_HELLS_PLANT_ATK:
-			skillratio += -100 + 100 * skill_lv + sstatus->int_ * (sd ? pc_checkskill(sd, AM_CANNIBALIZE) : 5); // !TODO: Confirm INT and Cannibalize bonus
-			RE_LVL_DMOD(100);
-			break;
+		// case GN_HELLS_PLANT_ATK:
+		// 	skillratio += -100 + 100 * skill_lv + sstatus->int_ * (sd ? pc_checkskill(sd, AM_CANNIBALIZE) : 5); // !TODO: Confirm INT and Cannibalize bonus
+		// 	RE_LVL_DMOD(100);
+		// 	break;
 		// Physical Elemantal Spirits Attack Skills
 		case EL_CIRCLE_OF_FIRE:
 		case EL_FIRE_BOMB_ATK:
@@ -5632,7 +5636,7 @@ static void battle_calc_attack_gvg_bg(struct Damage* wd, struct block_list *src,
 			else if( mapdata->flag[MF_BATTLEGROUND] )
 				wd->damage=battle_calc_bg_damage(src,target,wd->damage,skill_id,wd->flag);
 			if (battle_config.atk_adjustment_map)
-				wd.damage = battle_calc_damage_adjustment(src, wd.damage, wd.flag); // Global damage adjustment [Cydh]
+				wd->damage = battle_calc_damage_adjustment(src, wd->damage, wd->flag); // Global damage adjustment [Cydh]
 		}
 		else if(!wd->damage) {
 			wd->damage2 = battle_calc_damage(src,target,wd,wd->damage2,skill_id,skill_lv);
@@ -5641,7 +5645,7 @@ static void battle_calc_attack_gvg_bg(struct Damage* wd, struct block_list *src,
 			else if( mapdata->flag[MF_BATTLEGROUND] )
 				wd->damage2 = battle_calc_bg_damage(src,target,wd->damage2,skill_id,wd->flag);
 			if (battle_config.atk_adjustment_map)
-				wd.damage = battle_calc_damage_adjustment(src, wd.damage, wd.flag); // Global damage adjustment [Cydh]
+				wd->damage = battle_calc_damage_adjustment(src, wd->damage, wd->flag); // Global damage adjustment [Cydh]
 		}
 		else {
 			int64 d1 = wd->damage + wd->damage2,d2 = wd->damage2;
@@ -5651,7 +5655,7 @@ static void battle_calc_attack_gvg_bg(struct Damage* wd, struct block_list *src,
 			else if( mapdata->flag[MF_BATTLEGROUND] )
 				wd->damage = battle_calc_bg_damage(src,target,wd->damage,skill_id,wd->flag);
 			if (battle_config.atk_adjustment_map)
-				wd.damage = battle_calc_damage_adjustment(src, wd.damage, wd.flag); // Global damage adjustment [Cydh]
+				wd->damage = battle_calc_damage_adjustment(src, wd->damage, wd->flag); // Global damage adjustment [Cydh]
 			wd->damage2 = (int64)d2*100/d1 * wd->damage/100;
 			if(wd->damage > 1 && wd->damage2 < 1) wd->damage2 = 1;
 			wd->damage-=wd->damage2;
@@ -7277,6 +7281,10 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 			break;
 		case GN_THORNS_TRAP:
 			md.damage = 100 + 200 * skill_lv + status_get_int(src);
+			break;
+        case GN_HELLS_PLANT_ATK:
+			//[{( Hell Plant Skill Level x Casters Base Level ) x 10 } + {( Casters INT x 7 ) / 2 } x { 18 + ( Casters Job Level / 4 )] x ( 5 / ( 10 - Summon Flora Skill Level ))
+			md.damage = skill_lv * status_get_lv(src) * 10 + status_get_int(src) * 7 / 2 * (18 + (sd ? sd->status.job_level : 0) / 4) * 5 / (10 - (sd ? pc_checkskill(sd, AM_CANNIBALIZE) : 0));
 			break;
 		case RL_B_TRAP:
 			// kRO 2014-02-12: Damage: Caster's DEX, Target's current HP, Skill Level

@@ -4250,7 +4250,7 @@ ACMD_FUNC(mapinfo) {
 			mapdata->atk_rate.rate[DMGRATE_MAGIC],
 			mapdata->atk_rate.rate[DMGRATE_MISC]);
 		clif_displaymessage(fd,atcmd_output);
-	
+	}
 	strcpy(atcmd_output,msg_txt(sd,1046)); // PvP Flags:
 	if (map_getmapflag(m_id, MF_PVP))
 		strcat(atcmd_output, " Pvp ON |");

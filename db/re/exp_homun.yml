@@ -329,53 +329,53 @@ Body:
     Exp: 22558000
   - Level: 149
     Exp: 22930000
-  - Level: 150
-    Exp: 23320000
-  - Level: 151
-    Exp: 24500000
-  - Level: 152
-    Exp: 25750000
-  - Level: 153
-    Exp: 26750000
-  - Level: 154
-    Exp: 28000000
-  - Level: 155
-    Exp: 29000000
-  - Level: 156
-    Exp: 30250000
-  - Level: 157
-    Exp: 31250000
-  - Level: 158
-    Exp: 32500000
-  - Level: 159
-    Exp: 33500000
-  - Level: 160
-    Exp: 34750000
-  - Level: 161
-    Exp: 36250000
-  - Level: 162
-    Exp: 38050000
-  - Level: 163
-    Exp: 40210000
-  - Level: 164
-    Exp: 42800000
-  - Level: 165
-    Exp: 47982500
-  - Level: 166
-    Exp: 50572500
-  - Level: 167
-    Exp: 53680000
-  - Level: 168
-    Exp: 57410000
-  - Level: 169
-    Exp: 61887500
-  - Level: 170
-    Exp: 70842500
-  - Level: 171
-    Exp: 75320000
-  - Level: 172
-    Exp: 80692500
-  - Level: 173
-    Exp: 87140000
-  - Level: 174
-    Exp: 94875000
+  # - Level: 150
+  #   Exp: 23320000
+  # - Level: 151
+  #   Exp: 24500000
+  # - Level: 152
+  #   Exp: 25750000
+  # - Level: 153
+  #   Exp: 26750000
+  # - Level: 154
+  #   Exp: 28000000
+  # - Level: 155
+  #   Exp: 29000000
+  # - Level: 156
+  #   Exp: 30250000
+  # - Level: 157
+  #   Exp: 31250000
+  # - Level: 158
+  #   Exp: 32500000
+  # - Level: 159
+  #   Exp: 33500000
+  # - Level: 160
+  #   Exp: 34750000
+  # - Level: 161
+  #   Exp: 36250000
+  # - Level: 162
+  #   Exp: 38050000
+  # - Level: 163
+  #   Exp: 40210000
+  # - Level: 164
+  #   Exp: 42800000
+  # - Level: 165
+  #   Exp: 47982500
+  # - Level: 166
+  #   Exp: 50572500
+  # - Level: 167
+  #   Exp: 53680000
+  # - Level: 168
+  #   Exp: 57410000
+  # - Level: 169
+  #   Exp: 61887500
+  # - Level: 170
+  #   Exp: 70842500
+  # - Level: 171
+  #   Exp: 75320000
+  # - Level: 172
+  #   Exp: 80692500
+  # - Level: 173
+  #   Exp: 87140000
+  # - Level: 174
+  #   Exp: 94875000
