@@ -1184,11 +1184,15 @@ void initChangeTables(void)
 	/* Warlock */
 	add_sc( WL_WHITEIMPRISON	, SC_WHITEIMPRISON	);
 	set_sc_with_vfx( WL_FROSTMISTY	, SC_FREEZING		, EFST_FROSTMISTY		, SCB_ASPD|SCB_SPEED|SCB_DEF );
+    add_sc( WL_JACKFROST        , SC_FREEZE		  );
 	set_sc( WL_MARSHOFABYSS		, SC_MARSHOFABYSS	, EFST_MARSHOFABYSS	, SCB_AGI|SCB_DEX|SCB_SPEED );
 	set_sc( WL_RECOGNIZEDSPELL	, SC_RECOGNIZEDSPELL	, EFST_RECOGNIZEDSPELL	, SCB_MATK);
 	add_sc( WL_SIENNAEXECRATE   , SC_STONE		  );
 	set_sc( WL_STASIS			, SC_STASIS		, EFST_STASIS		, SCB_NONE );
-	set_sc_with_vfx( WL_COMET   , SC_MAGIC_POISON	, EFST_MAGIC_POISON	, SCB_NONE );
+    add_sc( WL_CRIMSONROCK      , SC_STUN         );
+	set_sc( WL_HELLINFERNO      , SC_BURNING         , EFST_BURNT           , SCB_MDEF );
+	set_sc( WL_COMET            , SC_BURNING         , EFST_BURNT           , SCB_MDEF );
+	// set_sc_with_vfx( WL_COMET   , SC_MAGIC_POISON	, EFST_MAGIC_POISON	, SCB_NONE );
 	set_sc( WL_TELEKINESIS_INTENSE	, SC_TELEKINESIS_INTENSE, EFST_TELEKINESIS_INTENSE, SCB_MATK );
 
 	/* Ranger */
@@ -10702,13 +10706,13 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			}
 			break;
 		case SC_MAGICPOWER:
-#ifdef RENEWAL
-			val3 = 5 * val1; // Matk% increase
-#else
+// #ifdef RENEWAL
+			// val3 = 5 * val1; // Matk% increase
+// #else
 			val2 = 1; // Lasts 1 invocation
 			val3 = 10 * val1; // Matk% increase
 			val4 = 0; // 0 = ready to be used, 1 = activated and running
-#endif
+// #endif
 			break;
 		case SC_SACRIFICE:
 			val2 = 5; // Lasts 5 hits

@@ -6658,13 +6658,15 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						skillratio += 300 + 40 * skill_lv;
 						break;
 					case WL_SOULEXPANSION:
-						skillratio += -100 + 1000 + skill_lv * 200 + sstatus->int_ / 6; // !TODO: Confirm INT bonus
+                        skillratio += -100 + (skill_lv + 4) * 100 + status_get_int(src);
+						// skillratio += -100 + 1000 + skill_lv * 200 + sstatus->int_ / 6; // !TODO: Confirm INT bonus
 						RE_LVL_DMOD(100);
 						break;
 					case WL_FROSTMISTY:
 						skillratio += -100 + 200 + 100 * skill_lv;
 						RE_LVL_DMOD(100);
 						break;
+                    case WL_JACKFROST:
 					case NPC_JACKFROST:
 						if (tsc && tsc->data[SC_FREEZING]) {
 							skillratio += 900 + 300 * skill_lv;
@@ -6674,19 +6676,20 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 							RE_LVL_DMOD(150);
 						}
 						break;
-					case WL_JACKFROST:
-						if (tsc && tsc->data[SC_MISTY_FROST])
-							skillratio += -100 + 1200 + 600 * skill_lv;
-						else
-							skillratio += -100 + 1000 + 300 * skill_lv;
-						RE_LVL_DMOD(100);
-						break;
+					// case WL_JACKFROST:
+					// 	if (tsc && tsc->data[SC_MISTY_FROST])
+					// 		skillratio += -100 + 1200 + 600 * skill_lv;
+					// 	else
+					// 		skillratio += -100 + 1000 + 300 * skill_lv;
+					// 	RE_LVL_DMOD(100);
+					// 	break;
 					case WL_DRAINLIFE:
 						skillratio += -100 + 200 * skill_lv + sstatus->int_;
 						RE_LVL_DMOD(100);
 						break;
 					case WL_CRIMSONROCK:
-						skillratio += -100 + 700 + 600 * skill_lv;
+						// skillratio += -100 + 700 + 600 * skill_lv;
+                        skillratio += 1200 + 300 * skill_lv;
 						RE_LVL_DMOD(100);
 						break;
 					case WL_HELLINFERNO:
@@ -6706,7 +6709,8 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 							skillratio += 100 * mflag;
 						break;
 					case WL_EARTHSTRAIN:
-						skillratio += -100 + 1000 + 600 * skill_lv;
+						// skillratio += -100 + 1000 + 600 * skill_lv;
+                        skillratio += 1900 + 100 * skill_lv;
 						RE_LVL_DMOD(100);
 						break;
 					case WL_TETRAVORTEX_FIRE:
