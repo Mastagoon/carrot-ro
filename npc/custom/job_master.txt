@@ -1,13 +1,15 @@
-dicastes01,191,189,1	script	ู…ุตุทูู ูุฑุน	47,13,13,{
+dicastes01,191,189,2	script	ใีุÝ์ Þัฺ	47,13,13,{
 function Get_Job_Equip;
 function getitemarray;
 OnPCLoginEvent:
     if(Class != Novice) end;
-    mes "[ู…ุตุทูู ูุฑุน]";
-    mes "ู…ุฑุญุจุงู ุจู ูู ุฌุฒุฑุฉ ุฑู, ุญูุซ ุณุชุญูู ุฃุญูุงู…ู ูุชุตุจุญ ุฃููู ุงููุงุนุจูู ูุชูุฒู… ุฌู…ูุน ุงููุญูุดูุดููุดูุดูุดุด!!!";
+    mes "[Þัฺ ใีุÝ์]";
+    mes mesAr("ใัอศว๐ ศ฿ Ýํ ฬาัษ ัๆ, !!!");
+    mes mesAr("อํห ํใ฿ไ฿ รไ สีศอ รÞๆ์ วแแวฺศํไ");
+    mes mesAr("ๆสๅาใ ฬใํฺ วแๆอๆๆิิๆๆๆิ!!");
     next;
-    mes "[ู…ุตุทูู ูุฑุน]";
-    mes "ุฅุฎุชุฑ ู…ููุชู";
+    mes "[Þัฺ ใีุÝ์]";
+    mes mesAr("ลฮสั ใๅไส฿");
     for (.@i = 0; .@i < getarraysize(.job); .@i++)
 		.@menu$ = .@menu$ + jobname(.job[.@i]) + ":";
 	.@s = select(.@menu$)-1;
@@ -17,7 +19,7 @@ OnPCLoginEvent:
 	specialeffect2 EF_ANGEL2;
 	specialeffect2 EF_ELECTRIC;
 	callfunc "F_GetPlatinumSkills";
-    atcommand("@allakill")
+    atcommand("@allskills");
 	if (.GetJobEquip) Get_Job_Equip();
     close;
 function	Get_Job_Equip	{
@@ -79,4 +81,4 @@ OnInit:
                     ,"18539|1|9|1636|1|9|2016|1|9|2701|2|0|5463|1|0|1680|1|12|18849|1|9";//SR
 }
 
-dicastes01,191,189,4	duplicate(Job Master)	Job Master#dic	123
+// dicastes01,191,189,4	duplicate(ใีุÝ์ Þัฺ)	ใีุÝ์ Þัฺ#dic	123
