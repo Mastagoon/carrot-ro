@@ -26124,25 +26124,25 @@ Body:
     AfterCastActDelay: 1000
     Duration1:
       - Level: 1
-        Time: 45000
+        Time: 15000
       - Level: 2
-        Time: 60000
+        Time: 20000
       - Level: 3
-        Time: 75000
+        Time: 25000
       - Level: 4
-        Time: 90000
+        Time: 30000
       - Level: 5
-        Time: 105000
+        Time: 35000
       - Level: 6
-        Time: 120000
+        Time: 40000
       - Level: 7
-        Time: 135000
+        Time: 45000
       - Level: 8
-        Time: 150000
+        Time: 50000
       - Level: 9
-        Time: 165000
+        Time: 55000
       - Level: 10
-        Time: 180000
+        Time: 60000
     Requires:
       SpCost:
         - Level: 1
