@@ -1,4 +1,6 @@
-prontera,125,205,1	script	Job Master	123,13,13,{
+dicastes01,191,189,1	script	Job Master	123,13,13,{
+OnPCLoginEvent:
+    if(Class == Novice)
     function Get_Job_Equip;
     function getitemarray;
     if(Class != Novice) end;
@@ -60,6 +62,7 @@ function    getitemarray    {
         getitem2 atoi(.@arr$[.@i]), atoi(.@arr$[.@i+1]),1,atoi(.@arr$[.@i+2]),0,0,0,0,0;
     }
 }
+
 OnInit:
     .GetJobEquip = True;
     //DEF Equipments:
