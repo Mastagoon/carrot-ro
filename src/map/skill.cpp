@@ -389,11 +389,12 @@ int skill_get_range2(struct block_list *bl, uint16 skill_id, uint16 skill_lv, bo
 		if( bl->type == BL_PC ) {
 			if(inf2[INF2_ALTERRANGESHADOWJUMP]) range = skill_get_range(NJ_SHADOWJUMP,pc_checkskill((TBL_PC*)bl,NJ_SHADOWJUMP));
 			if(inf2[INF2_ALTERRANGERADIUS]) range += pc_checkskill((TBL_PC*)bl, WL_RADIUS);
-			if(inf2[INF2_ALTERRANGERESEARCHTRAP]) {
-				int rt_range[11] = { 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5 };
+            if(inf2[INF2_ALTERRANGERESEARCHTRAP]) range += (1 + pc_checkskill((TBL_PC*)bl, RA_RESEARCHTRAP))/2;
+			// if(inf2[INF2_ALTERRANGERESEARCHTRAP]) {
+			// 	int rt_range[11] = { 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5 };
 
-				range += rt_range[pc_checkskill((TBL_PC*)bl, RA_RESEARCHTRAP)];
-			}
+			// 	range += rt_range[pc_checkskill((TBL_PC*)bl, RA_RESEARCHTRAP)];
+			// }
 		}
 	}
 
@@ -3759,6 +3760,12 @@ int64 skill_attack (int attack_type, struct block_list* src, struct block_list *
 					}
 				}
 				break;
+            case WM_METALICSOUND:
+				status_zap(bl, 0, damage*100/(100*(110-((sd) ? pc_checkskill(sd,WM_LESSON) : skill_get_max(WM_LESSON))*10)));
+				break;
+            case SR_TIGERCANNON:
+				status_zap(bl, 0, damage * 10 / 100);
+				break;
 		}
 		if( sd )
 			skill_onskillusage(sd, bl, skill_id, tick);
@@ -5706,12 +5713,12 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		}
 		break;
 
-	case WL_TETRAVORTEX_FIRE:
-	case WL_TETRAVORTEX_WATER:
-	case WL_TETRAVORTEX_WIND:
-	case WL_TETRAVORTEX_GROUND:
-		skill_addtimerskill(src, tick + skill_area_temp[0] * 200, bl->id, skill_area_temp[1], 0, skill_id, skill_lv, 0, flag);
-		break;
+	// case WL_TETRAVORTEX_FIRE:
+	// case WL_TETRAVORTEX_WATER:
+	// case WL_TETRAVORTEX_WIND:
+	// case WL_TETRAVORTEX_GROUND:
+	// 	skill_addtimerskill(src, tick + skill_area_temp[0] * 200, bl->id, skill_area_temp[1], 0, skill_id, skill_lv, 0, flag);
+	// 	break;
 
 	case WL_TETRAVORTEX:
 		if (sd == nullptr) { // Monster usage
@@ -5761,12 +5768,15 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 						break;
 				}
 
-				if (skill_lv > 5) {
-					skill_area_temp[0] = abs(i - SC_SPHERE_5);
-					skill_area_temp[1] = k;
-					map_foreachinallrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), BL_CHAR, src, subskill, skill_lv, tick, flag | BCT_ENEMY, skill_castend_damage_id);
-				} else
-					skill_addtimerskill(src, tick + abs(i - SC_SPHERE_5) * 200, bl->id, k, 0, subskill, skill_lv, abs(i - SC_SPHERE_5), flag);
+                skill_addtimerskill(src, tick + i * 200, bl->id, k, 0, subskill, skill_lv, i, flag);
+				clif_skill_nodamage(src, bl, subskill, skill_lv, 1);
+
+				// if (skill_lv > 5) {
+				// 	skill_area_temp[0] = abs(i - SC_SPHERE_5);
+				// 	skill_area_temp[1] = k;
+				// 	map_foreachinallrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), BL_CHAR, src, subskill, skill_lv, tick, flag | BCT_ENEMY, skill_castend_damage_id);
+				// } else
+				// 	skill_addtimerskill(src, tick + abs(i - SC_SPHERE_5) * 200, bl->id, k, 0, subskill, skill_lv, abs(i - SC_SPHERE_5), flag);
 				status_change_end(src, static_cast<sc_type>(i), INVALID_TIMER);
 			}
 		}
@@ -8578,7 +8588,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		if(sd) {
 			int sp = skill_get_sp(sd->skill_id_old,sd->skill_lv_old);
 			if( skill_id == SO_SPELLFIST ){
-				sc_start4(src,src,type,100,skill_lv,sd->skill_id_old,sd->skill_lv_old,0,skill_get_time(skill_id,skill_lv));
+				// sc_start4(src,src,type,100,skill_lv,sd->skill_id_old,sd->skill_lv_old,0,skill_get_time(skill_id,skill_lv));
+                sc_start4(src,src,type,100,skill_lv+1,skill_lv,sd->skill_id_old,sd->skill_lv_old,skill_get_time(skill_id,skill_lv));
 				sd->skill_id_old = sd->skill_lv_old = 0;
 				break;
 			}

@@ -17542,11 +17542,10 @@ Body:
   - Id: 2001
     Name: RK_ENCHANTBLADE
     Description: Enchant Blade
-    MaxLevel: 10
+    MaxLevel: 5
     TargetType: Self
     DamageFlags:
       NoDamage: true
-    Range: 1
     Hit: Single
     HitCount: 1
     CastCancel: true
@@ -17577,7 +17576,7 @@ Body:
   - Id: 2002
     Name: RK_SONICWAVE
     Description: Sonic Wave
-    MaxLevel: 10
+    MaxLevel: 5
     Type: Weapon
     TargetType: Attack
     DamageFlags:
@@ -18830,7 +18829,7 @@ Body:
   - Id: 2217
     Name: WL_TETRAVORTEX
     Description: Tetra Vortex
-    MaxLevel: 10
+    MaxLevel: 5
     Type: Magic
     TargetType: Attack
     Flags:
@@ -18838,27 +18837,27 @@ Body:
     Range: 11
     Hit: Single
     HitCount: 1
-    SplashArea:
-      - Level: 1
-        Area: 0
-      - Level: 2
-        Area: 0
-      - Level: 3
-        Area: 0
-      - Level: 4
-        Area: 0
-      - Level: 5
-        Area: 0
-      - Level: 6
-        Area: 1
-      - Level: 7
-        Area: 1
-      - Level: 8
-        Area: 2
-      - Level: 9
-        Area: 2
-      - Level: 10
-        Area: 3
+    # SplashArea:
+    #   - Level: 1
+    #     Area: 0
+    #   - Level: 2
+    #     Area: 0
+    #   - Level: 3
+    #     Area: 0
+    #   - Level: 4
+    #     Area: 0
+    #   - Level: 5
+    #     Area: 0
+    #   - Level: 6
+    #     Area: 1
+    #   - Level: 7
+    #     Area: 1
+    #   - Level: 8
+    #     Area: 2
+    #   - Level: 9
+    #     Area: 2
+    #   - Level: 10
+    #     Area: 3
     CopyFlags:
       Skill:
         Reproduce: true
@@ -19215,7 +19214,7 @@ Body:
   - Id: 2232
     Name: WL_FREEZE_SP
     Description: Freeze Spell
-    MaxLevel: 10
+    MaxLevel: 5
   - Id: 2021
     Name: GC_VENOMIMPRESS
     Description: Venom Impress
@@ -19423,7 +19422,7 @@ Body:
   - Id: 2029
     Name: GC_COUNTERSLASH
     Description: Counter Slash
-    MaxLevel: 10
+    MaxLevel: 5
     Type: Weapon
     TargetType: Self
     DamageFlags:
@@ -19690,7 +19689,7 @@ Body:
   - Id: 2038
     Name: AB_JUDEX
     Description: Judex
-    MaxLevel: 10
+    MaxLevel: 5
     Type: Magic
     TargetType: Attack
     DamageFlags:
@@ -20178,7 +20177,7 @@ Body:
   - Id: 2050
     Name: AB_RENOVATIO
     Description: Renovatio
-    MaxLevel: 4
+    MaxLevel: 1
     Type: Magic
     TargetType: Self
     DamageFlags:
@@ -20901,7 +20900,7 @@ Body:
   - Id: 2248
     Name: RA_RESEARCHTRAP
     Description: Research Trap
-    MaxLevel: 10
+    MaxLevel: 5
   - Id: 2249
     Name: RA_MAGENTATRAP
     Description: Magenta Trap
@@ -21311,7 +21310,7 @@ Body:
   - Id: 2261
     Name: NC_ARMSCANNON
     Description: Arm Cannon
-    MaxLevel: 5
+    MaxLevel: 3
     Type: Weapon
     TargetType: Attack
     DamageFlags:
@@ -21887,7 +21886,7 @@ Body:
   - Id: 2279
     Name: NC_POWERSWING
     Description: Power Swing
-    MaxLevel: 10
+    MaxLevel: 5
     Type: Weapon
     TargetType: Attack
     Flags:
@@ -22125,7 +22124,7 @@ Body:
   - Id: 2284
     Name: SC_FATALMENACE
     Description: Fatal Menace
-    MaxLevel: 10
+    MaxLevel: 5
     Type: Weapon
     TargetType: Attack
     DamageFlags:
@@ -22973,7 +22972,7 @@ Body:
   - Id: 2304
     Name: SC_FEINTBOMB
     Description: Feint Bomb
-    MaxLevel: 10
+    MaxLevel: 3
     Type: Weapon
     TargetType: Self
     Flags:
@@ -22983,11 +22982,11 @@ Body:
     Element: Weapon
     Knockback:
       - Level: 1
-        Amount: 1
-      - Level: 2
-        Amount: 2
-      - Level: 3
         Amount: 3
+      - Level: 2
+        Amount: 6
+      - Level: 3
+        Amount: 9
       - Level: 4
         Amount: 4
       - Level: 5
@@ -23142,7 +23141,7 @@ Body:
   - Id: 2310
     Name: LG_SHIELDPRESS
     Description: Shield Press
-    MaxLevel: 10
+    MaxLevel: 5
     Type: Weapon
     TargetType: Attack
     Range: 1
@@ -23470,7 +23469,7 @@ Body:
   - Id: 2321
     Name: LG_RAYOFGENESIS
     Description: Ray of Genesis
-    MaxLevel: 10
+    MaxLevel: 5
     Type: Magic
     TargetType: Self
     DamageFlags:
@@ -23872,7 +23871,7 @@ Body:
   - Id: 2329
     Name: SR_FALLENEMPIRE
     Description: Fallen Empire
-    MaxLevel: 10
+    MaxLevel: 5
     Type: Weapon
     TargetType: Self
     Flags:
@@ -23950,9 +23949,8 @@ Body:
     Description: Tiger Cannon
     MaxLevel: 10
     Type: Weapon
-    TargetType: Self
+    TargetType: Attack
     DamageFlags:
-      NoDamage: true
       Splash: true
       IgnoreFlee: true
     Flags:
@@ -23963,25 +23961,25 @@ Body:
     Element: Weapon
     SplashArea:
       - Level: 1
-        Area: 2
+        Area: 1
       - Level: 2
-        Area: 2
+        Area: 1
       - Level: 3
-        Area: 2
+        Area: 1
       - Level: 4
-        Area: 2
+        Area: 1
       - Level: 5
-        Area: 2
+        Area: 1
       - Level: 6
-        Area: 3
+        Area: 2
       - Level: 7
-        Area: 3
+        Area: 2
       - Level: 8
-        Area: 3
+        Area: 2
       - Level: 9
-        Area: 3
+        Area: 2
       - Level: 10
-        Area: 3
+        Area: 2
     CopyFlags:
       Skill:
         Reproduce: true
@@ -24008,29 +24006,51 @@ Body:
       - Level: 10
         Time: 2000
     AfterCastActDelay: 1000
-    Cooldown: 3000
+    Cooldown: 5000
+    FixedCastTime: -1
     Requires:
-      SpCost:
+      HpRateCost:
         - Level: 1
-          Amount: 30
+          Amount: -12
         - Level: 2
-          Amount: 35
+          Amount: -14
         - Level: 3
-          Amount: 40
+          Amount: -16
         - Level: 4
-          Amount: 45
+          Amount: -18
         - Level: 5
-          Amount: 50
+          Amount: -20
         - Level: 6
-          Amount: 55
+          Amount: -22
         - Level: 7
-          Amount: 60
+          Amount: -24
         - Level: 8
-          Amount: 65
+          Amount: -26
         - Level: 9
-          Amount: 70
+          Amount: -28
         - Level: 10
-          Amount: 75
+          Amount: -30
+      SpRateCost:
+        - Level: 1
+          Amount: -6
+        - Level: 2
+          Amount: -7
+        - Level: 3
+          Amount: -8
+        - Level: 4
+          Amount: -9
+        - Level: 5
+          Amount: -10
+        - Level: 6
+          Amount: -11
+        - Level: 7
+          Amount: -12
+        - Level: 8
+          Amount: -13
+        - Level: 9
+          Amount: -14
+        - Level: 10
+          Amount: -15
       Status:
         Explosionspirits: true
       SpiritSphereCost: 2
@@ -24220,7 +24240,7 @@ Body:
   - Id: 2336
     Name: SR_KNUCKLEARROW
     Description: Knuckle Arrow
-    MaxLevel: 10
+    MaxLevel: 5
     Type: Weapon
     TargetType: Attack
     Range:
@@ -24426,9 +24446,51 @@ Body:
     MaxLevel: 10
     Type: Weapon
     TargetType: Attack
-    DamageFlags:
-      IgnoreLongCard: true
-    Range: 7
+    Range:
+      - Level: 1
+        Size: 1
+      - Level: 2
+        Size: 2
+      - Level: 3
+        Size: 3
+      - Level: 4
+        Size: 3
+      - Level: 5
+        Size: 4
+      - Level: 6
+        Size: 4
+      - Level: 7
+        Size: 5
+      - Level: 8
+        Size: 5
+      - Level: 9
+        Size: 6
+      - Level: 10
+        Size: 7
+    Requires:
+      SpCost: 1
+      SpRateCost:
+        - Level: 1
+          Amount: -11
+        - Level: 2
+          Amount: -12
+        - Level: 3
+          Amount: -13
+        - Level: 4
+          Amount: -14
+        - Level: 5
+          Amount: -15
+        - Level: 6
+          Amount: -16
+        - Level: 7
+          Amount: -17
+        - Level: 8
+          Amount: -18
+        - Level: 9
+          Amount: -19
+        - Level: 10
+          Amount: -20
+      SpiritSphereCost: 5
     Hit: Multi_Hit
     HitCount: -7
     Element: Weapon
@@ -24478,9 +24540,7 @@ Body:
         Time: 900
       - Level: 10
         Time: 1000
-    Requires:
-      SpCost: 100
-      SpiritSphereCost: 2
+    FixedCastTime: -1
   - Id: 2344
     Name: SR_GENTLETOUCH_QUIET
     Description: Gentle Touch - Quiet
@@ -24963,7 +25023,7 @@ Body:
   - Id: 2413
     Name: WM_METALICSOUND
     Description: Metallic Sound
-    MaxLevel: 10
+    MaxLevel: 5
     Type: Magic
     TargetType: Attack
     Range: 9
@@ -26115,7 +26175,7 @@ Body:
   - Id: 2445
     Name: SO_SPELLFIST
     Description: Spell Fist
-    MaxLevel: 10
+    MaxLevel: 5
     TargetType: Self
     DamageFlags:
       NoDamage: true
@@ -26125,25 +26185,25 @@ Body:
     AfterCastActDelay: 1000
     Duration1:
       - Level: 1
-        Time: 45000
+        Time: 15000
       - Level: 2
-        Time: 60000
+        Time: 20000
       - Level: 3
-        Time: 75000
+        Time: 25000
       - Level: 4
-        Time: 90000
+        Time: 30000
       - Level: 5
-        Time: 105000
+        Time: 35000
       - Level: 6
-        Time: 120000
+        Time: 40000
       - Level: 7
-        Time: 135000
+        Time: 45000
       - Level: 8
-        Time: 150000
+        Time: 50000
       - Level: 9
-        Time: 165000
+        Time: 55000
       - Level: 10
-        Time: 180000
+        Time: 60000
     Requires:
       SpCost:
         - Level: 1
@@ -26695,14 +26755,14 @@ Body:
   - Id: 2454
     Name: SO_VARETYR_SPEAR
     Description: Varetyr Spear
-    MaxLevel: 10
+    MaxLevel: 5
     Type: Magic
     TargetType: Attack
     DamageFlags:
       Splash: true
     Range: 9
     Hit: Single
-    HitCount: -3
+    HitCount: 1
     Element: Wind
     SplashArea:
       - Level: 1
@@ -26710,11 +26770,11 @@ Body:
       - Level: 2
         Area: 1
       - Level: 3
-        Area: 1
+        Area: 2
       - Level: 4
         Area: 2
       - Level: 5
-        Area: 2
+        Area: 3
       - Level: 6
         Area: 2
       - Level: 7
@@ -27318,14 +27378,13 @@ Body:
   - Id: 2476
     Name: GN_CART_TORNADO
     Description: Cart Tornado
-    MaxLevel: 10
+    MaxLevel: 5
     Type: Weapon
     TargetType: Self
     DamageFlags:
       Splash: true
-    Range: 1
     Hit: Single
-    HitCount: 3
+    HitCount: 1
     Element: Weapon
     SplashArea: 2
     Knockback: 2
@@ -27527,7 +27586,7 @@ Body:
   - Id: 2481
     Name: GN_SPORE_EXPLOSION
     Description: Spore Explosion
-    MaxLevel: 10
+    MaxLevel: 5
     Type: Weapon
     TargetType: Attack
     DamageFlags:
