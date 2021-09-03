@@ -1,33 +1,23 @@
-dicastes01,191,189,1	script	Job Master	123,13,13,{
+dicastes01,191,189,1	script	مصطفى قرع	47,13,13,{
+function Get_Job_Equip;
+function getitemarray;
 OnPCLoginEvent:
-    if(Class == Novice)
-    function Get_Job_Equip;
-    function getitemarray;
     if(Class != Novice) end;
-    mes "pick a job";
+    mes "[مصطفى قرع]";
+    mes "مرحباً بك في جزرة رو, حيث ستحقق أحلامك وتصبح أقوى اللاعبين وتهزم جميع الوحوشوشووشوشوشش!!!";
+    next;
+    mes "[مصطفى قرع]";
+    mes "إختر مهنتك";
     for (.@i = 0; .@i < getarraysize(.job); .@i++)
 		.@menu$ = .@menu$ + jobname(.job[.@i]) + ":";
 	.@s = select(.@menu$)-1;
     jobchange .job[.@s];
-    BaseLevel = 185;
-    JobLevel = 70;
+    BaseLevel = 175;
+    JobLevel = 50;
 	specialeffect2 EF_ANGEL2;
 	specialeffect2 EF_ELECTRIC;
 	callfunc "F_GetPlatinumSkills";
-	if (.GetJobEquip) Get_Job_Equip();
-    close;
-OnTouch:
-    if(Class != Novice) end;
-    mes "pick a job";
-    for (.@i = 0; .@i < getarraysize(.job); .@i++)
-		.@menu$ = .@menu$ + jobname(.job[.@i]) + ":";
-	.@s = select(.@menu$)-1;
-    jobchange .job[.@s];
-    BaseLevel = 185;
-    JobLevel = 70;
-	specialeffect2 EF_ANGEL2;
-	specialeffect2 EF_ELECTRIC;
-	callfunc "F_GetPlatinumSkills";
+    atcommand("@allakill")
 	if (.GetJobEquip) Get_Job_Equip();
     close;
 function	Get_Job_Equip	{
