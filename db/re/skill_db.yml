@@ -23949,9 +23949,8 @@ Body:
     Description: Tiger Cannon
     MaxLevel: 10
     Type: Weapon
-    TargetType: Self
+    TargetType: Attack
     DamageFlags:
-      NoDamage: true
       Splash: true
       IgnoreFlee: true
     Flags:
@@ -23962,25 +23961,25 @@ Body:
     Element: Weapon
     SplashArea:
       - Level: 1
-        Area: 2
+        Area: 1
       - Level: 2
-        Area: 2
+        Area: 1
       - Level: 3
-        Area: 2
+        Area: 1
       - Level: 4
-        Area: 2
+        Area: 1
       - Level: 5
-        Area: 2
+        Area: 1
       - Level: 6
-        Area: 3
+        Area: 2
       - Level: 7
-        Area: 3
+        Area: 2
       - Level: 8
-        Area: 3
+        Area: 2
       - Level: 9
-        Area: 3
+        Area: 2
       - Level: 10
-        Area: 3
+        Area: 2
     CopyFlags:
       Skill:
         Reproduce: true
@@ -24007,29 +24006,51 @@ Body:
       - Level: 10
         Time: 2000
     AfterCastActDelay: 1000
-    Cooldown: 3000
+    Cooldown: 5000
+    FixedCastTime: -1
     Requires:
-      SpCost:
+      HpRateCost:
         - Level: 1
-          Amount: 30
+          Amount: -12
         - Level: 2
-          Amount: 35
+          Amount: -14
         - Level: 3
-          Amount: 40
+          Amount: -16
         - Level: 4
-          Amount: 45
+          Amount: -18
         - Level: 5
-          Amount: 50
+          Amount: -20
         - Level: 6
-          Amount: 55
+          Amount: -22
         - Level: 7
-          Amount: 60
+          Amount: -24
         - Level: 8
-          Amount: 65
+          Amount: -26
         - Level: 9
-          Amount: 70
+          Amount: -28
         - Level: 10
-          Amount: 75
+          Amount: -30
+      SpRateCost:
+        - Level: 1
+          Amount: -6
+        - Level: 2
+          Amount: -7
+        - Level: 3
+          Amount: -8
+        - Level: 4
+          Amount: -9
+        - Level: 5
+          Amount: -10
+        - Level: 6
+          Amount: -11
+        - Level: 7
+          Amount: -12
+        - Level: 8
+          Amount: -13
+        - Level: 9
+          Amount: -14
+        - Level: 10
+          Amount: -15
       Status:
         Explosionspirits: true
       SpiritSphereCost: 2
@@ -24425,9 +24446,51 @@ Body:
     MaxLevel: 10
     Type: Weapon
     TargetType: Attack
-    DamageFlags:
-      IgnoreLongCard: true
-    Range: 7
+    Range:
+      - Level: 1
+        Size: 1
+      - Level: 2
+        Size: 2
+      - Level: 3
+        Size: 3
+      - Level: 4
+        Size: 3
+      - Level: 5
+        Size: 4
+      - Level: 6
+        Size: 4
+      - Level: 7
+        Size: 5
+      - Level: 8
+        Size: 5
+      - Level: 9
+        Size: 6
+      - Level: 10
+        Size: 7
+    Requires:
+      SpCost: 1
+      SpRateCost:
+        - Level: 1
+          Amount: -11
+        - Level: 2
+          Amount: -12
+        - Level: 3
+          Amount: -13
+        - Level: 4
+          Amount: -14
+        - Level: 5
+          Amount: -15
+        - Level: 6
+          Amount: -16
+        - Level: 7
+          Amount: -17
+        - Level: 8
+          Amount: -18
+        - Level: 9
+          Amount: -19
+        - Level: 10
+          Amount: -20
+      SpiritSphereCost: 5
     Hit: Multi_Hit
     HitCount: -7
     Element: Weapon
@@ -24477,9 +24540,7 @@ Body:
         Time: 900
       - Level: 10
         Time: 1000
-    Requires:
-      SpCost: 100
-      SpiritSphereCost: 2
+    FixedCastTime: -1
   - Id: 2344
     Name: SR_GENTLETOUCH_QUIET
     Description: Gentle Touch - Quiet
