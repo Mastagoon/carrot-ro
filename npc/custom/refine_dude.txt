@@ -1,8 +1,8 @@
-dicastes01,110,110,2	script	 Õ”Ì‰ «·√œÊ« 	47,13,13,{
+dicastes01,205,187,4	script	 Õ”Ì‰ «·√œÊ« 	63,{
     setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
     for(.@i = 1; .@i<getarraysize(.@indices); ++.@i) {
 		if(getequipisequiped(.@indices[.@i])) {
-			if(getequipisenableref)
+			if(getequipisenableref(.@indices[.@i]))
                 successrefitem .@indices[.@i],9 - getequiprefinerycnt(.@indices[.@i]);
 		}
 		.@menu$ = .@menu$ + ":";

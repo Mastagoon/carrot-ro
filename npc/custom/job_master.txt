@@ -1,4 +1,4 @@
-dicastes01,191,189,2	script	уеинь обк	47,13,13,{
+dicastes01,205,189,7	script	уеинь обк	47,13,13,{
 function Get_Job_Equip;
 function getitemarray;
 OnPCLoginEvent:
@@ -56,6 +56,7 @@ function    getitemarray    {
 }
 
 OnInit:
+	waitingroom "Ълээб ЧсухфЩ",0;
     .GetJobEquip = True;
     //DEF Equipments:
     setarray .job[0],JOB_RUNE_KNIGHT_T,JOB_WARLOCK_T,JOB_RANGER_T,JOB_ARCH_BISHOP_T,JOB_MECHANIC_T,JOB_GUILLOTINE_CROSS_T,JOB_ROYAL_GUARD_T,JOB_SORCERER_T,JOB_MINSTREL_T,JOB_WANDERER_T,JOB_SURA_T,JOB_GENETIC_T,JOB_SHADOW_CHASER_T,JOB_KAGEROU,JOB_OBORO,JOB_REBELLION,JOB_SUMMONER,JOB_STAR_EMPEROR,JOB_SOUL_REAPER;
@@ -79,6 +80,7 @@ OnInit:
                     ,"5361|1|0|18522|1|9|5463|1|0|18849|1|9|1697|1|9|1693|1|9|15156|1|9|20790|1|9|22085|1|9"//summoner
                     ,"1587|1|9|28604|1|12"//SE
                     ,"18539|1|9|1636|1|9|2016|1|9|2701|2|0|5463|1|0|1680|1|12|18849|1|9";//SR
+    end;
 }
 
 // dicastes01,191,189,4	duplicate(уеинь обк)	уеинь обк#dic	123
