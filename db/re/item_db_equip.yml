@@ -15145,7 +15145,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -15250,7 +15250,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       bonus bLongAtkRate,9;
@@ -21059,7 +21059,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       .@r = getrefine;
@@ -65062,7 +65062,7 @@ Body:
       Summoner: true
     Locations:
       Armor: true
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       bonus bMaxHPrate,15;
@@ -66187,7 +66187,7 @@ Body:
     Slots: 1
     Locations:
       Armor: true
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -66206,7 +66206,7 @@ Body:
     Slots: 1
     Locations:
       Armor: true
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -66225,7 +66225,7 @@ Body:
     Slots: 1
     Locations:
       Armor: true
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -76243,7 +76243,7 @@ Body:
     Slots: 1
     Locations:
       Head_Top: true
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     View: 996
     Script: |
@@ -91948,7 +91948,7 @@ Body:
       Summoner: true
     Locations:
       Garment: true
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       bonus bFlee,10;
@@ -93317,7 +93317,7 @@ Body:
     Slots: 1
     Locations:
       Garment: true
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       bonus bHit,10;
@@ -93338,7 +93338,7 @@ Body:
     Slots: 1
     Locations:
       Garment: true
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       bonus bCritical,5;
@@ -93359,7 +93359,7 @@ Body:
     Slots: 1
     Locations:
       Garment: true
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       bonus bVariableCastrate,-10;
@@ -94680,7 +94680,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -96334,7 +96334,7 @@ Body:
       Summoner: true
     Locations:
       Shoes: true
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       bonus bMaxHPrate,10;
@@ -97508,7 +97508,7 @@ Body:
     Slots: 1
     Locations:
       Shoes: true
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -97527,7 +97527,7 @@ Body:
     Slots: 1
     Locations:
       Shoes: true
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -97546,7 +97546,7 @@ Body:
     Slots: 1
     Locations:
       Shoes: true
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -109664,7 +109664,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -110095,7 +110095,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       .@r = getrefine;
@@ -110130,7 +110130,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       .@r = getrefine;
@@ -114064,7 +114064,7 @@ Body:
       Summoner: true
     Locations:
       Both_Accessory: true
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Trade:
       Override: 100
       NoDrop: true
@@ -114130,7 +114130,7 @@ Body:
       Summoner: true
     Locations:
       Both_Accessory: true
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Trade:
       Override: 100
       NoDrop: true
@@ -114196,7 +114196,7 @@ Body:
       Summoner: true
     Locations:
       Both_Accessory: true
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Trade:
       Override: 100
       NoDrop: true
@@ -116311,7 +116311,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 175
+    EquipLevelMin: 174
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -132802,7 +132802,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -132837,7 +132837,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -133252,7 +133252,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -133378,7 +133378,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -133566,7 +133566,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -133887,7 +133887,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -133922,7 +133922,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -133957,7 +133957,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -133990,7 +133990,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -134022,7 +134022,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -134505,7 +134505,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -134539,7 +134539,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -134579,7 +134579,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -134613,7 +134613,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -134646,7 +134646,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -135017,7 +135017,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -135051,7 +135051,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -135312,7 +135312,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -135348,7 +135348,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -135654,7 +135654,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -135690,7 +135690,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -136119,7 +136119,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -136154,7 +136154,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -136426,7 +136426,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -136694,7 +136694,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -136728,7 +136728,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -137074,7 +137074,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -137387,7 +137387,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -137423,7 +137423,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -137530,7 +137530,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -137563,7 +137563,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -138062,7 +138062,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -138096,7 +138096,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -138131,7 +138131,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -138215,7 +138215,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -138316,7 +138316,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -138417,7 +138417,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -138540,7 +138540,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -138637,7 +138637,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 180
+    EquipLevelMin: 170
     Refineable: true
     Script: |
       .@r = getrefine();
