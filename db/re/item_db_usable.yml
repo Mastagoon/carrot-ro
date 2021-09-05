@@ -237,13 +237,13 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+      percentheal 6,6;
   - Id: 516
     AegisName: Sweet_Potato
     Name: Potato
     Type: Healing
     Buy: 15
-    Weight: 20
+    Weight: 0
     Flags:
       BuyingStore: true
     Script: |

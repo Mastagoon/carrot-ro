@@ -2368,7 +2368,7 @@ int status_damage(struct block_list *src,struct block_list *target,int64 dhp, in
 			}
 #ifndef RENEWAL
 			if ((sce=sc->data[SC_GRAVITATION]) && sce->val3 == BCT_SELF) {
-				std::shared_ptr<s_skill_unit_group> sg = skill_id2group(sce->val4);
+				struct skill_unit_group* sg = skill_id2group(sce->val4);
 
 				if (sg) {
 					skill_delunitgroup(sg);
@@ -13494,7 +13494,7 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 			return 0;
 		if (type == SC_SPIDERWEB) {
 			//Delete the unit group first to expire found in the status change
-			std::shared_ptr<s_skill_unit_group> group, group2;
+			struct skill_unit_group *group = NULL, *group2 = NULL;
 			t_tick tick = gettick();
 			int pos = 1;
 			if (sce->val2)
@@ -13692,11 +13692,17 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 				}
 
 				if(sce->val2) { // Erase associated land skill
-					std::shared_ptr<s_skill_unit_group> group = skill_id2group(sce->val2);
+					struct skill_unit_group *group;
+					group = skill_id2group(sce->val2);
+					if( group == NULL ) {
+						ShowDebug("status_change_end: SC_DANCING is missing skill unit group (val1=%d, val2=%d, val3=%d, val4=%d, timer=%d, tid=%d, char_id=%d, map=%s, x=%d, y=%d). Please report this!\n",
+							sce->val1, sce->val2, sce->val3, sce->val4, sce->timer, tid,
+							sd ? sd->status.char_id : 0,
+							mapindex_id2name(map_id2index(bl->m)), bl->x, bl->y);
+					}
 
 					sce->val2 = 0;
-					if (group)
-						skill_delunitgroup(group);
+					skill_delunitgroup(group);
 				}
 
 				if((sce->val1&0xFFFF) == CG_MOONLIT)
@@ -13779,7 +13785,7 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 			break;
 		case SC_GOSPEL:
 			if (sce->val3) { // Clear the group.
-				std::shared_ptr<s_skill_unit_group> group = skill_id2group(sce->val3);
+				struct skill_unit_group* group = skill_id2group(sce->val3);
 
 				sce->val3 = 0;
 				if (group)
@@ -13793,7 +13799,7 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 			break;
 		case SC_BASILICA: // Clear the skill area. [Skotlex]
 				if (sce->val3 && sce->val4 == bl->id) {
-					std::shared_ptr<s_skill_unit_group> group = skill_id2group(sce->val3);
+					struct skill_unit_group* group = skill_id2group(sce->val3);
 
 					sce->val3 = 0;
 					if (group)
@@ -13808,7 +13814,7 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 		case SC__MANHOLE:
 		case SC_BANDING:
 			if (sce->val4) { // Clear the group.
-				std::shared_ptr<s_skill_unit_group> group = skill_id2group(sce->val4);
+				struct skill_unit_group* group = skill_id2group(sce->val4);
 
 				sce->val4 = 0;
 				if( group ) // Might have been cleared before status ended, e.g. land protector
@@ -13895,7 +13901,7 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 		case SC_NEUTRALBARRIER_MASTER:
 		case SC_STEALTHFIELD_MASTER:
 			if( sce->val2 ) {
-				std::shared_ptr<s_skill_unit_group> group = skill_id2group(sce->val2);
+				struct skill_unit_group* group = skill_id2group(sce->val2);
 
 				sce->val2 = 0;
 				if( group ) // Might have been cleared before status ended, e.g. land protector
