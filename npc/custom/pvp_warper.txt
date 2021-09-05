@@ -1,0 +1,304 @@
+/*
+	Changelog:
+
+	v1.1 	Added option to debuff players when entering the room.
+		Added command to rotate manually.
+		Remove hiding when quitting room.
+		Added lvl checking on command.
+
+	v1.1a	Removed right curly which made dispell function don't work. Sorry.
+		Added color to the npc name in dialog.
+		Added F_InsertPlural use.
+
+	v1.2    Added waitingroom with player count.
+*/
+
+// You can use this function with other scripts as well.
+function	script	dispell	{
+
+	while(.@i++ < SC_SPL_MATK) {
+		if(
+			.@i != SC_WEIGHT50 &&
+			.@i != SC_WEIGHT90 &&
+			.@i != SC_NOCHAT &&
+			.@i != SC_BABY &&
+			/*
+			.@i != SC_WEDDING &&
+			.@i != SC_XMAS &&
+			.@i != SC_SUMMER &&
+			.@i != SC_HANBOK &&
+			.@i != SC_OKTOBERFEST &&
+			*/
+			.@i != SC_JAILED &&
+			.@i != SC_EXPBOOST &&
+			.@i != SC_ITEMBOOST
+		)
+			sc_end .@i;
+	}
+	.@i = SC_FEAR;
+	while(.@i++ < SC_AKAITSUKI)
+		sc_end .@i;
+
+}
+
+dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
+	.@n$ = "^3227cd[Õ·»… «·‘€»]^000000";
+	mes "[«·‘€» Õ·»…]";
+	if(BaseLevel >= .min_lv) {
+		mes mesAr("Â·  —Ìœ œŒÊ· «·Õ·»…ø");
+		if(.debuff)
+			mes mesAr("^8b0d1f”Ì „ ≈“«·… Ã„Ì⁄ «·Õ«·«  ⁄‰ﬂ ⁄‰œ «·œŒÊ·^000000");
+		next;
+		.@choice = select("œŒÊ· «·Õ·»…:≈‰‘«¡ Õ·»… Œ«’…:œŒÊ· Õ·»… Œ«’…:≈·€«¡");
+		if(.@choice == 5) close;
+OnCommand:
+		if(.@choice == 1) { // enter pvp
+			specialeffect2 F_Rand(EF_STORMKICK1,EF_STORMKICK2,EF_STORMKICK3,EF_STORMKICK6,EF_STORMKICK7);
+			sleep2 600;
+			specialeffect2 F_Rand(EF_SPINMOVE,EF_CASTSPIN2);
+			sleep2 550;
+			if(.debuff)
+				dispell();
+			warp .map$,0,0;
+			announce strcharinfo(0)+" œŒ· ≈·Ï «·Õ·»…",bc_all,0xb50505;
+			end;
+		}
+		if(.@choice == 2) {
+			next;
+			mes "[«·‘€» Õ·»…]";
+			if(Zeny < 100000) {
+				mes mesAr("·Ì” ·œÌﬂ “Ì‰Ì ﬂ«›Ì, ≈‰‘«¡");
+				mes mesAr("Õ·»… Œ«’… ”Ìﬂ·›ﬂ 100,000 “Ì‰Ì");
+			}
+			mes mesAr("≈‰‘«¡ Õ·»… Œ«’… ”Ìﬂ·›ﬂ 100,000 “Ì‰Ì");
+			mes mesAr("Â· √‰  „ √ﬂœ „‰ «‰ﬂ  —Ìœ ≈‰‘«¡ Õ·»… Œ«’…ø");
+			next;
+			select("‰⁄„ «‰« „ √ﬂœ");
+			if(.maps_available == 0) {
+				mes "[«·‘€» Õ·»…]";
+				mes mesAr("Ì»œÊ √‰ ﬂ· «·Õ·»«  «·Œ«’… „‘€Ê·… Õ«·Ì«.");
+				mes mesAr("Õ«Ê· „—… √Œ—Ï ·«Õﬁ«.");
+				close;
+			}
+			mes "[«·‘€» Õ·»…]";
+			mes mesAr("«Œ — ﬂ·„… «·„—Ê— ··Œ—Ìÿ… «·Œ«’…");
+			mes mesAr("^ff0000ﬂ·„… «·„—Ê— ÌÃ» √‰  ﬂÊ‰ ⁄·Ï «·√ﬁ·");
+			mes mesAr("„‰ À·«À… √Õ—›.^000000");
+			input .@password$,3,20;
+			next;
+			mes "[«·‘€» Õ·»…]";
+			if(getstrlen(.@password$) < 3 || getstrlen(.@password$) > 20) {
+				mes mesAr("ﬂ·„… «·„—Ê— ÌÃ» √‰  ﬂÊ‰ „«»Ì‰ 3 Ê 20 Õ—›«.");
+				close;
+			}
+			mes mesAr("ﬂ·„… «·„—Ê— ÂÌ");
+			mes mesAr(.@password$);
+			mes mesAr("”Ì „ ‰ﬁ·ﬂ ≈·Ï €—›… «·‘€» «·Œ«’….");
+			next;
+			setarray .private_map_passwords$[.maps_available],.@password$;
+			setarray .private_map_owner$[.maps_available],strcharinfo(0);
+			Zeny = Zeny - 100000;
+			if(.maps_available == 5) initnpctimer;
+			warp .private_maps$[.maps_available],0,0;
+			.maps_available--;
+			end;
+		}
+		if(.@choice == 3) { //enter private match
+			mes "[«·‘€» Õ·»…]";
+			mes mesAr("√œŒ· ﬂ·„… «·„—Ê— ··Õ·»… «· Ì  —Ìœ œŒÊ·Â«");
+			input .@password$,3,20;
+			next;
+			if(inarray(.private_map_passwords$,.@password$) == -1) {
+				mes "[«·‘€» Õ·»…]";
+				mes mesAr("ﬂ·„… «·„—Ê— «· Ì √œŒ· Â« Œ«ÿ∆….");
+				close;
+			}
+			warp .private_maps$[inarray(.private_map_passwords$,.@password$)],0,0;
+			mapannounce .private_maps$[inarray(.private_map_passwords$,.@password$)],strcharinfo(0)+" œŒ· ≈·Ï «·Õ·»…",bc_map,0xb50505;
+			end;
+		}
+	} else {
+		mes mesAr("You must be at least level "+.min_lv+" to be able to enter the room.");
+		close;
+	}
+	end;
+OnInit:
+	// This command can be used to enter the PvP Room.
+	bindatcmd "pvp","PvP#0::OnCommand";
+
+
+	// Command to rotate the room maually.
+	bindatcmd "rotatepvp","PvP#0::OnMinute00",99;
+	.pvpcoin = 50035;
+	// Min LvL to enter the room.
+	.min_lv = 1;
+
+	// Will players be dispelled upon entering the room?
+	.debuff = false;
+	//waiting room
+	//waitingroom ("PVP Room [0]")+".",0;
+
+	//private maps
+	.maps_available = 5;
+	setarray .private_map_passwords$[0],"";
+	setarray .private_maps$[1],"pvp_n_1-5",
+								"pvp_n_2-5",
+								"pvp_n_3-5",
+								"pvp_n_4-5",
+								"pvp_n_5-5";
+	setarray .private_map_owner$[0],"";
+
+	// PvP maps go here. Change them as you wish.//"guild_vs2","guild_vs3","guild_vs5","pvp_y_1-1","guild_vs4","guild_vs1","arena_room";
+	setarray .maps$[0],"pvp_n_7-1", // sandwich
+						"pvp_n_7-5", // compass
+						"pvp_y_7-2", //izlude
+						"guild_vs5", //gvs5
+						"pvp_n_7-3"; //four room
+	
+	// Max amount of times mesAr(a map can be repeated. 0 = unlimited);
+	.row = 3;
+
+	.size = getarraysize(.maps$);
+
+	if(.map$ == "") {
+		// You can edit the room mapflags here.
+		setarray .mapfl[0], mf_nosave,
+					mf_nodrop,
+					mf_novending,
+					mf_noteleport,
+					mf_noreturn,
+					mf_nowarp,
+					mf_nowarpto,
+					mf_nomemo,
+					mf_nopenalty,
+					mf_nobranch,
+					mf_hidemobhpbar,
+					// mf_nocommand,
+					mf_pvp,
+					mf_pvp_noguild,
+					//mf_pvp_noparty,
+					//mf_pvp_nocalcrank,
+					mf_loadevent;
+
+		.@i = getarraysize(.mapfl);
+		while(.@i--) {
+			.@j = .size;
+			while(.@j--)
+				setmapflag .maps$[.@j],.mapfl[.@i];
+            .@j = .size;
+            while(.@j--)
+                setmapflag .maps$[.@j],mf_nocommand,80;
+            
+		}
+
+	}
+	.@map$ = .map$;
+	.@r    = rand(.size);
+	.map$  = .maps$[.@r];
+	if(.@row && .map$ == .@map$) {
+		if(++.row >= .@row) {
+			deletearray .maps$[.@r],1;
+			.map$ = .maps$[rand(.size - 1)];
+			.row  = 0;
+		}
+	} else if(.row) {
+		.row = 0;
+	}
+	if(.map$ != .@map$ && .@map$ != "") {
+		mapwarp .@map$,.map$,0,0;
+		sleep 2500;
+		mapannounce .map$,"·ﬁœ  „  €ÌÌ— €—›… «·Õ·»…",bc_npc,0xe53a12;
+	}
+	//donpcevent "PVP#0::OnUpdateCount";
+	freeloop(1);
+	while( 1 ){
+		.@count = getmapusers(.map$);
+		waitingroom "PVP Room ["+.@count+"]",0;
+		sleep 2000;
+		delwaitingroom;
+	}
+	freeloop(0);
+	end;
+OnMinute00:
+OnMinute30:
+	.@map$ = .map$;
+	.@r    = rand(.size);
+	.map$  = .maps$[.@r];
+	if(.@row && .map$ == .@map$) {
+		if(++.row >= .@row) {
+			deletearray .maps$[.@r],1;
+			.map$ = .maps$[rand(.size - 1)];
+			.row  = 0;
+		}
+	} else if(.row) {
+		.row = 0;
+	}
+	if(.map$ != .@map$ && .@map$ != "") {
+		mapwarp .@map$,.map$,0,0;
+		sleep 2500;
+		mapannounce .map$,"·ﬁœ  „  €ÌÌ— €—›… «·Õ·»…",bc_npc,0xe53a12;
+	}
+	//donpcevent "PVP#0::OnUpdateCount";
+	end;
+
+
+OnTimer180000:
+	if(.maps_available == 5) { stopnpctimer; end; }
+	for(.@i = .maps_available; .@i < getarraysize(.private_maps$); .@i++) {
+		if(getmapusers(.private_maps$[.@i+1]) == 0) {
+			.maps_available++;
+			setarray .private_map_passwords$[.@i+1],"";
+			message .private_map_owner$[.@i+1], "·ﬁœ  „ ≈€·«ﬁ «·Õ·»… «·Œ«’… »ﬂ.";
+			setarray .private_map_owner$[.@i+1],"";
+		}
+	}
+	setnpctimer 0;
+	end;
+OnPCLoadMapEvent:
+OnPCLogoutEvent:
+	/*if(strcharinfo(3) == .map$ || @in_pvp) {
+		@in_pvp = !@in_pvp;
+		donpcevent "PVP#0::OnUpdateCount";
+	}
+	*/end;
+}
+
+pvp_n_7-3,99,151,5	script	Leave PVP	678,{
+	message strcharinfo(0),"Quitting the room...";
+	unitstopwalk getcharid(3);
+	pcblockmove getcharid(3),true;
+	pcblockskill getcharid(3),true;
+	setoption OPTION_HIDE|OPTION_CLOAK|OPTION_CHASEWALK,false;
+	.@hp = HP;
+	sleep2 1400;
+	while(.@i++ < 5) {
+		message strcharinfo(0),(6 - .@i)+"...";
+		sleep2 990;
+		if(HP+3000 < .@hp) {
+			message strcharinfo(0)," „ „ﬁ«ÿ⁄… «·Œ—ÊÃ „‰ «·Õ·»…";
+			pcblockmove getcharid(3),false;
+			pcblockskill getcharid(3),false;
+			end;
+		}
+	}
+	specialeffect2 F_Rand(EF_STORMKICK1,EF_STORMKICK2,EF_STORMKICK3,EF_STORMKICK6,EF_STORMKICK7);
+	sleep2 600;
+	specialeffect2 F_Rand(EF_SPINMOVE,EF_CASTSPIN2);
+	sleep2 550;
+	warp "SavePoint",0,0;
+	pcblockmove getcharid(3),false;
+	pcblockskill getcharid(3),false;
+	//donpcevent "PVP#0::OnUpdateCount";
+	end;
+}
+
+pvp_n_7-1,99,182,5	duplicate(Leave PVP)	Leave PVP#2	678
+pvp_n_7-5,99,134,5	duplicate(Leave PVP)	Leave PVP#3	678
+pvp_y_7-2,128,57,5	duplicate(Leave PVP)	Leave PVP#4	678
+guild_vs5,50,77,5	duplicate(Leave PVP)	Leave PVP#5	678
+// aimia,114,186,4	duplicate(PVP#0)	PVP#aimia	4_M_SAKRAYROYAL
+// ghouse01,110,187,3	duplicate(PVP#0)	PVP#gh1	4_M_SAKRAYROYAL
+// ghouse02,110,187,3	duplicate(PVP#0)	PVP#gh2	4_M_SAKRAYROYAL
+// ghouse03,110,187,3	duplicate(PVP#0)	PVP#gh3	4_M_SAKRAYROYAL
+// ghouse04,110,187,3	duplicate(PVP#0)	PVP#gh4	4_M_SAKRAYROYAL
+// ghouse05,110,187,3	duplicate(PVP#0)	PVP#gh5	4_M_SAKRAYROYAL

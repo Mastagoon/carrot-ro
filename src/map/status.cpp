@@ -13907,7 +13907,7 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 				map_foreachinallrange(status_change_timer_sub, bl, AREA_SIZE + 3, BL_CHAR, bl, sce, SC_CURSEDCIRCLE_TARGET, gettick());
 			break;
 		case SC_RAISINGDRAGON:
-			if( sd && !pc_isdead(sd) ) {
+			if( sd && sce->val2 && !pc_isdead(sd) ) {
 				int i = min(sd->spiritball,5);
 				pc_delspiritball(sd, sd->spiritball, 0);
 				status_change_end(bl, SC_EXPLOSIONSPIRITS, INVALID_TIMER);
@@ -15007,6 +15007,15 @@ TIMER_FUNC(status_change_timer){
 			// 	break;
 
 			sc_timer_next(5000+tick);
+			return 0;
+		}
+		break;
+
+    case SC_RAISINGDRAGON:
+		// 1% every 5 seconds [Jobbie]
+		if( --(sce->val3)>0 && status_charge(bl, sce->val2, 0) ) {
+			if( !sc->data[type] ) return 0;
+			sc_timer_next(5000 + tick);
 			return 0;
 		}
 		break;

@@ -6787,7 +6787,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						RE_LVL_DMOD(100);
 						break;
 					case WL_HELLINFERNO:
-						skillratio += -100 + 400 * skill_lv;
+						skillratio += -100 + 200 * skill_lv;
 						if (mflag & 2) // ELE_DARK
 							skillratio += 200;
 						RE_LVL_DMOD(100);
@@ -6812,7 +6812,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 					case WL_TETRAVORTEX_WIND:
 					case WL_TETRAVORTEX_GROUND:
 						// skillratio += -100 + 800 + 400 * skill_lv;
-                        skillratio += 400 + 500 * skill_lv;
+                        skillratio += 500 + 500 * skill_lv;
 						break;
 					case WL_SUMMON_ATK_FIRE:
 					case WL_SUMMON_ATK_WATER:

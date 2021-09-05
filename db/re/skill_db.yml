@@ -18970,7 +18970,7 @@ Body:
   - Id: 2222
     Name: WL_SUMMONFB
     Description: Summon Fire Ball
-    MaxLevel: 2
+    MaxLevel: 1
     Type: Magic
     TargetType: Self
     DamageFlags:
@@ -19009,7 +19009,7 @@ Body:
   - Id: 2223
     Name: WL_SUMMONBL
     Description: Summon Lightning Ball
-    MaxLevel: 2
+    MaxLevel: 1
     Type: Magic
     TargetType: Self
     DamageFlags:
@@ -19048,7 +19048,7 @@ Body:
   - Id: 2224
     Name: WL_SUMMONWB
     Description: Summon Water Ball
-    MaxLevel: 2
+    MaxLevel: 1
     Type: Magic
     TargetType: Self
     DamageFlags:
@@ -19151,7 +19151,7 @@ Body:
   - Id: 2229
     Name: WL_SUMMONSTONE
     Description: Summon Stone
-    MaxLevel: 2
+    MaxLevel: 1
     Type: Magic
     TargetType: Self
     DamageFlags:
@@ -19424,6 +19424,7 @@ Body:
     MaxLevel: 5
     Type: Weapon
     TargetType: Self
+    Knockback: 3
     DamageFlags:
       Splash: true
       IgnoreDefense: true
@@ -19474,7 +19475,6 @@ Body:
           Amount: 25
         - Level: 10
           Amount: 27
-    Knockback: 3
       Status:
         Weaponblock_On: true
   - Id: 2030

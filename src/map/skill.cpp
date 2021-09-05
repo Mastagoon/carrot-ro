@@ -5766,12 +5766,12 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		}
 		break;
 
-	// case WL_TETRAVORTEX_FIRE:
-	// case WL_TETRAVORTEX_WATER:
-	// case WL_TETRAVORTEX_WIND:
-	// case WL_TETRAVORTEX_GROUND:
-	// 	skill_addtimerskill(src, tick + skill_area_temp[0] * 200, bl->id, skill_area_temp[1], 0, skill_id, skill_lv, 0, flag);
-	// 	break;
+	case WL_TETRAVORTEX_FIRE:
+	case WL_TETRAVORTEX_WATER:
+	case WL_TETRAVORTEX_WIND:
+	case WL_TETRAVORTEX_GROUND:
+		skill_addtimerskill(src, tick + skill_area_temp[0] * 200, bl->id, skill_area_temp[1], 0, skill_id, skill_lv, 0, flag);
+		break;
 
 	case WL_TETRAVORTEX:
 		if (sd == nullptr) { // Monster usage
@@ -5821,7 +5821,9 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 						break;
 				}
 
-                skill_addtimerskill(src, tick + i * 200, bl->id, k, 0, subskill, skill_lv, i, flag);
+                // skill_addtimerskill(src, tick + i * 200, bl->id, k, 0, subskill, skill_lv, i, flag);
+                skill_addtimerskill(src, tick + abs(i - SC_SPHERE_5) * 200, bl->id, k, 0, subskill, skill_lv, abs(i - SC_SPHERE_5), flag);
+
 				clif_skill_nodamage(src, bl, subskill, skill_lv, 1);
 
 				// if (skill_lv > 5) {
@@ -6013,9 +6015,9 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 			skill_attack(BF_MAGIC,src,src,bl,skill_id,skill_lv,tick,flag);
 		break;
 
-	case SR_DRAGONCOMBO:
-		skill_attack(BF_WEAPON,src,src,bl,skill_id,skill_lv,tick,flag);
-		break;
+	// case SR_DRAGONCOMBO:
+		// skill_attack(BF_WEAPON,src,src,bl,skill_id,skill_lv,tick,flag);
+		// break;
 
 	case SR_KNUCKLEARROW:
 		// Holds current direction of bl/target to src/attacker before the src is moved to bl location
@@ -22671,33 +22673,33 @@ uint64 SkillDatabase::parseBodyNode(const YAML::Node &node) {
 				memset(skill->require.spiritball, 0, sizeof(skill->require.spiritball));
 		}
 
-		if (this->nodeExists(requireNode, "ItemCost")) {
-			const YAML::Node &itemNode = requireNode["ItemCost"];
-			int32 count = 0;
+		// if (this->nodeExists(requireNode, "ItemCost")) {
+		// 	const YAML::Node &itemNode = requireNode["ItemCost"];
+		// 	int32 count = 0;
 
-			for (const YAML::Node &it : itemNode) {
-				std::string item_name;
+		// 	for (const YAML::Node &it : itemNode) {
+		// 		std::string item_name;
 
-				if (!this->asString(it, "Item", item_name))
-					continue;
+		// 		if (!this->asString(it, "Item", item_name))
+		// 			continue;
 
-				std::shared_ptr<item_data> item = item_db.search_aegisname( item_name.c_str() );
+		// 		std::shared_ptr<item_data> item = item_db.search_aegisname( item_name.c_str() );
 
-				if (item == nullptr) {
-					this->invalidWarning(itemNode["Item"], "Requires ItemCost Item %s does not exist.\n", item_name.c_str());
-					return 0;
-				}
+		// 		if (item == nullptr) {
+		// 			this->invalidWarning(itemNode["Item"], "Requires ItemCost Item %s does not exist.\n", item_name.c_str());
+		// 			return 0;
+		// 		}
 
-				int32 amount;
+		// 		int32 amount;
 
-				if (!this->asInt32(it, "Amount", amount))
-					continue;
+		// 		if (!this->asInt32(it, "Amount", amount))
+		// 			continue;
 
-				skill->require.itemid[count] = item->nameid;
-				skill->require.amount[count] = amount;
-				count++;
-			}
-		}
+		// 		skill->require.itemid[count] = item->nameid;
+		// 		skill->require.amount[count] = amount;
+		// 		count++;
+		// 	}
+		// }
 
 		if (this->nodeExists(requireNode, "Equipment")) {
 			const YAML::Node &equipNode = requireNode["Equipment"];

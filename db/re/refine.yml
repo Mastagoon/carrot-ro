@@ -52,7 +52,7 @@ Body:
             Bonus: 100
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 2000
                 Material: Elunium
               - Type: HD
@@ -67,7 +67,7 @@ Body:
             Bonus: 200
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 2000
                 Material: Elunium
               - Type: HD
@@ -82,7 +82,7 @@ Body:
             Bonus: 300
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 2000
                 Material: Elunium
               - Type: HD
@@ -97,7 +97,7 @@ Body:
             Bonus: 400
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 2000
                 Material: Elunium
               - Type: HD
@@ -112,7 +112,7 @@ Body:
             Bonus: 600
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 2000
                 Material: Elunium
                 BreakingRate: 10000
@@ -130,7 +130,7 @@ Body:
             Bonus: 800
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 2000
                 Material: Elunium
                 BreakingRate: 10000
@@ -148,7 +148,7 @@ Body:
             Bonus: 1000
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 2000
                 Material: Elunium
                 BreakingRate: 10000
@@ -167,7 +167,7 @@ Body:
             BlacksmithBlessingAmount: 1
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 2000
                 Material: Elunium
                 BreakingRate: 10000
@@ -186,7 +186,7 @@ Body:
             BlacksmithBlessingAmount: 2
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 2000
                 Material: Elunium
                 BreakingRate: 10000
@@ -205,7 +205,7 @@ Body:
             BlacksmithBlessingAmount: 4
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 2000
                 Material: Elunium
                 BreakingRate: 10000
@@ -224,7 +224,7 @@ Body:
             BlacksmithBlessingAmount: 7
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Carnium
                 BreakingRate: 2000
@@ -239,7 +239,7 @@ Body:
             BlacksmithBlessingAmount: 11
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Carnium
                 BreakingRate: 2000
@@ -254,7 +254,7 @@ Body:
             BlacksmithBlessingAmount: 16
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Carnium
                 BreakingRate: 2000
@@ -269,7 +269,7 @@ Body:
             BlacksmithBlessingAmount: 22
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Carnium
                 BreakingRate: 2000
@@ -283,7 +283,7 @@ Body:
             Bonus: 3600
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Carnium
                 BreakingRate: 2000
@@ -297,7 +297,7 @@ Body:
             Bonus: 4000
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Carnium
                 BreakingRate: 2000
@@ -311,7 +311,7 @@ Body:
             Bonus: 4500
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Carnium
                 BreakingRate: 2000
@@ -325,7 +325,7 @@ Body:
             Bonus: 5000
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Carnium
                 BreakingRate: 2000
@@ -339,7 +339,7 @@ Body:
             Bonus: 5500
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Carnium
                 BreakingRate: 2000
@@ -353,7 +353,7 @@ Body:
             Bonus: 6000
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Carnium
                 BreakingRate: 2000
@@ -371,7 +371,7 @@ Body:
             Bonus: 200
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 50
                 Material: Phracon
               - Type: HD
@@ -386,7 +386,7 @@ Body:
             Bonus: 400
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 50
                 Material: Phracon
               - Type: HD
@@ -401,7 +401,7 @@ Body:
             Bonus: 600
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 50
                 Material: Phracon
               - Type: HD
@@ -416,7 +416,7 @@ Body:
             Bonus: 800
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 50
                 Material: Phracon
               - Type: HD
@@ -431,7 +431,7 @@ Body:
             Bonus: 1000
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 50
                 Material: Phracon
               - Type: HD
@@ -446,7 +446,7 @@ Body:
             Bonus: 1200
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 50
                 Material: Phracon
               - Type: HD
@@ -461,7 +461,7 @@ Body:
             Bonus: 1400
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 50
                 Material: Phracon
               - Type: HD
@@ -478,7 +478,7 @@ Body:
             BlacksmithBlessingAmount: 1
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 50
                 Material: Phracon
                 BreakingRate: 10000
@@ -498,7 +498,7 @@ Body:
             BlacksmithBlessingAmount: 2
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 50
                 Material: Phracon
                 BreakingRate: 10000
@@ -518,7 +518,7 @@ Body:
             BlacksmithBlessingAmount: 4
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 50
                 Material: Phracon
                 BreakingRate: 10000
@@ -538,7 +538,7 @@ Body:
             BlacksmithBlessingAmount: 7
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -554,7 +554,7 @@ Body:
             BlacksmithBlessingAmount: 11
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -570,7 +570,7 @@ Body:
             BlacksmithBlessingAmount: 16
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -586,7 +586,7 @@ Body:
             BlacksmithBlessingAmount: 22
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -601,7 +601,7 @@ Body:
             RandomBonus: 2400
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -616,7 +616,7 @@ Body:
             RandomBonus: 2700
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -631,7 +631,7 @@ Body:
             RandomBonus: 3000
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -646,7 +646,7 @@ Body:
             RandomBonus: 3300
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -661,7 +661,7 @@ Body:
             RandomBonus: 3600
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -676,7 +676,7 @@ Body:
             RandomBonus: 3900
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -692,7 +692,7 @@ Body:
             Bonus: 300
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 200
                 Material: Emveretarcon
               - Type: HD
@@ -707,7 +707,7 @@ Body:
             Bonus: 600
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 200
                 Material: Emveretarcon
               - Type: HD
@@ -722,7 +722,7 @@ Body:
             Bonus: 900
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 200
                 Material: Emveretarcon
               - Type: HD
@@ -737,7 +737,7 @@ Body:
             Bonus: 1200
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 200
                 Material: Emveretarcon
               - Type: HD
@@ -752,7 +752,7 @@ Body:
             Bonus: 1500
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 200
                 Material: Emveretarcon
               - Type: HD
@@ -767,7 +767,7 @@ Body:
             Bonus: 1800
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 200
                 Material: Emveretarcon
               - Type: HD
@@ -783,7 +783,7 @@ Body:
             RandomBonus: 500
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 200
                 Material: Emveretarcon
                 BreakingRate: 10000
@@ -803,7 +803,7 @@ Body:
             BlacksmithBlessingAmount: 1
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 200
                 Material: Emveretarcon
                 BreakingRate: 10000
@@ -823,7 +823,7 @@ Body:
             BlacksmithBlessingAmount: 2
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 200
                 Material: Emveretarcon
                 BreakingRate: 10000
@@ -843,7 +843,7 @@ Body:
             BlacksmithBlessingAmount: 4
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 200
                 Material: Emveretarcon
                 BreakingRate: 10000
@@ -863,7 +863,7 @@ Body:
             BlacksmithBlessingAmount: 7
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -879,7 +879,7 @@ Body:
             BlacksmithBlessingAmount: 11
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -895,7 +895,7 @@ Body:
             BlacksmithBlessingAmount: 16
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -911,7 +911,7 @@ Body:
             BlacksmithBlessingAmount: 22
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -926,7 +926,7 @@ Body:
             RandomBonus: 4500
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -941,7 +941,7 @@ Body:
             RandomBonus: 5000
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -956,7 +956,7 @@ Body:
             RandomBonus: 5500
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -971,7 +971,7 @@ Body:
             RandomBonus: 6000
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -986,7 +986,7 @@ Body:
             RandomBonus: 6500
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1001,7 +1001,7 @@ Body:
             RandomBonus: 7000
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1017,7 +1017,7 @@ Body:
             Bonus: 500
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 5000
                 Material: Oridecon
               - Type: HD
@@ -1032,7 +1032,7 @@ Body:
             Bonus: 1000
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 5000
                 Material: Oridecon
               - Type: HD
@@ -1047,7 +1047,7 @@ Body:
             Bonus: 1500
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 5000
                 Material: Oridecon
               - Type: HD
@@ -1062,7 +1062,7 @@ Body:
             Bonus: 2000
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 5000
                 Material: Oridecon
               - Type: HD
@@ -1077,7 +1077,7 @@ Body:
             Bonus: 2500
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 5000
                 Material: Oridecon
               - Type: HD
@@ -1093,7 +1093,7 @@ Body:
             RandomBonus: 800
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 5000
                 Material: Oridecon
                 BreakingRate: 10000
@@ -1112,7 +1112,7 @@ Body:
             RandomBonus: 1600
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 5000
                 Material: Oridecon
                 BreakingRate: 10000
@@ -1132,7 +1132,7 @@ Body:
             BlacksmithBlessingAmount: 1
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 5000
                 Material: Oridecon
                 BreakingRate: 10000
@@ -1152,7 +1152,7 @@ Body:
             BlacksmithBlessingAmount: 2
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 5000
                 Material: Oridecon
                 BreakingRate: 10000
@@ -1172,7 +1172,7 @@ Body:
             BlacksmithBlessingAmount: 4
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 5000
                 Material: Oridecon
                 BreakingRate: 10000
@@ -1192,7 +1192,7 @@ Body:
             BlacksmithBlessingAmount: 7
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1208,7 +1208,7 @@ Body:
             BlacksmithBlessingAmount: 11
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1224,7 +1224,7 @@ Body:
             BlacksmithBlessingAmount: 16
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1240,7 +1240,7 @@ Body:
             BlacksmithBlessingAmount: 22
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1255,7 +1255,7 @@ Body:
             RandomBonus: 8000
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1270,7 +1270,7 @@ Body:
             RandomBonus: 8800
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1285,7 +1285,7 @@ Body:
             RandomBonus: 9600
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1300,7 +1300,7 @@ Body:
             RandomBonus: 10400
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1315,7 +1315,7 @@ Body:
             RandomBonus: 11200
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1330,7 +1330,7 @@ Body:
             RandomBonus: 12000
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1346,7 +1346,7 @@ Body:
             Bonus: 700
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 20000
                 Material: Oridecon
               - Type: HD
@@ -1361,7 +1361,7 @@ Body:
             Bonus: 1400
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 20000
                 Material: Oridecon
               - Type: HD
@@ -1376,7 +1376,7 @@ Body:
             Bonus: 2100
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 20000
                 Material: Oridecon
               - Type: HD
@@ -1391,7 +1391,7 @@ Body:
             Bonus: 2800
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 20000
                 Material: Oridecon
               - Type: HD
@@ -1407,7 +1407,7 @@ Body:
             RandomBonus: 1400
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 20000
                 Material: Oridecon
                 BreakingRate: 10000
@@ -1426,7 +1426,7 @@ Body:
             RandomBonus: 2800
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 20000
                 Material: Oridecon
                 BreakingRate: 10000
@@ -1445,7 +1445,7 @@ Body:
             RandomBonus: 4200
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 20000
                 Material: Oridecon
                 BreakingRate: 10000
@@ -1465,7 +1465,7 @@ Body:
             BlacksmithBlessingAmount: 1
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 20000
                 Material: Oridecon
                 BreakingRate: 10000
@@ -1485,7 +1485,7 @@ Body:
             BlacksmithBlessingAmount: 2
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 20000
                 Material: Oridecon
                 BreakingRate: 10000
@@ -1505,7 +1505,7 @@ Body:
             BlacksmithBlessingAmount: 4
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 20000
                 Material: Oridecon
                 BreakingRate: 10000
@@ -1525,7 +1525,7 @@ Body:
             BlacksmithBlessingAmount: 7
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1541,7 +1541,7 @@ Body:
             BlacksmithBlessingAmount: 11
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1557,7 +1557,7 @@ Body:
             BlacksmithBlessingAmount: 16
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1573,7 +1573,7 @@ Body:
             BlacksmithBlessingAmount: 22
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1588,7 +1588,7 @@ Body:
             RandomBonus: 15400
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1603,7 +1603,7 @@ Body:
             RandomBonus: 16800
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1618,7 +1618,7 @@ Body:
             RandomBonus: 18200
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1633,7 +1633,7 @@ Body:
             RandomBonus: 19600
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1648,7 +1648,7 @@ Body:
             RandomBonus: 21000
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1663,7 +1663,7 @@ Body:
             RandomBonus: 22400
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 100000
                 Material: Bradium
                 BreakingRate: 2000
@@ -1680,7 +1680,7 @@ Body:
           - Level: 1
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Elunium
               - Type: HD
@@ -1694,7 +1694,7 @@ Body:
           - Level: 2
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Elunium
               - Type: HD
@@ -1708,7 +1708,7 @@ Body:
           - Level: 3
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Elunium
               - Type: HD
@@ -1722,7 +1722,7 @@ Body:
           - Level: 4
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Elunium
               - Type: HD
@@ -1736,7 +1736,7 @@ Body:
           - Level: 5
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Elunium
                 BreakingRate: 10000
@@ -1753,7 +1753,7 @@ Body:
           - Level: 6
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Elunium
                 BreakingRate: 10000
@@ -1770,7 +1770,7 @@ Body:
           - Level: 7
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Elunium
                 BreakingRate: 10000
@@ -1787,7 +1787,7 @@ Body:
           - Level: 8
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Elunium
                 BreakingRate: 10000
@@ -1804,7 +1804,7 @@ Body:
           - Level: 9
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Elunium
                 BreakingRate: 10000
@@ -1821,7 +1821,7 @@ Body:
           - Level: 10
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Elunium
                 BreakingRate: 10000
@@ -1842,7 +1842,7 @@ Body:
           - Level: 1
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Oridecon
               - Type: HD
@@ -1856,7 +1856,7 @@ Body:
           - Level: 2
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Oridecon
               - Type: HD
@@ -1870,7 +1870,7 @@ Body:
           - Level: 3
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Oridecon
               - Type: HD
@@ -1884,7 +1884,7 @@ Body:
           - Level: 4
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Oridecon
               - Type: HD
@@ -1898,7 +1898,7 @@ Body:
           - Level: 5
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Oridecon
                 BreakingRate: 10000
@@ -1915,7 +1915,7 @@ Body:
           - Level: 6
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Oridecon
                 BreakingRate: 10000
@@ -1932,7 +1932,7 @@ Body:
           - Level: 7
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Oridecon
                 BreakingRate: 10000
@@ -1949,7 +1949,7 @@ Body:
           - Level: 8
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Oridecon
                 BreakingRate: 10000
@@ -1966,7 +1966,7 @@ Body:
           - Level: 9
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Oridecon
                 BreakingRate: 10000
@@ -1983,7 +1983,7 @@ Body:
           - Level: 10
             Chances:
               - Type: Normal
-                Rate: 0
+                Rate: 1
                 Price: 10000
                 Material: Oridecon
                 BreakingRate: 10000
