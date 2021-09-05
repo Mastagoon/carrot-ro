@@ -6962,7 +6962,6 @@ Body:
     TargetType: Self
     DamageFlags:
       NoDamage: true
-    Cooldown: 20000
     Requires:
       SpCost: 50
   - Id: 247
@@ -6976,7 +6975,7 @@ Body:
     Hit: Single
     SplashArea: 1
     CastTime: 2000
-    Cooldown: 20000
+    # Cooldown: 20000
     FixedCastTime: 1000
     Requires:
       SpCost:
@@ -9948,7 +9947,7 @@ Body:
       NoDamage: true
     Hit: Single
     HitCount: 1
-    Duration1: 60000
+    Duration1: 30000
     FixedCastTime: 700
     CastTimeFlags:
       IgnoreDex: true
@@ -10349,13 +10348,13 @@ Body:
     TargetType: Attack
     DamageFlags:
       Critical: false
-    Range: 4
+    Range: 9
     Hit: Single
     HitCount: 1
     Element: Weapon
     CastCancel: true
     CastTime: 250
-    AfterCastActDelay: 1000
+    AfterCastActDelay: 2000
     FixedCastTime: 250
     Requires:
       SpCost: 20
@@ -10431,11 +10430,11 @@ Body:
       Critical: true
     Flags:
       TargetTrap: true
-    Range: 11
+    Range: 9
     Hit: Multi_Hit
     HitCount: 1
     Element: Weapon
-    SplashArea: 2
+    SplashArea: 1
     ActiveInstance: 14
     CastCancel: true
     CastTime: 500
@@ -17797,7 +17796,7 @@ Body:
     Hit: Single
     HitCount: 1
     Element: Weapon
-    SplashArea: 4
+    SplashArea: 5
     CopyFlags:
       Skill:
         Reproduce: true
@@ -19475,6 +19474,7 @@ Body:
           Amount: 25
         - Level: 10
           Amount: 27
+    Knockback: 3
       Status:
         Weaponblock_On: true
   - Id: 2030
@@ -19669,7 +19669,7 @@ Body:
     Hit: Single
     HitCount: 1
     Element: Weapon
-    AfterCastActDelay: 1000
+    AfterCastActDelay: 500  
     Requires:
       SpCost:
         - Level: 1
@@ -23050,7 +23050,7 @@ Body:
     TargetType: Attack
     DamageFlags:
       Splash: true
-      Critical: true
+      Critical: false
     Range: 7
     Hit: Multi_Hit
     HitCount: 1
@@ -23176,7 +23176,7 @@ Body:
       State: Shield
   - Id: 2311
     Name: LG_REFLECTDAMAGE
-    Description: Reflect Damage Reduction
+    Description: Reflect Damage
     MaxLevel: 5
     TargetType: Self
     DamageFlags:
@@ -23256,10 +23256,37 @@ Body:
     Description: Shield Spell
     MaxLevel: 3
     TargetType: Self
+    DamageFlags:
+      Splash: true
+    Hit: Single
+    HitCount: 1
+    Element:
+      - Level: 1
+        Element: Neutral
+      - Level: 2
+        Element: Holy
+      - Level: 3
+        Element: Neutral
+    Knockback:
+      - Level: 1
+        Amount: 2
+      - Level: 2
+        Amount: 0
+      - Level: 3
+        Amount: 0
+    CopyFlags:
+      Skill:
+        Reproduce: true
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 1000
-    Duration1: 90000
+    Duration1:
+      - Level: 1
+        Time: 3000
+      - Level: 2
+        Time: 30000
+      - Level: 3
+        Time: 30000
     Cooldown: 2000
     Requires:
       SpCost: 50
@@ -23307,15 +23334,15 @@ Body:
     Description: Over Brand
     MaxLevel: 5
     Type: Weapon
-    TargetType: Self
+    TargetType: Ground
     DamageFlags:
       Splash: true
     Range: 2
-    Hit: Multi_Hit
-    HitCount: 3
+    Hit: Single
+    HitCount: 1
     Element: Weapon
-    SplashArea: 3
     CastCancel: true
+    CastTime: 500
     AfterCastActDelay: 2000
     Requires:
       SpCost:
@@ -23379,19 +23406,19 @@ Body:
       Splash: true
     Hit: Single
     HitCount: 1
-    SplashArea: 5
+    SplashArea: 3
     Duration1: -1
     Duration2:
       - Level: 1
-        Time: 60000
+        Time: 2000
       - Level: 2
-        Time: 90000
+        Time: 4000
       - Level: 3
-        Time: 120000
+        Time: 6000
       - Level: 4
-        Time: 150000
+        Time: 8000
       - Level: 5
-        Time: 180000
+        Time: 10000
     Requires:
       SpCost:
         - Level: 1
@@ -23471,7 +23498,7 @@ Body:
     Description: Ray of Genesis
     MaxLevel: 5
     Type: Magic
-    TargetType: Self
+    TargetType: Ground
     DamageFlags:
       Splash: true
     Range: 1
@@ -23588,7 +23615,7 @@ Body:
       TargetHidden: true
     Hit: Multi_Hit
     HitCount: -5
-    Element: Weapon
+    Element: Earth
     SplashArea:
       - Level: 1
         Area: 1
@@ -23684,15 +23711,15 @@ Body:
     AfterCastActDelay: 2000
     Duration1:
       - Level: 1
-        Time: 60000
+        Time: 30000
       - Level: 2
-        Time: 90000
+        Time: 45000
       - Level: 3
-        Time: 120000
+        Time: 60000
       - Level: 4
-        Time: 150000
+        Time: 75000
       - Level: 5
-        Time: 180000
+        Time: 90000
     Cooldown:
       - Level: 1
         Time: 60000
@@ -23729,6 +23756,17 @@ Body:
     Hit: Single
     HitCount: 1
     Element: Weapon
+    Knockback:
+      - Level: 1
+        Amount: 3
+      - Level: 2
+        Amount: 4
+      - Level: 3
+        Amount: 5
+      - Level: 4
+        Amount: 6
+      - Level: 5
+        Amount: 7
     CopyFlags:
       Skill:
         Reproduce: true
@@ -23754,7 +23792,7 @@ Body:
     MaxLevel: 10
     Type: Weapon
     TargetType: Attack
-    Range: 2
+    Range: 1
     Hit: Multi_Hit
     HitCount: -2
     Element: Weapon
@@ -23876,7 +23914,7 @@ Body:
     TargetType: Self
     Flags:
       NoTargetSelf: true
-    Range: 2
+    Range: 1
     Hit: Multi_Hit
     HitCount: -2
     Element: Weapon
@@ -24106,7 +24144,7 @@ Body:
       SpCost: 100
       Status:
         Explosionspirits: true
-      SpiritSphereCost: 3
+      SpiritSphereCost: 5
   - Id: 2333
     Name: SR_CRESCENTELBOW
     Description: Crescent Elbow
@@ -24362,25 +24400,25 @@ Body:
     AfterCastActDelay: 1000
     Duration1:
       - Level: 1
-        Time: 120000
+        Time: 30000
       - Level: 2
-        Time: 140000
+        Time: 45000
       - Level: 3
-        Time: 160000
+        Time: 60000
       - Level: 4
-        Time: 180000
+        Time: 75000
       - Level: 5
-        Time: 200000
+        Time: 90000
       - Level: 6
-        Time: 220000
+        Time: 105000
       - Level: 7
-        Time: 240000
+        Time: 120000
       - Level: 8
-        Time: 260000
+        Time: 135000
       - Level: 9
-        Time: 280000
+        Time: 150000
       - Level: 10
-        Time: 300000
+        Time: 165000
     Cooldown: 30000
     Requires:
       SpCost: 120
@@ -26545,7 +26583,28 @@ Body:
       - Level: 5
         Time: 3100
     AfterCastActDelay: 1000
-    Duration1: 5000
+    Duration1:
+      - Level: 1
+        Time: 8000
+      - Level: 2
+        Time: 10000
+      - Level: 3
+        Time: 12000
+      - Level: 4
+        Time: 14000
+      - Level: 5
+        Time: 16000
+    Duration2:
+      - Level: 1
+        Time: 4000
+      - Level: 2
+        Time: 8000
+      - Level: 3
+        Time: 12000
+      - Level: 4
+        Time: 16000
+      - Level: 5
+        Time: 20000
     Cooldown: 5000
     FixedCastTime:
       - Level: 1
@@ -26591,7 +26650,7 @@ Body:
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 1000
-    Duration1: 90000
+    Duration1: 60000
     Cooldown: 2000
     Requires:
       SpCost:
@@ -27542,11 +27601,9 @@ Body:
     Description: Blood Sucker
     MaxLevel: 5
     Type: Misc
-    TargetType: Support
+    TargetType: Attack
     DamageFlags:
       NoDamage: true
-    Flags:
-      PartyOnly: true
     Range: 11
     Hit: Single
     HitCount: 1
@@ -27559,15 +27616,15 @@ Body:
     AfterCastActDelay: 500
     Duration1:
       - Level: 1
-        Time: 40000
+        Time: 20000
       - Level: 2
-        Time: 100000
+        Time: 22000
       - Level: 3
-        Time: 160000
+        Time: 24000
       - Level: 4
-        Time: 220000
+        Time: 26000
       - Level: 5
-        Time: 280000
+        Time: 28000
     Requires:
       SpCost:
         - Level: 1
@@ -27622,7 +27679,7 @@ Body:
     CastCancel: true
     CastTime: 1500
     AfterCastActDelay: 500
-    Duration1: 5000
+    Duration1: 500
     Cooldown: 5000
     Requires:
       SpCost:
@@ -34786,7 +34843,7 @@ Body:
     Unit:
       Id: Lava_Slide
       Layout: 3
-      Interval: 1000
+      Interval: 2000
       Target: Enemy
       Flag:
         NoReiteration: true
@@ -34826,25 +34883,25 @@ Body:
     AfterCastActDelay: 1000
     Duration1:
       - Level: 1
-        Time: 330000
+        Time: 60000
       - Level: 2
-        Time: 360000
+        Time: 80000
       - Level: 3
-        Time: 390000
+        Time: 100000
       - Level: 4
-        Time: 420000
+        Time: 120000
       - Level: 5
-        Time: 450000
+        Time: 140000
       - Level: 6
-        Time: 480000
+        Time: 160000
       - Level: 7
-        Time: 510000
+        Time: 180000
       - Level: 8
-        Time: 540000
+        Time: 200000
       - Level: 9
-        Time: 570000
+        Time: 220000
       - Level: 10
-        Time: 600000
+        Time: 240000
     FixedCastTime: 200
     Requires:
       SpCost:

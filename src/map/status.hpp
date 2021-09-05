@@ -543,9 +543,9 @@ enum sc_type : int16 {
 	 **/
 	SC_REFLECTDAMAGE,
 	SC_FORCEOFVANGUARD,
-	SC_SHIELDSPELL_HP,
-	SC_SHIELDSPELL_SP,
-	SC_SHIELDSPELL_ATK,//380
+	SC_SHIELDSPELL_DEF,
+	SC_SHIELDSPELL_MDEF,
+	SC_SHIELDSPELL_REF,//380
 	SC_EXEEDBREAK,
 	SC_PRESTIGE,
 	SC_BANDING,
@@ -2707,6 +2707,7 @@ struct status_change {
 #ifndef RENEWAL
 	unsigned char sg_counter; //Storm gust counter (previous hits from storm gust)
 #endif
+    unsigned char bs_counter; // Blood Sucker counter
 	struct status_change_entry *data[SC_MAX];
 };
 
