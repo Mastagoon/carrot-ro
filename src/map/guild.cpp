@@ -2083,11 +2083,9 @@ int guild_break(struct map_session_data *sd,char *name) {
 			}
 		}
 
-        for (i = 0; i < count; i++)
-			skill_delunitgroup(group[i]);
 		// for (auto it = group.begin(); it != group.end(); it++) {
 		// 	skill_delunitgroup(*it);
-		}
+		// }
 	}
 
 #ifdef BOUND_ITEMS

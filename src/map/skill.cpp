@@ -12462,7 +12462,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 	case SA_DELUGE:
 	case SA_VIOLENTGALE:
 	{	//Does not consumes if the skill is already active. [Skotlex]
-		std::shared_ptr<s_skill_unit_group> sg2;
+		struct skill_unit_group *sg2;
 		if ((sg2= skill_locate_element_field(src)) != NULL && ( sg2->skill_id == SA_VOLCANO || sg2->skill_id == SA_DELUGE || sg2->skill_id == SA_VIOLENTGALE ))
 		{
 			if (sg2->limit - DIFF_TICK(gettick(), sg2->tick) > 0)
@@ -15342,6 +15342,7 @@ int skill_unit_onleft(uint16 skill_id, struct block_list *bl, t_tick tick)
  *------------------------------------------*/
 static int skill_unit_effect(struct block_list* bl, va_list ap)
 {
+    struct skill_unit* unit = va_arg(ap,struct skill_unit*);
 	struct skill_unit_group* group = unit->group;
 	t_tick tick = va_arg(ap,t_tick);
 	unsigned int flag = va_arg(ap,unsigned int);
@@ -18254,6 +18255,7 @@ int skill_clear_group(struct block_list *bl, int flag)
 
     for (i = 0; i < count; i++)
 		skill_delunitgroup(group[i]);
+        
 	return count;
 }
 
@@ -18287,7 +18289,7 @@ struct skill_unit_group *skill_locate_element_field(struct block_list *bl)
 			case MH_LAVA_SLIDE:
 				return ud->skillunit[i];
 		}
-	}
+	
 	return NULL;
 }
 
@@ -19361,7 +19363,7 @@ int skill_delunitgroup_(struct skill_unit_group *group, const char* file, int li
 	// if (skillunit_group_db.erase(group->group_id) != 1)
 		ShowError("skill_delunitgroup: Group not found! (src_id: %d skill_id: %d)\n", group->src_id, group->skill_id);
 
-    util::vector_erase_if_exists(ud->skillunits, group);
+    // util::vector_erase_if_exists(ud->skillunits, group);
 
 	if(link_group_id) {
 		struct skill_unit_group* group_cur = skill_id2group(link_group_id);
@@ -19441,6 +19443,7 @@ int skill_unit_timer_sub_onplace(struct block_list* bl, va_list ap)
 {
 	struct skill_unit* unit = va_arg(ap,struct skill_unit *);
 	struct skill_unit_group* group = NULL;
+    t_tick tick = va_arg(ap,t_tick);
 
 	nullpo_ret(unit);
 
@@ -19467,6 +19470,7 @@ int skill_unit_timer_sub_onplace(struct block_list* bl, va_list ap)
  */
 static int skill_unit_timer_sub(DBKey key, DBData *data, va_list ap)
 {
+    struct skill_unit* unit = (struct skill_unit*)db_data2ptr(data);
 	struct skill_unit_group* group = NULL;
 	t_tick tick = va_arg(ap,t_tick);
 	bool dissonance;
