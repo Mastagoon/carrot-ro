@@ -94,7 +94,7 @@ Body:
     AegisName: Carrot_Suit
     Name: Carrot Suit
     Type: Armor
-    Weight: 750
+    Weight: 0
     Defense: 50
     Slots: 1
     Jobs:
@@ -120,7 +120,7 @@ Body:
     Name: Carrot Manteau
     Type: Armor
     Buy: 10
-    Weight: 600
+    Weight: 0
     Defense: 32
     Slots: 1
     Jobs:
@@ -138,7 +138,7 @@ Body:
     Name: Carrot Boots
     Type: Armor
     Buy: 10
-    Weight: 500
+    Weight: 0
     Defense: 20
     Slots: 1
     Jobs:
@@ -151,3 +151,15 @@ Body:
       bonus bMdef,5;
       bonus2 bSubRace,RC_Player_Human,1;
       bonus2 bSubRace,RC_Player_Doram,1;
+  - Id: 100003
+    AegisName: Homunculus_Embryo
+    Name: Homunculus Embryo
+    Type: Delayconsume
+    Buy: 10
+    Weight: 1
+    Defense: 20
+    Slots: 1
+    Jobs:
+      Alchemist: true
+    Script: |
+      doevent "hom_maker::OnMake";
