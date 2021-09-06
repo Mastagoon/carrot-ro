@@ -1,4 +1,4 @@
-dicastes01,205,187,4	script	 Õ”Ì‰ «·√œÊ« 	63,{
+dicastes01,205,185,4	script	 Õ”Ì‰ «·√œÊ« 	63,{
     setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
     for(.@i = 1; .@i<getarraysize(.@indices); ++.@i) {
 		if(getequipisequiped(.@indices[.@i])) {

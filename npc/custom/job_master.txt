@@ -1,15 +1,15 @@
-dicastes01,205,189,7	script	г’ЎЁм ё—Џ	47,13,13,{
+dicastes01,205,189,7	script	пњљпњљпњљпњљпњљ пњљпњљпњљ	47,13,13,{
 function Get_Job_Equip;
 function getitemarray;
 OnPCLoginEvent:
     if(Class != Novice) end;
-    mes "[^0000ffё—Џ г’ЎЁм^000000]";
-    mes mesAr("г—Ќ»«р »я Ён ћ“—… —ж, !!!");
-    mes mesAr("ЌнЋ нгядя √д  ’»Ќ √ёжм «бб«Џ»нд");
-    mes mesAr("ж е“г ћгнЏ «бжЌжж‘‘жжж‘!!");
+    mes "[^0000ffпњљпњљпњљ пњљпњљпњљпњљпњљ^000000]";
+    mes mesAr("пњљпњљпњљпњљпњљпњљ пњљпњљ пњљпњљ пњљпњљпњљпњљ пњљпњљ, !!!");
+    mes mesAr("пњљпњљпњљ пњљпњљпњљпњљпњљ пњљпњљ пњљпњљпњљпњљ пњљпњљпњљпњљ пњљпњљпњљпњљпњљпњљпњљпњљ");
+    mes mesAr("пњљпњљпњљпњљпњљ пњљпњљпњљпњљ пњљпњљпњљпњљпњљпњљпњљпњљпњљпњљпњљпњљ!!");
     next;
-    mes "[^0000ffё—Џ г’ЎЁм^000000]";
-    mes mesAr("≈ќ — гед я");
+    mes "[^0000ffпњљпњљпњљ пњљпњљпњљпњљпњљ^000000]";
+    mes mesAr("пњљпњљпњљпњљ пњљпњљпњљпњљпњљ");
     for (.@i = 0; .@i < getarraysize(.job); .@i++)
 		.@menu$ = .@menu$ + jobname(.job[.@i]) + ":";
 	.@s = select(.@menu$)-1;
@@ -34,7 +34,7 @@ function	Get_Job_Equip	{
         getitem2 100000,1,1,9,0,0,0,0,0;
         getitem2 100001,1,1,9,0,0,0,0,0;
         getitem2 100002,1,1,9,0,0,0,0,0;
-        // getitem2 22008,1,1,9,0,0,0,0,0;
+        getitem2 22008,1,1,9,0,0,0,0,0;
         getitem2 2576,1,1,9,0,0,0,0,0;
         // getitem 1228,1;
         getitem 515,25000;
@@ -61,7 +61,7 @@ function    getitemarray    {
 }
 
 OnInit:
-	waitingroom " џнн— «бгед…",0;
+	waitingroom "пњљпњљпњљпњљпњљ пњљпњљпњљпњљпњљпњљ",0;
     .GetJobEquip = True;
     //DEF Equipments:
     setarray .job[0],JOB_RUNE_KNIGHT_T,JOB_WARLOCK_T,JOB_RANGER_T,JOB_ARCH_BISHOP_T,JOB_MECHANIC_T,JOB_GUILLOTINE_CROSS_T,JOB_ROYAL_GUARD_T,JOB_SORCERER_T,JOB_MINSTREL_T,JOB_WANDERER_T,JOB_SURA_T,JOB_GENETIC_T,JOB_SHADOW_CHASER_T,JOB_KAGEROU,JOB_OBORO,JOB_REBELLION,JOB_SUMMONER,JOB_STAR_EMPEROR,JOB_SOUL_REAPER;
@@ -88,4 +88,4 @@ OnInit:
     end;
 }
 
-// dicastes01,191,189,4	duplicate(г’ЎЁм ё—Џ)	г’ЎЁм ё—Џ#dic	123
+// dicastes01,191,189,4	duplicate(пњљпњљпњљпњљпњљ пњљпњљпњљ)	пњљпњљпњљпњљпњљ пњљпњљпњљ#dic	123

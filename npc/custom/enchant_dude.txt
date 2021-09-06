@@ -1,0 +1,157 @@
+dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
+    mes .n$;
+	if (checkweight(1201,1) == 0) {
+		mes "You have too many kinds of objects. Let's try to continue after reducing those objects.";
+		close;
+	}
+	if (MaxWeight - Weight < 10000) {
+		mes "Can't continue because you have too many heavy objects. Let's try to continue after reducing the weight.";
+		close;
+	}
+	mes "Choose Type";
+	switch(select(implode(.menu$, ":"))-1) {
+		case 0:
+			// Malangdo enchant
+			mes .n$;
+			mes "Go enchant in malangdo.";
+			getitem 6423,1000;
+			getitem 6417,1;
+			close;
+		case 1:
+			mes "- Choose Boots -";
+			setarray .@boot_type[0],
+				22006,	// Normal slotted STR_Boots
+				22009,	// Normal slotted INT_Boots
+				22010,	// Normal slotted AGI_Boots
+				22007,	// Normal slotted VIT_Boots
+				22008,	// Normal slotted DEX_Boots
+				22011;	// Normal slotted LUK_Boots
+			.@boot = .@boot_type[select("Str Boots:Int Boots:Agi Boots:Vit Boots:Dex Boots:Luk Boots")-1];
+			setarray .@enchants1[0],4822,4835,4826,4862,4881,4755;
+			mes "- Choose First Enchant -";
+			set .@enchant1, .@enchants1[select("Fighting Spirit:Expert Archer:Spell:MaxHP:DelayafterAttack(ASPD):Luck")-1];
+			next;
+			mes "- Choose Last Enchant -";
+			setarray .@enchants2[0],4875,4876,4877,4878,4879,4880;
+			set .@enchant2, .@enchants2[select("Bear's Power:Runaway Magic:Speed Of Light:Muscle Fool:Hawkeye:Lucky Day")-1];
+			next;
+			mes "- "+getitemname(.@boot)+" -";
+			mes "- "+getitemname(.@enchant1)+" -";
+			mes "- "+getitemname(.@enchant2)+" -";
+			mes "Â· «‰  „ √ﬂœ „‰ «Œ Ì«—« ﬂø";
+			mes "^ff0000·« Ì„ﬂ‰ ≈·€«¡ Â–Â «·⁄„·Ì… ⁄‰œ «·„Ê«›ﬁ…^000000";
+			if(select("‰⁄„ «‰« „ √ﬂœ:≈·€«¡") -1) close;
+			specialeffect2 EF_MAXPOWER;
+			getitem2 .@boot,1,1,0,0,0,0,.@enchant2,.@enchant1;
+			close;
+		case 2:
+			mes "- Choose Items -";
+			.@choice = select("Reinforced Parts Enchant:Excellion Enchant");
+			if(.@choice == 1) {
+				setarray .@items1[0],22044,22043,20733,20732;
+				setarray .@items2[0],15111,15110;
+				setarray .@items3[0],2996,2995;
+				switch(select("Booster, Agei Supplement, Engine, and Vit Supplement:Plate&Str Supplement,Gun barrel&DEX Supplement")) {
+					case 1:
+						.@itemId = .@items1[select("Reinforced Parts - Booster:AGI Supplement Equipment:Reinforced Parts - Engine:VIT Supplement Equipment")-1];
+						next;
+						mes "- Chosse #1 Enchant -";
+						setarray .@enchants[0],"Str3_J","Agi3_J","Vit3_J","Int3_J","Dex3_J","Luk3_J","Conjure2","Attack_Delay_2","Expert_Archer3";
+						.@enchant1 = select("Str:Agi:Vit:Int:Dex:Luk"+.@itemId === 22044 ? "Spell:ASPD" : .@itemId === 22043 ? ":ASPD" : "::Expert Archer")-1;
+						mes "- Chosse #2 Enchant -";
+						.@enchant2 = select("Str:Agi:Vit:Int:Dex:Luk"+.@itemId === 22044 ? "Spell:ASPD" : .@itemId === 22043 ? ":ASPD" : "::Expert Archer")-1;
+						mes "- Chosse #3 Enchant -";
+						.@enchant3 = select("Str:Agi:Vit:Int:Dex:Luk"+.@itemId === 22044 ? "Spell:ASPD" : .@itemId === 22043 ? ":ASPD" : "::Expert Archer")-1;
+						next;
+						mes "- "+getitemname(.@itemId)+" -";
+						mes "- "+getitemname(.@enchant1)+" -";
+						mes "- "+getitemname(.@enchant2)+" -";
+						mes "- "+getitemname(.@enchant3)+" -";
+						if(select("Continue:Cancel") -1 ) close;
+						getitem2 .@itemId,1,1,0,0,0,.@enchants[.@enchant3],.@enchants[.@enchant2],.@enchants[.@enchant1];
+						specialeffect2 EF_MAXPOWER;
+						close;
+					case 2:
+						.@itemId = .@items2[select("Reinforced Parts - Plate:STR Supplement Equipment")-1];
+						next;
+						mes "- Chosse #1 Enchant -";
+						if(.@itemId === 15111) setarray .@enchants[0],"Str3_J","Dex3_J","Fighting_Spirit2","Expert_Archer3";
+						else setarray .@enchants[0],"Vit3_J","MHP3","Tolerance_Not2","DEF9";
+						.@enchant1 = select(.@itemId === 15111 ? "Str:Dex:Fighting Spirit:Expert Archer" : "Vit:Max HP:Resist Neutral:Defense")-1;
+						mes "- Chosse #2 Enchant -";
+						.@enchant2 = select(.@itemId === 15111 ? "Str:Dex:Fighting Spirit:Expert Archer" : "Vit:Max HP:Resist Neutral:Defense")-1;
+						mes "- Chosse #3 Enchant -";
+						.@enchant3 = select(.@itemId === 15111 ? "Str:Dex:Fighting Spirit:Expert Archer" : "Vit:Max HP:Resist Neutral:Defense")-1;
+						next;
+						mes "- "+getitemname(.@itemId)+" -";
+						mes "- "+getitemname(.@enchant1)+" -";
+						mes "- "+getitemname(.@enchant2)+" -";
+						mes "- "+getitemname(.@enchant3)+" -";
+						if(select("Continue:Cancel") -1 ) close;
+						getitem2 .@itemId,1,1,0,0,0,.@enchants[.@enchant3],.@enchants[.@enchant2],.@enchants[.@enchant1];
+						specialeffect2 EF_MAXPOWER;
+						close;
+					case 3:
+						.@itemId = .@items3[select("Reinforced Parts - Gun Barrel:DEX Supplement Equipment")-1];
+						next;
+						mes "- Chosse #1 Enchant -";
+						setarray .@enchants[0],"Str2_J","Agi2_J","Vit2_J","Int2_J","Dex2_J","Luk2_J","Conjure1","Attack_Delay_1";
+						.@enchant1 = select("Str","Agi","Vit","Int","Dex","Luk","Spell","ASPD")-1;
+						mes "- Chosse #2 Enchant -";
+						setarray .@enchants[0],"Str2_J","Agi2_J","Vit2_J","Int2_J","Dex2_J","Luk2_J","Conjure1","Attack_Delay_1";
+						.@enchant1 = select("Str","Agi","Vit","Int","Dex","Luk","Spell","ASPD")-1;
+						next;
+						mes "- "+getitemname(.@itemId)+" -";
+						mes "- "+getitemname(.@enchant1)+" -";
+						mes "- "+getitemname(.@enchant2)+" -";
+						if(select("Continue:Cancel") -1 ) close;
+						getitem2 .@itemId,1,1,0,0,0,0,.@enchants[.@enchant2],.@enchants[.@enchant1];
+						specialeffect2 EF_MAXPOWER;
+						close;
+				}
+			} else {
+				// excellion enchants
+				next;
+				mes "Choose Item";
+				.@itemId = select("Excellion Suit:Excellion Wing") == 1 ? 15128 : 20773;
+				setarray .@enchants[0],4970,1,4971,1,4972,1,4973,1,4978,3,4979,3,4980,3,4981,3,4982,1,4983,1,4984,3,4985,1,4986,3,4987,3,4988,3,4989,3,4990,1,4991,1;
+				if(.@itemId === 20773) setarray .@enchants[getarraysize(.@enchants)],4974,3,4975,3,4976,3,4977,3;	// wing special enchants
+				.@menu$ = getitemname(4970);
+				for(.@i = 2; .@i < getarraysize(.@enchants); .@i = .@i + 2)
+					.@menu$ += ":" getitemname(.@enchants[.@i]);
+				mes "- Choose #1 Enchant -";
+				.@enchant1 = (select(.@menu$)-1) * 2;
+				.@flag = 1;
+				while(.@flag) {
+					mes "- Choose #2 Enchant -";
+					.@enchant2 = select(.@menu$) -1;
+					if(.@enchants[.@enchant2 + 1] == 1 && .@enchant1 == .@enchant2)
+						mes "You cannot choose this enchant again.";
+					else .@flag = 0;
+				}
+				.@flag = 1;
+				while(.@flag) {
+					mes "- Choose #3 Enchant -";
+					.@enchant3 = select(.@menu$) -1;
+					if(.@enchants[.@enchant2 + 1] == 1 && .@enchant3 == .@enchant2 || .@enchant3 == .@enchant1)
+						mes "You cannot choose this enchant again.";
+					else .@flag = 0;
+				}
+				next;
+				mes "- "+getitemname(.@itemId)+" -";
+				mes "- "+getitemname(.@enchant1)+" -";
+				mes "- "+getitemname(.@enchant2)+" -";
+				mes "- "+getitemname(.@enchant3)+" -";
+				if(select("Continue:Cancel") -1 ) close;
+				getitem2 .@itemId,1,1,0,0,0,0,.@enchants[.@enchant2],.@enchants[.@enchant1];
+				specialeffect2 EF_MAXPOWER;
+				close;
+			}
+	}
+
+OnInit:
+    waitingroom "”Õ— «·√œÊ« ",0;
+	setarray .menu$[1],"Malangdo Enchant","Temporal Boots Enchant","Verus Enchant";
+	.n$ = "[^0000ffEnchant Dude^000000]";
+	end;
+}
