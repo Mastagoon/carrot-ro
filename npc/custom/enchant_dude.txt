@@ -9,13 +9,14 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 		close;
 	}
 	mes "Choose Type";
+	next;
 	switch(select(implode(.menu$, ":"))-1) {
 		case 0:
 			// Malangdo enchant
 			mes .n$;
 			mes "Go enchant in malangdo.";
 			getitem 6423,1000;
-			getitem 6417,1;
+			getitem 6417,1000;
 			close;
 		case 1:
 			mes "- Choose Boots -";
@@ -56,56 +57,81 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						.@itemId = .@items1[select("Reinforced Parts - Booster:AGI Supplement Equipment:Reinforced Parts - Engine:VIT Supplement Equipment")-1];
 						next;
 						mes "- Chosse #1 Enchant -";
-						setarray .@enchants[0],"Str3_J","Agi3_J","Vit3_J","Int3_J","Dex3_J","Luk3_J","Conjure2","Attack_Delay_2","Expert_Archer3";
-						.@enchant1 = select("Str:Agi:Vit:Int:Dex:Luk"+.@itemId === 22044 ? "Spell:ASPD" : .@itemId === 22043 ? ":ASPD" : "::Expert Archer")-1;
+						setarray .@enchants$[0],"Str3_J","Agi3_J","Vit3_J","Int3_J","Dex3_J","Luk3_J","Conjure2","Attack_Delay_2","Expert_Archer3";
+						.@menu$ = "Str:Agi:Vit:Int:Dex:Luk:";
+						if(.@itemId == 22044) .@menu$ += "Spell:ASPD";
+						else if(.@itemId == 22043) .@menu$ += ":ASPD";
+						else .@menu$ += "::Expert Archer";
+						.@enchant1 = select(.@menu$) -1;
+						searchitem(.@matches[0], .@enchants$[.@enchant1]);
+						.@enchant1 = .@matches[0];
 						mes "- Chosse #2 Enchant -";
-						.@enchant2 = select("Str:Agi:Vit:Int:Dex:Luk"+.@itemId === 22044 ? "Spell:ASPD" : .@itemId === 22043 ? ":ASPD" : "::Expert Archer")-1;
+						.@enchant2 = select(.@menu$) -1;
+						searchitem(.@matches[0], .@enchants$[.@enchant2]);
+						.@enchant2 = .@matches[0];
 						mes "- Chosse #3 Enchant -";
-						.@enchant3 = select("Str:Agi:Vit:Int:Dex:Luk"+.@itemId === 22044 ? "Spell:ASPD" : .@itemId === 22043 ? ":ASPD" : "::Expert Archer")-1;
+						.@enchant3 = select(.@menu$) -1;
+						searchitem(.@matches[0], .@enchants$[.@enchant3]);
+						.@enchant3 = .@matches[0];
 						next;
 						mes "- "+getitemname(.@itemId)+" -";
 						mes "- "+getitemname(.@enchant1)+" -";
 						mes "- "+getitemname(.@enchant2)+" -";
 						mes "- "+getitemname(.@enchant3)+" -";
 						if(select("Continue:Cancel") -1 ) close;
-						getitem2 .@itemId,1,1,0,0,0,.@enchants[.@enchant3],.@enchants[.@enchant2],.@enchants[.@enchant1];
+						// .@enchant1 = 
+						getitem2 .@itemId,1,1,0,0,0,.@enchant1,.@enchant2,.@enchant3;
 						specialeffect2 EF_MAXPOWER;
 						close;
 					case 2:
 						.@itemId = .@items2[select("Reinforced Parts - Plate:STR Supplement Equipment")-1];
 						next;
 						mes "- Chosse #1 Enchant -";
-						if(.@itemId === 15111) setarray .@enchants[0],"Str3_J","Dex3_J","Fighting_Spirit2","Expert_Archer3";
-						else setarray .@enchants[0],"Vit3_J","MHP3","Tolerance_Not2","DEF9";
-						.@enchant1 = select(.@itemId === 15111 ? "Str:Dex:Fighting Spirit:Expert Archer" : "Vit:Max HP:Resist Neutral:Defense")-1;
+						if(.@itemId == 15111) setarray .@enchants$[0],"Str3_J","Dex3_J","Fighting_Spirit2","Expert_Archer3";
+						else setarray .@enchants$[0],"Vit3_J","MHP3","Tolerance_Not2","DEF9";
+						.@enchant1 = select(.@itemId == 15111 ? "Str:Dex:Fighting Spirit:Expert Archer" : "Vit:Max HP:Resist Neutral:Defense")-1;
+						searchitem(.@matches[0], .@enchants$[.@enchant1]);
+						.@enchant1 = .@matches[0];
+						
 						mes "- Chosse #2 Enchant -";
-						.@enchant2 = select(.@itemId === 15111 ? "Str:Dex:Fighting Spirit:Expert Archer" : "Vit:Max HP:Resist Neutral:Defense")-1;
+						.@enchant2 = select(.@itemId == 15111 ? "Str:Dex:Fighting Spirit:Expert Archer" : "Vit:Max HP:Resist Neutral:Defense")-1;
+						searchitem(.@matches[0], .@enchants$[.@enchant2]);
+						.@enchant2 = .@matches[0];
+
 						mes "- Chosse #3 Enchant -";
-						.@enchant3 = select(.@itemId === 15111 ? "Str:Dex:Fighting Spirit:Expert Archer" : "Vit:Max HP:Resist Neutral:Defense")-1;
+						searchitem(.@matches[0], .@enchants$[.@enchant3]);
+						.@enchant3 = .@matches[0];
+						.@enchant3 = select(.@itemId == 15111 ? "Str:Dex:Fighting Spirit:Expert Archer" : "Vit:Max HP:Resist Neutral:Defense")-1;
 						next;
 						mes "- "+getitemname(.@itemId)+" -";
 						mes "- "+getitemname(.@enchant1)+" -";
 						mes "- "+getitemname(.@enchant2)+" -";
 						mes "- "+getitemname(.@enchant3)+" -";
 						if(select("Continue:Cancel") -1 ) close;
-						getitem2 .@itemId,1,1,0,0,0,.@enchants[.@enchant3],.@enchants[.@enchant2],.@enchants[.@enchant1];
+						getitem2 .@itemId,1,1,0,0,0,.@enchant3,.@enchant2,.@enchant1;
 						specialeffect2 EF_MAXPOWER;
 						close;
 					case 3:
 						.@itemId = .@items3[select("Reinforced Parts - Gun Barrel:DEX Supplement Equipment")-1];
 						next;
 						mes "- Chosse #1 Enchant -";
-						setarray .@enchants[0],"Str2_J","Agi2_J","Vit2_J","Int2_J","Dex2_J","Luk2_J","Conjure1","Attack_Delay_1";
+						setarray .@enchants$[0],"Str2_J","Agi2_J","Vit2_J","Int2_J","Dex2_J","Luk2_J","Conjure1","Attack_Delay_1";
 						.@enchant1 = select("Str","Agi","Vit","Int","Dex","Luk","Spell","ASPD")-1;
+						searchitem(.@matches[0], .@enchants$[.@enchant1]);
+						.@enchant1 = .@matches[0];
+
 						mes "- Chosse #2 Enchant -";
-						setarray .@enchants[0],"Str2_J","Agi2_J","Vit2_J","Int2_J","Dex2_J","Luk2_J","Conjure1","Attack_Delay_1";
+						setarray .@enchants$[0],"Str2_J","Agi2_J","Vit2_J","Int2_J","Dex2_J","Luk2_J","Conjure1","Attack_Delay_1";
 						.@enchant1 = select("Str","Agi","Vit","Int","Dex","Luk","Spell","ASPD")-1;
+						searchitem(.@matches[0], .@enchants$[.@enchant2]);
+						.@enchant2 = .@matches[0];
+
 						next;
 						mes "- "+getitemname(.@itemId)+" -";
 						mes "- "+getitemname(.@enchant1)+" -";
 						mes "- "+getitemname(.@enchant2)+" -";
 						if(select("Continue:Cancel") -1 ) close;
-						getitem2 .@itemId,1,1,0,0,0,0,.@enchants[.@enchant2],.@enchants[.@enchant1];
+						getitem2 .@itemId,1,1,0,0,0,0,.@enchant2,.@enchant1;
 						specialeffect2 EF_MAXPOWER;
 						close;
 				}
@@ -115,16 +141,16 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 				mes "Choose Item";
 				.@itemId = select("Excellion Suit:Excellion Wing") == 1 ? 15128 : 20773;
 				setarray .@enchants[0],4970,1,4971,1,4972,1,4973,1,4978,3,4979,3,4980,3,4981,3,4982,1,4983,1,4984,3,4985,1,4986,3,4987,3,4988,3,4989,3,4990,1,4991,1;
-				if(.@itemId === 20773) setarray .@enchants[getarraysize(.@enchants)],4974,3,4975,3,4976,3,4977,3;	// wing special enchants
+				if(.@itemId == 20773) setarray .@enchants[getarraysize(.@enchants)],4974,3,4975,3,4976,3,4977,3;	// wing special enchants
 				.@menu$ = getitemname(4970);
 				for(.@i = 2; .@i < getarraysize(.@enchants); .@i = .@i + 2)
-					.@menu$ += ":" getitemname(.@enchants[.@i]);
+					.@menu$ += ":"+getitemname(.@enchants[.@i]);
 				mes "- Choose #1 Enchant -";
 				.@enchant1 = (select(.@menu$)-1) * 2;
 				.@flag = 1;
 				while(.@flag) {
 					mes "- Choose #2 Enchant -";
-					.@enchant2 = select(.@menu$) -1;
+					.@enchant2 = (select(.@menu$)-1) * 2;
 					if(.@enchants[.@enchant2 + 1] == 1 && .@enchant1 == .@enchant2)
 						mes "You cannot choose this enchant again.";
 					else .@flag = 0;
@@ -132,18 +158,18 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 				.@flag = 1;
 				while(.@flag) {
 					mes "- Choose #3 Enchant -";
-					.@enchant3 = select(.@menu$) -1;
-					if(.@enchants[.@enchant2 + 1] == 1 && .@enchant3 == .@enchant2 || .@enchant3 == .@enchant1)
+					.@enchant3 = (select(.@menu$)-1) * 2;
+					if(.@enchants[.@enchant2 + 1] == 1 && (.@enchant3 == .@enchant2 || .@enchant3 == .@enchant1))
 						mes "You cannot choose this enchant again.";
 					else .@flag = 0;
 				}
 				next;
 				mes "- "+getitemname(.@itemId)+" -";
-				mes "- "+getitemname(.@enchant1)+" -";
-				mes "- "+getitemname(.@enchant2)+" -";
-				mes "- "+getitemname(.@enchant3)+" -";
+				mes "- "+getitemname(.@enchants[.@enchant1])+" -";
+				mes "- "+getitemname(.@enchants[.@enchant2])+" -";
+				mes "- "+getitemname(.@enchants[.@enchant3])+" -";
 				if(select("Continue:Cancel") -1 ) close;
-				getitem2 .@itemId,1,1,0,0,0,0,.@enchants[.@enchant2],.@enchants[.@enchant1];
+				getitem2 .@itemId,1,1,0,0,0,.@enchants[.@enchant3],.@enchants[.@enchant2],.@enchants[.@enchant1];
 				specialeffect2 EF_MAXPOWER;
 				close;
 			}
@@ -151,7 +177,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 
 OnInit:
     waitingroom "”Õ— «·√œÊ« ",0;
-	setarray .menu$[1],"Malangdo Enchant","Temporal Boots Enchant","Verus Enchant";
+	setarray .menu$[0],"Malangdo Enchant","Temporal Boots Enchant","Verus Enchant";
 	.n$ = "[^0000ffEnchant Dude^000000]";
 	end;
 }

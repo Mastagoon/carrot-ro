@@ -124,11 +124,11 @@ OnCommand:
 	end;
 OnInit:
 	// This command can be used to enter the PvP Room.
-	bindatcmd "pvp","PvP#0::OnCommand";
+	bindatcmd "pvp","PVP#0::OnCommand";
 
 
 	// Command to rotate the room maually.
-	bindatcmd "rotatepvp","PvP#0::OnMinute00",99;
+	bindatcmd "rotatepvp","PVP#0::OnMinute00",99;
 	.pvpcoin = 50035;
 	// Min LvL to enter the room.
 	.min_lv = 1;
