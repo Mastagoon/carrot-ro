@@ -7671,8 +7671,8 @@ int64 battle_calc_return_damage(struct block_list* bl, struct block_list *src, i
 				if( rnd()%100 <= sc->data[SC_REFLECTDAMAGE]->val1*10 + 30 ){
 					max_damage = (int64)max_damage * status_get_lv(bl) / 100;
 					rdamage = (*dmg) * sc->data[SC_REFLECTDAMAGE]->val2 / 100;
-					if( --(sc->data[SC_REFLECTDAMAGE]->val3) < 1)
-						status_change_end(bl,SC_REFLECTDAMAGE,INVALID_TIMER);
+					// if( --(sc->data[SC_REFLECTDAMAGE]->val3) < 1)
+					// 	status_change_end(bl,SC_REFLECTDAMAGE,INVALID_TIMER);
 				}
 			} else {
 				if ( sc->data[SC_REFLECTSHIELD] && skill_id != WS_CARTTERMINATION ) {

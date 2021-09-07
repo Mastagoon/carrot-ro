@@ -4004,8 +4004,8 @@ Body:
         Rate: 1000
       - Item: Oridecon
         Rate: 750
-      - Item: Golden_Bug_Card
-        Rate: 1
+      # - Item: Golden_Bug_Card
+      #   Rate: 1
         StealProtected: true
   - Id: 1087
     AegisName: ORK_HERO
@@ -51013,8 +51013,8 @@ Body:
         Rate: 10000
       - Item: Gold
         Rate: 5000
-      - Item: Golden_Bug_Card
-        Rate: 1
+      # - Item: Golden_Bug_Card
+      #   Rate: 1
         StealProtected: true
   - Id: 2307
     AegisName: J_MISTRESS

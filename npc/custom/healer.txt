@@ -62,15 +62,15 @@
 
     //	give players buff 
 	specialeffect2 EF_INCAGILITY;
-	sc_start SC_INCREASEAGI,240000,10;
+	sc_start SC_INCREASEAGI,1800000,10;
 	specialeffect2 EF_BLESSING;
-	sc_start SC_BLESSING,240000,10;
-    sc_start SC_STRFOOD,240000,10;
-    sc_start SC_AGIFOOD,240000,10;
-    sc_start SC_VITFOOD,240000,10;
-    sc_start SC_INTFOOD,240000,10;
-    sc_start SC_DEXFOOD,240000,10;
-    sc_start SC_LUKFOOD,240000,10;
+	sc_start SC_BLESSING,1800000,10;
+    sc_start SC_STRFOOD,1800000,10;
+    sc_start SC_AGIFOOD,1800000,10;
+    sc_start SC_VITFOOD,1800000,10;
+    sc_start SC_INTFOOD,1800000,10;
+    sc_start SC_DEXFOOD,1800000,10;
+    sc_start SC_LUKFOOD,1800000,10;
 
 //	repair all player's broken eqiupments
 	repairall;

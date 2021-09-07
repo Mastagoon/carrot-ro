@@ -75226,7 +75226,7 @@ Body:
       bonus2 bSkillAtk,"MG_COLDBOLT",50;
       bonus bMdef,10;
       if (.@r>6)
-         bonus2 bSkillAtk,"SC_SPELLFIST",25;
+         bonus2 bSkillAtk,"SO_SPELLFIST",25;
       if (.@r>8)
          bonus bAspd,5;
   - Id: 18796

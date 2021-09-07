@@ -19284,6 +19284,7 @@ Body:
         Time: 1000
       - Level: 5
         Time: 500
+    Cooldown: 200
     # Cooldown: # !TODO: Confirm cooldown
     #   - Level: 1
     #     Time: 150

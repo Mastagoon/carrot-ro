@@ -3,7 +3,7 @@ dicastes01,205,185,4	script	 Õ”Ì‰ «·√œÊ« 	63,{
     for(.@i = 1; .@i<getarraysize(.@indices); ++.@i) {
 		if(getequipisequiped(.@indices[.@i])) {
 			if(getequipisenableref(.@indices[.@i]))
-                successrefitem .@indices[.@i],9 - getequiprefinerycnt(.@indices[.@i]);
+                successrefitem .@indices[.@i],inarray(.crimson_items,getequipid(.@indices[.@i])) == -1 ? 9 - getequiprefinerycnt(.@indices[.@i]) : 12 - getequiprefinerycnt(.@indices[.@i]);
 		}
 		.@menu$ = .@menu$ + ":";
 	}
@@ -11,5 +11,6 @@ dicastes01,205,185,4	script	 Õ”Ì‰ «·√œÊ« 	63,{
 
 OnInit:
     waitingroom " Õ”Ì‰ «·√œÊ« ",0;
+    setarray .crimson_items[0],28705,13454,21015,28106,16040,1443,1498,18130,28007,1839,28604,1680,2025,1939,1995,13327,13127;
 	end;
 }
