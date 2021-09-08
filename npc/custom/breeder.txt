@@ -37,3 +37,5 @@ prontera,124,201,1	script	Universal Rental NPC	726,{
 	specialeffect2 EF_TEIHIT3;
 	end;
 }
+
+dicastes01,188,195,6	duplicate(Universal Rental NPC)	Universal Rental NPC#dic	726

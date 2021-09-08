@@ -1,4 +1,6 @@
 dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
+    disable_items;
+    disable_command;
     mes .n$;
 	if (checkweight(1201,1) == 0) {
 		mes "You have too many kinds of objects. Let's try to continue after reducing those objects.";
@@ -173,11 +175,68 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 				specialeffect2 EF_MAXPOWER;
 				close;
 			}
+        case 3:
+            mes "- Choose Items -";
+            if(select("Enchant Armors:Enchant Accessories") == 1) {
+                setarray .@armors[0],15073,15074;
+                if(inarray(.@armors,getequipid(EQI_ARMOR)) == -1) {
+                    mes "You are not wearing a GMT armor.";
+                    close;
+                }
+                setarray .@options1[0],3,4,4,4,5,4,6,4,7,4,8,4,9,5,10,5;
+                setarray .@options2[0],11,100,12,100,18,30,22,30,20,60,21,10,168,10,169,10,170,10,77,1,78,1,79,1,80,1;
+                mes "- Select #1 Enchant -";
+                .@option1 = select("Str:Agi:Vit:Int:Dex:Luk:Max HP:Max SP") -1;
+                mes "- Select #2 Enchant -";
+                .@option2 = select("HP Recovery:SP Recovery:Hit:Flee:Def:Mdef:Heal Power:Healing Recieved:Variable Cast Time:Water Element:Earth Element:Fire Element:Wind Element") -1;
+                setrandomoption(EQI_ARMOR,0,.@options1[.@option1 * 2],.@options1[.@option1 * 2 + 1],0);
+                setrandomoption(EQI_ARMOR,1,.@options2[.@option2 * 2],.@options2[.@option2 * 2 + 1],0);
+                specialeffect2 EF_MAXPOWER;
+				close;
+            } else {
+                // accessory enchant
+                mes "- Choose Slot -";
+                .@choice = select("Left Accessory:Right Accessory");
+                .@slot = .@choice == 1 ? EQI_ACC_L : EQI_ACC_R;
+                setarray .@accessories[0],2963,2964;
+                if(inarray(.@accessories,getequipid(.@slot)) == -1) {
+                    mes "You're not wearing a GMT ring.";
+                    close;
+                }
+                setarray .@options[0],16,5,170,7,164,8,26,5,28,5,27,5,29,5,35,3,172,5,9,3,10,3,13,3,14,3;
+                mes "- Choose #1 Enchant -";
+                .@menu$ = "ASPD:Variable Cast Time:Critical Damage:Water Resistance:Fire Resistance:Earth Resistance:Wind Resistance:All Elements Resistance:Decrease SP Consumption:Max HP:Max SP:Attack:Magic Attack";
+                .@option1 = select(.@menu$)-1;
+                mes "- Choose #2 Enchant -";
+                .@option2 = select(.@menu$)-1;
+                setrandomoption(.@slot,0,.@options[.@option1 * 2], .@options[.@option1 * 2 + 1],0);
+                setrandomoption(.@slot,1,.@options[.@option2 * 2], .@options[.@option2 * 2 + 1],0);
+                specialeffect2 EF_MAXPOWER;
+				close;
+            }
+        case 4:
+			setarray .@enchants[0],4705,4735,4745,4715,4725,4755,4853,4854,4855,4856,4857,4858;
+            .@itemId = 20718;
+            mes "- Choose #1 Enchant -";
+            .@enchant1 = select("Str:Agi:Vit:Int:Dex:Luk") -1;
+            mes "- Choose #2 Enchant -";
+            .@enchant2 = select("Str:Agi:Vit:Int:Dex:Luk") -1;
+            mes "- Choose #3 Enchant -";
+            .@enchant3 = select("Str:Agi:Vit:Int:Dex:Luk:Special Str:Special Agi:Special Vit:Special Int:Special Dex:Special Luck") -1;
+            next;
+			mes "- "+getitemname(.@itemId)+" -";
+			mes "- "+getitemname(.@enchants[.@enchant1])+" -";
+			mes "- "+getitemname(.@enchants[.@enchant2])+" -";
+			mes "- "+getitemname(.@enchants[.@enchant3])+" -";
+			if(select("Continue:Cancel") -1 ) close;
+			getitem2 .@itemId,1,1,0,0,0,.@enchants[.@enchant3],.@enchants[.@enchant2],.@enchants[.@enchant1];
+			specialeffect2 EF_MAXPOWER;
+			close;
 	}
 
 OnInit:
     waitingroom "”Õ— «·√œÊ« ",0;
-	setarray .menu$[0],"Malangdo Enchant","Temporal Boots Enchant","Verus Enchant";
+	setarray .menu$[0],"Malangdo Enchant","Temporal Boots Enchant","Verus Enchant","Geffen Magic Tournament", "Faceworm Nest";
 	.n$ = "[^0000ffEnchant Dude^000000]";
 	end;
 }

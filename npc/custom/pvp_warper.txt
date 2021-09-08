@@ -277,7 +277,9 @@ OnPCLogoutEvent:
 
 OnPCKillEvent:
     if(strcharinfo(3) == .map$)
-        getitem callfunc("F_Rand",12429,12430,12431,12432,12433,12434,22545),rand(3,10);
+        if(rand(1,100) > 70)
+            getitem callfunc("F_Rand",12429,12430,12431,12432,12433,12434,22545),rand(1,5);
+    announce "·ﬁœ ﬁ«„ "+strcharinfo(0)+" »œ⁄” "+rid2name(killedrid)+" ›Ì «·Õ·»…!",bc_all|bc_blue;
     end;
 }
 

@@ -237,7 +237,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      percentheal 6,6;
+      percentheal 4,4;
   - Id: 516
     AegisName: Sweet_Potato
     Name: Potato

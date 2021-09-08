@@ -475,7 +475,8 @@ uint64 ItemDatabase::parseBodyNode(const YAML::Node &node) {
 		if (!this->asBool(node, "Refineable", refine))
 			return 0;
 
-		item->flag.no_refine = !refine;
+		// item->flag.no_refine = !refine;
+        item->flag.no_refine = true;
 	} else {
 		if (!exists)
 			item->flag.no_refine = true;
