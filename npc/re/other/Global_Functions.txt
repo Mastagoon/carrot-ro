@@ -50,3 +50,18 @@ function	script	mesAr	{
 	}
 	return .@returnstring$;
 }
+
+function	script	formatTime	{
+	.@cooldown = getarg(0);
+	.@d = .@cooldown / 86400;
+	.@d$ = .@d ? ""+.@d : "";
+	.@h = .@cooldown / 3600;
+	.@h$ = .@h > 10 ? ""+.@h : "0"+.@h;
+	.@cooldown -= .@h * 3600;
+	.@m = .@cooldown / 60;
+	.@m$ = .@m > 10 ? ""+.@m : "0"+.@m;
+	.@cooldown -= .@m * 60;
+	.@s = .@cooldown;
+	.@s$ = .@s > 10 ? ""+.@s : "0"+.@s;
+	return .@d$ + "d " +.@h$ + ":" + .@m$ + ":" + .@s$;
+}

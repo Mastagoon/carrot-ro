@@ -95256,8 +95256,9 @@ Body:
       Rogue: true
       Sage: true
       Wizard: true
-    Classes:
-      All_Third: true
+      KagerouOboro: true
+    # Classes:
+    #   All_Third: true
     Locations:
       Shoes: true
     EquipLevelMin: 99
@@ -95290,8 +95291,9 @@ Body:
       Rogue: true
       Sage: true
       Wizard: true
-    Classes:
-      All_Third: true
+      KagerouOboro: true
+    # Classes:
+    #   All_Third: true
     Locations:
       Shoes: true
     EquipLevelMin: 99
@@ -95323,8 +95325,9 @@ Body:
       Rogue: true
       Sage: true
       Wizard: true
-    Classes:
-      All_Third: true
+      KagerouOboro: true
+    # Classes:
+    #   All_Third: true
     Locations:
       Shoes: true
     EquipLevelMin: 99
@@ -95359,8 +95362,9 @@ Body:
       Rogue: true
       Sage: true
       Wizard: true
-    Classes:
-      All_Third: true
+      KagerouOboro: true
+    # Classes:
+    #   All_Third: true
     Locations:
       Shoes: true
     EquipLevelMin: 99
@@ -95394,8 +95398,9 @@ Body:
       Rogue: true
       Sage: true
       Wizard: true
-    Classes:
-      All_Third: true
+      KagerouOboro: true
+    # Classes:
+    #   All_Third: true
     Locations:
       Shoes: true
     EquipLevelMin: 99
@@ -95428,8 +95433,9 @@ Body:
       Rogue: true
       Sage: true
       Wizard: true
-    Classes:
-      All_Third: true
+      KagerouOboro: true
+    # Classes:
+    #   All_Third: true
     Locations:
       Shoes: true
     EquipLevelMin: 99

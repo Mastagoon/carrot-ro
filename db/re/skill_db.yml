@@ -13474,6 +13474,9 @@ Body:
     DamageFlags:
       IgnoreDefense: true
       IgnoreFlee: true
+    Flags:
+      IgnoreAutoGuard: true
+      IgnoreCicada: true
     Range: 9
     Hit: Multi_Hit
     HitCount:
