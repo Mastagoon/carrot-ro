@@ -37093,7 +37093,24 @@ Body:
     SplashArea: 15
     Duration1: 10000
     Cooldown: 600000
-
+  - Id: 41247
+    Name: BODY_SLAM
+    Description: Body Slam
+    MaxLevel: 1
+    Type: Weapon
+    TargetType: Attack
+    Range: 4
+    Hit: Single
+    HitCount: 1
+    Knockback: 2
+    Element: Weapon
+    CopyFlags:
+      Skill:
+        Plagiarism: true
+        Reproduce: true
+    Cooldown: 500
+    Requires:
+      SpCost: 40
   - Id: 41248
     Name: SO_SANDDUST
     Description: Sand Dust
