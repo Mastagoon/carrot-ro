@@ -1839,6 +1839,7 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 		if( sc && sc->data[SC_CURSED_SOIL_OPTION] )
 			rate += ( sd ? sd->status.job_level /5 : 0 );
 		sc_start(src,bl, SC_STONE, rate, skill_lv, skill_get_time2(skill_id, skill_lv));
+		break;
 	case SO_DIAMONDDUST:
 		rate = 5 + 5 * skill_lv;
 		if( sc && sc->data[SC_COOLER_OPTION] )
