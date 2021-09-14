@@ -2108,6 +2108,8 @@ enum e_skill {
 	EL_ROCK_CRUSHER,
 	EL_ROCK_CRUSHER_ATK,
 	EL_STONE_RAIN,
+	SO_SANDDUST = 500000,
+	
 };
 
 /// The client view ids for land skills.

@@ -37090,3 +37090,84 @@ Body:
     SplashArea: 15
     Duration1: 10000
     Cooldown: 600000
+
+  - Id: 500000
+    Name: SO_SANDDUST
+    Description: Sand Dust
+    MaxLevel: 5
+    Type: Magic
+    TargetType: Ground
+    Range: 9
+    Hit: Single
+    HitCount: -5
+    Element: Earth
+    CopyFlags:
+      Skill:
+        Reproduce: true
+    CastCancel: true
+    CastTime:
+      - Level: 1
+        Time: 5000
+      - Level: 2
+        Time: 5500
+      - Level: 3
+        Time: 6000
+      - Level: 4
+        Time: 6500
+      - Level: 5
+        Time: 7000
+    AfterCastActDelay: 1000
+    Duration1: 1000
+    Duration2:
+      - Level: 1
+        Time: 12000
+      - Level: 2
+        Time: 14000
+      - Level: 3
+        Time: 16000
+      - Level: 4
+        Time: 18000
+      - Level: 5
+        Time: 20000
+    Cooldown: 5000
+    FixedCastTime:
+      - Level: 1
+        Time: 800
+      - Level: 2
+        Time: 600
+      - Level: 3
+        Time: 400
+      - Level: 4
+        Time: 200
+      - Level: 5
+        Time: 0
+    Requires:
+      SpCost:
+        - Level: 1
+          Amount: 50
+        - Level: 2
+          Amount: 56
+        - Level: 3
+          Amount: 62
+        - Level: 4
+          Amount: 68
+        - Level: 5
+          Amount: 74
+    Unit:
+      Id: Dummyskill
+      Range:
+        - Level: 1
+          Size: 3
+        - Level: 2
+          Size: 3
+        - Level: 3
+          Size: 3
+        - Level: 4
+          Size: 4
+        - Level: 5
+          Size: 4
+      Interval: 1000
+      Target: Enemy
+      Flag:
+        NoOverlap: true
+        PathCheck: true

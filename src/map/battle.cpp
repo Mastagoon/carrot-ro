@@ -6438,6 +6438,14 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 			// if (sc && sc->data[SC_INSPIRATION])
 				// s_ele = ELE_NEUTRAL;
 			// break;
+		case SO_SANDDUST:
+			if(tsc){
+				if( tsc->data[SC_FREEZE] )
+					s_ele = ELE_WIND;				
+				if( tsc->data[SC_STONE] )
+					s_ele = ELE_FIRE;	
+			}
+		break;
 	}
 
 	//Set miscellaneous data that needs be filled
@@ -6872,6 +6880,12 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						RE_LVL_DMOD(100);
 						if( sc && sc->data[SC_CURSED_SOIL_OPTION] )
 							skillratio += (sd ? sd->status.job_level * 5 : 0);
+						break;
+					case SO_SANDDUST:
+						// 1000% * skill_lv + int*2 + level of AbraCadabra * 100
+						// if target is frozen, change elemnt to wind
+						// if target is stone/cursed, change elemnet to fire
+						skillratio = ( 1000 * skill_lv + sstatus->int_*2 + ((sd) ? pc_checkskill(sd,SA_ABRACADABRA) : 0) * 100);
 						break;
 					case SO_DIAMONDDUST: // !TODO: Confirm formula
                 		skillratio = ( 200 * ((sd) ? pc_checkskill(sd, SA_FROSTWEAPON) : 0) + sstatus->int_ * skill_lv );
