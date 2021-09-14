@@ -37094,7 +37094,7 @@ Body:
     Duration1: 10000
     Cooldown: 600000
 
-  - Id: 500000
+  - Id: 41248
     Name: SO_SANDDUST
     Description: Sand Dust
     MaxLevel: 5
