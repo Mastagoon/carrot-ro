@@ -4383,7 +4383,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				int k = (wd->miscflag-1)/3;
 				if (k < 0)
 					k = 0;
-				skillratio += 100 * k * (sd->inventory_data[index]->weight / sd->max_weight) * 10;
+				skillratio += 100 * k * (sd->weight / sd->max_weight) * 10;
                 skillratio += k * 100;
 			}
 			break;
