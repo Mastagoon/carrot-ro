@@ -207,7 +207,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+      itemskill "BODY_SLAM",1;
   - Id: 513
     AegisName: Banana
     Name: Banana
