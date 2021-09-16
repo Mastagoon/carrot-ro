@@ -4384,7 +4384,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				if (k < 0)
 					k = 0;
 				skillratio += 100 * k * (sd->weight / sd->max_weight) * 10;
-                skillratio += k * 100;
+                //skillratio += k * 100;
 			}
 			break;
 		case KN_CHARGEATK: { // +100% every 3 cells of distance but hard-limited to 500%

@@ -4,6 +4,8 @@
 0,142,1,0,0,0,0,0,0,0,0,0,0 //NV_FIRSTAID#First Aid#
 0,143,1,0,0,0,0,0,0,0,0,0,0 //NV_TRICKDEAD#Act Dead#
 0,410,1,0,0,0,0,0,0,0,0,0,0 //WE_CALLBABY#Call Baby#
+0,41247,1,0,0,0,0,0,0,0,0,0,0 //BODY_SLAM#Charge Attack#
+
 //Swordman
 1,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
 1,142,1,0,0,0,0,0,0,0,0,0,0 //NV_FIRSTAID#First Aid#
