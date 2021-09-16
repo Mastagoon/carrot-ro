@@ -54,7 +54,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 				setarray .@items1[0],22044,22043,20733,20732;
 				setarray .@items2[0],15111,15110;
 				setarray .@items3[0],2996,2995;
-				switch(select("Booster, Agei Supplement, Engine, and Vit Supplement:Plate&Str Supplement,Gun barrel&DEX Supplement")) {
+				switch(select("Boots/Garments:Armors:Accessories")) {
 					case 1:
 						.@itemId = .@items1[select("Reinforced Parts - Booster:AGI Supplement Equipment:Reinforced Parts - Engine:VIT Supplement Equipment")-1];
 						next;
@@ -101,9 +101,9 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						.@enchant2 = .@matches[0];
 
 						mes "- Chosse #3 Enchant -";
+						.@enchant3 = select(.@itemId == 15111 ? "Str:Dex:Fighting Spirit:Expert Archer" : "Vit:Max HP:Resist Neutral:Defense")-1;
 						searchitem(.@matches[0], .@enchants$[.@enchant3]);
 						.@enchant3 = .@matches[0];
-						.@enchant3 = select(.@itemId == 15111 ? "Str:Dex:Fighting Spirit:Expert Archer" : "Vit:Max HP:Resist Neutral:Defense")-1;
 						next;
 						mes "- "+getitemname(.@itemId)+" -";
 						mes "- "+getitemname(.@enchant1)+" -";
@@ -124,7 +124,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 
 						mes "- Chosse #2 Enchant -";
 						setarray .@enchants$[0],"Str2_J","Agi2_J","Vit2_J","Int2_J","Dex2_J","Luk2_J","Conjure1","Attack_Delay_1";
-						.@enchant1 = select("Str","Agi","Vit","Int","Dex","Luk","Spell","ASPD")-1;
+						.@enchant2 = select("Str","Agi","Vit","Int","Dex","Luk","Spell","ASPD")-1;
 						searchitem(.@matches[0], .@enchants$[.@enchant2]);
 						.@enchant2 = .@matches[0];
 

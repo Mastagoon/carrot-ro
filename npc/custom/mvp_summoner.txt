@@ -1,0 +1,215 @@
+dicastes01,205,181,4	script	mvp-ss	512,{
+	if(.timer > gettimetick(2)) {
+		mes "You need to wait "+formatTime(.timer - gettimetick(2));
+		close;
+	}
+	.timer = gettimetick(2) + 3700;
+	mes "[MVP Summoner]";
+	mes "MVP Invasion activated.";
+	close2;
+	announce "”Ì»œ√ €“Ê “⁄„«¡ «·ÊÕÊ‘ »⁄œ ﬁ·Ì·...",bc_all;
+	sleep 5000;
+	announce "»œ√ €“Ê “⁄„«¡ «·ÊÕÊ‘ ›Ì ≈· œÌﬂ«” ”!",bc_all;
+	donpcevent strnpcinfo(3)+"::OnMVP_Start";
+	end;
+OnInit:
+	.timer = 0;
+	.map$ = "dicastes01";
+	.mobCount = 0;
+	waitingroom "€“Ê «·ÊÕÊ‘",0;
+	end;
+    // System
+    OnMVP_Start:
+		announce "·ﬁœ ŸÂ—  «·„ÊÃ… «·√Ê·Ï „‰ «·“⁄„«¡",bc_all;
+        sleep 2000;
+        set .mobCount,30;
+        initnpctimer; // Start the timer
+        monster .map$,0,0,"Angeling",1096,10,"mvp-ss::OnWaveTwo";
+        monster .map$,0,0,"Archangeling",1388,10,"mvp-ss::OnWaveTwo";
+        monster .map$,0,0,"Ghostring",1120,10,"mvp-ss::OnWaveTwo";
+    end;
+    
+    OnWaveTwo:
+        .mobCount--;
+		announce "·ﬁœ ﬁ«„ «··«⁄» "+strcharinfo(0)+" »Â“Ì„… √Õœ «·“⁄„«¡ !  »ﬁ¯Ï "+.mobCount+" “⁄Ì„ ÊÕÊ‘.",bc_all|bc_blue;
+        if(.mobCount == 0){
+            announce "·ﬁœ ‰ÃÕ „ »Â“Ì„… «·„ÊÃ… «·√Ê·Ï...",bc_all;
+            set .mobCount,11;
+            sleep 2000;
+            monster .map$,0,0,"Detale",1719,2,"mvp-ss::OnWaveThree";
+            monster .map$,0,0,"Doppelganger",1046,3,"mvp-ss::OnWaveThree";
+            monster .map$,0,0,"Dracula",1389,3,"mvp-ss::OnWaveThree";
+            monster .map$,0,0,"Drake",1112,3,"mvp-ss::OnWaveThree";
+        }
+    end;
+    
+    OnWaveThree:
+        .mobCount--;
+		announce "·ﬁœ ﬁ«„ «··«⁄» "+strcharinfo(0)+" »Â“Ì„… √Õœ «·“⁄„«¡ !  »ﬁ¯Ï "+.mobCount+" “⁄Ì„ ÊÕÊ‘.",bc_all|bc_blue;
+        if(.mobCount == 0){
+			announce "·ﬁœ ‰ÃÕ „ »Â“Ì„… «·„ÊÃ… «·À«‰Ì… !!",bc_all;
+            set .mobCount,40;
+            sleep 2000;
+            monster .map$,0,0,"Amon Ra",1719,5,"mvp-ss::OnWaveFour";
+            monster .map$,0,0,"Atros",1719,5,"mvp-ss::OnWaveFour";
+            monster .map$,0,0,"Baphomet",1719,5,"mvp-ss::OnWaveFour";
+            monster .map$,0,0,"Dark Lord",1719,5,"mvp-ss::OnWaveFour";
+			monster .map$,0,0,"Detale",1719,5,"mvp-ss::OnWaveFour";
+            monster .map$,0,0,"Doppelganger",1046,5,"mvp-ss::OnWaveFour";
+            monster .map$,0,0,"Dracula",1389,5,"mvp-ss::OnWaveFour";
+            monster .map$,0,0,"Drake",1112,5,"mvp-ss::OnWaveFour";
+        }
+    end;
+    
+    
+    OnWaveFour:
+        .mobCount--;
+		announce "·ﬁœ ﬁ«„ «··«⁄» "+strcharinfo(0)+" »Â“Ì„… √Õœ «·“⁄„«¡ !  »ﬁ¯Ï "+.mobCount+" “⁄Ì„ ÊÕÊ‘.",bc_all|bc_blue;
+        if(.mobCount == 0){
+			announce "·ﬁœ ‰ÃÕ „ »Â“Ì„… «·„ÊÃ… «·À«·À… !! !!",bc_all;
+            set .mobCount,95;
+            sleep 2000;
+            monster .map$,0,0,"Eddga",1115,10,"mvp-ss::OnWaveFive";
+            monster .map$,0,0,"Evil Snake Lord",1418,5,"mvp-ss::OnWaveFive";
+            monster .map$,0,0,"Hatii",1252,5,"mvp-ss::OnWaveFive";
+            monster .map$,0,0,"Golden Thief Bug",1086,5,"mvp-ss::OnWaveFive";
+			monster .map$,0,0,"Amon Ra",1719,10,"mvp-ss::OnWaveFive";
+            monster .map$,0,0,"Atros",1719,10,"mvp-ss::OnWaveFive";
+            monster .map$,0,0,"Baphomet",1719,10,"mvp-ss::OnWaveFive";
+            monster .map$,0,0,"Dark Lord",1719,5,"mvp-ss::OnWaveFive";
+			monster .map$,0,0,"Detale",1719,5,"mvp-ss::OnWaveFive";
+            monster .map$,0,0,"Doppelganger",1046,10,"mvp-ss::OnWaveFive";
+            monster .map$,0,0,"Dracula",1389,10,"mvp-ss::OnWaveFive";
+            monster .map$,0,0,"Drake",1112,10,"mvp-ss::OnWaveFive";
+        }
+    end;
+    
+    OnWaveFive:
+        .mobCount--;
+		announce "·ﬁœ ﬁ«„ «··«⁄» "+strcharinfo(0)+" »Â“Ì„… √Õœ «·“⁄„«¡ !  »ﬁ¯Ï "+.mobCount+" “⁄Ì„ ÊÕÊ‘.",bc_all|bc_blue;
+        if(.mobCount == 0){
+			announce "·ﬁœ ‰ÃÕ „ »Â“Ì„… «·„ÊÃ… «·—«»⁄… !! !!",bc_all;
+            set .mobCount,133;
+            sleep 2000;
+            monster .map$,0,0,"Ifrit",1832,3,"mvp-ss::OnWaveSix";
+            monster .map$,0,0,"Incantation Samurai",1492,5,"mvp-ss::OnWaveSix";
+            monster .map$,0,0,"Stormy Knight",1251,5,"mvp-ss::OnWaveSix";
+			monster .map$,0,0,"Eddga",1115,5,"mvp-ss::OnWaveSix";
+            monster .map$,0,0,"Evil Snake Lord",1418,5,"mvp-ss::OnWaveSix";
+            monster .map$,0,0,"Hatii",1252,5,"mvp-ss::OnWaveSix";
+            monster .map$,0,0,"Golden Thief Bug",1086,30,"mvp-ss::OnWaveSix";
+			monster .map$,0,0,"Amon Ra",1719,10,"mvp-ss::OnWaveSix";
+            monster .map$,0,0,"Atros",1719,10,"mvp-ss::OnWaveSix";
+            monster .map$,0,0,"Baphomet",1719,10,"mvp-ss::OnWaveSix";
+            monster .map$,0,0,"Dark Lord",1719,10,"mvp-ss::OnWaveSix";
+			monster .map$,0,0,"Detale",1719,5,"mvp-ss::OnWaveSix";
+            monster .map$,0,0,"Doppelganger",1046,10,"mvp-ss::OnWaveSix";
+            monster .map$,0,0,"Dracula",1389,10,"mvp-ss::OnWaveSix";
+            monster .map$,0,0,"Drake",1112,10,"mvp-ss::OnWaveSix";
+        }
+    end;
+    
+    OnWaveSix:
+        .mobCount--;
+		announce "·ﬁœ ﬁ«„ «··«⁄» "+strcharinfo(0)+" »Â“Ì„… √Õœ «·“⁄„«¡ !  »ﬁ¯Ï "+.mobCount+" “⁄Ì„ ÊÕÊ‘.",bc_all|bc_blue;
+        if(.mobCount == 0){
+			announce "·ﬁœ ‰ÃÕ „ »Â“Ì„… «·„ÊÃ… «·Œ«„”… !! !! !!",bc_all;
+            set .mobCount,58;
+            sleep 2000;
+            monster .map$,0,0,"Ktullanux",1779,5,"mvp-ss::OnWaveSeven";
+            monster .map$,0,0,"Lady Tanee",1688,5,"mvp-ss::OnWaveSeven";
+            monster .map$,0,0,"Lord of Death",1378,5,"mvp-ss::OnWaveSeven";
+            monster .map$,0,0,"Maya",1147,20,"mvp-ss::OnWaveSeven";
+			monster .map$,0,0,"Ifrit",1832,3,"mvp-ss::OnWaveSeven";
+            monster .map$,0,0,"Incantation Samurai",1492,5,"mvp-ss::OnWaveSeven";
+            monster .map$,0,0,"Stormy Knight",1251,5,"mvp-ss::OnWaveSeven";
+			monster .map$,0,0,"Eddga",1115,5,"mvp-ss::OnWaveSeven";
+            monster .map$,0,0,"Evil Snake Lord",1418,5,"mvp-ss::OnWaveSeven";
+        }
+    end;
+    
+    OnWaveSeven:
+        .mobCount--;
+		announce "·ﬁœ ﬁ«„ «··«⁄» "+strcharinfo(0)+" »Â“Ì„… √Õœ «·“⁄„«¡ !  »ﬁ¯Ï "+.mobCount+" “⁄Ì„ ÊÕÊ‘.",bc_all|bc_blue;
+        if(.mobCount == 0){
+			announce "·ﬁœ ‰ÃÕ „ »Â“Ì„… «·„ÊÃ… «·”«œ”… !! !! !!",bc_all;
+            set .mobCount,111;
+            sleep 2000;
+			announce "»œ√  «·„ÊÃ… «·”«»⁄… Ê«·√ŒÌ—…!!",bc_all;
+			monster .map$,0,0,"Valkyrie Randgris",1765,5,"mvp-ss::OnWaveFinal";
+            monster .map$,0,0,"Beelzebub",1874,5,"mvp-ss::OnWaveFinal";
+            monster .map$,0,0,"--ja--",rand(1646,1651),1,"mvp-ss::OnWaveFinal";
+			monster .map$,0,0,"Ktullanux",1779,10,"mvp-ss::OnWaveFinal";
+            monster .map$,0,0,"Lady Tanee",1688,10,"mvp-ss::OnWaveFinal";
+            monster .map$,0,0,"Lord of Death",1378,10,"mvp-ss::OnWaveFinal";
+            monster .map$,0,0,"Maya",1147,10,"mvp-ss::OnWaveFinal";
+			monster .map$,0,0,"Ifrit",1832,10,"mvp-ss::OnWaveFinal";
+            monster .map$,0,0,"Incantation Samurai",1492,10,"mvp-ss::OnWaveFinal";
+            monster .map$,0,0,"Stormy Knight",1251,10,"mvp-ss::OnWaveFinal";
+			monster .map$,0,0,"Eddga",1115,15,"mvp-ss::OnWaveFinal";
+            monster .map$,0,0,"Evil Snake Lord",1418,15,"mvp-ss::OnWaveFinal";
+        }
+    end;
+    
+    OnWaveEight:
+        .mobCount--;
+		announce "·ﬁœ ﬁ«„ «··«⁄» "+strcharinfo(0)+" »Â“Ì„… √Õœ «·“⁄„«¡ !  »ﬁ¯Ï "+.mobCount+" “⁄Ì„ ÊÕÊ‘.",bc_all|bc_blue;
+        if(.mobCount == 0){
+            // mapannounce .map$,"Eight wave ended blablabla";
+            set .mobCount,0;
+            sleep 2000;
+            monster .map$,0,0,"Osiris",1038,1,"mvp-ss::OnWaveNine";
+            monster .map$,0,0,"Pharaoh",1157,1,"mvp-ss::OnWaveNine";
+            monster .map$,0,0,"Phreeoni",1159,1,"mvp-ss::OnWaveNine";
+        }
+    end;
+    
+    OnWaveNine:
+        .mobCount--;
+		announce "·ﬁœ ﬁ«„ «··«⁄» "+strcharinfo(0)+" »Â“Ì„… √Õœ «·“⁄„«¡ !  »ﬁ¯Ï "+.mobCount+" “⁄Ì„ ÊÕÊ‘.",bc_all|bc_blue;
+        if(.mobCount == 0){
+            // mapannounce .map$,"Nineth wave ended blablabla";
+            set .mobCount,0;
+            sleep 2000;
+            monster .map$,0,0,"RSX-0806",1623,1,"mvp-ss::OnWaveTen";
+            monster .map$,0,0,"Tao Gunka",1583,1,"mvp-ss::OnWaveTen";
+            monster .map$,0,0,"Turtle General",1312,1,"mvp-ss::OnWaveTen";
+            monster .map$,0,0,"Vesper",1685,1,"mvp-ss::OnWaveTen";
+        }
+    end;
+    
+    OnWaveTen:
+        .mobCount--;
+		announce "·ﬁœ ﬁ«„ «··«⁄» "+strcharinfo(0)+" »Â“Ì„… √Õœ «·“⁄„«¡ !  »ﬁ¯Ï "+.mobCount+" “⁄Ì„ ÊÕÊ‘.",bc_all|bc_blue;
+        if(.mobCount == 0){
+            // mapannounce .map$,"Tenth wave ended blablabla";
+            set .mobCount,0;
+            sleep 2000;
+            // mapannounce .map$,"Becareful final wave blablabla";
+            sleep 2000;
+            monster .map$,0,0,"Valkyrie Randgris",1765,1,"mvp-ss::OnWaveFinal";
+            monster .map$,0,0,"Beelzebub",1874,1,"mvp-ss::OnWaveFinal";
+        }
+    end;
+    
+    OnWaveFinal:
+        .mobCount--;
+		announce "·ﬁœ ﬁ«„ «··«⁄» "+strcharinfo(0)+" »Â“Ì„… √Õœ «·“⁄„«¡ !  »ﬁ¯Ï "+.mobCount+" “⁄Ì„ ÊÕÊ‘.",bc_all|bc_blue;
+        // if(.mobCount == 0){
+        //     stopnpctimer;
+            // mapannounce .map$,"GG";
+        //     /*
+        //         Now do whatever you want with the finalist
+        //     */
+        // }
+    end;
+    
+    
+    OnTimer3600000:
+        killmonster .map$,"all";
+        cleanmap .map$;
+        // mapannounce "Time Ended";
+        // sleep 2000;
+        // mapwarp .map$,"Prontera",180,180;
+    end;
+}
