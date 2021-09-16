@@ -4383,7 +4383,8 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				int k = (wd->miscflag-1)/3;
 				if (k < 0)
 					k = 0;
-				skillratio += 100 * k * (sd->inventory_data[index]->weight / sd->inventory_data[index]->max_weight) * 10;
+				// skillratio += 100 * k * (sd->inventory_data[index]->weight / sd->inventory_data[index]->max_weight) * 10;
+                skillratio += k * 100;
 			}
 			break;
 		case KN_CHARGEATK: { // +100% every 3 cells of distance but hard-limited to 500%
@@ -4523,11 +4524,15 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			// if (sc && sc->data[SC_FEARBREEZE])
 			// 	skillratio += -100 + 200 + 250 * skill_lv;
 			// else
-			skillratio += -100 + 200 + 180 * skill_lv;
+			skillratio += -100 + 200 + 200 * skill_lv;
+            if(sc && sc->data[SC_CAMOUFLAGE] && sc->data[SC_CAMOUFLAGE]->val3 >= 10 && !sc->data[SC_UNLIMIT])
+                skillratio = skillratio * 2.5;
 			RE_LVL_DMOD(100);
 			break;
 		case RA_AIMEDBOLT:
             skillratio += 400 + 50 * skill_lv;
+            if(sc && sc->data[SC_CAMOUFLAGE] && sc->data[SC_CAMOUFLAGE]->val3 >= 10  && !sc->data[SC_UNLIMIT])
+                skillratio = skillratio * 2.5;
 			// if (sc && sc->data[SC_FEARBREEZE])
 				// skillratio += -100 + 800 + 35 * skill_lv;
 			// else

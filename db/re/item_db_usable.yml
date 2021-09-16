@@ -3928,6 +3928,8 @@ Body:
     Type: Usable
     Buy: 1000
     Weight: 200
+    Delay:
+      Duration: 60000
     Flags:
       BuyingStore: true
     NoUse:

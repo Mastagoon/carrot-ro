@@ -12384,14 +12384,7 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
     Script: |
-      if (eaclass()&EAJL_THIRD && BaseJob == Job_Rogue) {
-         bonus bMatkRate,15;
-         bonus2 bAddRace,RC_All,5;
-      }
-      if (BaseLevel>174)
-         bonus bAllStats,10;
-      if (getrefine()>9)
-         bonus bAllStats,10;
+
   - Id: 4683
     AegisName: Wanderer_Card
     Name: Wanderer Trentini Card
@@ -12404,14 +12397,7 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
     Script: |
-      if (eaclass()&EAJL_THIRD && BaseJob == Job_Dancer) {
-         bonus bMaxHPrate,10;
-         bonus bMaxSPrate,15;
-      }
-      if (BaseLevel>174)
-         bonus bAllStats,10;
-      if (getrefine()>9)
-         bonus bAllStats,10;
+
   - Id: 4684
     AegisName: Real_Eremes_Card
     Name: True Eremes Guile Card
@@ -12424,11 +12410,7 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
     Script: |
-      if (getrefine() > 9)
-         .@b += 20;
-      if (getequipweaponlv(-1) == 4)
-         .@b += 20;
-      bonus2 bSkillAtk,"GC_CROSSIMPACT",20+.@b;
+
   - Id: 4685
     AegisName: Real_Magaleta_Card
     Name: True Margaretha Sorin Card
@@ -12441,11 +12423,7 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
     Script: |
-      if (getrefine() > 9)
-         .@b += 20;
-      if (getequipweaponlv(-1) == 4)
-         .@b += 20;
-      bonus2 bSkillAtk,"AB_ADORAMUS",20+.@b;
+
   - Id: 4686
     AegisName: Real_Katrinn_Card
     Name: True Kathryne Keyron Card
@@ -12458,11 +12436,7 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
     Script: |
-      if (getrefine() > 9)
-         .@b += 20;
-      if (getequipweaponlv(-1) == 4)
-         .@b += 20;
-      bonus2 bSkillAtk,"WL_CRIMSONROCK",20+.@b;
+
   - Id: 4687
     AegisName: Real_Shecil_Card
     Name: True Cecil Damon Card
@@ -12475,11 +12449,7 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
     Script: |
-      if (getrefine() > 9)
-         .@b += 20;
-      if (getequipweaponlv(-1) == 4)
-         .@b += 20;
-      bonus2 bSkillAtk,"RA_CLUSTERBOMB",20+.@b;
+
   - Id: 4688
     AegisName: Real_Harword_Card
     Name: True Howard Alt-Eisen Card
@@ -12492,11 +12462,7 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
     Script: |
-      if (getrefine() > 9)
-         .@b += 20;
-      if (getequipweaponlv(-1) == 4)
-         .@b += 20;
-      bonus2 bSkillAtk,"NC_AXETORNADO",20+.@b;
+
   - Id: 4689
     AegisName: Real_Seyren_Card
     Name: True Seyren Windsor Card
@@ -12509,11 +12475,7 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
     Script: |
-      if (getrefine() > 9)
-         .@b += 20;
-      if (getequipweaponlv(-1) == 4)
-         .@b += 20;
-      bonus2 bSkillAtk,"RK_IGNITIONBREAK",20+.@b;
+    
   - Id: 4690
     AegisName: Real_Randel_Card
     Name: True Randel Lawrence Card
@@ -12526,11 +12488,7 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
     Script: |
-      if (getrefine() > 9)
-         .@b += 20;
-      if (getequipweaponlv(-1) == 4)
-         .@b += 20;
-      bonus2 bSkillAtk,"LG_EARTHDRIVE",20+.@b;
+
   - Id: 4691
     AegisName: Real_Flamel_Card
     Name: True Flamel Emure Card
@@ -12543,11 +12501,7 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
     Script: |
-      if (getrefine() > 9)
-         .@b += 20;
-      if (getequipweaponlv(-1) == 4)
-         .@b += 20;
-      bonus2 bSkillAtk,"GN_CART_TORNADO",20+.@b;
+
   - Id: 4692
     AegisName: Real_Ceila_Card
     Name: True Celia Alde Card
@@ -12560,11 +12514,7 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
     Script: |
-      if (getrefine() > 9)
-         .@b += 20;
-      if (getequipweaponlv(-1) == 4)
-         .@b += 20;
-      bonus2 bSkillAtk,"SO_VARETYR_SPEAR",20+.@b;
+
   - Id: 4693
     AegisName: Real_Chen_Card
     Name: True Chen Liu Card
@@ -12577,11 +12527,7 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
     Script: |
-      if (getrefine() > 9)
-         .@b += 20;
-      if (getequipweaponlv(-1) == 4)
-         .@b += 20;
-      bonus2 bSkillAtk,"SR_RAMPAGEBLASTER",20+.@b;
+
   - Id: 4694
     AegisName: Real_Gertie_Card
     Name: True Gertie Card
@@ -12594,11 +12540,7 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
     Script: |
-      if (getrefine() > 9)
-         .@b += 20;
-      if (getequipweaponlv(-1) == 4)
-         .@b += 20;
-      bonus2 bSkillAtk,"SC_FEINTBOMB",20+.@b;
+
   - Id: 4695
     AegisName: Real_Trentini_Card
     Name: True Trentini Card
@@ -12611,11 +12553,7 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
     Script: |
-      if (getrefine() > 9)
-         .@b += 20;
-      if (getequipweaponlv(-1) == 4)
-         .@b += 20;
-      bonus2 bSkillAtk,"WM_SEVERE_RAINSTORM",20+.@b;
+
   - Id: 4696
     AegisName: Real_Alphoccio_Card
     Name: True Alphoccio Card
@@ -12628,11 +12566,7 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
     Script: |
-      if (getrefine() > 9)
-         .@b += 20;
-      if (getequipweaponlv(-1) == 4)
-         .@b += 20;
-      bonus2 bSkillAtk,"WM_REVERBERATION",20+.@b;
+
   - Id: 4697
     AegisName: Charleston_Card
     Name: Charleston3 Card

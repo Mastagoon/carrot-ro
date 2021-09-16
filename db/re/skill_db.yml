@@ -20779,7 +20779,7 @@ Body:
     TargetType: Attack
     DamageFlags:
       IgnoreAtkCard: true
-      IgnoreElement: true
+      # IgnoreElement: true
       IgnoreDefCard: true
     Flags:
       AllowOnWarg: true
@@ -31619,7 +31619,7 @@ Body:
     HitCount: 1
     AfterCastActDelay: 500
     Duration1: 150000
-    Cooldown: 300000
+    Cooldown: 120000
     FixedCastTime: 1000
     Requires:
       SpCost:

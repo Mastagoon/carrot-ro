@@ -13407,8 +13407,8 @@ Body:
         Rate: 1
       - Item: Cookbook10
         Rate: 1
-      - Item: Maya_Puple_Card
-        Rate: 1
+      # - Item: Maya_Puple_Card
+      #   Rate: 1
         StealProtected: true
   - Id: 1290
     AegisName: SKELETON_GENERAL
