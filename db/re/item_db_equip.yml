@@ -52428,6 +52428,35 @@ Body:
       bonus bAllStats,1;
       bonus2 bAddClass,Class_All,2;
       bonus bMatkRate,2;
+  - Id: 5898
+    AegisName: Autumn_Headband
+    Name: Autumn Headband
+    Type: Armor
+    Buy: 20
+    Weight: 200
+    Defense: 10
+    Slots: 1
+    Jobs:
+      Hunter: true
+    Classes:
+      All_Third: true
+    Locations:
+      Head_Top: true
+    EquipLevelMin: 100
+    Refineable: true
+    View: 1119
+    Script: |
+      bonus2 bSkillAtk,"RA_FIRINGTRAP",50;
+      bonus2 bSkillAtk,"RA_ICEBOUNDTRAP",50;
+      bonus2 bSkillVariableCast,"RA_ARROWSTORM",-2000;
+      if(getrefine()>=7) {
+        bonus bAtk,2*(readparam(bDex)/5);
+      } 
+      if(getrefine()>=9) {
+        bonus2 bSkillAtk,"RA_FIRINGTRAP",25;
+        bonus2 bSkillAtk,"RA_ICEBOUNDTRAP",25;
+        bonus2 bSkillAtk,"RA_ARROWSTORM",35;
+      }
   - Id: 5900
     AegisName: Divine_Guard_Hat_
     Name: Divine Guard Hat
