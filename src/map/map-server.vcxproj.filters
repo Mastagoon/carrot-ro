@@ -122,9 +122,6 @@
     <ClInclude Include="quest.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ragnabot.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="script.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -251,9 +248,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="quest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ragnabot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="script.cpp">

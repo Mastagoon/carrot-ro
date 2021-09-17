@@ -47,7 +47,7 @@
 #include "pc.hpp"
 #include "pet.hpp"
 #include "quest.hpp"
-#include "ragnabot.hpp"
+// #include "ragnabot.hpp"
 #include "storage.hpp"
 #include "trade.hpp"
 // #include "discord/discord_bot.hpp"
@@ -5279,7 +5279,7 @@ int do_init(int argc, char *argv[])
 
 	npc_event_do_oninit();	// Init npcs (OnInit)
     // discord_init();
-    ragnabot_init();
+    // ragnabot_init();
 
 	if (battle_config.pk_mode)
 		ShowNotice("Server is running on '" CL_WHITE "PK Mode" CL_RESET "'.\n");

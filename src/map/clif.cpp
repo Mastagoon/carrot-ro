@@ -3214,6 +3214,7 @@ void clif_guild_xy_remove(struct map_session_data *sd)
 static int clif_hpmeter_sub(struct block_list *bl, va_list ap)
 {
 	struct map_session_data *sd, *tsd;
+    struct status_change *sc, *tsc;
 #if PACKETVER < 20100126
 	const int cmd = 0x106;
 #else
@@ -3222,6 +3223,7 @@ static int clif_hpmeter_sub(struct block_list *bl, va_list ap)
 
 	sd = va_arg(ap, struct map_session_data *);
 	tsd = (TBL_PC *)bl;
+    tsc = status_get_sc(bl);
 
 	nullpo_ret(sd);
 	nullpo_ret(tsd);
@@ -3231,6 +3233,8 @@ static int clif_hpmeter_sub(struct block_list *bl, va_list ap)
 
 	if( !pc_has_permission(tsd, PC_PERM_VIEW_HPMETER) )
 		return 0;
+    if( tsc && tsc->data[SC_HIDING] || tsc->data[SC_CLOAKING] || tsc->data[SC_CLOAKINGEXCEED] || tsc->data[SC_CAMOUFLAGE] || tsc->data[SC_NEWMOON] )
+        return 0;
 	WFIFOHEAD(tsd->fd,packet_len(cmd));
 	WFIFOW(tsd->fd,0) = cmd;
 	WFIFOL(tsd->fd,2) = sd->status.account_id;

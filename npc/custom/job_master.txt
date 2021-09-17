@@ -2,21 +2,24 @@ dicastes01,205,189,7	script	уеинь обк	47,13,13,{
 function Get_Job_Equip;
 function getitemarray;
 OnPCLoginEvent:
-    if(Class != Novice) end;
+    if(BaseLevel != 1) end;
     mes "[^0000ffуеинь обк^000000]";
     mes mesAr("убЭШЧ№ Шп нэ ЬвбЩ бц!!");
     mes mesAr("ЭэЫ эупфп Уф ЪеШЭ Уоць ЧссЧкШэф");
     mes mesAr("цЪхву Ьуэк ЧсцЭцццдцдццд!!");
     next;
-    mes mesAr("ЧЮЪб ухфЪп");
-    next;
-    mes "[^0000ffуеинь обк^000000]";
-    for (.@i = 0; .@i < getarraysize(.job); .@i++)
-		.@menu$ = .@menu$ + jobname(.job[.@i]) + ":";
-	.@s = select(.@menu$)-1;
-    jobchange .job[.@s];
+    if(Class == Novice) {
+        mes "[^0000ffуеинь обк^000000]";
+        mes mesAr("ЧЮЪб ухфЪп");
+        next;
+        mes "[^0000ffуеинь обк^000000]";
+        for (.@i = 0; .@i < getarraysize(.job); .@i++)
+            .@menu$ = .@menu$ + jobname(.job[.@i]) + ":";
+        .@s = select(.@menu$)-1;
+        jobchange .job[.@s];
+    }
     BaseLevel = 175;
-    JobLevel = 50;
+    JobLevel = 60;
 	specialeffect2 EF_ANGEL2;
 	specialeffect2 EF_ELECTRIC;
 	callfunc "F_GetPlatinumSkills";

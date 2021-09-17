@@ -21,7 +21,7 @@
 #include "pc.hpp"
 #include "pc_groups.hpp"
 // #include "discord/discord_bot.hpp"
-#include "ragnabot.hpp"
+// #include "ragnabot.hpp"
 
 static DBMap* channel_db; // channels
 
@@ -456,8 +456,7 @@ int channel_send(struct Channel *channel, struct map_session_data *sd, const cha
 		if((channel->opt&CHAN_OPT_COLOR_OVERRIDE) && sd->fontcolor && sd->fontcolor < channel_config.colors_count && channel_config.colors[sd->fontcolor])
 			color = channel_config.colors[sd->fontcolor];
 		safesnprintf(output, CHAT_SIZE_MAX, "%s %s : %s", channel->alias, sd->status.name, msg);
-		// discord_send(msg, channel->name, sd->status.name);
-        send_discord_message(msg, channel->name, sd->status.name);
+		// discord_send(msg, channel->, sd->status.name);
 		clif_channel_msg(channel,output,color);
 		sd->channel_tick[idx] = gettick();
 	}
