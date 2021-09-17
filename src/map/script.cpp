@@ -61,6 +61,7 @@
 #include "pet.hpp"
 #include "quest.hpp"
 #include "storage.hpp"
+#include "discord/discord_bot.hpp"
 
 using namespace rathena;
 
@@ -25125,6 +25126,19 @@ BUILDIN_FUNC(refineui){
 #endif
 }
 
+/*
+ * Sends a message via script cmd to server
+ */
+BUILDIN_FUNC(discord) {
+	const char* msg = script_getstr(st,2);
+	const char* channel = script_getstr(st,3);
+	const int ret = discord_script(msg, channel);
+	if(ret == 0)
+		return SCRIPT_CMD_SUCCESS;
+	else
+		return SCRIPT_CMD_FAILURE;
+}
+
 BUILDIN_FUNC(getenchantgrade){
 	struct map_session_data *sd;
 
@@ -25830,6 +25844,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(rentalcountitem, "v?"),
 	BUILDIN_DEF2(rentalcountitem, "rentalcountitem2", "viiiiiii?"),
 	BUILDIN_DEF2(rentalcountitem, "rentalcountitem3", "viiiiiiirrr?"),
+    BUILDIN_DEF(discord,"ss"),
 
 	BUILDIN_DEF(getenchantgrade, ""),
 
