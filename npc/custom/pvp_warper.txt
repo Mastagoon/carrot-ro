@@ -180,9 +180,11 @@ OnInit:
 					mf_loadevent;
 
 		.@i = getarraysize(.mapfl);
-		.@j = .size;
-		while(.@j--)
-			setmapflag .maps$[.@j],.mapfl[.@i];
+		while(.@i--) {
+			.@j = .size;
+			while(.@j--)
+				setmapflag .maps$[.@j],.mapfl[.@i];
+		}
             
 	}
 	.@map$ = .map$;

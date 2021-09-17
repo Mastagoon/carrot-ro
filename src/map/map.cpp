@@ -50,7 +50,7 @@
 // #include "ragnabot.hpp"
 #include "storage.hpp"
 #include "trade.hpp"
-// #include "discord/discord_bot.hpp"
+#include "discord/discord_bot.hpp"
 
 using namespace rathena;
 
@@ -5278,7 +5278,7 @@ int do_init(int argc, char *argv[])
 	do_init_buyingstore();
 
 	npc_event_do_oninit();	// Init npcs (OnInit)
-    // discord_init();
+    discord_init();
     // ragnabot_init();
 
 	if (battle_config.pk_mode)

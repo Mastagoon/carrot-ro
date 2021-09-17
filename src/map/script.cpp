@@ -61,7 +61,7 @@
 #include "pet.hpp"
 #include "quest.hpp"
 #include "storage.hpp"
-// #include "discord/discord_bot.hpp"
+#include "discord/discord_bot.hpp"
 // #include "ragnabot.hpp"
 
 using namespace rathena;
@@ -25130,15 +25130,15 @@ BUILDIN_FUNC(refineui){
 /*
  * Sends a message via script cmd to server
  */
-// BUILDIN_FUNC(discord) {
-// 	const char* msg = script_getstr(st,2);
-// 	const char* channel = script_getstr(st,3);
-// 	const int ret = discord_script(msg, channel);
-// 	if(ret == 0)
-// 		return SCRIPT_CMD_SUCCESS;
-// 	else
-// 		return SCRIPT_CMD_FAILURE;
-// }
+BUILDIN_FUNC(discord) {
+	const char* msg = script_getstr(st,2);
+	const char* channel = script_getstr(st,3);
+	const int ret = discord_script(msg, channel);
+	if(ret == 0)
+		return SCRIPT_CMD_SUCCESS;
+	else
+		return SCRIPT_CMD_FAILURE;
+}
 
 /*
  * Sends a message via script cmd to server
@@ -25243,7 +25243,7 @@ BUILDIN_FUNC(preg_match) {
 /// for an explanation on args, see add_buildin_func
 struct script_function buildin_func[] = {
 	// NPC interaction
-    // BUILDIN_DEF(discord, "ss"),
+    BUILDIN_DEF(discord, "ss"),
 	// BUILDIN_DEF(discord_verify, "s"),
 	// BUILDIN_DEF(discord_whisper, "s"),
 	BUILDIN_DEF(mes,"s*"),
