@@ -162,7 +162,6 @@ OnInit:
 	if(.map$ == "") {
 		// You can edit the room mapflags here.
 		setarray .mapfl[0], mf_nosave,
-					mf_nodrop,
 					mf_novending,
 					mf_noteleport,
 					mf_noreturn,
@@ -175,21 +174,16 @@ OnInit:
 					// mf_nocommand,
 					mf_pvp,
 					mf_pvp_noguild,
+                    mf_nogo,
 					//mf_pvp_noparty,
 					//mf_pvp_nocalcrank,
 					mf_loadevent;
 
 		.@i = getarraysize(.mapfl);
-		while(.@i--) {
-			.@j = .size;
-			while(.@j--)
-				setmapflag .maps$[.@j],.mapfl[.@i];
-            .@j = .size;
-            while(.@j--)
-                setmapflag .maps$[.@j],mf_nocommand,80;
+		.@j = .size;
+		while(.@j--)
+			setmapflag .maps$[.@j],.mapfl[.@i];
             
-		}
-
 	}
 	.@map$ = .map$;
 	.@r    = rand(.size);

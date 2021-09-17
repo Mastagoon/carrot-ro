@@ -3214,7 +3214,7 @@ void clif_guild_xy_remove(struct map_session_data *sd)
 static int clif_hpmeter_sub(struct block_list *bl, va_list ap)
 {
 	struct map_session_data *sd, *tsd;
-    struct status_change *sc, *tsc;
+    struct status_change *tsc;
 #if PACKETVER < 20100126
 	const int cmd = 0x106;
 #else
@@ -3233,7 +3233,7 @@ static int clif_hpmeter_sub(struct block_list *bl, va_list ap)
 
 	if( !pc_has_permission(tsd, PC_PERM_VIEW_HPMETER) )
 		return 0;
-    if( tsc && tsc->data[SC_HIDING] || tsc->data[SC_CLOAKING] || tsc->data[SC_CLOAKINGEXCEED] || tsc->data[SC_CAMOUFLAGE] || tsc->data[SC_NEWMOON] )
+    if( tsc && tsc->data[SC_HIDING] || tsc->data[SC_CLOAKING] || tsc->data[SC_CLOAKINGEXCEED] || tsc->data[SC_CAMOUFLAGE] || tsc->data[SC_NEWMOON] ) 
         return 0;
 	WFIFOHEAD(tsd->fd,packet_len(cmd));
 	WFIFOW(tsd->fd,0) = cmd;
@@ -4696,7 +4696,11 @@ void clif_soulball( struct map_session_data *sd, struct block_list* target, enum
 static void clif_getareachar_pc(struct map_session_data* sd,struct map_session_data* dstsd)
 {
 	struct block_list *d_bl;
+    struct status_change *tsc;
 	int i;
+
+    tsc = status_get_sc(&dstsd->bl);
+
 
 	if( dstsd->chatID ) {
 		struct chat_data *cd = NULL;
@@ -4715,11 +4719,11 @@ static void clif_getareachar_pc(struct map_session_data* sd,struct map_session_d
 		clif_spiritcharm_single(sd->fd, dstsd);
 	if (dstsd->soulball > 0)
 		clif_soulball( dstsd, &sd->bl, SELF );
-	if( (sd->status.party_id && dstsd->status.party_id == sd->status.party_id) || //Party-mate, or hpdisp setting.
+	if((sd->status.party_id && dstsd->status.party_id == sd->status.party_id) || //Party-mate, or hpdisp setting.
 		(sd->bg_id && sd->bg_id == dstsd->bg_id) || //BattleGround
-		pc_has_permission(sd, PC_PERM_VIEW_HPMETER)
+		(pc_has_permission(sd, PC_PERM_VIEW_HPMETER) && (!tsc->data[SC_HIDING] && !tsc->data[SC_CLOAKING] && !tsc->data[SC_CLOAKINGEXCEED] && !tsc->data[SC_CAMOUFLAGE] && !tsc->data[SC_NEWMOON]))
 	)
-	clif_hpmeter_single(sd->fd, dstsd->bl.id, dstsd->battle_status.hp, dstsd->battle_status.max_hp);
+	    clif_hpmeter_single(sd->fd, dstsd->bl.id, dstsd->battle_status.hp, dstsd->battle_status.max_hp);
 
 	// display link (sd - dstsd) to sd
 	ARR_FIND( 0, MAX_DEVOTION, i, sd->devotion[i] == dstsd->bl.id );
