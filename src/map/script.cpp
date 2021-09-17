@@ -61,7 +61,8 @@
 #include "pet.hpp"
 #include "quest.hpp"
 #include "storage.hpp"
-#include "discord/discord_bot.hpp"
+// #include "discord/discord_bot.hpp"
+#include "ragnabot.hpp"
 
 using namespace rathena;
 
@@ -25129,6 +25130,19 @@ BUILDIN_FUNC(refineui){
 /*
  * Sends a message via script cmd to server
  */
+// BUILDIN_FUNC(discord) {
+// 	const char* msg = script_getstr(st,2);
+// 	const char* channel = script_getstr(st,3);
+// 	const int ret = discord_script(msg, channel);
+// 	if(ret == 0)
+// 		return SCRIPT_CMD_SUCCESS;
+// 	else
+// 		return SCRIPT_CMD_FAILURE;
+// }
+
+/*
+ * Sends a message via script cmd to server
+ */
 BUILDIN_FUNC(discord) {
 	const char* msg = script_getstr(st,2);
 	const char* channel = script_getstr(st,3);
@@ -25137,6 +25151,28 @@ BUILDIN_FUNC(discord) {
 		return SCRIPT_CMD_SUCCESS;
 	else
 		return SCRIPT_CMD_FAILURE;
+}
+
+BUILDIN_FUNC(discord_verify) {
+	TBL_PC *sd;
+	if (!script_charid2sd(3, sd)) {
+		return SCRIPT_CMD_FAILURE;
+	}
+	const char* discord_tag = script_getstr(st, 2);
+	discord_verify_char(sd, discord_tag);
+	return SCRIPT_CMD_SUCCESS;
+}
+
+BUILDIN_FUNC(discord_whisper)
+{
+	TBL_PC *sd;
+	if (!script_charid2sd(3, sd))
+	{
+		return SCRIPT_CMD_FAILURE;
+	}
+	const char *message = script_getstr(st, 2);
+	discord_send_whisper(sd, message);
+	return SCRIPT_CMD_SUCCESS;
 }
 
 BUILDIN_FUNC(getenchantgrade){
@@ -25207,6 +25243,9 @@ BUILDIN_FUNC(preg_match) {
 /// for an explanation on args, see add_buildin_func
 struct script_function buildin_func[] = {
 	// NPC interaction
+    BUILDIN_DEF(discord, "ss"),
+	BUILDIN_DEF(discord_verify, "s"),
+	BUILDIN_DEF(discord_whisper, "s"),
 	BUILDIN_DEF(mes,"s*"),
 	BUILDIN_DEF(next,""),
 	BUILDIN_DEF(clear,""),
@@ -25844,7 +25883,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(rentalcountitem, "v?"),
 	BUILDIN_DEF2(rentalcountitem, "rentalcountitem2", "viiiiiii?"),
 	BUILDIN_DEF2(rentalcountitem, "rentalcountitem3", "viiiiiiirrr?"),
-    BUILDIN_DEF(discord,"ss"),
+    // BUILDIN_DEF(discord,"ss"),
 
 	BUILDIN_DEF(getenchantgrade, ""),
 
