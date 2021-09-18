@@ -17836,6 +17836,10 @@ Body:
     DamageFlags:
       Splash: true
       IgnoreFlee: true
+      IgnoreDefCard: true
+      IgnoreDefense: true
+      IgnoreAtkCard: true
+      IgnoreElement: true
     Flags:
       TargetTrap: true
     Range: 9
@@ -20779,7 +20783,7 @@ Body:
     TargetType: Attack
     DamageFlags:
       IgnoreAtkCard: true
-      # IgnoreElement: true
+      IgnoreElement: true
       IgnoreDefCard: true
     Flags:
       AllowOnWarg: true
@@ -31707,6 +31711,9 @@ Body:
     DamageFlags:
       Splash: true
       IgnoreFlee: true
+      IgnoreDefCard: true
+      IgnoreDefense: true
+      IgnoreAtkCard: true
     Flags:
       TargetTrap: true
     Range: 9

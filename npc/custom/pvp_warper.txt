@@ -60,6 +60,7 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 				dispell();
 			warp .map$,0,0;
 			announce strcharinfo(0)+" œŒ· ≈·Ï «·Õ·»…",bc_all,0xb50505;
+            discord("**" + strcharinfo(0) +"** œŒ· ≈·Ï «·Õ·»…", "pvp");
 			end;
 		}
 		if(.@choice == 2) {
@@ -276,6 +277,7 @@ OnPCKillEvent:
         if(rand(1,100) > 70)
             getitem callfunc("F_Rand",12429,12430,12431,12432,12433,12434,22545),rand(1,5);
     announce "·ﬁœ ﬁ«„ "+strcharinfo(0)+" »œ⁄” "+rid2name(killedrid)+" ›Ì «·Õ·»…!",bc_all|bc_blue;
+    discord("·ﬁœ ﬁ«„ **"+strcharinfo(0)+"** »œ⁄” **"+rid2name(killedrid)+"** ›Ì «·Õ·»…", "pvp");
     end;
 }
 

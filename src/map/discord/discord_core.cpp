@@ -19,6 +19,7 @@
 #include "../clif.hpp"
 #endif
 #include "discord_error.hpp"
+#include "../../common/showmsg.hpp"
 
 namespace rocord {
 
@@ -56,6 +57,24 @@ core::connect()
   // TODO: check if already connected
   this->dwss->start();
 }
+
+// std::string process_item_links(std::string &msg)
+// {
+//   int pos, pos2;
+//   std::string delimiter1 = "<ITEML>", delimiter2 = "</ITEML>";
+//   while ((pos = msg.find(delimiter1) != std::string::npos))
+//   {
+//     // found item link
+//     if (pos2 = msg.find(delimiter2) != std::string::npos)
+//     {
+//       data = msg.substr(pos + delimiter1.length(), pos2);
+//       ShowDebug("Data: %s\n", data.c_str());
+
+//     }
+//     if (pos2 == std::s)
+//       data = msg.substr()
+//   }
+// }
 
 /*
  * Public
@@ -95,11 +114,15 @@ core::to_discord(std::string& msg, const std::string& channel,
 #endif
   convert_latin1(msg);
   std::stringstream ss;
-  if (name)
+  if (name) {
+    convert_latin1(*name);
     // TODO: convert_latin1(name) requires template
-    ss << "<" << *name << "> " << msg; // << " | " << channel_id;
+    ss << "**" << *name << ":** " << msg; // << " | " << channel_id;
+  }
   else
     ss << msg;
+  // process message
+
   this->dhttps->send(ss.str(), channel_id);
   return 0;
 }
@@ -198,8 +221,8 @@ core::handle_ready(const std::string& guild_id)
   this->guild_id = guild_id; // TODO
   this->dhttps->setDisplayName(this->display_name,
                                this->guild_id); // init set of display_name
-  std::string payload = " * We launched into outer space * "; // DEBUG VALUE
-  this->dhttps->send(payload, channel_mapping->begin()->second);
+  //std::string payload = " * We launched into outer space * "; // DEBUG VALUE
+  //this->dhttps->send(payload, channel_mapping->begin()->second);
   this->state = ON;
 }
 
@@ -212,8 +235,8 @@ void
 core::handle_message_create(std::shared_ptr<member> membr, std::string& content,
                             const std::string& d_channel)
 {
-  const std::string author = membr->get_username();
-  const std::string nick = membr->get_nick();
+  std::string author = membr->get_username();
+  std::string nick = membr->get_nick();
   // ShowInfo("Discord: Message Event!");
   logger->print("API: Message Event!", log_type::info);
   if (author == this->display_name)
@@ -250,7 +273,8 @@ core::handle_message_create(std::shared_ptr<member> membr, std::string& content,
   std::string msg = channel;
 #endif
   convert_utf8(content);
-
+  convert_utf8(author);
+  convert_utf8(nick);
   // Checking if #channel or @main was used, remove it for now!
   content = std::regex_replace(content, std::regex("<@![0-9]*>"), "");
   content = std::regex_replace(content, std::regex("<#[0-9]*>"), "");
@@ -259,14 +283,15 @@ core::handle_message_create(std::shared_ptr<member> membr, std::string& content,
   content = std::regex_replace(content, std::regex("^\\s|\\s$"), "");
   if (content.length() < 1)
     return;
-  msg.append("<");
-  if (!nick.empty() && check_ISO8859_1(nick))
+  msg.append(" DISCORD-");
+  if (!nick.empty())// && check_ISO8859_1(nick))
     msg.append(nick);
-  else if (check_ISO8859_1(author))
+  else// if (check_ISO8859_1(author))
     msg.append(author);
-  else
-    return;
-  msg.append(">: ");
+  //else
+    //return;
+  
+  msg.append(": ");
   msg.append(content);
 
 #ifdef TESTING
@@ -367,7 +392,7 @@ bool
 core::check_ISO8859_1(const std::string& content)
 {
   try {
-    boost::locale::conv::from_utf(content, "ISO-8859-1",
+    boost::locale::conv::from_utf(content, "windows1256",
                                   boost::locale::conv::method_type::stop);
   } catch (const boost::locale::conv::conversion_error& e) {
     return false;
@@ -381,7 +406,7 @@ core::check_ISO8859_1(const std::string& content)
 void
 core::convert_utf8(std::string& content)
 {
-  content = boost::locale::conv::from_utf(content, "ISO-8859-1");
+  content = boost::locale::conv::from_utf(content, "windows1256");
 }
 
 /*
@@ -390,7 +415,7 @@ core::convert_utf8(std::string& content)
 void
 core::convert_latin1(std::string& content)
 {
-  std::string latin1 = "ISO-8859-1";
-  content = boost::locale::conv::to_utf<char>(content, "ISO-8859-1");
+  std::string latin1 = "windows1256";
+  content = boost::locale::conv::to_utf<char>(content, "windows1256");
 }
 }

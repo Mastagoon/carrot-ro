@@ -25,28 +25,20 @@ OnMake:
 	close;
 
 OnInit:
-	setarray .homs[1],6048,6049,6050,6051,6052;
+	setarray .homs[0],6048,6049,6050,6051,6052;
 	setarray .homeNames$[0],"Eira","Bayeri","Sera","Dieter","Eleanor";
 	.n$ = "[^0000ffHomunculus Manager^000000]";
 	end;
 
 }
 
-dicastes01,192,189,6	script	„ Ã— «·√”·Õ…	648,{
-	mes "[Weapons]";
-	mes "Choose catagory:";
-	.@choice = select("Crimson Weapons:Vellum Weapons:Quest Weapons");
-	close2;
-	if(.@choice == 1)
-		callshop "Crimson Weapons",1;
-	else if(.@choice == 2)
-		callshop "Vellum Weapons",1;
-	else callshop "Quest Weapons",1;
+dicastes01,192,189,6	script	„ Ã— «·„‰‘¯ÿ« 	648,{
+	callshop "Foods";
 	end;
 
 OnInit:
     // list items
-	waitingroom "„ Ã— «·√”·Õ…",0;
+	waitingroom "„ Ã— «·„‰‘¯ÿ« ",0;
 	end;
 }
 
@@ -74,7 +66,7 @@ dicastes01,192,185,6	script	„ Ã— «·⁄ «œ	648,{
 
 OnInit:
 	waitingroom "„ Ã— «·⁄ «œ",0;
-	setarray .sets$[1],"Headgears","Siege Set","Gray Set","Valkyrie Set","Morrigane Set","Morpheus Set","Mora - Affection Set","Mora - Judgment Set","Mora - Golden Rod Set","Mora - Aqua Set","Mora - Forest Set","Mora - Crimson Set","Mora - Ur Set","Mora - Peuz Set","Mora - Sapha Set","Mora - Nab Set","Mora - White Wing Set","Mora - Black Wing Set","Airship Set","Biolab Gear","Satan Morroc Gear";
+	setarray .sets$[1],"Crimson Weapons","Vellum Weapons","Quest Weapons","Headgears","Siege Set","Gray Set","Valkyrie Set","Morrigane Set","Morpheus Set","Mora - Affection Set","Mora - Judgment Set","Mora - Golden Rod Set","Mora - Aqua Set","Mora - Forest Set","Mora - Crimson Set","Mora - Ur Set","Mora - Peuz Set","Mora - Sapha Set","Mora - Nab Set","Mora - White Wing Set","Mora - Black Wing Set","Airship Set","Biolab Gear","Satan Morroc Gear";
 	end;
 }
 
@@ -162,3 +154,5 @@ OnInit:
 
 // Doram
 -	shop	Doram	-1,15156:50000,26155:50000,1697:500000,20790:50000,22085:50000,28424:50000,28422:50000,28423:50000
+// foods
+-	shop	Foods	-1,12429:50000,12430:50000,12431:50000,12432:50000,12433:50000,12430:50000,12247:50000,14601:50000,22553:-1,12016:50000

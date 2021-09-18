@@ -496,7 +496,7 @@
 2986:18872,{ bonus bBaseAtk,BaseLevel/4; }
 2987:18872,{ bonus bMatk,BaseLevel/4; }
 2990:2991,{ bonus bAllStats,5; bonus5 bAutoSpellWhenHit,"SC_MAELSTROM",1,100,BF_MAGIC,0; }
-2995:15110,{ bonus2 bSkillAtk,"NC_AXEBOOMERANG",100; }
+2995:15110,{ bonus2 bSkillAtk,"NC_AXEBOOMERANG",100; bonus2 bSkillCooldown,"NC_AXEBOOMERANG",-2000; }
 2997:2999,{ bonus2 bAddClass,Class_All,10; bonus bMatkRate,10; }
 32242:18971,{ bonus2 bFixedCastrate,"RK_STORMBLAST",-100; }
 32242:18972,{ bonus bMaxHPRate,50; }
@@ -2332,7 +2332,7 @@
 2913:2655,{ bonus bBaseAtk,10; }
 2913:19089,{ bonus bBaseAtk,10; }
 2948:2536,{ if (getequiprefinerycnt(EQI_GARMENT)>=7) { bonus bFlee2,2; } }
-2995:15343,{ bonus2 bSkillAtk,"NC_AXEBOOMERANG",100; }
+2995:15343,{ bonus2 bSkillAtk,"NC_AXEBOOMERANG",100; bonus2 bSkillCooldown,"NC_AXEBOOMERANG",-2000; }
 5498:5113,{ bonus bCritical,10; if (getequiprefinerycnt(EQI_HEAD_TOP)>=7) { bonus bCritAtkRate,10; if (getequiprefinerycnt(EQI_HEAD_TOP)>=9) { bonus bAspd,1; } } }
 5766:2269,{ bonus bMaxSP,20*(getequiprefinerycnt(EQI_HEAD_TOP)/2); }
 5766:2270,{ bonus bShortWeaponDamageReturn,(getequiprefinerycnt(EQI_HEAD_TOP)/2); }

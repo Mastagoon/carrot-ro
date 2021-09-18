@@ -37219,8 +37219,6 @@ Body:
       bonus bUseSPrate,-10;
       bonus bDelayrate,-10;
       bonus bVariableCastrate,-10;
-      bonus2 bSkillCooldown,"NC_AXEBOOMERANG",-2000;
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",100;
   - Id: 2996
     AegisName: Upgrade_Part_Gun_Barrel
     Name: Reinforced Parts - Gun Barrel
