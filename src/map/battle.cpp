@@ -1414,7 +1414,10 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 
 	// Nothing can reduce the damage, but Safety Wall and Millennium Shield can block it completely.
 	// So can defense sphere's but what the heck is that??? [Rytech]
-	if (skill_id == SJ_NOVAEXPLOSING && !(sc && (sc->data[SC_SAFETYWALL] || sc->data[SC_MILLENNIUMSHIELD])))
+	if (skill_id == SJ_NOVAEXPLOSING && !(sc && (sc->data[SC__MANHOLE] || sc->data[SC_WHITEIMPRISON] ||
+        sc->data[SC_GRAVITYCONTROL] || sc->data[SC_KINGS_GRACE] || sc->data[SC_SAFETYWALL] || sc->data[SC_MILLENNIUMSHIELD])
+        )
+     )
 		return damage;
 
 	if( sc && sc->count ) {

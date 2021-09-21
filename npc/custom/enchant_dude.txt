@@ -232,11 +232,100 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 			getitem2 .@itemId,1,1,0,0,0,.@enchants[.@enchant3],.@enchants[.@enchant2],.@enchants[.@enchant1];
 			specialeffect2 EF_MAXPOWER;
 			close;
+        case 5:
+            // rock ridge
+        	mes "- Choose Type -";
+			setarray .@armors[0],15177,15178,15180,15179,15176;
+			setarray .@armorEnchants[0],4769,4778,4772,4781,29026,4892,4865,4835,4866,4812,4872;
+			setarray .@garments[0],20820,20821,20822;
+			setarray .@accessories[0],28441,28442;
+			setarray .@accessoriesEnchants[0],4769,4778,4772,4781,4775,4784,4832,4885,4811,4869,4863;
+			switch(select("Armors:Garments:Accessories")) {
+				case 1:
+					.@menu$ = "";
+					for(.@i = 0; .@i < getarraysize(.@armors); .@i++) 
+						.@menu$ +=( getitemname(.@armors[.@i]) + ":");
+					.@itemId = .@armors[select(.@menu$) - 1];
+					mes "- Choose #1 Enchant -";
+					.@enchant1 = select("STR:AGI:INT:DEX:DEF:MDEF:CRIT:Expert Archer:Fatal:Spell:ASPD") - 1;
+					mes "- Choose #2 Enchant -";
+					.@enchant2 = select("STR:AGI:INT:DEX:DEF:MDEF:CRIT:Expert Archer:Fatal:Spell:ASPD") - 1;
+					mes "- Choose #3 Enchant -";
+					.@enchant3 = select("STR:AGI:INT:DEX:DEF:MDEF:CRIT:Expert Archer:Fatal:Spell:ASPD") - 1;
+					next;
+					mes "- "+getitemname(.@itemId)+" -";
+					mes "- "+getitemname(.@armorEnchants[.@enchant1])+" -";
+					mes "- "+getitemname(.@armorEnchants[.@enchant2])+" -";
+					mes "- "+getitemname(.@armorEnchants[.@enchant3])+" -";
+					if(select("Continue:Cancel") -1 ) close;
+					getitem2 .@itemId,1,1,0,0,0,.@armorEnchants[.@enchant3],.@armorEnchants[.@enchant2],.@armorEnchants[.@enchant1];
+					specialeffect2 EF_MAXPOWER;
+					close;
+				case 2:
+					.@menu$ = "";
+					for(.@i = 0; .@i < getarraysize(.@garments); .@i++) 
+						.@menu$ +=( getitemname(.@garments[.@i]) + ":");
+					.@itemId = .@garments[select(.@menu$) - 1];
+					mes "- Choose #1 Enchant -";
+					.@enchant1 = select("STR:AGI:INT:DEX:DEF:MDEF:CRIT:Expert Archer:Fatal:Spell:ASPD") - 1;
+					mes "- Choose #2 Enchant -";
+					.@enchant2 = select("STR:AGI:INT:DEX:DEF:MDEF:CRIT:Expert Archer:Fatal:Spell:ASPD") - 1;
+					mes "- Choose #3 Enchant -";
+					.@enchant3 = select("STR:AGI:INT:DEX:DEF:MDEF:CRIT:Expert Archer:Fatal:Spell:ASPD") - 1;
+					next;
+					mes "- "+getitemname(.@itemId)+" -";
+					mes "- "+getitemname(.@armorEnchants[.@enchant1])+" -";
+					mes "- "+getitemname(.@armorEnchants[.@enchant2])+" -";
+					mes "- "+getitemname(.@armorEnchants[.@enchant3])+" -";
+					if(select("Continue:Cancel") -1 ) close;
+					getitem2 .@itemId,1,1,0,0,0,.@armorEnchants[.@enchant3],.@armorEnchants[.@enchant2],.@armorEnchants[.@enchant1];
+					specialeffect2 EF_MAXPOWER;
+					close;
+				case 3:
+					.@itemId = .@accessories[select("Vigilante Badge:Hippe Feather") - 1];
+					mes "- Choose #1 Enchant -";
+					.@enchant1 = select("STR:AGI:INT:DEX:VIT:LUCK:Expert Archer:Fatal:Spell:ASPD") - 1;
+					mes "- Choose #2 Enchant -";
+					.@enchant2 = select("STR:AGI:INT:DEX:VIT:LUCK:Expert Archer:Fatal:Spell:ASPD") - 1;
+					next;
+					mes "- "+getitemname(.@itemId)+" -";
+					mes "- "+getitemname(.@accessoriesEnchants[.@enchant1])+" -";
+					mes "- "+getitemname(.@accessoriesEnchants[.@enchant2])+" -";
+					if(select("Continue:Cancel") -1 ) close;
+					getitem2 .@itemId,1,1,0,0,0,0,.@accessoriesEnchants[.@enchant2],.@accessoriesEnchants[.@enchant1];
+					specialeffect2 EF_MAXPOWER;
+					close;
+			}
+        case 6:
+            // Sarah's earrings
+            mes "- Choose Item -";
+            setarray .@earrings[0],28310,28311;
+            .@itemId = .@earrings[select("Left Earring:Right Earring") - 1];
+            setarray .@enchants1[0],4940,4864,4833,4943,4898,4949,4872;
+            setarray .@enchants2[0],4941,4865,4834,4944,4899,4873,4950;
+            mes "Select #1 Enchant";
+            .@menu$ = "";
+            for(.@i = 0; .@i < getarraysize(.@enchants1); .@i++)
+                .@menu$ += (getitemname(.@enchants1[.@i]) + ":");
+            .@enchant1 = select(.@menu$)  - 1;
+            mes "Select #2 Enchant";
+            .@menu$ = "";
+            for(.@i = 0; .@i < getarraysize(.@enchants2); .@i++)
+                .@menu$ += (getitemname(.@enchants2[.@i]) + ":");
+            .@enchant2 = select(.@menu$)  - 1;
+            next;
+			mes "- "+getitemname(.@itemId)+" -";
+			mes "- "+getitemname(.@enchants1[.@enchant1])+" -";
+			mes "- "+getitemname(.@enchants2[.@enchant2])+" -";
+			if(select("Continue:Cancel") -1 ) close;
+			getitem2 .@itemId,1,1,0,0,0,0,.@enchants2[.@enchant2],.@enchants1[.@enchant1];
+			specialeffect2 EF_MAXPOWER;
+			close;
 	}
 
 OnInit:
     waitingroom "”Õ— «·√œÊ« ",0;
-	setarray .menu$[0],"Malangdo Enchant","Temporal Boots Enchant","Verus Enchant","Geffen Magic Tournament", "Faceworm Nest";
+	setarray .menu$[0],"Malangdo Enchant","Temporal Boots Enchant","Verus Enchant","Geffen Magic Tournament", "Faceworm Nest", "Rock Ridge", "Sarah's Earrings";
 	.n$ = "[^0000ffEnchant Dude^000000]";
 	end;
 }

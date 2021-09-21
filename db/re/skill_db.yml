@@ -24723,7 +24723,7 @@ Body:
     Name: SR_GENTLETOUCH_CHANGE
     Description: Gentle Touch - Change
     MaxLevel: 5
-    TargetType: Self
+    TargetType: Support
     DamageFlags:
       NoDamage: true
     Range: 2
@@ -24763,7 +24763,7 @@ Body:
     Name: SR_GENTLETOUCH_REVITALIZE
     Description: Gentle Touch - Revitalize
     MaxLevel: 5
-    TargetType: Self
+    TargetType: Support
     DamageFlags:
       NoDamage: true
     Range: 2

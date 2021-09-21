@@ -3746,7 +3746,7 @@ Body:
   - Id: 12016
     AegisName: Speed_Up_Potion
     Name: Speed Potion
-    Type: Usable
+    Type: Delayconsume
     Buy: 2
     Weight: 100
     Flags:
@@ -6510,7 +6510,7 @@ Body:
   - Id: 12247
     AegisName: Halohalo
     Name: Halo-Halo
-    Type: Usable
+    Type: Delayconsume
     Buy: 2
     Weight: 100
     EquipLevelMin: 20
@@ -8882,7 +8882,7 @@ Body:
   - Id: 12429
     AegisName: Savage_BBQ
     Name: Savage Full Roast
-    Type: Usable
+    Type: Delayconsume
     Weight: 50
     Flags:
       BuyingStore: true
@@ -8891,7 +8891,7 @@ Body:
   - Id: 12430
     AegisName: Wug_Blood_Cocktail
     Name: Cocktail Warg Blood
-    Type: Usable
+    Type: Delayconsume
     Weight: 50
     Flags:
       BuyingStore: true
@@ -8900,7 +8900,7 @@ Body:
   - Id: 12431
     AegisName: Minor_Brisket
     Name: Minor Stew
-    Type: Usable
+    Type: Delayconsume
     Weight: 50
     Flags:
       BuyingStore: true
@@ -8909,7 +8909,7 @@ Body:
   - Id: 12432
     AegisName: Siroma_Icetea
     Name: Siroma Iced Tea
-    Type: Usable
+    Type: Delayconsume
     Weight: 50
     Flags:
       BuyingStore: true
@@ -8918,7 +8918,7 @@ Body:
   - Id: 12433
     AegisName: Drocera_Herb_Stew
     Name: Drosera Herb Salad
-    Type: Usable
+    Type: Delayconsume
     Weight: 50
     Flags:
       BuyingStore: true
@@ -8927,7 +8927,7 @@ Body:
   - Id: 12434
     AegisName: Petti_Tail_Noodle
     Name: Petite Tail Noodles
-    Type: Usable
+    Type: Delayconsume
     Weight: 50
     Flags:
       BuyingStore: true
@@ -33987,7 +33987,7 @@ Body:
   - Id: 14601
     AegisName: Tyr's_Blessing
     Name: Tyr's Blessing
-    Type: Usable
+    Type: Delayconsume
     Weight: 10
     Trade:
       Override: 100
@@ -44859,7 +44859,7 @@ Body:
   - Id: 22553
     AegisName: Rainbow_Cake_B
     Name: Rainbow Bread
-    Type: Usable
+    Type: Delayconsume
     Buy: 10
     Weight: 70
     Trade:
