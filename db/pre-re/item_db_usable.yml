@@ -224,7 +224,7 @@ Body:
     Name: Carrot
     Type: Healing
     Buy: 15
-    Weight: 20
+    Weight: 0
     Flags:
       BuyingStore: true
     Script: |
