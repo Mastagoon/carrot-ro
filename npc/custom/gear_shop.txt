@@ -66,7 +66,7 @@ dicastes01,192,185,6	script	„ Ã— «·⁄ «œ	648,{
 
 OnInit:
 	waitingroom "„ Ã— «·⁄ «œ",0;
-	setarray .sets$[1],"Crimson Weapons","Vellum Weapons","Quest Weapons","Headgears","Siege Set","Gray Set","Valkyrie Set","Morrigane Set","Morpheus Set","Mora - Affection Set","Mora - Judgment Set","Mora - Golden Rod Set","Mora - Aqua Set","Mora - Forest Set","Mora - Crimson Set","Mora - Ur Set","Mora - Peuz Set","Mora - Sapha Set","Mora - Nab Set","Mora - White Wing Set","Mora - Black Wing Set","Airship Set","Biolab Gear","Satan Morroc Gear";
+	setarray .sets$[1],"Crimson Weapons","Vellum Weapons","Quest Weapons","Headgears","Siege Set","Gray Set","Valkyrie Set","Morrigane Set","Morpheus Set","Flattery Robe","Calf Weapons","Mora - Affection Set","Mora - Judgment Set","Mora - Golden Rod Set","Mora - Aqua Set","Mora - Forest Set","Mora - Crimson Set","Mora - Ur Set","Mora - Peuz Set","Mora - Sapha Set","Mora - Nab Set","Mora - White Wing Set","Mora - Black Wing Set","Airship Set","Biolab Gear","Satan Morroc Gear";
 	end;
 }
 
@@ -106,6 +106,7 @@ OnInit:
 -	shop	Morrigane Set	-1,2650:-1,5127:-1,2519:-1,2651:-1
 -	shop	Morpheus Set	-1,2649:-1,5126:-1,2648:-1,2518:-1
 -	shop	Calf Weapons	-1,13146:50000,28240:50000,28241:50000,28242:50000,28243:50000
+-	shop	Flattery Robe	-1,15146:50000,15147:50000
 -	shop	Mora - Affection Set	-1,1660:-1,2471:-1,15029:-1,2569:-1
 -	shop	Mora - Judgment Set	-1,16018:-1,2472:-1,15030:-1,2570:-1
 -	shop	Mora - Golden Rod Set	-1,2011:-1,15025:-1,2467:-1,2859:-1

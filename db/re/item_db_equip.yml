@@ -64934,7 +64934,6 @@ Body:
       skill "AC_CONCENTRATION",1;
       .@i = getrefine()*4;
       bonus2 bIgnoreDefRaceRate,RC_DemiHuman,.@i;
-      bonus2 bIgnoreDefRaceRate,RC_Player_Human,.@i;
       bonus2 bIgnoreDefRaceRate,RC_Demon,.@i;
       bonus2 bIgnoreDefRaceRate,RC_Undead,.@i;
   - Id: 15150
