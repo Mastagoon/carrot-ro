@@ -83,7 +83,7 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 			mes "[«·‘€» Õ·»…]";
 			mes "«Œ — ﬂ·„… «·„—Ê— ··Œ—Ìÿ… «·Œ«’…";
 			mes "^ff0000ﬂ·„… «·„—Ê— ÌÃ» √‰  ﬂÊ‰ ⁄·Ï «·√ﬁ·";
-			mes "„‰ À·«À… √Õ—›.^000000");
+			mes "„‰ À·«À… √Õ—›.^000000";
 			input .@password$,3,20;
 			next;
 			mes "[«·‘€» Õ·»…]";
@@ -92,7 +92,7 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 				close;
 			}
 			mes "ﬂ·„… «·„—Ê— ÂÌ";
-			mes .@password$);
+			mes .@password$;
 			mes "”Ì „ ‰ﬁ·ﬂ ≈·Ï €—›… «·‘€» «·Œ«’….";
 			next;
 			setarray .private_map_passwords$[.maps_available],.@password$;
