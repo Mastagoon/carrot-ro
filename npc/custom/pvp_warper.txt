@@ -45,11 +45,11 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 	.@n$ = "^3227cd[Õ·»… «·‘€»]^000000";
 	mes "[«·‘€» Õ·»…]";
 	if(BaseLevel >= .min_lv) {
-		mes mesAr("Â·  —Ìœ œŒÊ· «·Õ·»…ø");
+		mes "Â·  —Ìœ œŒÊ· «·Õ·»…ø";
 		if(.debuff)
-			mes mesAr("^8b0d1f”Ì „ ≈“«·… Ã„Ì⁄ «·Õ«·«  ⁄‰ﬂ ⁄‰œ «·œŒÊ·^000000");
+			mes "^8b0d1f”Ì „ ≈“«·… Ã„Ì⁄ «·Õ«·«  ⁄‰ﬂ ⁄‰œ «·œŒÊ·^000000";
 		next;
-		.@choice = select("œŒÊ· «·Õ·»…:≈‰‘«¡ Õ·»… Œ«’…:œŒÊ· Õ·»… Œ«’…:≈·€«¡");
+		.@choice = select("œŒÊ· «·Õ·»…:≈‰‘«¡ Õ·»… Œ«’…:œŒÊ· Õ·»… Œ«’…:≈·€«¡";
 		if(.@choice == 5) close;
 		if(.@choice == 1) { // enter pvp
 			specialeffect2 F_Rand(EF_STORMKICK1,EF_STORMKICK2,EF_STORMKICK3,EF_STORMKICK6,EF_STORMKICK7);
@@ -67,33 +67,33 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 			next;
 			mes "[«·‘€» Õ·»…]";
 			if(Zeny < 100000) {
-				mes mesAr("·Ì” ·œÌﬂ “Ì‰Ì ﬂ«›Ì, ≈‰‘«¡");
-				mes mesAr("Õ·»… Œ«’… ”Ìﬂ·›ﬂ 100,000 “Ì‰Ì");
+				mes "·Ì” ·œÌﬂ “Ì‰Ì ﬂ«›Ì, ≈‰‘«¡";
+				mes "Õ·»… Œ«’… ”Ìﬂ·›ﬂ 100,000 “Ì‰Ì";
 			}
-			mes mesAr("≈‰‘«¡ Õ·»… Œ«’… ”Ìﬂ·›ﬂ 100,000 “Ì‰Ì");
-			mes mesAr("Â· √‰  „ √ﬂœ „‰ «‰ﬂ  —Ìœ ≈‰‘«¡ Õ·»… Œ«’…ø");
+			mes "≈‰‘«¡ Õ·»… Œ«’… ”Ìﬂ·›ﬂ 100,000 “Ì‰Ì";
+			mes "Â· √‰  „ √ﬂœ „‰ «‰ﬂ  —Ìœ ≈‰‘«¡ Õ·»… Œ«’…ø";
 			next;
 			select("‰⁄„ «‰« „ √ﬂœ");
 			if(.maps_available == 0) {
 				mes "[«·‘€» Õ·»…]";
-				mes mesAr("Ì»œÊ √‰ ﬂ· «·Õ·»«  «·Œ«’… „‘€Ê·… Õ«·Ì«.");
-				mes mesAr("Õ«Ê· „—… √Œ—Ï ·«Õﬁ«.");
+				mes "Ì»œÊ √‰ ﬂ· «·Õ·»«  «·Œ«’… „‘€Ê·… Õ«·Ì«.";
+				mes "Õ«Ê· „—… √Œ—Ï ·«Õﬁ«.";
 				close;
 			}
 			mes "[«·‘€» Õ·»…]";
-			mes mesAr("«Œ — ﬂ·„… «·„—Ê— ··Œ—Ìÿ… «·Œ«’…");
-			mes mesAr("^ff0000ﬂ·„… «·„—Ê— ÌÃ» √‰  ﬂÊ‰ ⁄·Ï «·√ﬁ·");
-			mes mesAr("„‰ À·«À… √Õ—›.^000000");
+			mes "«Œ — ﬂ·„… «·„—Ê— ··Œ—Ìÿ… «·Œ«’…";
+			mes "^ff0000ﬂ·„… «·„—Ê— ÌÃ» √‰  ﬂÊ‰ ⁄·Ï «·√ﬁ·";
+			mes "„‰ À·«À… √Õ—›.^000000");
 			input .@password$,3,20;
 			next;
 			mes "[«·‘€» Õ·»…]";
 			if(getstrlen(.@password$) < 3 || getstrlen(.@password$) > 20) {
-				mes mesAr("ﬂ·„… «·„—Ê— ÌÃ» √‰  ﬂÊ‰ „«»Ì‰ 3 Ê 20 Õ—›«.");
+				mes "ﬂ·„… «·„—Ê— ÌÃ» √‰  ﬂÊ‰ „«»Ì‰ 3 Ê 20 Õ—›«.";
 				close;
 			}
-			mes mesAr("ﬂ·„… «·„—Ê— ÂÌ");
-			mes mesAr(.@password$);
-			mes mesAr("”Ì „ ‰ﬁ·ﬂ ≈·Ï €—›… «·‘€» «·Œ«’….");
+			mes "ﬂ·„… «·„—Ê— ÂÌ";
+			mes .@password$);
+			mes "”Ì „ ‰ﬁ·ﬂ ≈·Ï €—›… «·‘€» «·Œ«’….";
 			next;
 			setarray .private_map_passwords$[.maps_available],.@password$;
 			setarray .private_map_owner$[.maps_available],strcharinfo(0);
@@ -105,12 +105,12 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 		}
 		if(.@choice == 3) { //enter private match
 			mes "[«·‘€» Õ·»…]";
-			mes mesAr("√œŒ· ﬂ·„… «·„—Ê— ··Õ·»… «· Ì  —Ìœ œŒÊ·Â«");
+			mes "√œŒ· ﬂ·„… «·„—Ê— ··Õ·»… «· Ì  —Ìœ œŒÊ·Â«";
 			input .@password$,3,20;
 			next;
 			if(inarray(.private_map_passwords$,.@password$) == -1) {
 				mes "[«·‘€» Õ·»…]";
-				mes mesAr("ﬂ·„… «·„—Ê— «· Ì √œŒ· Â« Œ«ÿ∆….");
+				mes "ﬂ·„… «·„—Ê— «· Ì √œŒ· Â« Œ«ÿ∆….";
 				close;
 			}
 			warp .private_maps$[inarray(.private_map_passwords$,.@password$)],0,0;
@@ -118,7 +118,7 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 			end;
 		}
 	} else {
-		mes mesAr("You must be at least level "+.min_lv+" to be able to enter the room.");
+		mes "You must be at least level "+.min_lv+" to be able to enter the room.";
 		close;
 	}
 	end;
@@ -155,7 +155,7 @@ OnInit:
 						"guild_vs5", //gvs5
 						"pvp_n_7-3"; //four room
 	
-	// Max amount of times mesAr(a map can be repeated. 0 = unlimited);
+	// Max amount of times a map can be repeated. 0 = unlimited;
 	.row = 3;
 
 	.size = getarraysize(.maps$);

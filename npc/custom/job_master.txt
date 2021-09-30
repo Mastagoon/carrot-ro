@@ -4,13 +4,13 @@ function getitemarray;
 OnPCLoginEvent:
     if(BaseLevel != 1) end;
     mes "[^0000ffуеинь обк^000000]";
-    mes mesAr("убЭШЧ№ Шп нэ ЬвбЩ бц!!");
-    mes mesAr("ЭэЫ эупфп Уф ЪеШЭ Уоць ЧссЧкШэф");
-    mes mesAr("цЪхву Ьуэк ЧсцЭцццдцдццд!!");
+    mes "убЭШЧ№ Шп нэ ЬвбЩ бц!!";
+    mes "ЭэЫ эупфп Уф ЪеШЭ Уоць ЧссЧкШэф";
+    mes "цЪхву Ьуэк ЧсцЭцццдцдццд!!";
     next;
     if(Class == Novice) {
         mes "[^0000ffуеинь обк^000000]";
-        mes mesAr("ЧЮЪб ухфЪп");
+        mes "ЧЮЪб ухфЪп";
         next;
         mes "[^0000ffуеинь обк^000000]";
         for (.@i = 0; .@i < getarraysize(.job); .@i++)
