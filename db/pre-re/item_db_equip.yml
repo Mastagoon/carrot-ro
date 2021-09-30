@@ -40371,3 +40371,21 @@ Body:
       Costume_Head_Top: true
     EquipLevelMin: 1
     View: 654
+  - Id: 18561
+    AegisName: B_Feather_Beret
+    Name: B Feather Beret
+    Type: Armor
+    Buy: 20
+    Weight: 300
+    Defense: 5
+    Slots: 1
+    Locations:
+      Head_Top: true
+    EquipLevelMin: 40
+    Refineable: true
+    View: 731
+    Script: |
+      bonus bVit,2;
+      bonus bMdef,3;
+      bonus2 bSubRace,RC_DemiHuman,10;
+      bonus2 bSubRace,RC_Player_Human,10;
