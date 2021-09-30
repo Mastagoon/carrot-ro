@@ -49,7 +49,7 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 		if(.debuff)
 			mes "^8b0d1fсМйЦ ергАи лЦМз гАмгАгй зДъ зДо гАонФА^000000";
 		next;
-		.@choice = select("онФА гАмАхи:еДтга мАхи нгуи:онФА мАхи нгуи:еАшга";
+		.@choice = select("онФА гАмАхи:еДтга мАхи нгуи:онФА мАхи нгуи:еАшга");
 		if(.@choice == 5) close;
 		if(.@choice == 1) { // enter pvp
 			specialeffect2 F_Rand(EF_STORMKICK1,EF_STORMKICK2,EF_STORMKICK3,EF_STORMKICK6,EF_STORMKICK7);

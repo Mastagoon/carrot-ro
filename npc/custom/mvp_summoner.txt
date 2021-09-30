@@ -1,6 +1,6 @@
 dicastes01,205,181,4	script	mvp-ss	512,{
 	if(.timer > gettimetick(2)) {
-		mes "You need to wait "+formatTime(.timer - gettimetick(2));
+		mes "You need to wait "+.timer - gettimetick(2);
 		close;
 	}
 	.timer = gettimetick(2) + 3700;
