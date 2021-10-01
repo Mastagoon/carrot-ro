@@ -18,8 +18,8 @@ OnPCLoginEvent:
         .@s = select(.@menu$)-1;
         jobchange .job[.@s];
     }
-    BaseLevel = 175;
-    JobLevel = 60;
+    BaseLevel = 99;
+    JobLevel = 70;
 	specialeffect2 EF_ANGEL2;
 	specialeffect2 EF_ELECTRIC;
 	callfunc "F_GetPlatinumSkills";
