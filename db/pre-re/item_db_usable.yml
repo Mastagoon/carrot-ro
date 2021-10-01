@@ -23009,3 +23009,21 @@ Body:
       Third_Upper: true
       Third_Baby: true
     EquipLevelMin: 1
+  - Id: 22553
+    AegisName: Rainbow_Cake_B
+    Name: Rainbow Bread
+    Type: Delayconsume
+    Buy: 10
+    Weight: 70
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      sc_start SC_BATKFOOD,60000,10;
+      sc_start SC_MATKFOOD,60000,10;
