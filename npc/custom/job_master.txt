@@ -80,3 +80,18 @@ OnInit:
                     ;
     end;
 }
+
+-	script	#chan_control	-1,{
+OnInit:
+	bindatcmd("channeljoin",strnpcinfo(0)+"::OnChannelJoin");
+	end;
+OnChannelJoin:
+	set channel_join_off, !channel_join_off;
+	message strcharinfo(0),"Channel auto-join is now "+((channel_join_off)?"disabled":"enabled")+".";
+	end;
+OnPCLoginEvent:
+	if (!channel_join_off) {
+		atcommand "@join #global";
+	}
+	end;
+}
