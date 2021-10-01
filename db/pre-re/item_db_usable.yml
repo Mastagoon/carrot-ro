@@ -228,7 +228,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      itemheal rand(18,20),0;
+      itemheal rand(175,245),rand(60,100);
   - Id: 516
     AegisName: Sweet_Potato
     Name: Potato
