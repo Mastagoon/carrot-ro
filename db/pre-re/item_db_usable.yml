@@ -2648,7 +2648,7 @@ Body:
   - Id: 12016
     AegisName: Speed_Up_Potion
     Name: Speed Potion
-    Type: Usable
+    Type: Delayconsume
     Buy: 2
     Weight: 100
     Flags:
@@ -5369,7 +5369,7 @@ Body:
   - Id: 12247
     AegisName: Halohalo
     Name: Halo-Halo
-    Type: Usable
+    Type: Delayconsume
     Buy: 2
     Weight: 100
     EquipLevelMin: 20
@@ -22568,7 +22568,7 @@ Body:
   - Id: 14601
     AegisName: Tyr's_Blessing
     Name: Tyr's Blessing
-    Type: Usable
+    Type: Delayconsume
     Weight: 10
     Trade:
       Override: 100
