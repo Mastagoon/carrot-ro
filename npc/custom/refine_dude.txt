@@ -3,8 +3,9 @@ dicastes01,205,185,4	script	 Õ”Ì‰ «·√œÊ« 	63,{
     setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES;
     for(.@i = 1; .@i<getarraysize(.@indices); ++.@i) {
 		if(getequipisequiped(.@indices[.@i])) {
-            if(.@indices[.@i] == EQI_HAND_L || .@indices[.@i] == EQI_HAND_R) successrefitem .@indices[.@i],9 - getequiprefinerycnt(.@indices[.@i]);
-            successrefitem .@indices[.@i],7 - getequiprefinerycnt(.@indices[.@i]);
+            if(.@indices[.@i] == EQI_HAND_L || .@indices[.@i] == EQI_HAND_R) { 
+                successrefitem .@indices[.@i],9 - getequiprefinerycnt(.@indices[.@i]);
+            } else { successrefitem .@indices[.@i],7 - getequiprefinerycnt(.@indices[.@i]); }
 		}
 		.@menu$ = .@menu$ + ":";
 	}
