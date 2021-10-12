@@ -22,3 +22,13 @@
 // Izlude
 //============================================================
 izlude,134,87,3	duplicate(kaf_izlude)	Kafra Employee#iz	117
+
+// Dicasts
+//============================================================
+dicastes01,204,195,4	script	Kafra Employee::kaf_dic	4_F_KAFRA1,{
+	cutin "kafra_01",2;
+	callfunc "F_KafSet";
+	callfunc "F_Kafra",5,0,1,80,1000;
+	savepoint "dicastes01",198,187,1,1;
+	callfunc "F_KafEnd",2,0,0;
+}
