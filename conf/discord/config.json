@@ -1,13 +1,13 @@
 {
-    "version": 1,
-    "debug": 0,
-	"log_level": 0,
-    "display_name": "Jazara Bot",
-    "token": "ODg0Njk4NjYxMDM1MDUzMTA4.YTcR1Q.9R4yAvHsezcO_5rOVYQgATcvRs8",
-    "presence": "fightme",
-    "channels" : {
-        "global": "884686936546082868",
-        "pvp": "888322742468878366",
-        "announcements": "884690583485054989"
-    }
+  "version": 1,
+  "debug": 0,
+  "log_level": 0,
+  "display_name": "Jazara Bot",
+  "token": "ODg0Njk4NjYxMDM1MDUzMTA4.GJogtb.ef19WTc6owc1LLcIxQReUkSvNekm7jrWNYtqY8",
+  "presence": "fightme",
+  "channels": {
+    "global": "884686936546082868",
+    "pvp": "888322742468878366",
+    "announcements": "884690583485054989"
+  }
 }
