@@ -95070,20 +95070,7 @@ Body:
     Weight: 600
     Defense: 25
     Jobs:
-      Alchemist: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Hunter: true
-      Knight: true
-      Monk: true
-      Priest: true
-      Rogue: true
-      Sage: true
-      Wizard: true
-    Classes:
-      All_Third: true
+      All: true
     Locations:
       Shoes: true
     EquipLevelMin: 99
@@ -95103,20 +95090,7 @@ Body:
     Weight: 600
     Defense: 20
     Jobs:
-      Alchemist: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Hunter: true
-      Knight: true
-      Monk: true
-      Priest: true
-      Rogue: true
-      Sage: true
-      Wizard: true
-    Classes:
-      All_Third: true
+      All: true
     Locations:
       Shoes: true
     EquipLevelMin: 99
@@ -95137,20 +95111,7 @@ Body:
     Weight: 600
     Defense: 25
     Jobs:
-      Alchemist: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Hunter: true
-      Knight: true
-      Monk: true
-      Priest: true
-      Rogue: true
-      Sage: true
-      Wizard: true
-    Classes:
-      All_Third: true
+      All: true
     Locations:
       Shoes: true
     EquipLevelMin: 99
@@ -95170,20 +95131,7 @@ Body:
     Weight: 600
     Defense: 25
     Jobs:
-      Alchemist: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Hunter: true
-      Knight: true
-      Monk: true
-      Priest: true
-      Rogue: true
-      Sage: true
-      Wizard: true
-    Classes:
-      All_Third: true
+      All: true
     Locations:
       Shoes: true
     EquipLevelMin: 99
@@ -95202,20 +95150,7 @@ Body:
     Weight: 600
     Defense: 25
     Jobs:
-      Alchemist: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Hunter: true
-      Knight: true
-      Monk: true
-      Priest: true
-      Rogue: true
-      Sage: true
-      Wizard: true
-    Classes:
-      All_Third: true
+      All: true
     Locations:
       Shoes: true
     EquipLevelMin: 99
@@ -95237,20 +95172,7 @@ Body:
     Weight: 600
     Defense: 20
     Jobs:
-      Alchemist: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Hunter: true
-      Knight: true
-      Monk: true
-      Priest: true
-      Rogue: true
-      Sage: true
-      Wizard: true
-    Classes:
-      All_Third: true
+      All: true
     Locations:
       Shoes: true
     EquipLevelMin: 99
@@ -95272,21 +95194,7 @@ Body:
     Defense: 25
     Slots: 1
     Jobs:
-      Alchemist: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Hunter: true
-      Knight: true
-      Monk: true
-      Priest: true
-      Rogue: true
-      Sage: true
-      Wizard: true
-      KagerouOboro: true
-    # Classes:
-    #   All_Third: true
+      All: true
     Locations:
       Shoes: true
     EquipLevelMin: 99
@@ -95307,19 +95215,9 @@ Body:
     Defense: 25
     Slots: 1
     Jobs:
-      Alchemist: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Hunter: true
-      Knight: true
-      Monk: true
-      Priest: true
-      Rogue: true
-      Sage: true
-      Wizard: true
-      KagerouOboro: true
+      All: true
+    # Classes:
+    #   All_Third: true
     # Classes:
     #   All_Third: true
     Locations:
@@ -95341,19 +95239,7 @@ Body:
     Defense: 25
     Slots: 1
     Jobs:
-      Alchemist: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Hunter: true
-      Knight: true
-      Monk: true
-      Priest: true
-      Rogue: true
-      Sage: true
-      Wizard: true
-      KagerouOboro: true
+      All: true
     # Classes:
     #   All_Third: true
     Locations:
@@ -95378,21 +95264,7 @@ Body:
     Defense: 20
     Slots: 1
     Jobs:
-      Alchemist: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Hunter: true
-      Knight: true
-      Monk: true
-      Priest: true
-      Rogue: true
-      Sage: true
-      Wizard: true
-      KagerouOboro: true
-    # Classes:
-    #   All_Third: true
+      All: true
     Locations:
       Shoes: true
     EquipLevelMin: 99
@@ -95414,21 +95286,7 @@ Body:
     Defense: 25
     Slots: 1
     Jobs:
-      Alchemist: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Hunter: true
-      Knight: true
-      Monk: true
-      Priest: true
-      Rogue: true
-      Sage: true
-      Wizard: true
-      KagerouOboro: true
-    # Classes:
-    #   All_Third: true
+      All: true
     Locations:
       Shoes: true
     EquipLevelMin: 99
@@ -95449,21 +95307,7 @@ Body:
     Defense: 20
     Slots: 1
     Jobs:
-      Alchemist: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Hunter: true
-      Knight: true
-      Monk: true
-      Priest: true
-      Rogue: true
-      Sage: true
-      Wizard: true
-      KagerouOboro: true
-    # Classes:
-    #   All_Third: true
+      All: true
     Locations:
       Shoes: true
     EquipLevelMin: 99
