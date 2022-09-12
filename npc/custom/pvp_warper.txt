@@ -272,6 +272,10 @@ OnPCLogoutEvent:
 	}
 	*/end;
 
+OnPCLoginEvent:
+		atcommand "@join #global";
+		end;
+
 OnPCKillEvent:
     if(strcharinfo(3) == .map$)
         if(rand(1,100) > 70)
