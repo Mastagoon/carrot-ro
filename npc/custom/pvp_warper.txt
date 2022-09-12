@@ -285,6 +285,21 @@ OnPCKillEvent:
     end;
 }
 
+-	script	announcments	-1,{
+OnMinute15:
+OnMinute25:
+OnMinute45:
+OnMinute55:
+	.@message$ = .messages$[0];
+	announce callfunc("mesAr",.@message$),bc_all;
+	end;
+
+OnInit:
+	setarray .messages$[0],"ãä ÛÔøäÇ İáíÓ ãäøÇ";
+	end;
+}
+
+
 pvp_n_7-3,99,151,5	script	Leave PVP	678,{
 	message strcharinfo(0),"Quitting the room...";
 	unitstopwalk getcharid(3);
