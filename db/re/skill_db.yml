@@ -17839,7 +17839,6 @@ Body:
       IgnoreDefCard: true
       IgnoreDefense: true
       IgnoreAtkCard: true
-      IgnoreElement: true
     Flags:
       TargetTrap: true
     Range: 9
