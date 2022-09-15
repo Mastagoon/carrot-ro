@@ -31689,6 +31689,7 @@ Body:
       IgnoreFlee: true
       IgnoreDefense: true
       IgnoreAtkCard: true
+      IgnoreDefCard: true
     Flags:
       TargetTrap: true
     Range: 9
