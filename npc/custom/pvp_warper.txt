@@ -128,9 +128,9 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
             next;
             input .@newmes$, 2,20;
             mes "[«·‘€» Õ·»…]";
-            mes mesAr("” ’»Õ «·—”«·… «·ÃœÌœ…: ");
-            if(.@choice2 == 1) mes mesAr("·ﬁœ ﬁ«„ "+strcharinfo(0)+" »"+.@newmes$+" ·«⁄» ›Ì «·Õ·»…!");
-            if(.@choice2 == 2) mes mesAr("·ﬁœ "+.@newmes$+" "+strcharinfo(0)+" ≈·Ï «·Õ·»…");
+            mes mesAr("” ’»Õ «·—”«·… «·ÃœÌœ…");
+            if(.@choice2 == 1) mes mesAr("·ﬁœ "+.@newmes$+" "+strcharinfo(0)+" ≈·Ï «·Õ·»…");
+            if(.@choice2 == 2) mes mesAr("·ﬁœ ﬁ«„ "+strcharinfo(0)+" »"+.@newmes$+" ·«⁄» ›Ì «·Õ·»…!");
             mes mesAr(" €ÌÌ— «·—”«·…ø");
             if(select("‰⁄„:·«") == 2) close;
             if(.@choice2 == 1) #entrance_mes$ = .@newmes$;
