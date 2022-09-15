@@ -17836,7 +17836,6 @@ Body:
     DamageFlags:
       Splash: true
       IgnoreFlee: true
-      IgnoreDefCard: true
       IgnoreDefense: true
       IgnoreAtkCard: true
     Flags:
@@ -31686,7 +31685,6 @@ Body:
     DamageFlags:
       Splash: true
       IgnoreFlee: true
-      IgnoreDefCard: true
       IgnoreDefense: true
       IgnoreAtkCard: true
     Flags:
