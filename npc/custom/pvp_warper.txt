@@ -50,8 +50,8 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 			mes mesAr("^8b0d1f”Ì „ ≈“«·… Ã„Ì⁄ «·Õ«·«  ⁄‰ﬂ ⁄‰œ «·œŒÊ·^000000");
 		next;
 		.@choice = select("œŒÊ· «·Õ·»…:≈‰‘«¡ Õ·»… Œ«’…:œŒÊ· Õ·»… Œ«’…: €ÌÌ— —”«∆· «·Õ·»…:≈·€«¡");
-        mes entrance_mes$;
-        mes kill_mes;
+        mes #entrance_mes$;
+        mes #kill_mes$;
 		if(.@choice == 5) close;
 		if(.@choice == 1) { // enter pvp
 			specialeffect2 F_Rand(EF_STORMKICK1,EF_STORMKICK2,EF_STORMKICK3,EF_STORMKICK6,EF_STORMKICK7);
@@ -63,7 +63,7 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 			warp .map$,0,0;
 			announce strcharinfo(0)+" œŒ· ≈·Ï «·Õ·»…",bc_all,0xb50505;
             discord("**" + strcharinfo(0) +"** œŒ· ≈·Ï «·Õ·»…", "pvp");
-            discord("**" + strcharinfo(0) +"** "+ (entrance_mes$ == "" ? "œŒ·": entrance_mes$) +" ≈·Ï «·Õ·»…", "pvp");
+            discord("**" + strcharinfo(0) +"** "+ (#entrance_mes$ == "" ? "œŒ·": #entrance_mes$) +" ≈·Ï «·Õ·»…", "pvp");
 			end;
 		}
 		if(.@choice == 2) {
@@ -126,12 +126,12 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
             .@choice = select(" €ÌÌ— —”«·… œŒÊ· «·Õ·»…: €ÌÌ— —”«·… Â“Ì„… «·√⁄œ«¡");
             mes mesAr("Ì—ÃÏ ≈œŒ«· «·—”«·… «·ÃœÌœ…");
             next;
-            input .@newmes$, 20;
+            input .@newmes$, 2,20;
             mes "[«·‘€» Õ·»…]";
             mes mesAr(" €ÌÌ— «·—”«·… ≈·Ï " +.@newmes$ +"?");
             if(select("‰⁄„:·«") == 1) close;
-            if(.@choice == 0)             entrance_mes$ = .@newmes$;
-            else if(.@choice == 1)        kill_mes$ = .@newmes$;
+            if(.@choice == 0)             #entrance_mes$ = .@newmes$;
+            else if(.@choice == 1)        #kill_mes$ = .@newmes$;
             mes mesAr(" „  €ÌÌ— «·—”«·… »‰Ã«Õ");
             close;
         }
@@ -298,8 +298,8 @@ OnPCKillEvent:
     if(strcharinfo(3) == .map$)
         if(rand(1,100) > 70)
             getitem callfunc("F_Rand",12429,12430,12431,12432,12433,12434,22545),rand(1,5);
-    announce "·ﬁœ ﬁ«„ "+strcharinfo(0)+" »"+ (kill_mes$ == "" ? "œ⁄”" : kill_mes$) +" "+rid2name(killedrid)+" ›Ì «·Õ·»…!",bc_all|bc_blue;
-    discord("·ﬁœ ﬁ«„ **"+strcharinfo(0)+"** »" + (kill_mes$ == "" ? "œ⁄”": kill_mes$) + " **"+rid2name(killedrid)+"** ›Ì «·Õ·»…", "pvp");
+    announce "·ﬁœ ﬁ«„ "+strcharinfo(0)+" »"+ (#kill_mes$ == "" ? "œ⁄”" : #kill_mes$) +" "+rid2name(killedrid)+" ›Ì «·Õ·»…!",bc_all|bc_blue;
+    discord("·ﬁœ ﬁ«„ **"+strcharinfo(0)+"** »" + (#kill_mes$ == "" ? "œ⁄”": #kill_mes$) + " **"+rid2name(killedrid)+"** ›Ì «·Õ·»…", "pvp");
     end;
 }
 
