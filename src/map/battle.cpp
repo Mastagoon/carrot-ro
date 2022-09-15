@@ -4147,7 +4147,9 @@ static void battle_calc_skill_base_damage(struct Damage *wd,
                   tsd->indexed_bonus.subele[ELE_ALL] +
                   tsd->indexed_bonus.subele_script[ele] +
                   tsd->indexed_bonus.subele_script[ELE_ALL];
-    damagevalue = damagevalue * (100 - min(ele_fix, 100)) / 100;
+    ShowDebug("Damage value before: %d\n", damagevalue);
+    damagevalue = damagevalue * (100 - ele_fix) / 100;
+    ShowDebug("Damage value after: %d\n", damagevalue);
     ShowDebug("ele value: %d\n", ele_fix);
   } break;
   case NC_SELFDESTRUCTION: {
