@@ -1989,8 +1989,8 @@ int64 battle_calc_damage(struct block_list *src, struct block_list *bl,
 
     // if (sc->data[SC_POISONINGWEAPON] && flag&BF_SHORT && (skill_id == 0 ||
     // skill_id == GC_VENOMPRESSURE) && damage > 0) { 	damage += damage * 10 /
-    // 100; 	if (rnd() % 100 < sc->data[SC_POISONINGWEAPON]->val3) 		sc_start4(src,
-    // bl, (sc_type)sc->data[SC_POISONINGWEAPON]->val2, 100,
+    // 100; 	if (rnd() % 100 < sc->data[SC_POISONINGWEAPON]->val3)
+    // sc_start4(src, bl, (sc_type)sc->data[SC_POISONINGWEAPON]->val2, 100,
     // sc->data[SC_POISONINGWEAPON]->val1, 0, 1, 0,
     // skill_get_time2(GC_POISONINGWEAPON, 1));
     // }
@@ -4142,13 +4142,11 @@ static void battle_calc_skill_base_damage(struct Damage *wd,
     ATK_ADD(wd->weaponAtk, wd->weaponAtk2, damagevalue);
 #endif
     wd->flag |= BF_LONG;
-    int ele = skill_id == RK_DRAGONBREATH_WATER
-                  ? ELE_WATER
-                  : ELE_FIRE int ele_fix =
-                        tsd->indexed_bonus.subele[ele] +
-                        tsd->indexed_bonus.subele[ELE_ALL] +
-                        tsd->indexed_bonus.subele_script[ele] +
-                        tsd->indexed_bonus.subele_script[ELE_ALL];
+    int ele = skill_id == RK_DRAGONBREATH_WATER ? ELE_WATER : ELE_FIRE;
+    int ele_fix = tsd->indexed_bonus.subele[ele] +
+                  tsd->indexed_bonus.subele[ELE_ALL] +
+                  tsd->indexed_bonus.subele_script[ele] +
+                  tsd->indexed_bonus.subele_script[ELE_ALL];
     damagevalue = damagevalue * (100 - min(ele_fix, 100)) / 100;
   } break;
   case NC_SELFDESTRUCTION: {
@@ -5370,7 +5368,7 @@ static int battle_calc_attack_skill_ratio(struct Damage *wd,
       RE_LVL_DMOD(100);
       skillratio += status_get_str(src) * 3;
     } else { //[(Skill Level x 400) x (Caster Base Level / 100) + (Caster STR x
-             //2)] %
+             // 2)] %
       skillratio += -100 + 400 * skill_lv;
       RE_LVL_DMOD(100);
       skillratio += status_get_str(src) * 2;
@@ -5558,8 +5556,8 @@ static int battle_calc_attack_skill_ratio(struct Damage *wd,
   // case GN_HELLS_PLANT_ATK:
   // 	skillratio += -100 + 100 * skill_lv + sstatus->int_ * (sd ?
   // pc_checkskill(sd, AM_CANNIBALIZE) : 5); // !TODO: Confirm INT and
-  // Cannibalize bonus 	RE_LVL_DMOD(100); 	break; Physical Elemantal Spirits
-  // Attack Skills
+  // Cannibalize bonus 	RE_LVL_DMOD(100); 	break; Physical Elemantal
+  // Spirits Attack Skills
   case EL_CIRCLE_OF_FIRE:
   case EL_FIRE_BOMB_ATK:
   case EL_STONE_RAIN:
@@ -7146,7 +7144,7 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src,
       // sd->bonus.crit_atk_rate)) / 100); if (is_attack_left_handed(src,
       // skill_id)) { 	if (skill_id > 0) 		wd.damage2 =
       // (int64)floor((float)((wd.damage2 * 140) / 100 * (100 +
-      // (sd->bonus.crit_atk_rate / 2))) / 100); 	else 		wd.damage2 =
+      // (sd->bonus.crit_atk_rate / 2))) / 100); 	else wd.damage2 =
       // (int64)floor((float)((wd.damage2 * 140) / 100 * (100 +
       // sd->bonus.crit_atk_rate)) / 100);
       // }
@@ -7230,8 +7228,9 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src,
                ((wd.div_ < 1) ? 1 : wd.div_) * sd->left_weapon.star);
     if (skill_id != MC_CARTREVOLUTION && pc_checkskill(sd, BS_HILTBINDING) > 0)
       ATK_ADD(wd.damage, wd.damage2, 4);
-    if (skill_id == MO_FINGEROFFENSIVE) { // The finger offensive spheres on
-                                          // moment of attack do count. [Skotlex]
+    if (skill_id ==
+        MO_FINGEROFFENSIVE) { // The finger offensive spheres on
+                              // moment of attack do count. [Skotlex]
       ATK_ADD(wd.damage, wd.damage2,
               ((wd.div_ < 1) ? 1 : wd.div_) * sd->spiritball_old * 3);
     } else
@@ -7869,7 +7868,8 @@ struct Damage battle_calc_magic_attack(struct block_list *src,
         if (sc && sc->data[SC_INSPIRATION])
           skillratio += 1400;
         // skillratio += -100 + 230 * skill_lv + sstatus->int_ / 6; // !TODO:
-        // What's the INT bonus? if (sc && sc->data[SC_INSPIRATION]) 	skillratio
+        // What's the INT bonus? if (sc && sc->data[SC_INSPIRATION])
+        // skillratio
         // += 70 * skill_lv;
         RE_LVL_DMOD(100);
         break;
@@ -8404,7 +8404,8 @@ struct Damage battle_calc_misc_attack(struct block_list *src,
     // Official Renewal formula [helvetica]
     // damage = 7 * ((atk + matk)/skill level) * (target vit/100)
     // skill is a "forced neutral" type skill, it benefits from weapon element
-    // but final damage 	is considered "neutral" for purposes of resistances
+    // but final damage 	is considered "neutral" for purposes of
+    // resistances
     {
       struct Damage atk =
           battle_calc_weapon_attack(src, target, skill_id, skill_lv, 0);
@@ -8505,8 +8506,8 @@ struct Damage battle_calc_misc_attack(struct block_list *src,
     break;
   case GN_HELLS_PLANT_ATK:
     //[{( Hell Plant Skill Level x Casters Base Level ) x 10 } + {( Casters INT
-    //x 7 ) / 2 } x { 18 + ( Casters Job Level / 4 )] x ( 5 / ( 10 - Summon
-    //Flora Skill Level ))
+    // x 7 ) / 2 } x { 18 + ( Casters Job Level / 4 )] x ( 5 / ( 10 - Summon
+    // Flora Skill Level ))
     md.damage = skill_lv * status_get_lv(src) * 10 +
                 status_get_int(src) * 7 / 2 *
                     (18 + (sd ? sd->status.job_level : 0) / 4) * 5 /
@@ -8813,7 +8814,8 @@ int64 battle_calc_return_damage(struct block_list *bl, struct block_list *src,
              (d_bl->type == BL_PC &&
               ((TBL_PC *)d_bl)->devotion[sce_d->val2] ==
                   bl->id))) { // Don't reflect non-skill attack if has
-                              // SC_REFLECTSHIELD from Devotion bonus inheritance
+                              // SC_REFLECTSHIELD from Devotion bonus
+                              // inheritance
           if ((!skill_id && battle_config.devotion_rdamage_skill_only &&
                sc->data[SC_REFLECTSHIELD]->val4) ||
               !check_distance_bl(bl, d_bl, sce_d->val3))
@@ -8845,8 +8847,10 @@ int64 battle_calc_return_damage(struct block_list *bl, struct block_list *src,
       // 	// Don't reflect non-skill attack if has SC_REFLECTSHIELD from
       // Devotion bonus inheritance 	if (!skill_id &&
       // battle_config.devotion_rdamage_skill_only &&
-      // sc->data[SC_REFLECTSHIELD]->val4) 		rdamage = 0; 	else { 		rdamage += damage
-      // * sc->data[SC_REFLECTSHIELD]->val2 / 100; 		rdamage = i64max(rdamage, 1);
+      // sc->data[SC_REFLECTSHIELD]->val4) 		rdamage = 0; else {
+      // rdamage += damage
+      // * sc->data[SC_REFLECTSHIELD]->val2 / 100; 		rdamage =
+      // i64max(rdamage, 1);
       // 	}
       // }
 
@@ -8897,8 +8901,8 @@ int64 battle_calc_return_damage(struct block_list *bl, struct block_list *src,
     // if (ssc->data[SC_REFLECTDAMAGE]) {
     // 	rdamage -= damage * ssc->data[SC_REFLECTDAMAGE]->val2 / 100;
     // 	if (--(ssc->data[SC_REFLECTDAMAGE]->val3) < 1) // TODO: Confirm if
-    // reflect count still exists 		status_change_end(bl, SC_REFLECTDAMAGE,
-    // INVALID_TIMER);
+    // reflect count still exists 		status_change_end(bl,
+    // SC_REFLECTDAMAGE, INVALID_TIMER);
     // }
     // if (ssc->data[SC_VENOMBLEED] && ssc->data[SC_VENOMBLEED]->val3 == 0)
     // rdamage -= damage * ssc->data[SC_VENOMBLEED]->val2 / 100;
@@ -9590,7 +9594,8 @@ enum damage_lv battle_weapon_attack(struct block_list *src,
     if (damage > 0 && tsc->data[SC_POISONREACT] &&
         (rnd() % 100 < tsc->data[SC_POISONREACT]->val3 ||
          sstatus->def_ele == ELE_POISON) &&
-        //			check_distance_bl(src, target, tstatus->rhw.range+1)
+        //			check_distance_bl(src, target,
+        // tstatus->rhw.range+1)
         //&& Doesn't checks range! o.O;
         status_check_skilluse(target, src, TF_POISON, 0)) { // Poison React
       struct status_change_entry *sce = tsc->data[SC_POISONREACT];
@@ -10569,7 +10574,7 @@ static const struct _battle_data {
         1,
     },
     //	{ "mob_skill_use",                      &battle_config.mob_skill_use, 1,
-    //0,      1,              }, //Deprecated
+    // 0,      1,              }, //Deprecated
     {
         "mob_skill_rate",
         &battle_config.mob_skill_rate,
