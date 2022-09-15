@@ -17736,6 +17736,7 @@ Body:
     Name: RK_WINDCUTTER
     Description: Wind Cutter
     MaxLevel: 5
+    Cooldown: 1200
     Type: Weapon
     TargetType: Self
     DamageFlags:
@@ -17838,6 +17839,7 @@ Body:
       IgnoreFlee: true
       IgnoreDefense: true
       IgnoreAtkCard: true
+      IgnoreDefCard: true
     Flags:
       TargetTrap: true
     Range: 9
