@@ -50,8 +50,6 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 			mes mesAr("^8b0d1f”Ì „ ≈“«·… Ã„Ì⁄ «·Õ«·«  ⁄‰ﬂ ⁄‰œ «·œŒÊ·^000000");
 		next;
 		.@choice = select("œŒÊ· «·Õ·»…:≈‰‘«¡ Õ·»… Œ«’…:œŒÊ· Õ·»… Œ«’…: €ÌÌ— —”«∆· «·Õ·»…:≈·€«¡");
-        mes #entrance_mes$;
-        mes #kill_mes$;
 		if(.@choice == 5) close;
 		if(.@choice == 1) { // enter pvp
 			specialeffect2 F_Rand(EF_STORMKICK1,EF_STORMKICK2,EF_STORMKICK3,EF_STORMKICK6,EF_STORMKICK7);
@@ -61,9 +59,9 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 			if(.debuff)
 				dispell();
 			warp .map$,0,0;
-			announce strcharinfo(0)+" œŒ· ≈·Ï «·Õ·»…",bc_all,0xb50505;
-            discord("**" + strcharinfo(0) +"** œŒ· ≈·Ï «·Õ·»…", "pvp");
-            discord("**" + strcharinfo(0) +"** "+ (#entrance_mes$ == "" ? "œŒ·": #entrance_mes$) +" ≈·Ï «·Õ·»…", "pvp");
+            .@mes$ = #entrance_prefix$ == "" && #entrance_suffix$ == "" ? (strcharinfo(0) + " œŒ· ≈·Ï «·Õ·»…") : (#entrance_prefix$ +" " + strcharinfo(0)+" "+ #entrance_suffix$);
+            announce .@mes$,bc_map,0xb50505;
+            discord(.@mes$, "pvp");
 			end;
 		}
 		if(.@choice == 2) {
@@ -124,17 +122,33 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 			mes "[«·‘€» Õ·»…]";
             mes mesAr("„«·–Ì  —Ìœ  ⁄œÌ·Âø");
             .@choice2 = select(" €ÌÌ— —”«·… œŒÊ· «·Õ·»…: €ÌÌ— —”«·… Â“Ì„… «·√⁄œ«¡");
+            if(.@choice2 == 1) {
+                mes mesAr("Ì—ÃÏ ≈œŒ«· «·—”«·… «· Ì  ŸÂ— ﬁ»· «”„ «··«⁄»");
+                next;
+                input .@newmes1$,2, 20;
+                mes "[«·‘€» Õ·»…]";
+                mes mesAr("Ì—ÃÏ ≈œŒ· «·—”«·… «· Ì  ŸÂ— »⁄œ «”„ «··«⁄»");
+                input .@newmes2$,2, 20;
+                next;
+                mes "[«·‘€» Õ·»…]";
+                mes mesAr("” ’»Õ «·—”«·… «·ÃœÌœ…");
+                mes mesAr(.@newmes1$+" "+strcharinfo(0)+" "+.@newmes2$);
+                mes "«·—”«·…  €ÌÌ—ø";
+                if(select("‰⁄„:·«") == 2) close;
+                #entrance_prefix$ = .@newmes1$;
+                #entrance_suffix$ = .@newmes2$;
+                mes mesAr(" „  €ÌÌ— «·—”«·… »‰Ã«Õ");
+                close;
+            }
             mes mesAr("Ì—ÃÏ ≈œŒ«· «·—”«·… «·ÃœÌœ…");
             next;
             input .@newmes$, 2,20;
             mes "[«·‘€» Õ·»…]";
             mes mesAr("” ’»Õ «·—”«·… «·ÃœÌœ…");
-            if(.@choice2 == 1) mes mesAr("·ﬁœ "+.@newmes$+" "+strcharinfo(0)+" ≈·Ï «·Õ·»…");
-            if(.@choice2 == 2) mes mesAr("·ﬁœ ﬁ«„ "+strcharinfo(0)+" »"+.@newmes$+" ·«⁄» ›Ì «·Õ·»…!");
+            mes mesAr("·ﬁœ ﬁ«„ "+strcharinfo(0)+" »"+.@newmes$+" ·«⁄» ›Ì «·Õ·»…!");
             mes mesAr(" €ÌÌ— «·—”«·…ø");
             if(select("‰⁄„:·«") == 2) close;
-            if(.@choice2 == 1) #entrance_mes$ = .@newmes$;
-            else if(.@choice2 == 2)        #kill_mes$ = .@newmes$;
+            #kill_mes$ = .@newmes$;
             mes mesAr(" „  €ÌÌ— «·—”«·… »‰Ã«Õ");
             close;
         }
