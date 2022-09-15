@@ -62,7 +62,7 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
             .@mes$ = #entrance_prefix$ == "" && #entrance_suffix$ == "" ? (strcharinfo(0) + " œŒ· ≈·Ï «·Õ·»…") : (#entrance_prefix$ +" " + strcharinfo(0)+" "+ #entrance_suffix$);
             .@mes_disc$ = #entrance_prefix$ == "" && #entrance_suffix$ == "" ? ("**"+strcharinfo(0) + "** œŒ· ≈·Ï «·Õ·»…") : (#entrance_prefix$ +" **" + strcharinfo(0)+"** "+ #entrance_suffix$);
             announce .@mes$,bc_map,0xb50505;
-            discord(.@mes$, "pvp");
+            discord(.@mes_disc$, "pvp");
 			end;
 		}
 		if(.@choice == 2) {
