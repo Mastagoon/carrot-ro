@@ -123,15 +123,15 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
         if(.@choice == 4) {
 			mes "[«·‘€» Õ·»…]";
             mes mesAr("„«·–Ì  —Ìœ  ⁄œÌ·Âø");
-            .@choice = select(" €ÌÌ— —”«·… œŒÊ· «·Õ·»…: €ÌÌ— —”«·… Â“Ì„… «·√⁄œ«¡");
+            .@choice2 = select(" €ÌÌ— —”«·… œŒÊ· «·Õ·»…: €ÌÌ— —”«·… Â“Ì„… «·√⁄œ«¡");
             mes mesAr("Ì—ÃÏ ≈œŒ«· «·—”«·… «·ÃœÌœ…");
             next;
             input .@newmes$, 2,20;
             mes "[«·‘€» Õ·»…]";
             mes mesAr(" €ÌÌ— «·—”«·… ≈·Ï " +.@newmes$ +"?");
             if(select("‰⁄„:·«") == 1) close;
-            if(.@choice == 0)             #entrance_mes$ = .@newmes$;
-            else if(.@choice == 1)        #kill_mes$ = .@newmes$;
+            if(.@choice2 == 0) #entrance_mes$ = .@newmes$;
+            else if(.@choice2 == 1)        #kill_mes$ = .@newmes$;
             mes mesAr(" „  €ÌÌ— «·—”«·… »‰Ã«Õ");
             close;
         }
