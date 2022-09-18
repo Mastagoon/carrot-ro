@@ -3,7 +3,7 @@ dicastes01,205,185,4	script	 Õ”Ì‰ «·√œÊ« 	63,{
     setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES;
     for(.@i = 1; .@i<getarraysize(.@indices); ++.@i) {
 		if(getequipisequiped(.@indices[.@i])) {
-            successrefitem .@indices[.@i],inarray(.crimson_items,getequipid(.@indices[.@i])) == -1 ? getequipid(.@indicies[.@i]) == 1832 ? 10 : 9 - getequiprefinerycnt(.@indices[.@i]) : 12 - getequiprefinerycnt(.@indices[.@i]);
+            successrefitem .@indices[.@i],inarray(.crimson_items,getequipid(.@indices[.@i])) == -1 ? getequipid(.@indices[.@i]) == 1832 ? 10 - getequiprefinerycnt(.@indices[.@i]) : 9 - getequiprefinerycnt(.@indices[.@i]) : 12 - getequiprefinerycnt(.@indices[.@i]);
 		}
 		.@menu$ = .@menu$ + ":";
 	}
