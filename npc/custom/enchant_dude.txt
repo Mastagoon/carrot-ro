@@ -314,6 +314,19 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
                 .@menu$ += (getitemname(.@enchants2[.@i]) + ":");
             .@enchant2 = select(.@menu$)  - 1;
             next;
+				case 7:
+						// Ghost Palace
+						mes "- Choose Item -";
+						setarray .@items[0],28100,18119,13093,21009,16028,28000,1836,1496,1438,1669,13441,2023,1933,1988;
+						.@menu$ = "";
+						for(.@i = 0; .@i < getarraysize(.@items); .@i++) 
+							.@menu$ += (getitemname(.@items[.@i]) + ":");
+						.@itemId = .@items[select(.@menu$) - 1];
+						mes "- Choose #1 Enchant -";
+						close;
+
+
+
 			mes "- "+getitemname(.@itemId)+" -";
 			mes "- "+getitemname(.@enchants1[.@enchant1])+" -";
 			mes "- "+getitemname(.@enchants2[.@enchant2])+" -";
