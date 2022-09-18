@@ -4138,12 +4138,14 @@ static void battle_calc_skill_base_damage(struct Damage *wd,
       damagevalue =
           damagevalue * (90 + 10 * pc_checkskill(sd, RK_DRAGONTRAINING)) / 100;
     wd->flag |= BF_LONG;
-    int ele = skill_id == RK_DRAGONBREATH_WATER ? ELE_WATER : ELE_FIRE;
-    int ele_fix = tsd->indexed_bonus.subele[ele] +
-                  tsd->indexed_bonus.subele[ELE_ALL] +
-                  tsd->indexed_bonus.subele_script[ele] +
-                  tsd->indexed_bonus.subele_script[ELE_ALL];
-    damagevalue = damagevalue * (100 - ele_fix) / 100;
+    if (tsd) {
+      int ele = skill_id == RK_DRAGONBREATH_WATER ? ELE_WATER : ELE_FIRE;
+      int ele_fix = tsd->indexed_bonus.subele[ele] +
+                    tsd->indexed_bonus.subele[ELE_ALL] +
+                    tsd->indexed_bonus.subele_script[ele] +
+                    tsd->indexed_bonus.subele_script[ELE_ALL];
+      damagevalue = damagevalue * (100 - ele_fix) / 100;
+    }
     ATK_ADD(wd->damage, wd->damage2, damagevalue);
 #ifdef RENEWAL
     ATK_ADD(wd->weaponAtk, wd->weaponAtk2, damagevalue);
