@@ -319,8 +319,8 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						mes "- Choose Item -";
 						setarray .@items[0],28100,18119,13093,21009,16028,28000,1836,1496,1438,1669,13441,2023,1933,1988;
 						setarray .@magicItems[0],1988,1933,2023,1669;
-						setarray .@optionList_p[0],163,20,208,20,147,10,148,10,219,5,164,20;
-						setarray .@optionList_m[0],171,5,210,20,151,10,152,10,14,7;
+						setarray .@optionList_p[1],163,20,208,20,147,10,148,10,219,5,164,20;
+						setarray .@optionList_m[1],171,5,210,20,151,10,152,10,14,7;
 						.@menu$ = "";
 						for(.@i = 0; .@i < getarraysize(.@items); .@i++) 
 							.@menu$ += (getitemname(.@items[.@i]) + ":");
@@ -332,11 +332,11 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						if(.@isMagic) .@enchant_list$ = .@enchant_list_m$;
 						else .@enchant_list$ = .@enchant_list_p$;
 						.@enchant_choice = select(.@enchant_list$);
-						setarray .@chosen_enchants[0],.@optionList_m[(.@enchant_choice-1) *2];
+						setarray .@chosen_enchants[0],.@optionList_m[.@enchant_choice*2 -1 ];
 						setarray .@chosen_value[0],.@optionList_m[.@enchant_choice *2];
 						mes "- Choose #2 Enchant -";
 						.@enchant_choice = select(.@enchant_list$);
-						setarray .@chosen_enchants[1],.@optionList_m[(.@enchant_choice*2 - 1)*2];
+						setarray .@chosen_enchants[1],.@optionList_m[.@enchant_choice*2 -1];
 						setarray .@chosen_value[1],.@optionList_m[.@enchant_choice*2];
 						next;
 						if(select("Continue:Cancel") -1 ) close;
