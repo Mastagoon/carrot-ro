@@ -329,15 +329,20 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						.@enchant_list_p$ = "No weapon penalty:Increase damage to demi-human race:Increase damage to normal monsters:Incerase damage to boss monsters:Attack:Critical Damage";
 						.@enchant_list_m$ = "Reduce skill delay:Increase magic damage on demihumans:Increase magic damage on normal monsters:Increase magic damage on boss monsters:Magic attack";
 						.@isMagic = inarray(.@magicItems,.@itemId) == -1 ? 0 : 1;
-						if(.@isMagic) .@enchant_list$ = .@enchant_list_m$;
-						else .@enchant_list$ = .@enchant_list_p$;
+						if(.@isMagic) {
+							.@enchant_list$ = .@enchant_list_m$;
+							.@optionList = .@optionList_m;
+						} else {
+							.@enchant_list$ = .@enchant_list_p$;
+							.@optionList = .@optionList_p;
+						}
 						.@enchant_choice = select(.@enchant_list$);
-						setarray .@chosen_enchants[0],.@optionList_m[.@enchant_choice*2 -1 ];
-						setarray .@chosen_value[0],.@optionList_m[.@enchant_choice *2];
+						setarray .@chosen_enchants[0],.@optionList[.@enchant_choice*2 -1 ];
+						setarray .@chosen_value[0],.@optionList[.@enchant_choice *2];
 						mes "- Choose #2 Enchant -";
 						.@enchant_choice = select(.@enchant_list$);
-						setarray .@chosen_enchants[1],.@optionList_m[.@enchant_choice*2 -1];
-						setarray .@chosen_value[1],.@optionList_m[.@enchant_choice*2];
+						setarray .@chosen_enchants[1],.@optionList[.@enchant_choice*2 -1];
+						setarray .@chosen_value[1],.@optionList[.@enchant_choice*2];
 						next;
 						if(select("Continue:Cancel") -1 ) close;
 						setarray .@params[0],0,0;
