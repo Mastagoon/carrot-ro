@@ -58,6 +58,8 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 			sleep2 550;
 			if(.debuff)
 				dispell();
+			delitem 515,countitem(515);
+			getitem 515,200;
 			warp .map$,0,0;
             .@mes$ = #entrance_prefix$ == "" && #entrance_suffix$ == "" ? (strcharinfo(0) + " œŒ· ≈·Ï «·Õ·»…") : (#entrance_prefix$ +" " + strcharinfo(0)+" "+ #entrance_suffix$);
             .@mes_disc$ = #entrance_prefix$ == "" && #entrance_suffix$ == "" ? ("**"+strcharinfo(0) + "** œŒ· ≈·Ï «·Õ·»…") : (#entrance_prefix$ +" **" + strcharinfo(0)+"** "+ #entrance_suffix$);
