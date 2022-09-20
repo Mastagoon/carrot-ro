@@ -338,7 +338,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						setarray .@chosen_value[1],.@optionList_m[.@enchant_choice];
 						next;
 						if(select("Continue:Cancel") -1 ) close;
-						getitem3 .@itemId,1,1,9,0,0,0,0,0,.@chosen_enchants,.@chosen_value;
+						getitem3 .@itemId,1,1,9,0,0,0,0,0,.@chosen_enchants,.@chosen_value,0;
 						specialeffect2 EF_MAXPOWER;
 						close;
 	}
