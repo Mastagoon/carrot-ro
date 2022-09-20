@@ -332,12 +332,12 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						if(.@isMagic) .@enchant_list$ = .@enchant_list_m$;
 						else .@enchant_list$ = .@enchant_list_p$;
 						.@enchant_choice = select(.@enchant_list$);
-						setarray .@chosen_enchants[0],.@optionList_m[.@enchant_choice - 1];
-						setarray .@chosen_value[0],.@optionList_m[.@enchant_choice];
+						setarray .@chosen_enchants[0],.@optionList_m[.@enchant_choice *2 - 1];
+						setarray .@chosen_value[0],.@optionList_m[.@enchant_choice *2];
 						mes "- Choose #2 Enchant -";
 						.@enchant_choice = select(.@enchant_list$);
-						setarray .@chosen_enchants[1],.@optionList_m[.@enchant_choice - 1];
-						setarray .@chosen_value[1],.@optionList_m[.@enchant_choice];
+						setarray .@chosen_enchants[1],.@optionList_m[.@enchant_choice*2 - 1];
+						setarray .@chosen_value[1],.@optionList_m[.@enchant_choice*2];
 						next;
 						if(select("Continue:Cancel") -1 ) close;
 						setarray .@params[0],0,0;
