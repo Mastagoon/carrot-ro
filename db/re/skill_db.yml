@@ -29458,7 +29458,7 @@ Body:
     AfterCastActDelay: 1000
     Duration1: 2000
     Cooldown: 20000
-    FixedCastTime: 5000
+    FixedCastTime: 3000
     Requires:
       SpCost:
         - Level: 1
