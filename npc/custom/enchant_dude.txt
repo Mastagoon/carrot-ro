@@ -326,8 +326,8 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 							.@menu$ += (getitemname(.@items[.@i]) + ":");
 						.@itemId = .@items[select(.@menu$) - 1];
 						mes "- Choose #1 Enchant -";
-						setarray .@enchant_list_p$[0],"No weapon penalty","Increase damage to demi-human race","Increase damage to normal monsters","Incerase damage to boss monsters","Attack","Critical Damage";
-						setarray .@enchant_list_m$[0],"Reduce skill delay","Increase magic damage on demihumans","Increase magic damage on normal monsters","Increase magic damage on boss monsters","Magic attack";
+						.@enchant_list_p$ = "No weapon penalty:Increase damage to demi-human race:Increase damage to normal monsters:Incerase damage to boss monsters:Attack:Critical Damage";
+						.@enchant_list_m$ = "Reduce skill delay:Increase magic damage on demihumans:Increase magic damage on normal monsters:Increase magic damage on boss monsters:Magic attack";
 						.@isMagic = inarray(.@magicItems,.@itemId) == -1 ? 0 : 1;
 						.@enchant_choice = .@isMagic ? select(.@enchant_list_m$) : select(.@enchant_list_p$);
 						setarray .@chosen_enchants[0],.@optionList_m[.@enchant_choice - 1];
@@ -338,7 +338,8 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						setarray .@chosen_value[1],.@optionList_m[.@enchant_choice];
 						next;
 						if(select("Continue:Cancel") -1 ) close;
-						getitem3 .@itemId,1,1,9,0,0,0,0,0,.@chosen_enchants,.@chosen_value,0;
+						setarray .@params[0],0,0;
+						getitem3 .@itemId,1,1,9,0,0,0,0,0,.@chosen_enchants,.@chosen_value,.@params;
 						specialeffect2 EF_MAXPOWER;
 						close;
 	}
