@@ -29455,7 +29455,6 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    CastTime: 5000
     AfterCastActDelay: 1000
     Duration1: 2000
     Cooldown: 20000
