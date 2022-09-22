@@ -124,7 +124,7 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
         if(.@choice == 4) {
 			mes "[«·‘€» Õ·»…]";
             mes mesAr("„«·–Ì  —Ìœ  ⁄œÌ·Âø");
-            .@choice2 = select(" €ÌÌ— —”«·… œŒÊ· «·Õ·»…: €ÌÌ— —”«·… Â“Ì„… «·√⁄œ«¡");
+            .@choice2 = select(" €ÌÌ— —”«·… œŒÊ· «·Õ·»…: €ÌÌ— „ﬂ»— Â“Ì„… «·√⁄œ«¡: €ÌÌ— —”«·… Â“Ì„… «·√⁄œ«¡");
             if(.@choice2 == 1) {
                 mes mesAr("Ì—ÃÏ ≈œŒ«· «·—”«·… «· Ì  ŸÂ— ﬁ»· «”„ «··«⁄»");
                 next;
@@ -140,6 +140,19 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
                 if(select("‰⁄„:·«") == 2) close;
                 #entrance_prefix$ = .@newmes1$;
                 #entrance_suffix$ = .@newmes2$;
+                mes mesAr(" „  €ÌÌ— «·—”«·… »‰Ã«Õ");
+                close;
+            }
+            if(.@choice == 2){
+                mes mesAr("Ì—ÃÏ ≈œŒ«· «·—”«·… «·ÃœÌœ…");
+                next;
+                input .@newmes$, 2,20;
+                mes "[«·‘€» Õ·»…]";
+                mes mesAr("” ’»Õ «·—”«·… «·ÃœÌœ…");
+                mes mesAr("·ﬁœ ﬁ«„ "+strcharinfo(0)+" »"+.@newmes$+" ·«⁄» ›Ì «·Õ·»…!");
+                mes mesAr(" €ÌÌ— «·—”«·…ø");
+                if(select("‰⁄„:·«") == 2) close;
+                #say_on_kill$ = .@newmes$;
                 mes mesAr(" „  €ÌÌ— «·—”«·… »‰Ã«Õ");
                 close;
             }
@@ -318,6 +331,7 @@ OnPCKillEvent:
     if(strcharinfo(3) == .map$)
         if(rand(1,100) > 70)
             getitem callfunc("F_Rand",12429,12430,12431,12432,12433,12434,22545),rand(1,5);
+    if(#say_on_kill$) unittalk getcharid(3),#say_on_kill$
     announce "·ﬁœ ﬁ«„ "+strcharinfo(0)+" »"+ (#kill_mes$ == "" ? "œ⁄”" : #kill_mes$) +" "+rid2name(killedrid)+" ›Ì «·Õ·»…!",bc_all|bc_blue;
     discord("·ﬁœ ﬁ«„ **"+strcharinfo(0)+"** »" + (#kill_mes$ == "" ? "œ⁄”": #kill_mes$) + " **"+rid2name(killedrid)+"** ›Ì «·Õ·»…", "pvp");
     end;
