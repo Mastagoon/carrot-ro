@@ -149,7 +149,7 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
                 input .@newmes$, 2,20;
                 mes "[«·‘€» Õ·»…]";
                 mes mesAr("” ’»Õ «·—”«·… «·ÃœÌœ…");
-                .@newmes$;
+                mes .@newmes$;
                 mes mesAr(" €ÌÌ— «·—”«·…ø");
                 if(select("‰⁄„:·«") == 2) close;
                 #say_on_kill$ = .@newmes$;
