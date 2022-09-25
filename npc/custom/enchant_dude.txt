@@ -296,6 +296,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 					specialeffect2 EF_MAXPOWER;
 					close;
 			}
+				break;
         case 6:
             // Sarah's earrings
             mes "- Choose Item -";
@@ -314,6 +315,13 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
                 .@menu$ += (getitemname(.@enchants2[.@i]) + ":");
             .@enchant2 = select(.@menu$)  - 1;
             next;
+						mes "- "+getitemname(.@itemId)+" -";
+						mes "- "+getitemname(.@enchants1[.@enchant1])+" -";
+						mes "- "+getitemname(.@enchants2[.@enchant2])+" -";
+						if(select("Continue:Cancel") -1 ) close;
+						getitem2 .@itemId,1,1,0,0,0,0,.@enchants2[.@enchant2],.@enchants1[.@enchant1];
+						specialeffect2 EF_MAXPOWER;
+						close;
 				case 7:
 						// Ghost Palace
 						mes "- Choose Item -";
