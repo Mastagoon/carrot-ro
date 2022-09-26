@@ -10304,7 +10304,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      warp "bif_fild01",32,382;
+      getiteim 12561,1;
   - Id: 12562
     AegisName: Bubble_Gum_Plus
     Name: Bubble Gum Plus
@@ -11138,7 +11138,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      warp "malangdo",140,114;
+      getitem 12636,1;
   - Id: 12637
     AegisName: Gong_Bug_Pocket
     Name: Sow Bug Pocket
@@ -11941,7 +11941,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      warp "malaya",242,211;
+      getitem 12700,1;
   - Id: 12701
     AegisName: Old_Blue_Box_F
     Name: Old Blue Box
@@ -44271,7 +44271,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      warp "moc_para01",171,115;
+      getitem 22508,1;
   - Id: 22510
     AegisName: King_Wolf_Scroll
     Name: King Wolf Scroll
@@ -46516,7 +46516,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      warp "prontera",159,192;
+      getitem 22847,1;
   - Id: 22848
     AegisName: KeysPrison
     Name: Prison Key
@@ -46526,7 +46526,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      warp "prt_prison",188,23;
+      getitem 22848,1;
   - Id: 22849
     AegisName: P_Temporal_Crystal
     Name: Prontera Time Crystal
@@ -46536,7 +46536,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      warp "prt_q",155,27;
+      getiteim 22849,1;
   - Id: 22850
     AegisName: January_Gift_Box_
     Name: January Gift Box
