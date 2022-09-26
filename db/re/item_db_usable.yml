@@ -10304,7 +10304,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      getiteim 12561,1;
+      getitem 12561,1;
   - Id: 12562
     AegisName: Bubble_Gum_Plus
     Name: Bubble Gum Plus
@@ -46536,7 +46536,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      getiteim 22849,1;
+      getitem 22849,1;
   - Id: 22850
     AegisName: January_Gift_Box_
     Name: January Gift Box
