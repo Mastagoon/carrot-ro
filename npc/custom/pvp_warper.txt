@@ -176,7 +176,7 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 OnInit:
 	// This command can be used to enter the PvP Room.
 	bindatcmd "pvp","PVP#0::OnCommand";
-	.@sql$ = "CREATE TABLE IF NOT EXISTS `pvp_stats`(char_id int(11),class int(11),defeated_id int(11),defeated_class int(11),createdAt DATETIME default CURRENT_TIMESTAMP);"
+	.@sql$ = "CREATE TABLE IF NOT EXISTS `pvp_stats`(char_id int(11),class int(11),defeated_id int(11),defeated_class int(11),createdAt DATETIME default CURRENT_TIMESTAMP)";
 	query_sql(.@sql$);
 
 
