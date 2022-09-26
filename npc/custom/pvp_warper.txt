@@ -176,6 +176,8 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 OnInit:
 	// This command can be used to enter the PvP Room.
 	bindatcmd "pvp","PVP#0::OnCommand";
+	.@sql$ = "CREATE TABLE IF NOT EXISTS `pvp_stats`(char_id int(11),class int(11),defeated_id int(11),defeated_class int(11),createdAt DATETIME default CURRENT_TIMESTAMP);"
+	query_sql(.@sql$);
 
 
 	// Command to rotate the room maually.
@@ -334,6 +336,8 @@ OnPCKillEvent:
     if(#say_on_kill$ != "") unittalk getcharid(3),#say_on_kill$;
     announce "·ﬁœ ﬁ«„ "+strcharinfo(0)+" »"+ (#kill_mes$ == "" ? "œ⁄”" : #kill_mes$) +" "+rid2name(killedrid)+" ›Ì «·Õ·»…!",bc_all|bc_blue;
     discord("·ﬁœ ﬁ«„ **"+strcharinfo(0)+"** »" + (#kill_mes$ == "" ? "œ⁄”": #kill_mes$) + " **"+rid2name(killedrid)+"** ›Ì «·Õ·»…", "pvp");
+		.@sql$ = "INSERT INTO `pvp_stats`(char_id, class, defeated_id, defeated_class) VALUES ("+getcharid(0)+", "+Class+", "+killedrid+", "+readparam(Class,killedrid)+")";
+		query_sql(.@sql$);
     end;
 }
 
