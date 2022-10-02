@@ -35976,6 +35976,8 @@ Body:
     Script: |
       bonus2 bSkillAtk,"WM_METALICSOUND",150;
       bonus2 bSkillUseSP,"WM_METALICSOUND",-60;
+      bonus2 bSubRace,RC_Player_Human,-10;
+      bonus2 bSubRace,RC_DemiHuman,-10;
       bonus bVariableCastrate,-50;
   - Id: 2900
     AegisName: Morrigane's_Belt_

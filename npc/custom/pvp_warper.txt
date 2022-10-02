@@ -336,7 +336,7 @@ OnPCKillEvent:
     if(#say_on_kill$ != "") unittalk getcharid(3),#say_on_kill$;
     announce "·ﬁœ ﬁ«„ "+strcharinfo(0)+" »"+ (#kill_mes$ == "" ? "œ⁄”" : #kill_mes$) +" "+rid2name(killedrid)+" ›Ì «·Õ·»…!",bc_all|bc_blue;
     discord("·ﬁœ ﬁ«„ **"+strcharinfo(0)+"** »" + (#kill_mes$ == "" ? "œ⁄”": #kill_mes$) + " **"+rid2name(killedrid)+"** ›Ì «·Õ·»…", "pvp");
-		.@chraId = getcharid(0, rid2name(killedrid));
+		.@charId = getcharid(0, rid2name(killedrid));
 		.@sql$ = "INSERT INTO `pvp_stats`(char_id, class, defeated_id, defeated_class) VALUES ("+getcharid(0)+", "+Class+", "+.@charId+", "+readparam(Class, .@charId)+")";
 		query_sql(.@sql$);
     end;
