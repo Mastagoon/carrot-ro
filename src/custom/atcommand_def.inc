@@ -9,7 +9,3 @@
  **/
 
 //ACMD_DEF(newcommand),
-ACMD_DEF(norecall),
-ACMD_DEF2("nr",norecall),
-ACMD_DEFR(battlestats, ATCMD_NOCONSOLE|ATCMD_NOAUTOTRADE),
-ACMD_DEFR(enemystats, ATCMD_NOCONSOLE|ATCMD_NOAUTOTRADE),
