@@ -9,14 +9,3 @@
  **/
 
 //BUILDIN_DEF(example,""),
-BUILDIN_DEF(pcblockall,"ii"),
-BUILDIN_DEF(issitting,""),
-/*BUILDIN_DEF(sitdown,""),
-BUILDIN_DEF(standup,""),*/
-BUILDIN_DEF(gethotkeys,"?"),
-BUILDIN_DEF(updatehotkey,"ivii??"),
-BUILDIN_DEF(clearhotkeys,"?"),
-BUILDIN_DEF(monster2,"siisiii???"),
-BUILDIN_DEF(setbattlegroup,"ii"),
-BUILDIN_DEF(getbattlegroup,"i"),
-BUILDIN_DEF(checkmap,"s"),
