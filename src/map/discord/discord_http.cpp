@@ -12,6 +12,7 @@
 #include <future>
 #include <nlohmann/json.hpp>
 #include <regex>
+#include <thread>
 
 using namespace nlohmann;
 
