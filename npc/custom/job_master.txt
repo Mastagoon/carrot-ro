@@ -1,4 +1,4 @@
-dicastes01,205,189,7	script	уеинь обк	47,13,13,{
+dicastes01,205,189,7	script	уеинь обк	715,13,13,{
 function Get_Job_Equip;
 function getitemarray;
 OnPCLoginEvent:
@@ -12,7 +12,6 @@ OnPCLoginEvent:
         mes "[^0000ffуеинь обк^000000]";
         mes mesAr("ЧЮЪб ухфЪп");
         next;
-        mes "[^0000ffуеинь обк^000000]";
         for (.@i = 0; .@i < getarraysize(.job); .@i++)
             .@menu$ = .@menu$ + jobname(.job[.@i]) + ":";
         .@s = select(.@menu$)-1;
@@ -20,11 +19,11 @@ OnPCLoginEvent:
     }
     BaseLevel = 175;
     JobLevel = 60;
-	specialeffect2 EF_ANGEL2;
-	specialeffect2 EF_ELECTRIC;
-	callfunc "F_GetPlatinumSkills";
+    specialeffect2 EF_ANGEL2;
+    specialeffect2 EF_ELECTRIC;
+    callfunc "F_GetPlatinumSkills";
     atcommand("@allskills");
-	if (.GetJobEquip) Get_Job_Equip();
+    if (.GetJobEquip) Get_Job_Equip();
     close;
 function	Get_Job_Equip	{
         getitem 18670,1;
