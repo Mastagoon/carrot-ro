@@ -11,12 +11,6 @@ OnPCLoginEvent:
     if(Class == Novice) {
         mes "[^0000ff„’ÿ›Ï ﬁ—⁄^000000]";
         mes mesAr("«Œ — „Â‰ ﬂ");
-	next;
-        for (.@i = 0; .@i < 5; .@i++) {
-           .@menu$ = .@menu$ + jobname(.job[.@i]) + ":";
-	}
-.@s = select(.@menu$);
-close;
         next;
         for (.@i = 0; .@i < getarraysize(.job); .@i++)
             .@menu$ = .@menu$ + jobname(.job[.@i]) + ":";
@@ -30,6 +24,7 @@ close;
     callfunc "F_GetPlatinumSkills";
     atcommand("@allskills");
     if (.GetJobEquip) Get_Job_Equip();
+    close;
 function	Get_Job_Equip	{
         getitem 18670,1;
 				equip 18670;
