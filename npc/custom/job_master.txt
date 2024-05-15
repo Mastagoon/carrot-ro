@@ -24,7 +24,6 @@ OnPCLoginEvent:
     callfunc "F_GetPlatinumSkills";
     atcommand("@allskills");
     if (.GetJobEquip) Get_Job_Equip();
-    close;
 function	Get_Job_Equip	{
         getitem 18670,1;
 				equip 18670;
