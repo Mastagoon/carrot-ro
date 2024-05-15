@@ -124,6 +124,7 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
         if(.@choice == 4) {
 			mes "[«·‘€» Õ·»…]";
             mes mesAr("„«·–Ì  —Ìœ  ⁄œÌ·Âø");
+			next;
             .@choice2 = select(" €ÌÌ— —”«·… œŒÊ· «·Õ·»…: €ÌÌ— „ﬂ»— Â“Ì„… «·√⁄œ«¡: €ÌÌ— —”«·… Â“Ì„… «·√⁄œ«¡");
             if(.@choice2 == 1) {
                 mes mesAr("Ì—ÃÏ ≈œŒ«· «·—”«·… «· Ì  ŸÂ— ﬁ»· «”„ «··«⁄»");
@@ -137,6 +138,7 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
                 mes mesAr("” ’»Õ «·—”«·… «·ÃœÌœ…");
                 mes mesAr(.@newmes1$+" "+strcharinfo(0)+" "+.@newmes2$);
                 mes "«·—”«·…  €ÌÌ—ø";
+				next;
                 if(select("‰⁄„:·«") == 2) close;
                 #entrance_prefix$ = .@newmes1$;
                 #entrance_suffix$ = .@newmes2$;
@@ -151,6 +153,7 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
                 mes mesAr("” ’»Õ «·—”«·… «·ÃœÌœ…");
                 mes .@newmes$;
                 mes mesAr(" €ÌÌ— «·—”«·…ø");
+				next;
                 if(select("‰⁄„:·«") == 2) close;
                 #say_on_kill$ = .@newmes$;
                 mes mesAr(" „  €ÌÌ— «·—”«·… »‰Ã«Õ");
@@ -163,6 +166,7 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
             mes mesAr("” ’»Õ «·—”«·… «·ÃœÌœ…");
             mes mesAr("·ﬁœ ﬁ«„ "+strcharinfo(0)+" »"+.@newmes$+" ·«⁄» ›Ì «·Õ·»…!");
             mes mesAr(" €ÌÌ— «·—”«·…ø");
+			next;
             if(select("‰⁄„:·«") == 2) close;
             #kill_mes$ = .@newmes$;
             mes mesAr(" „  €ÌÌ— «·—”«·… »‰Ã«Õ");
