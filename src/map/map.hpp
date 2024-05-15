@@ -8,6 +8,7 @@
 #include <stdarg.h>
 #include <unordered_map>
 #include <vector>
+#include <string>
 
 #include "../common/cbasetypes.hpp"
 #include "../common/core.hpp" // CORE_ST_LAST
