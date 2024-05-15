@@ -22,6 +22,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 			close;
 		case 1:
 			mes "- Choose Boots -";
+            next;
 			setarray .@boot_type[0],
 				22006,	// Normal slotted STR_Boots
 				22009,	// Normal slotted INT_Boots
@@ -32,10 +33,12 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 			.@boot = .@boot_type[select("Str Boots:Int Boots:Agi Boots:Vit Boots:Dex Boots:Luk Boots")-1];
 			setarray .@enchants1[0],4822,4835,4826,4862,4881,4755;
 			mes "- Choose First Enchant -";
+            next;
 			set .@enchant1, .@enchants1[select("Fighting Spirit:Expert Archer:Spell:MaxHP:DelayafterAttack(ASPD):Luck")-1];
 			next;
 			mes "- Choose Last Enchant -";
 			setarray .@enchants2[0],4875,4876,4877,4878,4879,4880;
+            next;
 			set .@enchant2, .@enchants2[select("Bear's Power:Runaway Magic:Speed Of Light:Muscle Fool:Hawkeye:Lucky Day")-1];
 			next;
 			mes "- "+getitemname(.@boot)+" -";
@@ -43,12 +46,14 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 			mes "- "+getitemname(.@enchant2)+" -";
 			mes "Â· «‰  „ √ﬂœ „‰ «Œ Ì«—« ﬂø";
 			mes "^ff0000·« Ì„ﬂ‰ ≈·€«¡ Â–Â «·⁄„·Ì… ⁄‰œ «·„Ê«›ﬁ…^000000";
+            next;
 			if(select("‰⁄„ «‰« „ √ﬂœ:≈·€«¡") -1) close;
 			specialeffect2 EF_MAXPOWER;
 			getitem2 .@boot,1,1,0,0,0,0,.@enchant2,.@enchant1;
 			close;
 		case 2:
 			mes "- Choose Items -";
+            next;
 			.@choice = select("Reinforced Parts Enchant:Excellion Enchant");
 			if(.@choice == 1) {
 				setarray .@items1[0],22044,22043,20733,20732;
@@ -59,6 +64,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						.@itemId = .@items1[select("Reinforced Parts - Booster:AGI Supplement Equipment:Reinforced Parts - Engine:VIT Supplement Equipment")-1];
 						next;
 						mes "- Chosse #1 Enchant -";
+                        next;
 						setarray .@enchants$[0],"Str3_J","Agi3_J","Vit3_J","Int3_J","Dex3_J","Luk3_J","Conjure2","Attack_Delay_2","Expert_Archer3";
 						.@menu$ = "Str:Agi:Vit:Int:Dex:Luk:";
 						if(.@itemId == 22044) .@menu$ += "Spell:ASPD";
@@ -68,10 +74,12 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						searchitem(.@matches[0], .@enchants$[.@enchant1]);
 						.@enchant1 = .@matches[0];
 						mes "- Chosse #2 Enchant -";
+                        next;
 						.@enchant2 = select(.@menu$) -1;
 						searchitem(.@matches[0], .@enchants$[.@enchant2]);
 						.@enchant2 = .@matches[0];
 						mes "- Chosse #3 Enchant -";
+                        next;
 						.@enchant3 = select(.@menu$) -1;
 						searchitem(.@matches[0], .@enchants$[.@enchant3]);
 						.@enchant3 = .@matches[0];
@@ -80,6 +88,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						mes "- "+getitemname(.@enchant1)+" -";
 						mes "- "+getitemname(.@enchant2)+" -";
 						mes "- "+getitemname(.@enchant3)+" -";
+                        next;
 						if(select("Continue:Cancel") -1 ) close;
 						// .@enchant1 = 
 						getitem2 .@itemId,1,1,0,0,0,.@enchant1,.@enchant2,.@enchant3;
@@ -89,6 +98,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						.@itemId = .@items2[select("Reinforced Parts - Plate:STR Supplement Equipment")-1];
 						next;
 						mes "- Chosse #1 Enchant -";
+                        next;
 						if(.@itemId == 15111) setarray .@enchants$[0],"Str3_J","Dex3_J","Fighting_Spirit2","Expert_Archer3";
 						else setarray .@enchants$[0],"Vit3_J","MHP3","Tolerance_Not2","DEF9";
 						.@enchant1 = select(.@itemId == 15111 ? "Str:Dex:Fighting Spirit:Expert Archer" : "Vit:Max HP:Resist Neutral:Defense")-1;
@@ -96,11 +106,13 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						.@enchant1 = .@matches[0];
 						
 						mes "- Chosse #2 Enchant -";
+                        next;
 						.@enchant2 = select(.@itemId == 15111 ? "Str:Dex:Fighting Spirit:Expert Archer" : "Vit:Max HP:Resist Neutral:Defense")-1;
 						searchitem(.@matches[0], .@enchants$[.@enchant2]);
 						.@enchant2 = .@matches[0];
 
 						mes "- Chosse #3 Enchant -";
+                        next;
 						.@enchant3 = select(.@itemId == 15111 ? "Str:Dex:Fighting Spirit:Expert Archer" : "Vit:Max HP:Resist Neutral:Defense")-1;
 						searchitem(.@matches[0], .@enchants$[.@enchant3]);
 						.@enchant3 = .@matches[0];
@@ -109,6 +121,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						mes "- "+getitemname(.@enchant1)+" -";
 						mes "- "+getitemname(.@enchant2)+" -";
 						mes "- "+getitemname(.@enchant3)+" -";
+                        next;
 						if(select("Continue:Cancel") -1 ) close;
 						getitem2 .@itemId,1,1,0,0,0,.@enchant3,.@enchant2,.@enchant1;
 						specialeffect2 EF_MAXPOWER;
@@ -117,12 +130,14 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						.@itemId = .@items3[select("Reinforced Parts - Gun Barrel:DEX Supplement Equipment")-1];
 						next;
 						mes "- Chosse #1 Enchant -";
+                        next;
 						setarray .@enchants$[0],"Str2_J","Agi2_J","Vit2_J","Int2_J","Dex2_J","Luk2_J","Conjure1","Attack_Delay_1";
 						.@enchant1 = select("Str","Agi","Vit","Int","Dex","Luk","Spell","ASPD")-1;
 						searchitem(.@matches[0], .@enchants$[.@enchant1]);
 						.@enchant1 = .@matches[0];
 
 						mes "- Chosse #2 Enchant -";
+                        next;
 						setarray .@enchants$[0],"Str2_J","Agi2_J","Vit2_J","Int2_J","Dex2_J","Luk2_J","Conjure1","Attack_Delay_1";
 						.@enchant2 = select("Str","Agi","Vit","Int","Dex","Luk","Spell","ASPD")-1;
 						searchitem(.@matches[0], .@enchants$[.@enchant2]);
@@ -132,6 +147,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						mes "- "+getitemname(.@itemId)+" -";
 						mes "- "+getitemname(.@enchant1)+" -";
 						mes "- "+getitemname(.@enchant2)+" -";
+                        next;
 						if(select("Continue:Cancel") -1 ) close;
 						getitem2 .@itemId,1,1,0,0,0,0,.@enchant2,.@enchant1;
 						specialeffect2 EF_MAXPOWER;
@@ -141,6 +157,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 				// excellion enchants
 				next;
 				mes "Choose Item";
+                next;
 				.@itemId = select("Excellion Suit:Excellion Wing") == 1 ? 15128 : 20773;
 				setarray .@enchants[0],4970,1,4971,1,4972,1,4973,1,4978,3,4979,3,4980,3,4981,3,4982,1,4983,1,4984,3,4985,1,4986,3,4987,3,4988,3,4989,3,4990,1,4991,1;
 				if(.@itemId == 20773) setarray .@enchants[getarraysize(.@enchants)],4974,3,4975,3,4976,3,4977,3;	// wing special enchants
@@ -148,10 +165,12 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 				for(.@i = 2; .@i < getarraysize(.@enchants); .@i = .@i + 2)
 					.@menu$ += ":"+getitemname(.@enchants[.@i]);
 				mes "- Choose #1 Enchant -";
+                next;
 				.@enchant1 = (select(.@menu$)-1) * 2;
 				.@flag = 1;
 				while(.@flag) {
 					mes "- Choose #2 Enchant -";
+                    next;
 					.@enchant2 = (select(.@menu$)-1) * 2;
 					if(.@enchants[.@enchant2 + 1] == 1 && .@enchant1 == .@enchant2)
 						mes "You cannot choose this enchant again.";
@@ -160,6 +179,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 				.@flag = 1;
 				while(.@flag) {
 					mes "- Choose #3 Enchant -";
+                    next;
 					.@enchant3 = (select(.@menu$)-1) * 2;
 					if(.@enchants[.@enchant2 + 1] == 1 && (.@enchant3 == .@enchant2 || .@enchant3 == .@enchant1))
 						mes "You cannot choose this enchant again.";
@@ -170,6 +190,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 				mes "- "+getitemname(.@enchants[.@enchant1])+" -";
 				mes "- "+getitemname(.@enchants[.@enchant2])+" -";
 				mes "- "+getitemname(.@enchants[.@enchant3])+" -";
+                next;
 				if(select("Continue:Cancel") -1 ) close;
 				getitem2 .@itemId,1,1,0,0,0,.@enchants[.@enchant3],.@enchants[.@enchant2],.@enchants[.@enchant1];
 				specialeffect2 EF_MAXPOWER;
@@ -177,6 +198,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 			}
         case 3:
             mes "- Choose Items -";
+            next;
             if(select("Enchant Armors:Enchant Accessories") == 1) {
                 setarray .@armors[0],15073,15074;
                 if(inarray(.@armors,getequipid(EQI_ARMOR)) == -1) {
@@ -185,9 +207,11 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
                 }
                 setarray .@options1[0],3,4,4,4,5,4,6,4,7,4,8,4,9,5,10,5;
                 setarray .@options2[0],11,100,12,100,18,30,22,30,20,60,21,10,168,10,169,10,170,10,77,1,78,1,79,1,80,1;
+                next;
                 mes "- Select #1 Enchant -";
                 .@option1 = select("Str:Agi:Vit:Int:Dex:Luk:Max HP:Max SP") -1;
                 mes "- Select #2 Enchant -";
+                next;
                 .@option2 = select("HP Recovery:SP Recovery:Hit:Flee:Def:Mdef:Heal Power:Healing Recieved:Variable Cast Time:Water Element:Earth Element:Fire Element:Wind Element") -1;
                 setrandomoption(EQI_ARMOR,0,.@options1[.@option1 * 2],.@options1[.@option1 * 2 + 1],0);
                 setrandomoption(EQI_ARMOR,1,.@options2[.@option2 * 2],.@options2[.@option2 * 2 + 1],0);
@@ -196,6 +220,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
             } else {
                 // accessory enchant
                 mes "- Choose Slot -";
+                next;
                 .@choice = select("Left Accessory:Right Accessory");
                 .@slot = .@choice == 1 ? EQI_ACC_L : EQI_ACC_R;
                 setarray .@accessories[0],2963,2964;
@@ -205,9 +230,11 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
                 }
                 setarray .@options[0],16,5,170,7,164,8,26,5,28,5,27,5,29,5,35,3,172,5,9,3,10,3,13,3,14,3;
                 mes "- Choose #1 Enchant -";
+                next;
                 .@menu$ = "ASPD:Variable Cast Time:Critical Damage:Water Resistance:Fire Resistance:Earth Resistance:Wind Resistance:All Elements Resistance:Decrease SP Consumption:Max HP:Max SP:Attack:Magic Attack";
                 .@option1 = select(.@menu$)-1;
                 mes "- Choose #2 Enchant -";
+                next;
                 .@option2 = select(.@menu$)-1;
                 setrandomoption(.@slot,0,.@options[.@option1 * 2], .@options[.@option1 * 2 + 1],0);
                 setrandomoption(.@slot,1,.@options[.@option2 * 2], .@options[.@option2 * 2 + 1],0);
@@ -218,16 +245,20 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 			setarray .@enchants[0],4705,4735,4745,4715,4725,4755,4853,4854,4855,4856,4857,4858;
             .@itemId = 20718;
             mes "- Choose #1 Enchant -";
+            next;
             .@enchant1 = select("Str:Agi:Vit:Int:Dex:Luk") -1;
             mes "- Choose #2 Enchant -";
+            next;
             .@enchant2 = select("Str:Agi:Vit:Int:Dex:Luk") -1;
             mes "- Choose #3 Enchant -";
+            next;
             .@enchant3 = select("Str:Agi:Vit:Int:Dex:Luk:Special Str:Special Agi:Special Vit:Special Int:Special Dex:Special Luck") -1;
             next;
 			mes "- "+getitemname(.@itemId)+" -";
 			mes "- "+getitemname(.@enchants[.@enchant1])+" -";
 			mes "- "+getitemname(.@enchants[.@enchant2])+" -";
 			mes "- "+getitemname(.@enchants[.@enchant3])+" -";
+            next;
 			if(select("Continue:Cancel") -1 ) close;
 			getitem2 .@itemId,1,1,0,0,0,.@enchants[.@enchant3],.@enchants[.@enchant2],.@enchants[.@enchant1];
 			specialeffect2 EF_MAXPOWER;
@@ -240,6 +271,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 			setarray .@garments[0],20820,20821,20822;
 			setarray .@accessories[0],28441,28442;
 			setarray .@accessoriesEnchants[0],4769,4778,4772,4781,4775,4784,4832,4885,4811,4869,4863;
+            next;
 			switch(select("Armors:Garments:Accessories")) {
 				case 1:
 					.@menu$ = "";
@@ -247,16 +279,20 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						.@menu$ +=( getitemname(.@armors[.@i]) + ":");
 					.@itemId = .@armors[select(.@menu$) - 1];
 					mes "- Choose #1 Enchant -";
+                    next;
 					.@enchant1 = select("STR:AGI:INT:DEX:DEF:MDEF:CRIT:Expert Archer:Fatal:Spell:ASPD") - 1;
 					mes "- Choose #2 Enchant -";
+                    next;
 					.@enchant2 = select("STR:AGI:INT:DEX:DEF:MDEF:CRIT:Expert Archer:Fatal:Spell:ASPD") - 1;
 					mes "- Choose #3 Enchant -";
+                    next;
 					.@enchant3 = select("STR:AGI:INT:DEX:DEF:MDEF:CRIT:Expert Archer:Fatal:Spell:ASPD") - 1;
 					next;
 					mes "- "+getitemname(.@itemId)+" -";
 					mes "- "+getitemname(.@armorEnchants[.@enchant1])+" -";
 					mes "- "+getitemname(.@armorEnchants[.@enchant2])+" -";
 					mes "- "+getitemname(.@armorEnchants[.@enchant3])+" -";
+                    next;
 					if(select("Continue:Cancel") -1 ) close;
 					getitem2 .@itemId,1,1,0,0,0,.@armorEnchants[.@enchant3],.@armorEnchants[.@enchant2],.@armorEnchants[.@enchant1];
 					specialeffect2 EF_MAXPOWER;
@@ -267,16 +303,20 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						.@menu$ +=( getitemname(.@garments[.@i]) + ":");
 					.@itemId = .@garments[select(.@menu$) - 1];
 					mes "- Choose #1 Enchant -";
+                    next;
 					.@enchant1 = select("STR:AGI:INT:DEX:DEF:MDEF:CRIT:Expert Archer:Fatal:Spell:ASPD") - 1;
 					mes "- Choose #2 Enchant -";
+                    next;
 					.@enchant2 = select("STR:AGI:INT:DEX:DEF:MDEF:CRIT:Expert Archer:Fatal:Spell:ASPD") - 1;
 					mes "- Choose #3 Enchant -";
+                    next;
 					.@enchant3 = select("STR:AGI:INT:DEX:DEF:MDEF:CRIT:Expert Archer:Fatal:Spell:ASPD") - 1;
 					next;
 					mes "- "+getitemname(.@itemId)+" -";
 					mes "- "+getitemname(.@armorEnchants[.@enchant1])+" -";
 					mes "- "+getitemname(.@armorEnchants[.@enchant2])+" -";
 					mes "- "+getitemname(.@armorEnchants[.@enchant3])+" -";
+                    next;
 					if(select("Continue:Cancel") -1 ) close;
 					getitem2 .@itemId,1,1,0,0,0,.@armorEnchants[.@enchant3],.@armorEnchants[.@enchant2],.@armorEnchants[.@enchant1];
 					specialeffect2 EF_MAXPOWER;
@@ -284,13 +324,16 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 				case 3:
 					.@itemId = .@accessories[select("Vigilante Badge:Hippe Feather") - 1];
 					mes "- Choose #1 Enchant -";
+                    next;
 					.@enchant1 = select("STR:AGI:INT:DEX:VIT:LUCK:Expert Archer:Fatal:Spell:ASPD") - 1;
 					mes "- Choose #2 Enchant -";
+                    next;
 					.@enchant2 = select("STR:AGI:INT:DEX:VIT:LUCK:Expert Archer:Fatal:Spell:ASPD") - 1;
 					next;
 					mes "- "+getitemname(.@itemId)+" -";
 					mes "- "+getitemname(.@accessoriesEnchants[.@enchant1])+" -";
 					mes "- "+getitemname(.@accessoriesEnchants[.@enchant2])+" -";
+                    next;
 					if(select("Continue:Cancel") -1 ) close;
 					getitem2 .@itemId,1,1,0,0,0,0,.@accessoriesEnchants[.@enchant2],.@accessoriesEnchants[.@enchant1];
 					specialeffect2 EF_MAXPOWER;
@@ -301,15 +344,18 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
             // Sarah's earrings
             mes "- Choose Item -";
             setarray .@earrings[0],28310,28311;
+            next;
             .@itemId = .@earrings[select("Left Earring:Right Earring") - 1];
             setarray .@enchants1[0],4940,4864,4833,4943,4898,4949,4872;
             setarray .@enchants2[0],4941,4865,4834,4944,4899,4873,4950;
             mes "Select #1 Enchant";
+            next;
             .@menu$ = "";
             for(.@i = 0; .@i < getarraysize(.@enchants1); .@i++)
                 .@menu$ += (getitemname(.@enchants1[.@i]) + ":");
             .@enchant1 = select(.@menu$)  - 1;
             mes "Select #2 Enchant";
+            next;
             .@menu$ = "";
             for(.@i = 0; .@i < getarraysize(.@enchants2); .@i++)
                 .@menu$ += (getitemname(.@enchants2[.@i]) + ":");
@@ -318,6 +364,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						mes "- "+getitemname(.@itemId)+" -";
 						mes "- "+getitemname(.@enchants1[.@enchant1])+" -";
 						mes "- "+getitemname(.@enchants2[.@enchant2])+" -";
+            next;
 						if(select("Continue:Cancel") -1 ) close;
 						getitem2 .@itemId,1,1,0,0,0,0,.@enchants2[.@enchant2],.@enchants1[.@enchant1];
 						specialeffect2 EF_MAXPOWER;
@@ -332,8 +379,10 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						.@menu$ = "";
 						for(.@i = 0; .@i < getarraysize(.@items); .@i++) 
 							.@menu$ += (getitemname(.@items[.@i]) + ":");
+                        next;
 						.@itemId = .@items[select(.@menu$) - 1];
 						mes "- Choose #1 Enchant -";
+                        next;
 						.@enchant_list_p$ = "No weapon penalty:Increase damage to demi-human race:Increase damage to normal monsters:Incerase damage to boss monsters:Attack:Critical Damage";
 						.@enchant_list_m$ = "Reduce skill delay:Increase magic damage on demihumans:Increase magic damage on normal monsters:Increase magic damage on boss monsters:Magic attack";
 						.@isMagic = inarray(.@magicItems,.@itemId) == -1 ? 0 : 1;
@@ -343,6 +392,7 @@ dicastes01,205,187,4	script	”Õ— «·√œÊ« 	63,{
 						setarray .@chosen_enchants[0],(.@isMagic ? .@optionList_m[.@enchant_choice*2 -1 ] : .@optionList_p[.@enchant_choice*2-1]);
 						setarray .@chosen_value[0],(.@isMagic ? .@optionList_m[.@enchant_choice *2] : .@optionList_p[.@enchant_choice*2]);
 						mes "- Choose #2 Enchant -";
+                        next;
 						.@enchant_choice = select(.@enchant_list$);
 						setarray .@chosen_enchants[1],(.@isMagic ? .@optionList_m[.@enchant_choice*2 -1] : .@optionList_p[.@enchant_choice*2-1]);
 						setarray .@chosen_value[1],(.@isMagic ? .@optionList_m[.@enchant_choice*2] : .@optionList_p[.@enchant_choice*2]);
