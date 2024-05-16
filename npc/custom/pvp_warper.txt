@@ -50,7 +50,7 @@ function	script	calc_def_points	{
 	if(inarray($defensive_shoes, getequipid(EQI_SHOES, .@char_id)) != -1) .@def_points+=4;
 	// if(.@def_points == 3) .@def_points = 20; // 20+ means you are using a siege set
 	if(getequipcardid(EQI_HAND_L, 0) == 4058) .@def_points += 8;
-	if(getequipid(EQI_HAND_R, .@char_id)) .@def_points+=16;
+	if(getequipid(EQI_HAND_R, .@char_id) == 1228) .@def_points+=16;
 	if(getequipid(EQI_HEAD_TOP, .@char_id) == 18509) .@def_points+= 32;
 	else if(getequipid(EQI_HEAD_TOP, .@char_id) == 5518) .@def_points += 64;
 	if(getequipid(EQI_HEAD_LOW, .@char_id) == 18670) .@def_points += 128;
