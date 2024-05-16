@@ -42,21 +42,19 @@ function	script	dispell	{
 }
 
 function	script	calc_def_points	{
-	.@char_id = getarg(0);
+	.@char_id = getcharid(0)
 	if(.@char_id == 0) return 0;
 	.@def_points = 0;
-	if(inarray($defensive_armor, getequipid(EQI_ARMOR, .@char_id)) != -1) .@def_points++;
-	if(inarray($defensive_garment, getequipid(EQI_GARMENT, .@char_id)) != -1) .@def_points++;
-	if(inarray($defensive_shoes, getequipid(EQI_SHOES, .@char_id)) != -1) .@def_points++;
-	if(.@def_points == 3) .@def_points = 20; // 20+ means you are using a siege set
-	.@shield = getequipid(EQI_HAND_L, .@char_id);
-	.@weapon = getequipid(EQI_HAND_R, .@char_id);
-	if(getiteminfo(.@shield, 5) == 32) .@def_points++;
-	if(.@weapon == 1228) .@def_points++;
-	if(getequipid(EQI_HEAD_TOP, .@char_id) == 18509) .@def_points++;
-	else if(getequipid(EQI_HEAD_TOP, .@char_id) == 5518) .@def_points += 2;
-	if(getequipid(EQI_HEAD_LOW, .@char_id) == 18670) .@def_points++;
-	if(getequipid(EQI_HEAD_MID, .@char_id) == 18894) .@def_points++;
+	if(inarray($defensive_armor, getequipid(EQI_ARMOR, .@char_id)) != -1) .@def_points+= 1;
+	if(inarray($defensive_garment, getequipid(EQI_GARMENT, .@char_id)) != -1) .@def_points+=2;
+	if(inarray($defensive_shoes, getequipid(EQI_SHOES, .@char_id)) != -1) .@def_points+=4;
+	// if(.@def_points == 3) .@def_points = 20; // 20+ means you are using a siege set
+	if(getequipcardid(EQI_HAND_L, 0) == 4058) .@def_points += 8;
+	if(getequipid(EQI_HAND_R, .@char_id)) .@def_points+=16;
+	if(getequipid(EQI_HEAD_TOP, .@char_id) == 18509) .@def_points+= 32;
+	else if(getequipid(EQI_HEAD_TOP, .@char_id) == 5518) .@def_points += 64;
+	if(getequipid(EQI_HEAD_LOW, .@char_id) == 18670) .@def_points += 128;
+	if(getequipid(EQI_HEAD_MID, .@char_id) == 18894) .@def_points += 256;
 	return .@def_points;
 }
 
@@ -199,7 +197,7 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 OnInit:
 	// This command can be used to enter the PvP Room.
 	bindatcmd "pvp","PVP#0::OnCommand";
-	.@sql$ = "CREATE TABLE IF NOT EXISTS `pvp_stats2`(char_id int(11),class int(11),defeated_id int(11),defeated_class int(11), attacker_def int(11), defender_def int(11),createdAt DATETIME default CURRENT_TIMESTAMP)";
+	.@sql$ = "CREATE TABLE IF NOT EXISTS `pvp_balance`(char_id int(11),class int(11), map varchar(30), player_count int(11), defeated_id int(11),defeated_class int(11), attacker_def int(11), defender_def int(11),createdAt DATETIME default CURRENT_TIMESTAMP)";
 	query_sql(.@sql$);
 
 
@@ -363,10 +361,12 @@ OnPCKillEvent:
     if(say_on_kill$ != "") unittalk getcharid(3),say_on_kill$;
     announce "·ﬁœ ﬁ«„ "+strcharinfo(0)+" »"+ (kill_mes$ == "" ? "œ⁄”" : kill_mes$) +" "+rid2name(killedrid)+" ›Ì «·Õ·»…!",bc_all|bc_blue;
     discord("·ﬁœ ﬁ«„ **"+strcharinfo(0)+"** »" + (kill_mes$ == "" ? "œ⁄”": kill_mes$) + " **"+rid2name(killedrid)+"** ›Ì «·Õ·»…", "pvp");
+	.@attackerId = getcharid(0);
 	.@defenderId = getcharid(0, rid2name(killedrid));
-	.@attacker_def = callfunc("calc_def_points", getcharid(0));
-	.@defender_def = callfunc("calc_def_points", .@defenderId);
-	.@sql$ = "INSERT INTO `pvp_stats2`(char_id, class, defeated_id, defeated_class, attacker_def, defender_def) VALUES ("+getcharid(0)+", "+Class+", "+.@defenderId+", "+readparam(Class, .@defenderId)+", "+.@attacker_def+", "+.@defender_def+")";
+	.@attacker_def = callfunc("calc_def_points");
+	if(attachrid(killedrid))
+		.@defender_def = callfunc("calc_def_points");
+	.@sql$ = "INSERT INTO `pvp_balance`(map, player_count, char_id, class, defeated_id, defeated_class, attacker_def, defender_def) VALUES ("+strcharinfo(3)+", "+ getmapusers(strcharinfo(3))+", "+.@attackerId+", "+Class+", "+.@defenderId+", "+readparam(Class, .@defenderId)+", "+.@attacker_def+", "+.@defender_def+")";
 	query_sql(.@sql$);
     end;
 }
