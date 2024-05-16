@@ -45,9 +45,9 @@ function	script	calc_def_points	{
 	.@char_id = getarg(0);
 	if(.@char_id == 0) return 0;
 	.@def_points = 0;
-	if(inarray(.defensive_armor, getequipid(EQI_ARMOR, .@char_id)) != -1) .@def_points++;
-	if(inarray(.defensive_garment, getequipid(EQI_GARMENT, .@char_id)) != -1) .@def_points++;
-	if(inarray(.defensive_shoes, getequipid(EQI_SHOES, .@char_id)) != -1) .@def_points++;
+	if(inarray($defensive_armor, getequipid(EQI_ARMOR, .@char_id)) != -1) .@def_points++;
+	if(inarray($defensive_garment, getequipid(EQI_GARMENT, .@char_id)) != -1) .@def_points++;
+	if(inarray($defensive_shoes, getequipid(EQI_SHOES, .@char_id)) != -1) .@def_points++;
 	if(.@def_points == 3) .@def_points = 20; // 20+ means you are using a siege set
 	.@shield = getequipid(EQI_HAND_L, .@char_id);
 	.@weapon = getequipid(EQI_HAND_R, .@char_id);
@@ -223,10 +223,10 @@ OnInit:
 								"pvp_n_4-5",
 								"pvp_n_5-5";
 	setarray .private_map_owner$[0],"";
-	setarray .defensive_armor[0], 100000, 15048, 15047, 15046;
-	setarray .defensive_garment[0],100001, 2587, 2685;
-	setarray .defensive_shoes[0],100002, 2484, 2483, 2485;
-	setarray .defensive_headgear[0], 18509, 5518;
+	setarray $defensive_armor[0], 100000, 15048, 15047, 15046;
+	setarray $defensive_garment[0],100001, 2587, 2685;
+	setarray $defensive_shoes[0],100002, 2484, 2483, 2485;
+	setarray $defensive_headgear[0], 18509, 5518;
 	.COMBAT_KNIFE = 1228;
 
 	// PvP maps go here. Change them as you wish.//"guild_vs2","guild_vs3","guild_vs5","pvp_y_1-1","guild_vs4","guild_vs1","arena_room";
