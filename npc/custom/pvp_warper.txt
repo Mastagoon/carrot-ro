@@ -42,7 +42,7 @@ function	script	dispell	{
 }
 
 function	script	calc_def_points	{
-	.@char_id = getcharid(0)
+	.@char_id = getcharid(0);
 	if(.@char_id == 0) return 0;
 	.@def_points = 0;
 	if(inarray($defensive_armor, getequipid(EQI_ARMOR, .@char_id)) != -1) .@def_points+= 1;
