@@ -52,7 +52,7 @@ function	script	calc_def_points	{
 	.@shield = getequipid(EQI_HAND_L, .@char_id);
 	.@weapon = getequipid(EQI_HAND_R, .@char_id);
 	if(getiteminfo(.@shield, 5) == 32) .@def_points++;
-	if(.@weapon == .COMBAT_KNIFE) .@def_points++;
+	if(.@weapon == 1228) .@def_points++;
 	if(getequipid(EQI_HEAD_TOP, .@char_id) == 18509) .@def_points++;
 	else if(getequipid(EQI_HEAD_TOP, .@char_id) == 5518) .@def_points += 2;
 	if(getequipid(EQI_HEAD_LOW, .@char_id) == 18670) .@def_points++;
@@ -227,7 +227,6 @@ OnInit:
 	setarray $defensive_garment[0],100001, 2587, 2685;
 	setarray $defensive_shoes[0],100002, 2484, 2483, 2485;
 	setarray $defensive_headgear[0], 18509, 5518;
-	.COMBAT_KNIFE = 1228;
 
 	// PvP maps go here. Change them as you wish.//"guild_vs2","guild_vs3","guild_vs5","pvp_y_1-1","guild_vs4","guild_vs1","arena_room";
 	setarray .maps$[0],"pvp_n_7-1", // sandwich
