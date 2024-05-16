@@ -224,8 +224,8 @@ OnInit:
 								"pvp_n_5-5";
 	setarray .private_map_owner$[0],"";
 	setarray .defensive_armor[0], 100000, 15048, 15047, 15046;
-	setarray .defensive_garment[0], 2587, 2685;
-	setarray .defensive_shoes[0], 2484, 2483, 2485;
+	setarray .defensive_garment[0],100001, 2587, 2685;
+	setarray .defensive_shoes[0],100002, 2484, 2483, 2485;
 	setarray .defensive_headgear[0], 18509, 5518;
 	.COMBAT_KNIFE = 1228;
 
