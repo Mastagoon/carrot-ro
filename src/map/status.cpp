@@ -4995,6 +4995,9 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
             sd->indexed_bonus.subrace[RC_PLAYER_HUMAN] += sc->data[SC_GEFFEN_MAGIC3]->val1;
             sd->indexed_bonus.subrace[RC_DEMIHUMAN] += sc->data[SC_GEFFEN_MAGIC3]->val1;
         }
+        if(sc->data[SC__ENERVATION]) {
+            sd->indexed_bonus.subrace[RC_PLAYER_HUMAN] += sc->data[SC__ENERVATION]->val2;
+        }
 		if(sc->data[SC_ARMOR_ELEMENT_WATER]) {	// This status change should grant card-type elemental resist.
 			sd->indexed_bonus.subele[ELE_WATER] += sc->data[SC_ARMOR_ELEMENT_WATER]->val1;
 			sd->indexed_bonus.subele[ELE_EARTH] += sc->data[SC_ARMOR_ELEMENT_WATER]->val2;
@@ -11829,16 +11832,15 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 				case 2: rand_eff = SC_SILENCE; break;
 				default: rand_eff = SC_POISON; break;
 			}
-			val2 = 10 * val1; // Crit and Flee2 Reduction
-			status_change_start(src,bl,rand_eff,10000,val1,0,(rand_eff == SC_POISON ? src->id : 0),0,tick,SCSTART_NOTICKDEF|SCSTART_NORATEDEF);
+			val4 = tick / 1500;
+			tick_time = 1500; // [GodLesZ] tick time
 			break;
-		}
-		case SC__WEAKNESS:
-			val2 = 10 * val1;
-			// Bypasses coating protection and MADO
-			sc_start(src,bl,SC_STRIPWEAPON,100,val1,tick);
-			sc_start(src,bl,SC_STRIPSHIELD,100,val1,tick);
-			break;
+		// case SC__WEAKNESS:
+		// 	val2 = 10 * val1; // hp damage
+		// 	// Bypasses coating protection and MADO
+		// 	sc_start(src,bl,SC_STRIPWEAPON,100,val1,tick);
+		// 	sc_start(src,bl,SC_STRIPSHIELD,100,val1,tick);
+		// 	break;
 		case SC_GN_CARTBOOST:
 			if( val1 < 3 )
 				val2 = 50;
@@ -13950,6 +13952,15 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 		case SC_TEARGAS:
 			status_change_end(bl,SC_TEARGAS_SOB,INVALID_TIMER);
 			break;
+
+		case SC__IGNORANCE:
+		case SC__GROOMY:
+		case SC__ENERVATION:
+			clif_specialeffect_remove(bl, EF_ENERVATION + (type == SC__ENERVATION?0:type == SC__IGNORANCE?2:1), AREA, bl);
+		break;
+		case SC_MASQUEREADE:
+			clif_specialeffect_remove(bl, EF_MASQUERADE1 + sce->val1 - 1, AREA, bl);
+		break;
 		case SC_SITDOWN_FORCE:
 		case SC_BANANA_BOMB_SITDOWN:
 			if( sd && pc_issit(sd) && pc_setstand(sd, false) )
@@ -14872,6 +14883,18 @@ TIMER_FUNC(status_change_timer){
 			sc_timer_next(3000 + tick);
 			return 0;
 		}
+
+	case SC__IGNORANCE:
+	case SC__GROOMY:
+	case SC__ENERVATION:
+		if( --(sce->val4) >= 0 ) {
+			if ( sc->data[type] ) {
+				sc_timer_next(1500 + tick);
+			}
+			clif_specialeffect(bl, EF_ENERVATION + (type == SC__ENERVATION?0:type == SC__IGNORANCE?2:1), AREA);
+			return 0;
+		}
+		break;
 
     case SC_BLOODSUCKER:
 		if( --(sce->val4) >= 0 ) {

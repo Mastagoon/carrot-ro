@@ -19677,7 +19677,7 @@ Body:
     Hit: Single
     HitCount: 1
     Element: Weapon
-    AfterCastActDelay: 500  
+    AfterCastActDelay: 500
     Requires:
       SpCost:
         - Level: 1
@@ -22485,16 +22485,15 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    CastTime: 2000
-    AfterCastActDelay: 1000
+    AfterCastActDelay: 2000
     Duration1:
       - Level: 1
         Time: 10000
       - Level: 2
-        Time: 15000
+        Time: 10000
       - Level: 3
-        Time: 20000
-    Cooldown: 2000
+        Time: 10000
+    Cooldown: 7000
     Requires:
       SpCost:
         - Level: 1
@@ -22519,16 +22518,15 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    CastTime: 2000
-    AfterCastActDelay: 1000
+    AfterCastActDelay: 2000
     Duration1:
       - Level: 1
         Time: 10000
       - Level: 2
-        Time: 15000
+        Time: 10000
       - Level: 3
-        Time: 20000
-    Cooldown: 2000
+        Time: 10000
+    Cooldown: 7000
     Requires:
       SpCost:
         - Level: 1
@@ -22553,16 +22551,15 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    CastTime: 2000
-    AfterCastActDelay: 1000
+    AfterCastActDelay: 2000
     Duration1:
       - Level: 1
-        Time: 20000
+        Time: 10000
       - Level: 2
-        Time: 20000
+        Time: 10000
       - Level: 3
-        Time: 20000
-    Cooldown: 2000
+        Time: 10000
+    Cooldown: 7000
     Requires:
       SpCost:
         - Level: 1
@@ -22587,16 +22584,15 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    CastTime: 2000
-    AfterCastActDelay: 1000
+    AfterCastActDelay: 2000
     Duration1:
       - Level: 1
         Time: 10000
       - Level: 2
-        Time: 15000
+        Time: 10000
       - Level: 3
-        Time: 20000
-    Cooldown: 2000
+        Time: 10000
+    Cooldown: 7000
     Requires:
       SpCost:
         - Level: 1
@@ -22621,16 +22617,15 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    CastTime: 2000
-    AfterCastActDelay: 1000
+    AfterCastActDelay: 2000
     Duration1:
       - Level: 1
         Time: 10000
       - Level: 2
-        Time: 15000
+        Time: 10000
       - Level: 3
-        Time: 20000
-    Cooldown: 2000
+        Time: 10000
+    Cooldown: 7000
     Requires:
       SpCost:
         - Level: 1
@@ -22655,16 +22650,15 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    CastTime: 2000
-    AfterCastActDelay: 1000
+    AfterCastActDelay: 2000
     Duration1:
       - Level: 1
         Time: 10000
       - Level: 2
-        Time: 15000
+        Time: 10000
       - Level: 3
-        Time: 20000
-    Cooldown: 2000
+        Time: 10000
+    Cooldown: 7000
     Requires:
       SpCost:
         - Level: 1
