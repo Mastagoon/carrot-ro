@@ -10629,8 +10629,12 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 				status_damage(src, bl, (tstatus->max_hp * (10 + (5 * stacks)))/100, 0, clif_damage(bl,bl,tick,tstatus->amotion,tstatus->dmotion+200,(tstatus->max_hp * (10 + (5 * stacks)))/100,1,DMG_NORMAL,0,false), 0, 0);
 				break;
 			}
+			if(type == SC__UNLUCKY) {
+				clif_skill_nodamage(src, bl, skill_id, 0, 1);
+				break;
+			}
 
-			clif_skill_nodamage(src,bl,skill_id,0,sc_start(src,bl,type,100,stacks,type == SC__IGNORANCE ? 2000 + (2000 * stacks) :  skill_get_time(skill_id,skill_lv)));
+			clif_skill_nodamage(src,bl,skill_id,0,sc_start(src,bl,type,100,stacks,type == SC__IGNORANCE ? 200 + (2 * stacks) :  skill_get_time(skill_id,skill_lv)));
 		} else if( sd )
 			 clif_skill_fail(sd,skill_id,USESKILL_FAIL_LEVEL,0);
 		break;
