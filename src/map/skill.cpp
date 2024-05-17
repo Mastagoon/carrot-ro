@@ -10630,7 +10630,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 				break;
 			}
 
-			clif_skill_nodamage(src,bl,skill_id,0,sc_start(src,bl,type,100,stacks,type == SC__IGNORANCE ? 2 + (2 * stacks) :  skill_get_time(skill_id,skill_lv)));
+			clif_skill_nodamage(src,bl,skill_id,0,sc_start(src,bl,type,100,stacks,type == SC__IGNORANCE ? 2000 + (2000 * stacks) :  skill_get_time(skill_id,skill_lv)));
 		} else if( sd )
 			 clif_skill_fail(sd,skill_id,USESKILL_FAIL_LEVEL,0);
 		break;
