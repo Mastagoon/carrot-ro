@@ -11791,7 +11791,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			break;
 		case SC_MASQUEREADE:
 			clif_specialeffect(bl, EF_MASQUERADE1 + val1 - 1, AREA);
-			clif_status_change(bl, EFST_IGNORANCE, flag, duration,SC_IGNORANCE,1,0);
+			clif_status_change(bl, EFST_IGNORANCE, 1, duration,SC_IGNORANCE,1,0);
 			break;
 			// if (sd) {
 			// 	pc_delspiritball(sd,sd->spiritball,0);
