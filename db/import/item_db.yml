@@ -163,3 +163,153 @@ Body:
       Alchemist: true
     Script: |
       doevent "hom_maker::OnMake";
+
+  - Id: 510032
+    AegisName: Adulter_F_Dagger
+    Name: Red Mist Dagger
+    Type: Weapon
+    SubType: Dagger
+    Weight: 1200
+    Attack: 150
+    Range: 1
+    Slots: 2
+    Jobs:
+      Rogue: true
+    Classes:
+      Assassin: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 175
+    Refineable: true
+    Script: |
+      bonus2 bSkillCooldown,"GC_HALLUCINATIONWALK",-60000;
+      bonus2 bFixedCastrate,"GC_POISONSMOKE",-1000;
+  - Id: 600017
+    AegisName: Adulter_F_T_Sword
+    Name: Red Mist Sword
+    Type: Weapon
+    SubType: 2hSword
+    Weight: 6000
+    Attack: 300
+    Range: 1
+    Slots: 1
+    Jobs:
+      Knight: true
+    Classes:
+      All_Third: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 175
+    Refineable: true
+    # Script: |
+  - Id: 530013
+    AegisName: Adulter_F_G_Spear
+    Name: Red Mist Spear
+    Type: Weapon
+    SubType: 1hSpear
+    Weight: 1800
+    Attack: 280
+    Range: 3
+    Slots: 2
+    Jobs:
+      Crusader: true
+    Classes:
+      All_Third: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 175
+    Refineable: true
+    Script: |
+      bonus bCritical,50;
+  - Id: 640019
+    AegisName: Adulter_F_T_Staff
+    Name: Red Mist Staff
+    Type: Weapon
+    SubType: 2hStaff
+    Weight: 2000
+    Attack: 300
+    MagicAttack: 340
+    Range: 1
+    Slots: 2
+    Jobs:
+      Wizard: true
+    Classes:
+      All_Third: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 175
+    Refineable: true
+    Script: |
+      skill "SA_DELUGE",3;
+      bonus2 bMagicAtkEle,Ele_Water,25;
+  - Id: 540023
+    AegisName: Adulter_F_Star_B
+    Name: Book Of The Spirits
+    Type: Weapon
+    SubType: Book
+    Weight: 1000
+    Attack: 240
+    Range: 1
+    Slots: 2
+    Jobs:
+      StarGladiator: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 175
+    Refineable: true
+    Script: |
+      skill "SO_EL_SYMPATHY", 10;
+      bonus2 bSkillCooldown,"SO_SUMMON_AQUA",-30000;
+      bonus2 bSkillCooldown,"SO_SUMMON_AGNI",-30000;
+      bonus2 bSkillCooldown,"SO_SUMMON_VENTUS",-30000;
+      bonus2 bSkillCooldown,"SO_SUMMON_TERA",-30000;
+  - Id: 700001
+    AegisName: Boost_Bow
+    Name: Heavy Bow
+    Type: Weapon
+    SubType: Bow
+    Attack: 500
+    Weight: 10000
+    Range: 5
+    Slots: 2
+    Jobs:
+      Hunter: true
+    Classes:
+      All_Third: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 100
+    Refineable: true
+    Script: |
+      bonus bFixedCast,20000;
+      bonus bSpeedAddRate,-95;
+      bonus bLongAtkRate,100;
+      bonus bAspd,-93;
+    UnEquipScript: |
+      heal -40000,0;
+  - Id: 700032
+    AegisName: Adulter_F_A_Bow
+    Name: Red Mist Bow
+    Type: Weapon
+    SubType: Bow
+    Weight: 1500
+    Attack: 200
+    Range: 5
+    Slots: 2
+    Jobs:
+      BardDancer: true
+    Classes:
+      All_Third: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 175
+    Refineable: true
+    Script: |
+      bonus2 bSkillAtk,"WM_SEVERE_RAINSTORM",80;
