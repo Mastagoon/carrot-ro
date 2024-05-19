@@ -340,7 +340,7 @@ enum emotion_type {
 	ET_MAX
 };
 
-enum clr_type : uint8_t 
+enum clr_type : uint8_t
 {
 	CLR_OUTSIGHT = 0,
 	CLR_DEAD,
@@ -349,7 +349,7 @@ enum clr_type : uint8_t
 	CLR_TRICKDEAD,
 };
 
-enum map_property : uint8_t 
+enum map_property : uint8_t
 {// clif_map_property
 	MAPPROPERTY_NOTHING       = 0,
 	MAPPROPERTY_FREEPVPZONE   = 1,
@@ -360,7 +360,7 @@ enum map_property : uint8_t
 	MAPPROPERTY_DENYSKILLZONE = 6,
 };
 
-enum map_type : uint8_t 
+enum map_type : uint8_t
 {// clif_map_type
 	MAPTYPE_VILLAGE              = 0,
 	MAPTYPE_VILLAGE_IN           = 1,
@@ -389,7 +389,7 @@ enum map_type : uint8_t
 	MAPTYPE_UNUSED               = 29,
 };
 
-enum useskill_fail_cause : uint8_t 
+enum useskill_fail_cause : uint8_t
 {// clif_skill_fail
 	USESKILL_FAIL_LEVEL = 0,
 	USESKILL_FAIL_SP_INSUFFICIENT = 1,
@@ -529,7 +529,7 @@ enum clif_messages : uint16_t {
 	MSG_ATTENDANCE_DISABLED = 0xd92,
 
 	// Unofficial names
-	C_ITEM_EQUIP_SWITCH = 0xbc7, 
+	C_ITEM_EQUIP_SWITCH = 0xbc7,
 };
 
 enum e_personalinfo : uint8_t {
@@ -883,6 +883,7 @@ void clif_friendslist_send(struct map_session_data *sd);
 void clif_friendslist_reqack(struct map_session_data *sd, struct map_session_data *f_sd, int type);
 
 void clif_weather(int16 m); // [Valaris]
+void clif_specialeffect_remove(struct block_list* bl_src, int effect, enum send_target e_target, struct block_list* bl_target);
 void clif_specialeffect(struct block_list* bl, int type, enum send_target target); // special effects [Valaris]
 void clif_specialeffect_single(struct block_list* bl, int type, int fd);
 void clif_messagecolor_target(struct block_list *bl, unsigned long color, const char *msg, bool rgb2bgr, enum send_target type, struct map_session_data *sd);

@@ -127,7 +127,7 @@ public:
 		this->clear();
 	}
 
-	void clear() { 
+	void clear() {
 		std::fill_n(&attr_fix_table[0][0][0], MAX_ELE_LEVEL * ELE_MAX * ELE_MAX, 100);
 	}
 	const std::string getDefaultLocation();
@@ -633,11 +633,17 @@ enum sc_type : int16 {
 	SC__INVISIBILITY,
 	SC__DEADLYINFECT,//451
 	SC__ENERVATION,
+	SC__ENERVATION_IMMUNE,
 	SC__GROOMY,
+	SC__GROOMY_IMMUNE,
 	SC__IGNORANCE,
+	SC__IGNORANCE_IMMUNE,
 	SC__LAZINESS,
+	SC__LAZINESS_IMMUNE,
 	SC__UNLUCKY,//456
+	SC__UNLUCKY_IMMUNE,//456
 	SC__WEAKNESS,
+	SC__WEAKNESS_IMMUNE,
 	SC__STRIPACCESSORY,
 	SC__MANHOLE,
 	SC__BLOODYLUST,//460
@@ -997,7 +1003,7 @@ enum sc_type : int16 {
 	SC_EP16_2_BUFF_SS,
 	SC_EP16_2_BUFF_SC,
 	SC_EP16_2_BUFF_AC,
-	
+
 	// Job Improvement Bundle
 	SC_OVERBRANDREADY,
 	SC_POISON_MIST,
@@ -1022,6 +1028,7 @@ enum sc_type : int16 {
 	SC_PACKING_ENVELOPE10,
 
 	SC_SOULATTACK,
+	SC_MASQUEREADE,
 
 #ifdef RENEWAL
 	SC_EXTREMITYFIST2, //! NOTE: This SC should be right before SC_MAX, so it doesn't disturb if RENEWAL is disabled

@@ -4997,6 +4997,9 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
             sd->indexed_bonus.subrace[RC_PLAYER_HUMAN] += sc->data[SC_GEFFEN_MAGIC3]->val1;
             sd->indexed_bonus.subrace[RC_DEMIHUMAN] += sc->data[SC_GEFFEN_MAGIC3]->val1;
         }
+        if(sc->data[SC__ENERVATION]) {
+            sd->indexed_bonus.subrace[RC_PLAYER_HUMAN] += sc->data[SC__ENERVATION]->val2;
+        }
 		if(sc->data[SC_ARMOR_ELEMENT_WATER]) {	// This status change should grant card-type elemental resist.
 			sd->indexed_bonus.subele[ELE_WATER] += sc->data[SC_ARMOR_ELEMENT_WATER]->val1;
 			sd->indexed_bonus.subele[ELE_EARTH] += sc->data[SC_ARMOR_ELEMENT_WATER]->val2;
@@ -6885,8 +6888,6 @@ static unsigned short status_calc_batk(struct block_list *bl, struct status_chan
 		batk -= batk * 25 / 100; */
 	if(sc->data[SC_FLEET])
 		batk += batk * sc->data[SC_FLEET]->val3/100;
-	if(sc->data[SC__ENERVATION])
-		batk = 0;
 	if( sc->data[SC_ZANGETSU] )
 		batk += sc->data[SC_ZANGETSU]->val2;
 	if(sc->data[SC_QUEST_BUFF1])
@@ -6975,8 +6976,6 @@ static unsigned short status_calc_watk(struct block_list *bl, struct status_chan
         watk += 40 * sc->data[SC_INSPIRATION]->val1 + 3 * sc->data[SC_INSPIRATION]->val2;
 	if(sc->data[SC_GT_CHANGE])
 		watk += sc->data[SC_GT_CHANGE]->val2;
-	if(sc->data[SC__ENERVATION])
-		watk = 0;
 	if(sc->data[SC_STRIKING])
 		watk += sc->data[SC_STRIKING]->val2;
 	if(sc->data[SC_RUSHWINDMILL])
@@ -11790,15 +11789,14 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			tick = INFINITE_TICK; // Duration sent to the client should be infinite
 			tick_time = 1000; // [GodLesZ] tick time
 			break;
-		case SC__IGNORANCE:
-		case SC__ENERVATION:
-		case SC__GROOMY:
-			val4 = 1; // stage 1: debuff active
+		case SC_MASQUEREADE:
+			clif_specialeffect(bl, EF_MASQUERADE1 + val1 - 1, AREA);
+			clif_status_change(bl, EFST_IGNORANCE, 1, duration,SC_IGNORANCE,1,0);
+			break;
 			// if (sd) {
 			// 	pc_delspiritball(sd,sd->spiritball,0);
 			// 	pc_delspiritcharm(sd,sd->spiritcharm,sd->spiritcharm_type);
 			// }
-			val2 = 80; // Speed
 			// if( sd ) { // Removes Animals
 			// 	if( pc_isriding(sd) ) pc_setriding(sd, 0);
 			// 	if( pc_isridingdragon(sd) ) pc_setoption(sd, sd->sc.option&~OPTION_DRAGON);
@@ -11809,29 +11807,34 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			// 	if( hom_is_active(sd->hd) ) hom_vaporize(sd, HOM_ST_ACTIVE);
 			// 	//if( sd->md ) mercenary_delete(sd->md,3); // Are Mercenaries removed? [aleos]
 			// }
-			break;
-		case SC__LAZINESS:
-			val4 = 1; // stage 1: debuff active
-			val2 = 100; // Cast Increase
-			break;
-		case SC__UNLUCKY:
-		{
-			sc_type rand_eff;
-			switch(rnd() % 3) {
-				case 1: rand_eff = SC_BLIND; break;
-				case 2: rand_eff = SC_SILENCE; break;
-				default: rand_eff = SC_POISON; break;
+			// break;
+		case SC__IGNORANCE:
+		case SC__GROOMY:
+		case SC__ENERVATION:
+			if(type == SC__GROOMY)
+				val2 = 20 + 10 * val1; // Speed reduction
+			else
+				val2 = 5 + 2 * val1; // resistance reduction
+			if(sd && val1 > 5){
+				// Removes Animals
+				if( pc_isriding(sd) ) pc_setriding(sd, 0);
+				if( pc_isridingdragon(sd) ) pc_setoption(sd, sd->sc.option&~OPTION_DRAGON);
+				if( pc_iswug(sd) ) pc_setoption(sd, sd->sc.option&~OPTION_WUG);
+				if( pc_isridingwug(sd) ) pc_setoption(sd, sd->sc.option&~OPTION_WUGRIDER);
+				if( pc_isfalcon(sd) ) pc_setoption(sd, sd->sc.option&~OPTION_FALCON);
+				if( sd->status.pet_id > 0 ) pet_return_egg(sd, sd->pd);
+				if( hom_is_active(sd->hd) ) hom_vaporize(sd, HOM_ST_ACTIVE);
+				//if( sd->md ) mercenary_delete(sd->md,3); // Are Mercenaries removed? [aleos]
 			}
-			val2 = 10 * val1; // Crit and Flee2 Reduction
-			status_change_start(src,bl,rand_eff,10000,val1,0,(rand_eff == SC_POISON ? src->id : 0),0,tick,SCSTART_NOTICKDEF|SCSTART_NORATEDEF);
+			val4 = tick / 1500;
+			tick_time = 1500; // [GodLesZ] tick time
 			break;
-		}
-		case SC__WEAKNESS:
-			val2 = 10 * val1;
-			// Bypasses coating protection and MADO
-			sc_start(src,bl,SC_STRIPWEAPON,100,val1,tick);
-			sc_start(src,bl,SC_STRIPSHIELD,100,val1,tick);
-			break;
+		// case SC__WEAKNESS:
+		// 	val2 = 10 * val1; // hp damage
+		// 	// Bypasses coating protection and MADO
+		// 	sc_start(src,bl,SC_STRIPWEAPON,100,val1,tick);
+		// 	sc_start(src,bl,SC_STRIPSHIELD,100,val1,tick);
+		// 	break;
 		case SC_GN_CARTBOOST:
 			if( val1 < 3 )
 				val2 = 50;
@@ -13943,6 +13946,15 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 		case SC_TEARGAS:
 			status_change_end(bl,SC_TEARGAS_SOB,INVALID_TIMER);
 			break;
+
+		case SC__IGNORANCE:
+		case SC__GROOMY:
+		case SC__ENERVATION:
+			clif_specialeffect_remove(bl, EF_ENERVATION + (type == SC__ENERVATION?0:type == SC__IGNORANCE?2:1), AREA, bl);
+		break;
+		case SC_MASQUEREADE:
+			clif_specialeffect_remove(bl, EF_MASQUERADE1 + sce->val1 - 1, AREA, bl);
+		break;
 		case SC_SITDOWN_FORCE:
 		case SC_BANANA_BOMB_SITDOWN:
 			if( sd && pc_issit(sd) && pc_setstand(sd, false) )
@@ -14865,6 +14877,18 @@ TIMER_FUNC(status_change_timer){
 			sc_timer_next(3000 + tick);
 			return 0;
 		}
+
+	case SC__IGNORANCE:
+	case SC__GROOMY:
+	case SC__ENERVATION:
+		if( --(sce->val4) >= 0 ) {
+			if ( sc->data[type] ) {
+				sc_timer_next(1500 + tick);
+			}
+			clif_specialeffect(bl, EF_ENERVATION + (type == SC__ENERVATION?0:type == SC__IGNORANCE?2:1), AREA);
+			return 0;
+		}
+		break;
 
     case SC_BLOODSUCKER:
 		if( --(sce->val4) >= 0 ) {
