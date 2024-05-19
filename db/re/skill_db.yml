@@ -19564,7 +19564,7 @@ Body:
     Unit:
       Id: Poisonsmoke
       Layout: 2
-      Interval: 1000
+      Interval: 500
       Target: Enemy
       Flag:
         NoOverlap: true
@@ -21980,7 +21980,7 @@ Body:
     Range: 2
     Hit: Single
     HitCount: 1
-    ActiveInstance: 2
+    ActiveInstance: 4
     CastCancel: true
     Duration1:
       - Level: 1
@@ -22041,7 +22041,7 @@ Body:
     Range: 2
     Hit: Single
     HitCount: 1
-    ActiveInstance: 2
+    ActiveInstance: 4
     CastCancel: true
     Duration1:
       - Level: 1
@@ -27230,7 +27230,7 @@ Body:
   - Id: 2463
     Name: SO_EL_SYMPATHY
     Description: Spirit Sympathy
-    MaxLevel: 5
+    MaxLevel: 10
   - Id: 2464
     Name: SO_EL_CURE
     Description: Spirit Recovery

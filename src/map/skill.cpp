@@ -10495,9 +10495,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case SC_GROOMY:
 	case SC_UNLUCKY:
 	case SC_WEAKNESS:
-	case SC_IGNORANCE: {
-		status_change* sc = status_get_sc(src);
 		if( !(tsc && tsc->data[type]) ) {
+			int rate;
 			if (status_get_class_(bl) == CLASS_BOSS)
 				break;
 			rate = status_get_lv(src) / 10 + rnd_value(sstatus->dex / 12, sstatus->dex / 4) + ( sd ? sd->status.job_level : 50 ) + 10 * skill_lv
@@ -12975,8 +12974,24 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 	case NC_SILVERSNIPER:
 		{
 			struct mob_data *md;
+			struct status_data *sstatus;
+			sstatus = status_get_status_data(src);
 
 			md = mob_once_spawn_sub(src, src->m, x, y, status_get_name(src), MOBID_SILVERSNIPER, "", SZ_SMALL, AI_NONE);
+			if (!md->base_status) {
+				md->base_status = (struct status_data*)aCalloc(1, sizeof(struct status_data));
+				memcpy(md->base_status, &md->db->status, sizeof(struct status_data));
+			}
+
+			int hp = md->base_status->max_hp + ((sstatus->max_hp * 2) / 3);
+			md->base_status->hp = (unsigned int)hp;
+			status_set_hp(&md->bl, (unsigned int)hp, 0);
+			clif_name_area(&md->bl);
+
+			md->base_status->rhw.atk += (unsigned short)sstatus->dex * 2;
+			md->base_status->rhw.atk2 += (unsigned short)sstatus->dex * 2;
+			status_calc_bl(&md->bl, SCB_BATTLE);
+
 			if( md ) {
 				md->master_id = src->id;
 				md->special_state.ai = AI_FAW;
@@ -20890,6 +20905,16 @@ int skill_magicdecoy(struct map_session_data *sd, t_itemid nameid) {
 			delete_timer(md->deletetimer, mob_timer_delete);
 		md->deletetimer = add_timer (gettick() + skill_get_time(NC_MAGICDECOY,skill), mob_timer_delete, md->bl.id, 0);
 		mob_spawn(md);
+
+		int hp = md->base_status->max_hp + ((sd->status.max_hp * 2) / 3);
+		md->base_status->hp = (unsigned int)hp;
+		status_set_hp(&md->bl, (unsigned int)hp, 0);
+		clif_name_area(&md->bl);
+
+		md->base_status->matk_min += (unsigned short)sd->status.int_ * 2;
+		md->base_status->matk_max += (unsigned short)sd->status.int_ * 2;
+
+		status_calc_bl(&md->bl, SCB_BATTLE);
 	}
 
 	return 0;

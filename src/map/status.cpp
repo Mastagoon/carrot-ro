@@ -11843,15 +11843,16 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 				case 2: rand_eff = SC_SILENCE; break;
 				default: rand_eff = SC_POISON; break;
 			}
-			val4 = tick / 1500;
-			tick_time = 1500; // [GodLesZ] tick time
+			val2 = 10 * val1; // Crit and Flee2 Reduction
+			status_change_start(src,bl,rand_eff,10000,val1,0,(rand_eff == SC_POISON ? src->id : 0),0,tick,SCSTART_NOTICKDEF|SCSTART_NORATEDEF);
 			break;
-		// case SC__WEAKNESS:
-		// 	val2 = 10 * val1; // hp damage
-		// 	// Bypasses coating protection and MADO
-		// 	sc_start(src,bl,SC_STRIPWEAPON,100,val1,tick);
-		// 	sc_start(src,bl,SC_STRIPSHIELD,100,val1,tick);
-		// 	break;
+		}
+		case SC__WEAKNESS:
+			val2 = 10 * val1; // hp damage
+			// Bypasses coating protection and MADO
+			sc_start(src,bl,SC_STRIPWEAPON,100,val1,tick);
+			sc_start(src,bl,SC_STRIPSHIELD,100,val1,tick);
+			break;
 		case SC_GN_CARTBOOST:
 			if( val1 < 3 )
 				val2 = 50;
