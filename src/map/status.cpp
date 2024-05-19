@@ -4999,9 +4999,9 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
             sd->indexed_bonus.subrace[RC_PLAYER_HUMAN] += sc->data[SC_GEFFEN_MAGIC3]->val1;
             sd->indexed_bonus.subrace[RC_DEMIHUMAN] += sc->data[SC_GEFFEN_MAGIC3]->val1;
         }
-        if(sc->data[SC__ENERVATION]) {
-            sd->indexed_bonus.subrace[RC_PLAYER_HUMAN] += sc->data[SC__ENERVATION]->val2;
-        }
+        // if(sc->data[SC__ENERVATION]) {
+        //     sd->indexed_bonus.subrace[RC_PLAYER_HUMAN] += sc->data[SC__ENERVATION]->val2;
+        // }
 		if(sc->data[SC_ARMOR_ELEMENT_WATER]) {	// This status change should grant card-type elemental resist.
 			sd->indexed_bonus.subele[ELE_WATER] += sc->data[SC_ARMOR_ELEMENT_WATER]->val1;
 			sd->indexed_bonus.subele[ELE_EARTH] += sc->data[SC_ARMOR_ELEMENT_WATER]->val2;
@@ -7247,6 +7247,8 @@ static signed short status_calc_hit(struct block_list *bl, struct status_change 
 		hit -= hit * 25/100;
 	if(sc->data[SC_HEAT_BARREL])
 		hit -= sc->data[SC_HEAT_BARREL]->val4;
+	if(sc->data[SC__GROOMY])
+		hit -= hit * sc->data[SC__GROOMY]->val3 / 100;
 	if(sc->data[SC_FEAR])
 		hit -= hit * 20 / 100;
 	if (sc->data[SC_ASH])
@@ -7361,6 +7363,8 @@ static signed short status_calc_flee(struct block_list *bl, struct status_change
 		flee -= flee * 10 / 100;
 	if(sc->data[SC_INFRAREDSCAN])
 		flee -= flee * 30 / 100;
+	if( sc->data[SC__LAZINESS] )
+		flee -= flee * sc->data[SC__LAZINESS]->val3 / 100;
 	if( sc->data[SC_GLOOMYDAY] )
 		flee -= flee * sc->data[SC_GLOOMYDAY]->val2 / 100;
 	if( sc->data[SC_SATURDAYNIGHTFEVER] )
@@ -7794,8 +7798,10 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 				val = max( val, 25 * (5 - sc->data[SC_CAMOUFLAGE]->val1) );
 			if( sc->data[SC_STEALTHFIELD] )
 				val = max( val, 20 );
-			if( sc->data[SC__GROOMY] )
-				val = max( val, sc->data[SC__GROOMY]->val2 );
+			if( sc->data[SC__LAZINESS] )
+				val = max( val, 20 );
+			// if( sc->data[SC__GROOMY] )
+			// 	val = max( val, sc->data[SC__GROOMY]->val2 );
 			if( sc->data[SC_BANDING_DEFENCE] )
 				val = max( val, sc->data[SC_BANDING_DEFENCE]->val1 ); // +90% walking speed.
 			if( sc->data[SC_ROCK_CRUSHER_ATK] )
@@ -8202,6 +8208,8 @@ static short status_calc_aspd_rate(struct block_list *bl, struct status_change *
 		aspd_rate += sc->data[SC__INVISIBILITY]->val2 * 10;
 	if( sc->data[SC_SWINGDANCE] )
 		aspd_rate -= sc->data[SC_SWINGDANCE]->val3 * 10;
+	if( sc->data[SC__GROOMY] )
+		aspd_rate -= sc->data[SC__GROOMY]->val2 * 10;
 	if( sc->data[SC_DANCEWITHWUG] )
 		aspd_rate -= sc->data[SC_DANCEWITHWUG]->val3 * 10;
 	if( sc->data[SC_GLOOMYDAY] )
@@ -11791,34 +11799,17 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			tick = INFINITE_TICK; // Duration sent to the client should be infinite
 			tick_time = 1000; // [GodLesZ] tick time
 			break;
-		case SC_MASQUEREADE:
-			clif_specialeffect(bl, EF_MASQUERADE1 + val1 - 1, AREA);
-			clif_status_change(bl, EFST_IGNORANCE, 1, duration,SC_IGNORANCE,1,0);
-			break;
-			// if (sd) {
-			// 	pc_delspiritball(sd,sd->spiritball,0);
-			// 	pc_delspiritcharm(sd,sd->spiritcharm,sd->spiritcharm_type);
-			// }
-			// if( sd ) { // Removes Animals
-			// 	if( pc_isriding(sd) ) pc_setriding(sd, 0);
-			// 	if( pc_isridingdragon(sd) ) pc_setoption(sd, sd->sc.option&~OPTION_DRAGON);
-			// 	if( pc_iswug(sd) ) pc_setoption(sd, sd->sc.option&~OPTION_WUG);
-			// 	if( pc_isridingwug(sd) ) pc_setoption(sd, sd->sc.option&~OPTION_WUGRIDER);
-			// 	if( pc_isfalcon(sd) ) pc_setoption(sd, sd->sc.option&~OPTION_FALCON);
-			// 	if( sd->status.pet_id > 0 ) pet_return_egg(sd, sd->pd);
-			// 	if( hom_is_active(sd->hd) ) hom_vaporize(sd, HOM_ST_ACTIVE);
-			// 	//if( sd->md ) mercenary_delete(sd->md,3); // Are Mercenaries removed? [aleos]
-			// }
-			// break;
-		case SC__IGNORANCE:
-		case SC__GROOMY:
 		case SC__ENERVATION:
-			if(type == SC__GROOMY)
-				val2 = 20 + 10 * val1; // Speed reduction
-			else
-				val2 = 5 + 2 * val1; // resistance reduction
-			if(sd && val1 > 5){
-				// Removes Animals
+			val2 = 20 + 10 * val1; // ATK Reduction
+			if (sd) {
+				pc_delspiritball(sd,sd->spiritball,0);
+				pc_delspiritcharm(sd,sd->spiritcharm,sd->spiritcharm_type);
+			}
+			break;
+		case SC__GROOMY:
+			val2 = 20 + 10 * val1; // ASPD
+			val3 = 20 * val1; // HIT
+			if( sd ) { // Removes Animals
 				if( pc_isriding(sd) ) pc_setriding(sd, 0);
 				if( pc_isridingdragon(sd) ) pc_setoption(sd, sd->sc.option&~OPTION_DRAGON);
 				if( pc_iswug(sd) ) pc_setoption(sd, sd->sc.option&~OPTION_WUG);
@@ -11828,8 +11819,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 				if( hom_is_active(sd->hd) ) hom_vaporize(sd, HOM_ST_ACTIVE);
 				//if( sd->md ) mercenary_delete(sd->md,3); // Are Mercenaries removed? [aleos]
 			}
-			val4 = tick / 1500;
-			tick_time = 1500; // [GodLesZ] tick time
 			break;
 		case SC__LAZINESS:
 			val2 = 10 + 10 * val1; // Cast Increase
@@ -11848,7 +11837,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			break;
 		}
 		case SC__WEAKNESS:
-			val2 = 10 * val1; // hp damage
+			val2 = 10 * val1;
 			// Bypasses coating protection and MADO
 			sc_start(src,bl,SC_STRIPWEAPON,100,val1,tick);
 			sc_start(src,bl,SC_STRIPSHIELD,100,val1,tick);
@@ -13967,8 +13956,9 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 
 		case SC__IGNORANCE:
 		case SC__GROOMY:
+		case SC__WEAKNESS:
 		case SC__ENERVATION:
-			clif_specialeffect_remove(bl, EF_ENERVATION + (type == SC__ENERVATION?0:type == SC__IGNORANCE?2:1), AREA, bl);
+			clif_specialeffect_remove(bl, EF_ENERVATION + (type == SC__ENERVATION?0:type == SC__IGNORANCE?2:type== SC__WEAKNESS?3:1), AREA, bl);
 		break;
 		case SC_MASQUEREADE:
 			clif_specialeffect_remove(bl, EF_MASQUERADE1 + sce->val1 - 1, AREA, bl);
@@ -14898,12 +14888,13 @@ TIMER_FUNC(status_change_timer){
 
 	case SC__IGNORANCE:
 	case SC__GROOMY:
+	case SC__WEAKNESS:
 	case SC__ENERVATION:
 		if( --(sce->val4) >= 0 ) {
 			if ( sc->data[type] ) {
 				sc_timer_next(1500 + tick);
 			}
-			clif_specialeffect(bl, EF_ENERVATION + (type == SC__ENERVATION?0:type == SC__IGNORANCE?2:1), AREA);
+			clif_specialeffect(bl, EF_ENERVATION + (type == SC__ENERVATION?0:type == SC__IGNORANCE?2:type==SC__WEAKNESS?3:1), AREA);
 			return 0;
 		}
 		break;
