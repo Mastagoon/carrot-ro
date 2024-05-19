@@ -21101,7 +21101,9 @@ Body:
     MaxLevel: 5
     Type: Misc
     TargetType: Ground
+    Cooldown: 25000
     DamageFlags:
+      NoDamage: true
       Splash: true
       IgnoreFlee: true
     Flags:
