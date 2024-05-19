@@ -52453,7 +52453,7 @@ Body:
       bonus2 bSkillVariableCast,"RA_ARROWSTORM",-2000;
       if(getrefine()>=7) {
         bonus bAtk,2*(readparam(bDex)/5);
-      } 
+      }
       if(getrefine()>=9) {
         bonus2 bSkillAtk,"RA_FIRINGTRAP",25;
         bonus2 bSkillAtk,"RA_ICEBOUNDTRAP",25;
@@ -133116,40 +133116,6 @@ Body:
     Refineable: true
     Script: |
       /*Is combo set with 28763 Surudoi Kaze*/
-  - Id: 510032
-    AegisName: Adulter_F_Dagger
-    Name: Adulter Fides Dagger
-    Type: Weapon
-    SubType: Dagger
-    Weight: 1200
-    Attack: 210
-    Range: 1
-    Slots: 2
-    Jobs:
-      Rogue: true
-    Classes:
-      All_Third: true
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 175
-    Refineable: true
-    Script: |
-      .@r = getrefine();
-      bonus2 bSkillAtk,"SC_FATALMENACE",10;
-      bonus bBaseAtk,12*(.@r/3);
-      if (.@r>=7) {
-         bonus2 bSkillAtk,"SC_FATALMENACE",20;
-         if (.@r>=9) {
-            bonus2 bAddSize,Size_All,15;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"SC_FATALMENACE",25;
-               if (.@r>=12) {
-                  bonus bShortAtkRate,15;
-               }
-            }
-         }
-      }
   - Id: 510034
     AegisName: Ancient_Dagger_IL
     Name: Illusion Ancient Dagger
