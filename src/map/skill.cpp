@@ -10490,14 +10490,14 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		}
 		break;
 
+	case SC_LAZINESS:
 	case SC_ENERVATION:
 	case SC_GROOMY:
-	case SC_LAZINESS:
 	case SC_UNLUCKY:
 	case SC_WEAKNESS:
+	case SC_IGNORANCE: {
+		status_change* sc = status_get_sc(src);
 		if( !(tsc && tsc->data[type]) ) {
-			int rate;
-
 			if (status_get_class_(bl) == CLASS_BOSS)
 				break;
 			rate = status_get_lv(src) / 10 + rnd_value(sstatus->dex / 12, sstatus->dex / 4) + ( sd ? sd->status.job_level : 50 ) + 10 * skill_lv
