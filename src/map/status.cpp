@@ -11811,10 +11811,13 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC__IGNORANCE:
 		case SC__GROOMY:
 		case SC__ENERVATION:
-			if(type == SC__GROOMY)
-				val2 = 20 + 10 * val1; // Speed reduction
-			else
-				val2 = 5 + 2 * val1; // resistance reduction
+			val2 = 5 + 2 * val1; // resistance reduction
+			val4 = tick / 1500;
+			tick_time = 1500; // [GodLesZ] tick time
+
+			if(type == SC__ENERVATION||type == SC__IGNORANCE) break;
+			// groomy
+			val2 = 20 + 10 * val1; // Speed reduction
 			if(sd && val1 > 5){
 				// Removes Animals
 				if( pc_isriding(sd) ) pc_setriding(sd, 0);
@@ -11826,8 +11829,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 				if( hom_is_active(sd->hd) ) hom_vaporize(sd, HOM_ST_ACTIVE);
 				//if( sd->md ) mercenary_delete(sd->md,3); // Are Mercenaries removed? [aleos]
 			}
-			val4 = tick / 1500;
-			tick_time = 1500; // [GodLesZ] tick time
 			break;
 		// case SC__WEAKNESS:
 		// 	val2 = 10 * val1; // hp damage
