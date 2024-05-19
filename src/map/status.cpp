@@ -2785,6 +2785,8 @@ bool status_check_skilluse(struct block_list *src, struct block_list *target, ui
 		sc = status_get_sc(src);
 
 	if( sc && sc->count ) {
+		if (sc->data[SC__FEINTBOMB])
+			return false;
 		if (sc->data[SC_ALL_RIDING])
 			return false; //You can't use skills while in the new mounts (The client doesn't let you, this is to make cheat-safe)
 
@@ -11835,7 +11837,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			break;
 		case SC__UNLUCKY:
 		{
-			sc_type rand_eff; 
+			sc_type rand_eff;
 			switch(rnd() % 3) {
 				case 1: rand_eff = SC_BLIND; break;
 				case 2: rand_eff = SC_SILENCE; break;
