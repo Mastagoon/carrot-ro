@@ -362,11 +362,12 @@ OnPCKillEvent:
     announce "·ﬁœ ﬁ«„ "+strcharinfo(0)+" »"+ (kill_mes$ == "" ? "œ⁄”" : kill_mes$) +" "+rid2name(killedrid)+" ›Ì «·Õ·»…!",bc_all|bc_blue;
     discord("·ﬁœ ﬁ«„ **"+strcharinfo(0)+"** »" + (kill_mes$ == "" ? "œ⁄”": kill_mes$) + " **"+rid2name(killedrid)+"** ›Ì «·Õ·»…", "pvp");
 	.@attackerId = getcharid(0);
+	.@attackerClass = Class;
 	.@defenderId = getcharid(0, rid2name(killedrid));
 	.@attacker_def = callfunc("calc_def_points");
 	if(attachrid(killedrid))
 		.@defender_def = callfunc("calc_def_points");
-	.@sql$ = "INSERT INTO `pvp_balance`(map, player_count, char_id, class, defeated_id, defeated_class, attacker_def, defender_def) VALUES ('"+strcharinfo(3)+"', "+ getmapusers(strcharinfo(3))+", "+.@attackerId+", "+Class+", "+.@defenderId+", "+readparam(Class, .@defenderId)+", "+.@attacker_def+", "+.@defender_def+")";
+	.@sql$ = "INSERT INTO `pvp_balance`(map, player_count, char_id, class, defeated_id, defeated_class, attacker_def, defender_def) VALUES ('"+strcharinfo(3)+"', "+ getmapusers(strcharinfo(3))+", "+.@attackerId+", "+.@attackerClass+", "+.@defenderId+", "+Class+", "+.@attacker_def+", "+.@defender_def+")";
 	query_sql(.@sql$);
     end;
 }
