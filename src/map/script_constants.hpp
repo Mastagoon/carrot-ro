@@ -765,6 +765,7 @@
 	export_constant2("bReduceDamageReturn",SP_REDUCE_DAMAGE_RETURN);
 	/* Custom item bonuses */
 	export_constant2("bNthAtkAutoSpell", SP_NTH_ATK_AUTOSPELL);
+	export_constant2("bNoPartner",SP_NO_PARTNER);
 
 	/* equip indices */
 	export_constant(EQI_COMPOUND_ON);

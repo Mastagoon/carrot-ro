@@ -226,7 +226,7 @@ Body:
       bonus2 bSkillCooldown,"SO_SUMMON_AQUA",-50000;
       bonus2 bSkillCooldown,"SO_SUMMON_TERA",-50000;
       bonus2 bSkillCooldown,"SO_SUMMON_VENTUS",-50000;
-    UnEquipScript:
+    UnEquipScript: |
       removeelemental();
   - Id: 18116
     AegisName: Metal_Bow
@@ -278,28 +278,6 @@ Body:
       bonus bHealPower,50;
       bonus bShortWeaponDamageReturn,10;
       bonus bLongWeaponDamageReturn,10;
-  - Id: 16060
-    AegisName: Bottle
-    Name: Liquor Bottle
-    Type: Weapon
-    SubType: Mace
-    Weight: 700
-    Attack: 120
-    Range: 1
-    Slots: 2
-    Jobs:
-      Alchemist: true
-    Classes:
-      All_Third: true
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 100
-    Refineable: true
-    Script: |
-      bonus bInt, -100;
-      bonus4 bAutoSpellOnSkill,"GN_HELLS_PLANT_ATK","GN_BLOOD_SUCKER",5,1000;
-      bonus4 bAutoSpellOnSkill,"GN_HELLS_PLANT_ATK","GN_WALLOFTHORN",5,1000;
   - Id: 1385
     AegisName: Bradium_Stonehammer
     Name: Bradium Stone Hammer
@@ -307,7 +285,7 @@ Body:
     SubType: 2hAxe
     Buy: 20
     Weight: 2700
-    Attack: 300
+    Attack: 250
     Range: 1
     Jobs:
       Blacksmith: true
@@ -330,7 +308,7 @@ Body:
     Weight: 400
     Attack: 120
     Slots: 3
-    Range: 3
+    Range: 1
     Jobs:
       Rogue: true
     Locations:
@@ -346,3 +324,112 @@ Body:
       sc_end SC_LEECHESEND;
       sc_end SC_BLEEDING;
       sc_start SC_STUN,5000,0,100000, SCSTART_NOAVOID;
+  - Id: 1936
+    AegisName: Ru_Blue_Violin
+    Name: Blue Violin
+    Type: Weapon
+    SubType: Musical
+    Weight: 700
+    Attack: 20
+    MagicAttack: 10
+    Range: 1
+    Slots: 0
+    Jobs:
+      BardDancer: true
+    Classes:
+      All_Third: true
+    Gender: Male
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 100
+    Refineable: true
+    Script: |
+      bonus bNoPartner;
+      bonus bAtk, -100;
+      bonus bMatk, -100;
+    EquipScript: |
+      sc_start2 SC_SPIRIT,-1, 0, 455;
+    UnEquipScript: |
+      sc_end SC_SPIRIT;
+      sc_end SC_SONGOFMANA;
+      sc_end SC_DANCEWITHWUG;
+      sc_end SC_SATURDAYNIGHTFEVER;
+      sc_end SC_MELODYOFSINK;
+      sc_end SC_BEYONDOFWARCRY;
+      sc_end SC_UNLIMITEDHUMMINGVOICE;
+  - Id: 1991
+    AegisName: Ru_Blue_Whip
+    Name: Blue Whip
+    Type: Weapon
+    SubType: Whip
+    Buy: 20
+    Weight: 1000
+    Attack: 160
+    Range: 2
+    Slots: 2
+    Jobs:
+      BardDancer: true
+    Classes:
+      All_Third: true
+    Gender: Female
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 130
+    Refineable: true
+    Script: |
+      bonus bNoPartner;
+      bonus bAtk, -100;
+      bonus bMatk, -100;
+    EquipScript: |
+      sc_start2 SC_SPIRIT,-1, 0, 455;
+    UnEquipScript: |
+      sc_end SC_SPIRIT;
+      sc_end SC_SONGOFMANA;
+      sc_end SC_DANCEWITHWUG;
+      sc_end SC_SATURDAYNIGHTFEVER;
+      sc_end SC_MELODYOFSINK;
+      sc_end SC_BEYONDOFWARCRY;
+      sc_end SC_UNLIMITEDHUMMINGVOICE;
+  - Id: 1930
+    AegisName: Green_Whistle
+    Name: Green Whistle
+    Type: Weapon
+    SubType: Mace
+    Buy: 20
+    Attack: 50
+    Range: 1
+    Weight: 100
+    Slots: 1
+    Jobs:
+      Alchemist: true
+    Locations:
+      Right_Hand: true
+    EquipLevelMin: 100
+    Script: |
+      skill "AM_CANNIBALIZE",8;
+      bonus2 bSkillCooldown,"AM_CANNIBALIZE", 120000;
+      bonus bInt, -50;
+  - Id: 1800
+    AegisName: Sinister_Fist
+    Name: Fist of Vicious Mind
+    Type: Weapon
+    SubType: Knuckle
+    Buy: 20
+    Weight: 1500
+    Attack: 150
+    Range: 1
+    Slots: 1
+    Jobs:
+      Monk: true
+      Priest: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      skill "PR_LEXAETERNA",1;
+      bonus2 bSkillCooldown,"PR_LEXAETERNA", 30000;
+      bonus2 bSkillFixedCast,"PR_LEXAETERNA",6000;

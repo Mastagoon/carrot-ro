@@ -2296,6 +2296,25 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 		}
 	}
 
+	if(sd && sc->data[SC_RICEBALL] && skill_id != 0) {
+		int id = sc->data[SC_RICEBALL]->val1;
+		struct block_list *mbl = map_id2bl(id);
+		if(mbl && !status_isdead(mbl)) {
+			int type = skill_get_casttype(skill_id);
+			switch (type) {
+				case CAST_GROUND:
+					skill_castend_pos2(mbl, bl->x, bl->y, skill_id, skill_lv, tick, 0);
+					break;
+				case CAST_NODAMAGE:
+					skill_castend_nodamage_id(mbl, bl, skill_id, skill_lv, tick, 0);
+					break;
+				case CAST_DAMAGE:
+					skill_castend_damage_id(mbl, bl, skill_id, skill_lv, tick, 0);
+					break;
+			}
+		}
+	}
+
 	// Autospell when attacking
 	if( sd && !status_isdead(bl) && !sd->autospell.empty() )
 	{
@@ -12815,7 +12834,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 	case AM_SPHEREMINE:
 	case AM_CANNIBALIZE:
 		{
-			int summons[5] = { MOBID_G_MANDRAGORA, MOBID_G_HYDRA, MOBID_G_FLORA, MOBID_G_PARASITE, MOBID_G_GEOGRAPHER };
+			int summons[8] = { MOBID_G_MANDRAGORA, MOBID_G_HYDRA, MOBID_G_FLORA, MOBID_G_PARASITE, MOBID_G_GEOGRAPHER, MOBID_CREEPER, MOBID_BLUE_FLOWER, MOBID_BOILED_RICE };
 			int class_ = skill_id==AM_SPHEREMINE?MOBID_MARINE_SPHERE:summons[skill_lv-1];
 			enum mob_ai ai = (skill_id == AM_SPHEREMINE) ? AI_SPHERE : AI_FLORA;
 			struct mob_data *md;
@@ -12829,6 +12848,8 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 					delete_timer(md->deletetimer, mob_timer_delete);
 				md->deletetimer = add_timer (gettick() + skill_get_time(skill_id,skill_lv), mob_timer_delete, md->bl.id, 0);
 				mob_spawn (md); //Now it is ready for spawning.
+				if (sd && md->bl.id && skill_lv == 8)
+					sc_start(src, src, SC_RICEBALL, 100, md->bl.id, skill_get_time(skill_id, skill_lv));
 			}
 		}
 		break;
@@ -15918,13 +15939,13 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 
 	// perform skill-group checks
 	if(skill_id != WM_GREAT_ECHO && inf2[INF2_ISCHORUS]) {
-		if (skill_check_pc_partner(sd, skill_id, &skill_lv, AREA_SIZE, 0) < 1) {
+		if (!sd->special_state.no_partner && skill_check_pc_partner(sd, skill_id, &skill_lv, AREA_SIZE, 0) < 1) {
 		    clif_skill_fail(sd,skill_id,USESKILL_FAIL_LEVEL,0);
 		    return false;
 		}
 	}
 	else if(inf2[INF2_ISENSEMBLE]) {
-	    if (!sd->state.ensemble_unlocked && skill_check_pc_partner(sd, skill_id, &skill_lv, 1, 0) < 1) {
+	    if (!sd->special_state.no_partner && skill_check_pc_partner(sd, skill_id, &skill_lv, 1, 0) < 1) {
 		    clif_skill_fail(sd,skill_id,USESKILL_FAIL_LEVEL,0);
 		    return false;
 	    }

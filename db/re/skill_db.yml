@@ -6766,7 +6766,7 @@ Body:
   - Id: 232
     Name: AM_CANNIBALIZE
     Description: Summon Flora
-    MaxLevel: 5
+    MaxLevel: 10
     TargetType: Ground
     DamageFlags:
       NoDamage: true
@@ -6787,6 +6787,12 @@ Body:
         Time: 120000
       - Level: 5
         Time: 60000
+      - Level: 6
+        Time: 40000
+      - Level: 7
+        Time: 20000
+      - Level: 8
+        Time: 10000
     FixedCastTime: 400
     Requires:
       SpCost: 20

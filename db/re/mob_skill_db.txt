@@ -2626,8 +2626,6 @@
 1519,Chung E@RG_INTIMIDATE,attack,219,1,1000,1000,0,yes,target,always,0,,,,,,6,
 1519,Chung E@PR_LEXDIVINA,chase,76,1,2000,0,5000,yes,target,always,0,,,,,,6,
 1519,Chung E@TF_POISON,attack,52,10,1000,0,5000,yes,target,always,0,,,,,,6,
-1520,Boiled Rice@CR_AUTOGUARD,idle,249,10,10000,0,300000,yes,self,always,0,,,,,,,
-1520,Boiled Rice@NPC_SUICIDE,attack,175,1,10000,4000,0,no,self,myhpltmaxrate,50,,,,,,,
 //1566,Wraith Dead@AL_DECAGI,chase,30,9,500,1000,5000,no,target,always,0,,,,,,29,
 //1566,Wraith Dead@AS_GRIMTOOTH,chase,137,5,2000,0,5000,yes,target,always,0,,,,,,,
 //1566,Wraith Dead@NPC_CURSEATTACK,attack,181,5,500,800,5000,no,target,always,0,,,,,,29,

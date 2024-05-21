@@ -16367,26 +16367,6 @@ Body:
       NoAuction: true
     Script: |
       bonus bDex,2;
-  - Id: 1800
-    AegisName: Sinister_Fist
-    Name: Fist of Vicious Mind
-    Type: Weapon
-    SubType: Knuckle
-    Buy: 20
-    Weight: 1500
-    Attack: 150
-    Range: 1
-    Slots: 1
-    Jobs:
-      Monk: true
-      Priest: true
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 160
-    Refineable: true
-    Script: |
-      bonus bBaseAtk,pow(min(getrefine(),15),2);
   - Id: 1801
     AegisName: Waghnakh
     Name: Waghnak
@@ -18422,35 +18402,6 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bAddSize,Size_All,40;
-  - Id: 1930
-    AegisName: Green_Whistle
-    Name: Green Whistle
-    Type: Weapon
-    SubType: Musical
-    Buy: 20
-    Weight: 800
-    Attack: 170
-    MagicAttack: 50
-    Range: 1
-    Slots: 1
-    Jobs:
-      BardDancer: true
-    Classes:
-      All_Third: true
-    Gender: Male
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 3
-    EquipLevelMin: 102
-    Refineable: true
-    Script: |
-      .@r = getrefine();
-      if (.@r>5) {
-         bonus2 bSkillUseSP,"MI_RUSH_WINDMILL",(.@r-5)*4;
-         bonus2 bSkillUseSP,"WM_LULLABY_DEEPSLEEP",(.@r-5)*4;
-      }
-      bonus2 bSkillVariableCast,"MI_RUSH_WINDMILL",-2000;
-      bonus2 bSkillVariableCast,"WM_LULLABY_DEEPSLEEP",-2000;
   - Id: 1931
     AegisName: P_String_Inst1
     Name: Eden Guitar I
@@ -18556,48 +18507,6 @@ Body:
     Refineable: true
     Script: |
       bonus2 bSkillCooldown,"WM_RANDOMIZESPELL",-2000;
-  - Id: 1935
-    AegisName: Ukulele_Of_Newoz
-    Name: Oz's New Ukulele
-    Type: Weapon
-    SubType: Musical
-    Buy: 20
-    Weight: 1000
-    Attack: 160
-    Range: 1
-    Slots: 2
-    Jobs:
-      BardDancer: true
-    Classes:
-      All_Third: true
-    Gender: Male
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 130
-    Refineable: true
-    Script: |
-      bonus2 bSkillUseSP,"MI_RUSH_WINDMILL",20;
-  - Id: 1936
-    AegisName: Ru_Blue_Violin
-    Name: Blue Violin
-    Type: Weapon
-    SubType: Musical
-    Weight: 1500
-    Attack: 200
-    Range: 2
-    Slots: 1
-    Jobs:
-      BardDancer: true
-    Gender: Male
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 3
-    EquipLevelMin: 100
-    Refineable: true
-    Script: |
-      bonus bDex,5;
-      bonus bVit,5;
   - Id: 1937
     AegisName: Ru_Gold_Violin
     Name: Ru Gold Violin
@@ -19727,49 +19636,6 @@ Body:
     Refineable: true
     Script: |
       bonus bAspdRate,20;
-  - Id: 1990
-    AegisName: Floral_Mic_Of_Igu
-    Name: Bloody Floral Decoration Microphone
-    Type: Weapon
-    SubType: Whip
-    Buy: 20
-    Weight: 1000
-    Attack: 160
-    Range: 2
-    Slots: 2
-    Jobs:
-      BardDancer: true
-    Classes:
-      All_Third: true
-    Gender: Female
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 130
-    Refineable: true
-    Script: |
-      bonus2 bSkillUseSP,"WA_MOONLIT_SERENADE",20;
-  - Id: 1991
-    AegisName: Ru_Blue_Whip
-    Name: Blue Whip
-    Type: Weapon
-    SubType: Whip
-    Buy: 10
-    Weight: 1500
-    Attack: 180
-    Range: 2
-    Slots: 1
-    Jobs:
-      BardDancer: true
-    Gender: Female
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 3
-    EquipLevelMin: 100
-    Refineable: true
-    Script: |
-      bonus bDex,5;
-      bonus bVit,5;
   - Id: 1992
     AegisName: Ru_Gold_Whip
     Name: Ru Gold Whip
@@ -113507,21 +113373,6 @@ Body:
       bonus2 bSkillAtk,"RG_BACKSTAP",2*BaseLevel;
       bonus2 bAddEff,Eff_Stun,.@r*300;
       autobonus3 "{ bonus2 bSkillAtk,\"SC_TRIANGLESHOT\",BaseLevel/3; }",1000,20000,"SC_ESCAPE";
-  - Id: 28380
-    AegisName: Fresh_G_Necklace
-    Name: Fresh Grass Necklace
-    Type: Armor
-    Buy: 20
-    Weight: 100
-    Slots: 1
-    Jobs:
-      Summoner: true
-    Locations:
-      Both_Accessory: true
-    EquipLevelMin: 100
-    Script: |
-      bonus bFlee2,5;
-      bonus2 bSkillCooldown,"SU_SCAROFTAROU",-5000;
   - Id: 28381
     AegisName: Pretty_G_Necklace
     Name: Cute Grass Necklace
@@ -134662,41 +134513,6 @@ Body:
       if (.@r>=9) {
          bonus2 bAddSize,Size_All,10;
          bonus2 bMagicAddSize,Size_All,10;
-      }
-  - Id: 570002
-    AegisName: Trumpet_Shell_K
-    Name: Trumpet Shell
-    Type: Weapon
-    SubType: Musical
-    Weight: 700
-    Attack: 160
-    MagicAttack: 190
-    Range: 1
-    Slots: 2
-    Jobs:
-      BardDancer: true
-    Classes:
-      All_Third: true
-    Gender: Male
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 100
-    Refineable: true
-    Script: |
-      .@r = getrefine();
-      if (.@r>=2) {
-         bonus bMatk,.@r/2*10;
-      }
-      if (.@r>=3) {
-         bonus2 bMagicAtkEle,Ele_Neutral,.@r/3*4;
-      }
-      if (.@r>=9) {
-         bonus2 bSkillAtk,"WM_REVERBERATION",10;
-         bonus2 bSkillAtk,"WM_METALICSOUND",10;
-      }
-      if (.@r>=11) {
-         bonus2 bSkillFixedCast,"WM_REVERBERATION",-500;
       }
   - Id: 570005
     AegisName: Ep172_1h_Inst

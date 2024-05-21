@@ -11911,7 +11911,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val4 = 20 + 10 * val1; // Fixed Cast Time Reduction
 			break;
 		case SC_LERADSDEW:
-			val3 = 2 + 3 * val1 + min(3 * val2, 25); // MaxHP Increase
+			val3 = 2 + 2 * val1; // MaxHP Increase
 			break;
 		case SC_MELODYOFSINK:
 			val2 = 10 * val1; // INT Reduction.
