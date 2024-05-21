@@ -342,6 +342,7 @@ struct map_session_data {
 		bool sale_open;
 		unsigned int block_action : 10;
 		bool refineui_open;
+		bool ensemble_unlocked;
 	} state;
 	struct {
 		unsigned char no_weapon_damage, no_magic_damage, no_misc_damage;
@@ -1139,7 +1140,7 @@ public:
 
 extern PlayerStatPointDatabase statpoint_db;
 
-/// Enum of Summoner Power of 
+/// Enum of Summoner Power of
 enum e_summoner_power_type {
 	SUMMONER_POWER_LAND = 0,
 	SUMMONER_POWER_LIFE,

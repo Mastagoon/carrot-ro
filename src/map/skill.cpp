@@ -15827,7 +15827,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 		}
 	}
 	else if(inf2[INF2_ISENSEMBLE]) {
-	    if (skill_check_pc_partner(sd, skill_id, &skill_lv, 1, 0) < 1) {
+	    if (!sd->state.ensemble_unlocked && skill_check_pc_partner(sd, skill_id, &skill_lv, 1, 0) < 1) {
 		    clif_skill_fail(sd,skill_id,USESKILL_FAIL_LEVEL,0);
 		    return false;
 	    }
