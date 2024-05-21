@@ -229,7 +229,6 @@ OnInit:
 	// PvP maps go here. Change them as you wish.//"guild_vs2","guild_vs3","guild_vs5","pvp_y_1-1","guild_vs4","guild_vs1","arena_room";
 	setarray .maps$[0],"pvp_n_7-1", // sandwich
 						"pvp_n_7-5", // compass
-						"pvp_y_7-2", //izlude
 						"guild_vs5", //gvs5
 						"pvp_n_7-3"; //four room
 

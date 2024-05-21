@@ -152,9 +152,9 @@ Body:
           bonus3 bNthAtkAutoSpell,"SO_DIAMONDDUST",2,-3;
           bonus3 bNthAtkAutoSpell,"WL_CHAINLIGHTNING",3,-4;
           bonus3 bNthAtkAutoSpell,"WL_SUMMONFB",1,-5;
-          bonus3 bNthAtkAutoSpell,"WL_SUMMONFB",1,-10;
-          bonus3 bNthAtkAutoSpell,"WL_SUMMONFB",1,-15;
-          bonus3 bNthAtkAutoSpell,"WL_SUMMONFB",1,-20;
+          bonus3 bNthAtkAutoSpell,"WL_SUMMONWB",1,-10;
+          bonus3 bNthAtkAutoSpell,"WL_SUMMONBL",1,-15;
+          bonus3 bNthAtkAutoSpell,"WL_SUMMONSTONE",1,-20;
           bonus3 bNthAtkAutoSpell,"WL_TETRAVORTEX",5,-21;
       }
       bonus bAspd,.@penalty;
