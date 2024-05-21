@@ -12475,7 +12475,7 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
     Script: |
-    
+
   - Id: 4690
     AegisName: Real_Randel_Card
     Name: True Randel Lawrence Card
@@ -35264,19 +35264,6 @@ Body:
     Type: Etc
     Buy: 1200
     Weight: 1200
-  - Id: 25188
-    AegisName: Handkerchief_of_Girl
-    Name: Girl's Handkerchief
-    Type: Etc
-    Trade:
-      Override: 100
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
-      NoStorage: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
   - Id: 25200
     AegisName: Cloud_Fluff
     Name: Fluffy Cloud

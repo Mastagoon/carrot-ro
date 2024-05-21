@@ -41174,7 +41174,7 @@ Body:
     Agi: 60
     Vit: 10
     Int: 10
-    Dex: 120
+    Dex: 220
     Luk: 10
     AttackRange: 9
     SkillRange: 10
@@ -41196,13 +41196,14 @@ Body:
     Name: Magic Decoy
     Level: 100
     Hp: 2500
-    Attack: 195
+    Attack: 300
+    Attack2: 430
     Defense: 16
     MagicDefense: 60
     Str: 10
     Agi: 10
     Vit: 10
-    Int: 100
+    Int: 400
     Dex: 60
     Luk: 10
     AttackRange: 7

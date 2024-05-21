@@ -1169,6 +1169,103 @@ struct s_skill_nounit_layout* skill_get_nounit_layout(uint16 skill_id, uint16 sk
  */
 static int skill_area_temp[8];
 
+
+void skill_special_additional_effects(struct block_list* src, struct block_list *bl, uint16 skill_id, int attack_type, int tick){
+	struct map_session_data *sd;
+	sd = BL_CAST(BL_PC, src);
+	if(!sd || status_isdead(bl)) return;
+
+
+	// nth atk autospell
+	if(!sd->nth_atk_autospell.empty()) {
+		struct block_list *tbl;
+		struct unit_data *ud;
+		int autospl_skill_lv, type;
+
+		for (std::vector<s_nthatkautospell>::iterator it = sd->nth_atk_autospell.begin(); it != sd->nth_atk_autospell.end(); ++it) {
+			int req_skill_id = (*it).sk_id; // autocast after nth usage of this skill
+			if(req_skill_id && req_skill_id != skill_id) continue;
+
+			if((*it).cooldown > 0 && DIFF_TICK(tick,(*it).last_tick) < (*it).cooldown)
+				continue; // effect is on cooldown
+
+			if(!((((*it).flag)&attack_type)&BF_WEAPONMASK &&
+					(((*it).flag)&attack_type)&BF_RANGEMASK &&
+					(((*it).flag)&attack_type)&BF_SKILLMASK))
+				continue; // one or more trigger conditions not met
+
+			int skill = ((*it).id > 0) ? (*it).id : -(*it).id;
+			(*it).current_n = (*it).current_n+1;
+
+			if((*it).target_id != -1 && (*it).target_id != bl->id) {
+				(*it).target_id = bl->id;
+				(*it).current_n = 1;
+				continue;
+			}
+
+			if((*it).current_n != (*it).n)
+				continue;
+
+			(*it).current_n = 0;
+
+			sd->state.autocast = 1;
+			if(skill_isNotOk(skill, sd)){
+				sd->state.autocast = 0;
+				continue;
+			}
+			sd->state.autocast = 0;
+
+			autospl_skill_lv = (*it).lv ? (*it).lv : 1;
+
+			if (autospl_skill_lv < 0) autospl_skill_lv = 1+rnd()%(-autospl_skill_lv);
+
+			tbl = (*it).id < 0 ? src : bl;
+
+			if ((type = skill_get_casttype(skill)) == CAST_GROUND) {
+				if (!skill_pos_maxcount_check(src, tbl->x, tbl->y, skill, autospl_skill_lv, BL_PC, false))
+					continue;
+			}
+			if (battle_config.autospell_check_range &&
+				!battle_check_range(bl, tbl, skill_get_range2(src, skill, autospl_skill_lv, true)))
+				continue;
+
+			if (skill == PF_SPIDERWEB) //Special case, due to its nature of coding.
+				type = CAST_GROUND;
+#ifndef RENEWAL
+			else if (skill == AS_SONICBLOW)
+				pc_stop_attack(sd); //Special case, Sonic Blow autospell should stop the player attacking.
+#endif
+
+			sd->state.autocast = 1;
+			(*it).last_tick = tick;
+			skill_consume_requirement(sd,skill,autospl_skill_lv,1);
+			skill_toggle_magicpower(src, skill);
+			switch (type) {
+				case CAST_GROUND:
+					skill_castend_pos2(src, tbl->x, tbl->y, skill, autospl_skill_lv, tick, 0);
+					break;
+				case CAST_NODAMAGE:
+					skill_castend_nodamage_id(src, tbl, skill, autospl_skill_lv, tick, 0);
+					break;
+				case CAST_DAMAGE:
+					skill_castend_damage_id(src, tbl, skill, autospl_skill_lv, tick, 0);
+					break;
+			}
+			sd->state.autocast = 0;
+			//Set canact delay. [Skotlex]
+			ud = unit_bl2ud(src);
+			if (ud) {
+				int rate = skill_delayfix(src, skill, autospl_skill_lv);
+				if (DIFF_TICK(ud->canact_tick, tick + rate) < 0){
+					ud->canact_tick = i64max(tick + rate, ud->canact_tick);
+					if ( battle_config.display_status_timers && sd )
+						clif_status_change(src, EFST_POSTDELAY, 1, rate, 0, 0, 0);
+				}
+			}
+		}
+	}
+}
+
 /*==========================================
  * Add effect to skill when hit succesfully target
  *------------------------------------------*/
@@ -2275,6 +2372,9 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 			}
 		}
 	}
+
+	// custom bonuses
+	skill_special_additional_effects(src, bl, skill_id, attack_type, tick);
 
 	//Autobonus when attacking
 	if( sd && !sd->autobonus.empty() )
@@ -12978,19 +13078,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 			sstatus = status_get_status_data(src);
 
 			md = mob_once_spawn_sub(src, src->m, x, y, status_get_name(src), MOBID_SILVERSNIPER, "", SZ_SMALL, AI_NONE);
-			if (!md->base_status) {
-				md->base_status = (struct status_data*)aCalloc(1, sizeof(struct status_data));
-				memcpy(md->base_status, &md->db->status, sizeof(struct status_data));
-			}
 
-			int hp = md->base_status->max_hp + ((sstatus->max_hp * 2) / 3);
-			md->base_status->hp = (unsigned int)hp;
-			status_set_hp(&md->bl, (unsigned int)hp, 0);
-			clif_name_area(&md->bl);
-
-			md->base_status->rhw.atk += (unsigned short)sstatus->dex * 2;
-			md->base_status->rhw.atk2 += (unsigned short)sstatus->dex * 2;
-			status_calc_bl(&md->bl, SCB_BATTLE);
 
 			if( md ) {
 				md->master_id = src->id;
@@ -12999,6 +13087,15 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 					delete_timer(md->deletetimer, mob_timer_delete);
 				md->deletetimer = add_timer (gettick() + skill_get_time(skill_id, skill_lv), mob_timer_delete, md->bl.id, 0);
 				mob_spawn(md);
+
+				if (!md->base_status) {
+					md->base_status = (struct status_data*)aCalloc(1, sizeof(struct status_data));
+					memcpy(md->base_status, &md->db->status, sizeof(struct status_data));
+				}
+				int hp = md->base_status->max_hp + ((sstatus->max_hp * 2) / 3);
+				md->base_status->hp = (unsigned int)hp;
+				status_set_hp(&md->bl, (unsigned int)hp, 0);
+				clif_name_area(&md->bl);
 			}
 		}
 		break;
@@ -20911,10 +21008,6 @@ int skill_magicdecoy(struct map_session_data *sd, t_itemid nameid) {
 		status_set_hp(&md->bl, (unsigned int)hp, 0);
 		clif_name_area(&md->bl);
 
-		md->base_status->matk_min += (unsigned short)sd->status.int_ * 2;
-		md->base_status->matk_max += (unsigned short)sd->status.int_ * 2;
-
-		status_calc_bl(&md->bl, SCB_BATTLE);
 	}
 
 	return 0;

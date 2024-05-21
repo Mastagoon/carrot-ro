@@ -115,11 +115,19 @@ int elemental_create(struct map_session_data *sd, int class_, unsigned int lifet
 	}
 
 	if( (i=pc_checkskill(sd,SO_EL_SYMPATHY)) > 0 ){
-		ele.hp = ele.max_hp += ele.max_hp * 5 * i / 100;
-		ele.sp = ele.max_sp += ele.max_sp * 5 * i / 100;
-		ele.atk += 25 * i;
-		ele.atk2 += 25 * i;
-		ele.matk += 25 * i;
+		if(i < 6) {
+			ele.hp = ele.max_hp += ele.max_hp * 5 * i / 100;
+			ele.sp = ele.max_sp += ele.max_sp * 5 * i / 100;
+			ele.atk += 25 * i;
+			ele.atk2 += 25 * i;
+			ele.matk += 25 * i;
+		} else {
+			ele.hp = ele.max_hp += ele.max_hp * 20 * i / 100;
+			ele.sp = ele.max_sp += ele.max_sp * 20 * i / 100;
+			ele.atk += 50 * i;
+			ele.atk2 += 50 * i;
+			ele.matk += 50 * i;
+		}
 	}
 
 	ele.life_time = lifetime;
@@ -768,7 +776,7 @@ static bool read_elementaldb_sub(char* str[], int columns, int current) {
 		db = &elemental_db[elemental_count];
 	else
 		db = &elemental_db[i];
-	
+
 	db->class_ = atoi(str[0]);
 	safestrncpy(db->sprite, str[1], NAME_LENGTH);
 	safestrncpy(db->name, str[2], NAME_LENGTH);

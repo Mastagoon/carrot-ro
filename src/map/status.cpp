@@ -4246,6 +4246,7 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 	sd->autospell.clear();
 	sd->autospell2.clear();
 	sd->autospell3.clear();
+	sd->nth_atk_autospell.clear();
 	sd->addeff.clear();
 	sd->addeff_atked.clear();
 	sd->addeff_onskill.clear();
@@ -5633,7 +5634,7 @@ void status_calc_state( struct block_list *bl, struct status_change *sc, enum sc
 	if( flag&SCS_NOCAST ) {
 		if( !(flag&SCS_NOCASTCOND) )
 			sc->cant.cast += ( start ? 1 : -1 );
-		else if (sc->data[SC_OBLIVIONCURSE] && sc->data[SC_OBLIVIONCURSE]->val3 == 1)
+		else if (sc->data[SC_OBLIVIONCURSE])
 			sc->cant.cast += (start ? 1 : -1);
 	}
 
@@ -9291,19 +9292,6 @@ t_tick status_get_sc_def(struct block_list *src, struct block_list *bl, enum sc_
 #endif
         else if (sc->data[SC_SHIELDSPELL_REF] && sc->data[SC_SHIELDSPELL_REF]->val1 == 2)
 			sc_def += sc->data[SC_SHIELDSPELL_REF]->val3*100;
-		// else if (sc->data[SC_LEECHESEND] && sc->data[SC_LEECHESEND]->val3 == 0) {
-		// 	switch (type) {
-		// 		case SC_BLIND:
-		// 		case SC_STUN:
-		// 			return 0; // Immune
-		// 	}
-		// } else if (sc->data[SC_OBLIVIONCURSE] && sc->data[SC_OBLIVIONCURSE]->val3 == 0) {
-		// 	switch (type) {
-		// 		case SC_SILENCE:
-		// 		case SC_CURSE:
-		// 			return 0; // Immune
-		// 	}
-		// }
 	}
 
 	// When tick def not set, reduction is the same for both.
@@ -9950,8 +9938,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 	case SC_PYREXIA:
 	case SC_OBLIVIONCURSE:
 	case SC_LEECHESEND:
-		if (val3 == 0) // Don't display icon on self
-			flag |= SCSTART_NOICON;
 		for (int32 i = SC_TOXIN; i <= SC_LEECHESEND; i++) {
 			if (sc->data[i] && sc->data[i]->val3 == 1) // It doesn't stack or even renew on the target
 				return 0;
@@ -11019,43 +11005,33 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val4 = tick - tick_time; // Remaining time
 			break;
 		case SC_TOXIN:
-			if (val3 == 1) // Target
 				tick_time = status_get_sc_interval(type);
-			else // Caster
-				tick_time = 1000;
 			val4 = tick - tick_time; // Remaining time
 			break;
-		case SC_DEATHHURT:
-			if (val3 == 1)
-				break;
-			tick_time = status_get_sc_interval(type);
-			val4 = tick - tick_time; // Remaining time
+		// case SC_DEATHHURT:
+		// 	if (val3 == 1)
+		// 		break;
+		// 	tick_time = status_get_sc_interval(type);
+		// 	val4 = tick - tick_time; // Remaining time
+			// break;
 		case SC_LEECHESEND:
-			if (val3 == 0)
-				break;
 			tick_time = status_get_sc_interval(type);
 			val4 = tick - tick_time; // Remaining time
 			break;
 		case SC_PYREXIA:
-			if (val3 == 1) { // Target
 				// Causes blind for duration of pyrexia, unreducable and unavoidable, but can be healed with e.g. green potion
 				status_change_start(src, bl, SC_BLIND, 10000, val1, 0, 0, 0, tick, SCSTART_NOAVOID | SCSTART_NOTICKDEF | SCSTART_NORATEDEF);
 				tick_time = status_get_sc_interval(type);
 				val4 = tick - tick_time; // Remaining time
-			} else // Caster
-				val2 = 1; // CRIT % and ATK % increase
 			break;
-		case SC_VENOMBLEED:
-			if (val3 == 0) // Caster
-				val2 = 1; // Reflect damage % reduction
-			break;
+		// case SC_VENOMBLEED:
+		// 	if (val3 == 0) // Caster
+		// 		val2 = 1; // Reflect damage % reduction
+		// 	break;
 		case SC_MAGICMUSHROOM:
-			if (val3 == 1) { // Target
 				tick_time = status_get_sc_interval(type);
 				val4 = tick - tick_time; // Remaining time
-			} else // Caster
-				val2 = 1; // After-cast delay % reduction
-			break;
+		break;
 
 		case SC_CONFUSION:
 			if (!val4)
@@ -12662,16 +12638,14 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 				tick_time = tick;
 				tick = tick_time + max(val4, 0);
 				break;
-			case SC_DEATHHURT:
-				if (val3 == 1)
-					break;
-				tick_time = tick;
-				tick = tick_time + max(val4, 0);
+			// case SC_DEATHHURT:
+			// 	if (val3 == 1)
+			// 		break;
+			// 	tick_time = tick;
+			// 	tick = tick_time + max(val4, 0);
 			case SC_MAGICMUSHROOM:
 			case SC_PYREXIA:
 			case SC_LEECHESEND:
-				if (val3 == 0)
-					break;
 				tick_time = tick;
 				tick = tick_time + max(val4, 0);
 				break;

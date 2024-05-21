@@ -2518,6 +2518,66 @@ int pc_disguise(struct map_session_data *sd, int class_)
 /// Check for valid SC, break & show error message if invalid SC
 #define PC_BONUS_CHK_SC(sc,bonus) { if ((sc) <= SC_NONE || (sc) >= SC_MAX) { PC_BONUS_SHOW_ERROR((bonus),Effect,(sc)); }}
 
+
+/**
+ * @param spell: Spell array
+ * @param id: Skill to cast
+ * @param lv: Skill level
+ * @param n: Number of hits required
+ * @param flag: Battle flag
+ * @param sk: If set, only triggers on this specific skill
+ * @param card_id: Used to prevent card stacking
+ */
+static void pc_bonus_nth_atk_autospell(std::vector<s_nthatkautospell> &spell, short id, short lv, short n, short flag, short sk, int cd,unsigned short card_id) {
+  if (spell.size() == MAX_PC_BONUS) {
+    ShowWarning("pc_bonus_nth_atk_autospell: Reached max (%d) number of autospells per character!\n",MAX_PC_BONUS);
+    return;
+  }
+
+  bool reset_target = n > 0;
+  if (n < 0)
+    n = -n;
+
+  if (!n)
+    return;
+
+  if (!(flag & BF_RANGEMASK))
+    flag |= BF_SHORT | BF_LONG; // No range defined? Use both.
+  if (!(flag & BF_WEAPONMASK))
+    flag |= BF_WEAPON; // No attack type defined? Use weapon.
+  if (!(flag & BF_SKILLMASK)) {
+    if (flag & (BF_MAGIC | BF_MISC))
+      flag |= BF_SKILL; // These two would never trigger without BF_SKILL
+    if (flag & BF_WEAPON)
+      flag |= BF_NORMAL; // By default autospells should only trigger on normal
+                         // weapon attacks.
+  }
+
+  for (auto &it : spell) {
+    if ((it.card_id == card_id || it.n < 0 || n < 0) && it.id == id &&
+        it.lv == lv && it.flag == flag) {
+      if (!battle_config.autospell_stacking && it.n > 0 &&
+          n > 0) // Stacking disabled
+        return;
+    }
+  }
+
+  struct s_nthatkautospell entry = {};
+
+  entry.id = id;
+  entry.lv = lv;
+  entry.n = cap_value(n, 1, 100);
+  entry.current_n = 0;
+  entry.flag = flag;
+  entry.card_id = card_id;
+  entry.target_id = reset_target ? 0 : -1;
+  entry.sk_id = sk;
+	entry.cooldown = min(cd, 600000);
+	entry.last_tick = -1;
+
+  spell.push_back(entry);
+}
+
 /**
  * Add auto spell bonus for player while attacking/attacked
  * @param spell: Spell array
@@ -4402,6 +4462,13 @@ void pc_bonus3(struct map_session_data *sd,int type,int type2,int type3,int val)
 	case SP_ADD_CLASS_DROP_ITEM: // bonus3 bAddClassDropItem,iid,c,n;
 		if(sd->state.lr_flag != 2)
 			pc_bonus_item_drop(sd->add_drop, type2, 0, type3, RC_NONE_, val);
+		break;
+  case SP_NTH_ATK_AUTOSPELL: // bonus3 bAutoSpell,sk,y,n;
+    if (sd->state.lr_flag != 2) {
+      int target = skill_get_inf(type2); // Support or Self (non-auto-target) skills should pick self.
+      target = target & INF_SUPPORT_SKILL || (target & INF_SELF_SKILL && !skill_get_inf2(type2, INF2_NOTARGETSELF));
+      pc_bonus_nth_atk_autospell(sd->nth_atk_autospell, target ? -type2 : type2, type3, val, 0, 0,0, current_equip_card_id);
+    }
 		break;
 	case SP_AUTOSPELL: // bonus3 bAutoSpell,sk,y,n;
 		if(sd->state.lr_flag != 2)

@@ -19556,7 +19556,7 @@ Body:
     CastTimeFlags:
       IgnoreDex: true
       IgnoreStatus: true
-      IgnoreItemBonus: true
+      # IgnoreItemBonus: true
     Requires:
       SpCost: 40
       Status:

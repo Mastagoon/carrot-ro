@@ -1,75 +1,3 @@
-# This file is a part of rAthena.
-#   Copyright(C) 2021 rAthena Development Team
-#   https://rathena.org - https://github.com/rathena
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
-#
-###########################################################################
-# Item Database
-###########################################################################
-#
-# Item Settings
-#
-###########################################################################
-# - Id                      Item ID.
-#   AegisName               Server name to reference the item in scripts and lookups, should use no spaces.
-#   Name                    Name in English for displaying as output.
-#   Type                    Item type. (Default: Etc)
-#   SubType                 Weapon or Ammo type. (Default: 0)
-#   Buy                     Buying price. When not specified, becomes double the sell price. (Default: 0)
-#   Sell                    Selling price. When not specified, becomes half the buy price. (Default: 0)
-#   Weight                  Item weight. Each 10 is 1 weight. (Default: 0)
-#   Attack                  Weapon's attack. (Default: 0)
-#   MagicAttack             Weapon's magic attack. (Default: 0)
-#   Defense                 Armor's defense. (Default: 0)
-#   Range                   Weapon's attack range. (Default: 0)
-#   Slots                   Available slots in item. (Default: 0)
-#   Jobs                    Jobs that can equip the item. (Map default is 'All: true')
-#   Classes                 Upper class types that can equip the item. (Map default is 'All: true')
-#   Gender                  Gender that can equip the item. (Default: Both)
-#   Locations               Equipment's placement. (Default: None)
-#   WeaponLevel             Weapon level. (Default: 0)
-#   EquipLevelMin           Minimum required level to equip. (Default: 0)
-#   EquipLevelMax           Maximum level that can equip. (Default: 0)
-#   Refineable              If the item can be refined. (Default: false)
-#   View                    View sprite of an item. (Default: 0)
-#   AliasName               Another item's AegisName that will be sent to the client instead of this item's AegisName. (Default: null)
-#   Flags:                  Item flags. (Default: null)
-#     BuyingStore           If the item is available for Buyingstores. (Default: false)
-#     DeadBranch            If the item is a Dead Branch. (Default: false)
-#     Container             If the item is part of a container. (Default: false)
-#     UniqueId              If the item is a unique stack. (Default: false)
-#     BindOnEquip           If the item is bound to the character upon equipping. (Default: false)
-#     DropAnnounce          If the item has a special announcement to self on drop. (Default: false)
-#     NoConsume             If the item is consumed on use. (Default: false)
-#     DropEffect            If the item has a special effect on the ground when dropped by a monster. (Default: None)
-#   Delay:                  Item use delay. (Default: null)
-#     Duration              Duration of delay in seconds.
-#     Status                Status Change used to track delay. (Default: None)
-#   Stack:                  Item stack amount. (Default: null)
-#     Amount                Maximum amount that can be stacked.
-#     Inventory             If the stack is applied to player's inventory. (Default: true)
-#     Cart                  If the stack is applied to the player's cart. (Default: false)
-#     Storage               If the stack is applied to the player's storage. (Default: false)
-#     GuildStorage          If the stack is applied to the player's guild storage. (Default: false)
-#   NoUse:                  Conditions when the item is unusable. (Default: null)
-#     Override              Group level to override these conditions.
-#     Sitting               If the item can not be used while sitting. (Default: false)
-#   Trade:                  Trade restrictions. (Default: null)
-#     Override              Group level to override these conditions.
-#     NoDrop                If the item can not be dropped. (Default: false)
-#     NoTrade               If the item can not be traded. (Default: false)
 #     TradePartner          If the item can not be traded to the player's partner. (Default: false)
 #     NoSell                If the item can not be sold. (Default: false)
 #     NoCart                If the item can not be put in a cart. (Default: false)
@@ -164,9 +92,9 @@ Body:
     Script: |
       doevent "hom_maker::OnMake";
 
-  - Id: 510032
-    AegisName: Adulter_F_Dagger
-    Name: Red Mist Dagger
+  - Id: 1239
+    AegisName: Poison_Knife
+    Name: Poison Knife
     Type: Weapon
     SubType: Dagger
     Weight: 1200
@@ -174,8 +102,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Rogue: true
-    Classes:
       Assassin: true
     Locations:
       Right_Hand: true
@@ -185,14 +111,15 @@ Body:
     Script: |
       bonus2 bSkillCooldown,"GC_HALLUCINATIONWALK",-60000;
       bonus2 bFixedCastrate,"GC_POISONSMOKE",-1000;
-  - Id: 600017
-    AegisName: Adulter_F_T_Sword
-    Name: Red Mist Sword
+  - Id: 21052
+    AegisName: Vernan
+    Name: Vernan
     Type: Weapon
     SubType: 2hSword
-    Weight: 6000
-    Attack: 300
-    Range: 1
+    Weight: 2000
+    MagicAttack: 280
+    Attack: 0
+    Range: 5
     Slots: 1
     Jobs:
       Knight: true
@@ -203,14 +130,43 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 175
     Refineable: true
-    # Script: |
-  - Id: 530013
-    AegisName: Adulter_F_G_Spear
-    Name: Red Mist Spear
+    Script: |
+      .@penalty = -20;
+      bonus4 bAutoSpellOnSkill,"RK_ENCHANTBLADE","HW_MAGICPOWER",10,1000;
+      .@i = readstat(4);
+      if(.@i < 150) {
+          bonus3 bNthAtkAutoSpell,"MG_SOULSTRIKE",3,-1;
+          bonus3 bNthAtkAutoSpell,"MG_FIREBOLT",3,-2;
+          bonus3 bNthAtkAutoSpell,"MG_LIGHTNINGBOLT",3,-3;
+          bonus3 bNthAtkAutoSpell,"MG_FIREBALL",3,-4;
+      } else if(.@i < 200) {
+         .@penalty -= 20;
+          bonus3 bNthAtkAutoSpell,"WZ_STORMGUST",10,-4;
+          bonus3 bNthAtkAutoSpell,"WZ_METEOR",10,-3;
+          bonus3 bNthAtkAutoSpell,"WZ_VERMILION",10,- 2;
+          bonus3 bNthAtkAutoSpell,"WZ_HEAVENDRIVE",10,-1;
+      } else {
+         .@penalty -= 40;
+          bonus3 bNthAtkAutoSpell,"SO_EARTHGRAVE",2,-1;
+          bonus3 bNthAtkAutoSpell,"WL_CRIMSONROCK",3,-2;
+          bonus3 bNthAtkAutoSpell,"SO_DIAMONDDUST",2,-3;
+          bonus3 bNthAtkAutoSpell,"WL_CHAINLIGHTNING",3,-4;
+          bonus3 bNthAtkAutoSpell,"WL_SUMMONFB",1,-5;
+          bonus3 bNthAtkAutoSpell,"WL_SUMMONFB",1,-10;
+          bonus3 bNthAtkAutoSpell,"WL_SUMMONFB",1,-15;
+          bonus3 bNthAtkAutoSpell,"WL_SUMMONFB",1,-20;
+          bonus3 bNthAtkAutoSpell,"WL_TETRAVORTEX",5,-21;
+      }
+      bonus bAspd,.@penalty;
+      bonus bHit,50;
+  - Id: 32001
+    AegisName: Diva_Spear
+    Name: Diva Spear
     Type: Weapon
     SubType: 1hSpear
-    Weight: 1800
-    Attack: 280
+    Weight: 3000
+    MagicAttack: 360
+    Attack: 50
     Range: 3
     Slots: 2
     Jobs:
@@ -223,10 +179,10 @@ Body:
     EquipLevelMin: 175
     Refineable: true
     Script: |
-      bonus bCritical,50;
-  - Id: 640019
-    AegisName: Adulter_F_T_Staff
-    Name: Red Mist Staff
+      bonus bMatk, readstat(2);
+  - Id: 2057
+    AegisName: Adorare_Staff
+    Name: Adorare Staff
     Type: Weapon
     SubType: 2hStaff
     Weight: 2000
@@ -245,35 +201,39 @@ Body:
     Refineable: true
     Script: |
       skill "SA_DELUGE",3;
-      bonus2 bMagicAtkEle,Ele_Water,25;
-  - Id: 540023
-    AegisName: Adulter_F_Star_B
-    Name: Book Of The Spirits
+      bonus2 bMagicAtkEle,Ele_Water,50;
+  - Id: 28601
+    AegisName: Ru_Gold_Book
+    Name: Ru Gold Book
     Type: Weapon
     SubType: Book
     Weight: 1000
-    Attack: 240
+    Attack: 100
+    MagicAttack: 20
     Range: 1
-    Slots: 2
+    Slots: 0
     Jobs:
-      StarGladiator: true
+      Sage: true
     Locations:
       Right_Hand: true
     WeaponLevel: 4
     EquipLevelMin: 175
     Refineable: true
     Script: |
-      skill "SO_EL_SYMPATHY", 10;
-      bonus2 bSkillCooldown,"SO_SUMMON_AQUA",-30000;
-      bonus2 bSkillCooldown,"SO_SUMMON_AGNI",-30000;
-      bonus2 bSkillCooldown,"SO_SUMMON_VENTUS",-30000;
-      bonus2 bSkillCooldown,"SO_SUMMON_TERA",-30000;
-  - Id: 700001
-    AegisName: Boost_Bow
-    Name: Heavy Bow
+      skill "SO_EL_SYMPATHY",10;
+      bonus2 bSkillCooldown,"SO_EL_ACTION",-4000;
+      bonus2 bSkillCooldown,"SO_SUMMON_AGNI",-50000;
+      bonus2 bSkillCooldown,"SO_SUMMON_AQUA",-50000;
+      bonus2 bSkillCooldown,"SO_SUMMON_TERA",-50000;
+      bonus2 bSkillCooldown,"SO_SUMMON_VENTUS",-50000;
+    UnEquipScript:
+      removeelemental();
+  - Id: 18116
+    AegisName: Metal_Bow
+    Name: Metal Bow
     Type: Weapon
     SubType: Bow
-    Attack: 500
+    Attack: 999
     Weight: 10000
     Range: 5
     Slots: 2
@@ -288,28 +248,101 @@ Body:
     Refineable: true
     Script: |
       bonus bFixedCast,20000;
-      bonus bSpeedAddRate,-95;
+      bonus bSpeedAddRate,-50;
       bonus bLongAtkRate,100;
       bonus bAspd,-93;
-    UnEquipScript: |
-      heal -40000,0;
-  - Id: 700032
-    AegisName: Adulter_F_A_Bow
-    Name: Red Mist Bow
+      bonus bCritAtkRate,200;
+      bonus bIgnoreDefClass,Class_All;
+    EquipScript: |
+      sc_start SC_STUN,500,0,100000, SCSTART_NOAVOID;
+  - Id: 1552
+    AegisName: Tablet
+    Name: Tablet
     Type: Weapon
-    SubType: Bow
-    Weight: 1500
-    Attack: 200
-    Range: 5
+    SubType: Book
+    Buy: 51000
+    Weight: 800
+    Attack: 80
+    Range: 1
+    Slots: 1
+    Jobs:
+      Priest: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 27
+    Refineable: true
+    Script: |
+      bonus2 bSubRace,RC_DemiHuman,12;
+      bonus2 bSubRace,RC_Player_Human,12;
+      bonus bHealPower,50;
+      bonus bShortWeaponDamageReturn,10;
+      bonus bLongWeaponDamageReturn,10;
+  - Id: 16060
+    AegisName: Bottle
+    Name: Liquor Bottle
+    Type: Weapon
+    SubType: Mace
+    Weight: 700
+    Attack: 120
+    Range: 1
     Slots: 2
     Jobs:
-      BardDancer: true
+      Alchemist: true
     Classes:
       All_Third: true
     Locations:
-      Both_Hand: true
+      Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 175
+    EquipLevelMin: 100
     Refineable: true
     Script: |
-      bonus2 bSkillAtk,"WM_SEVERE_RAINSTORM",80;
+      bonus bInt, -100;
+      bonus4 bAutoSpellOnSkill,"GN_HELLS_PLANT_ATK","GN_BLOOD_SUCKER",5,1000;
+      bonus4 bAutoSpellOnSkill,"GN_HELLS_PLANT_ATK","GN_WALLOFTHORN",5,1000;
+  - Id: 1385
+    AegisName: Bradium_Stonehammer
+    Name: Bradium Stone Hammer
+    Type: Weapon
+    SubType: 2hAxe
+    Buy: 20
+    Weight: 2700
+    Attack: 300
+    Range: 1
+    Jobs:
+      Blacksmith: true
+    Classes:
+      All_Upper: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 75
+    Refineable: true
+    Slots: 2
+    Script: |
+      bonus4 bAutoSpellOnSkill,"BS_HAMMERFALL","NPC_EARTHQUAKE",10,1000;
+  - Id: 25188
+    AegisName: Handkerchief_of_Girl
+    Name: Dirty Handkerchief
+    Type: Weapon
+    SubType: Dagger
+    Buy: 20
+    Weight: 400
+    Attack: 120
+    Slots: 3
+    Range: 3
+    Jobs:
+      Rogue: true
+    Locations:
+      Right_Hand: true
+    EquipScript: |
+      sc_start SC_POISON,30000,0,100000, SCSTART_NOAVOID;
+      sc_start SC_DECREASEAGI,30000,5,100000, SCSTART_NOAVOID;
+      sc_start SC_LEECHESEND,30000,10,100000, SCSTART_NOAVOID;
+      sc_start SC_BLEEDING,30000,1,100000, SCSTART_NOAVOID;
+    UnEquipScript: |
+      sc_end SC_POISON;
+      sc_end SC_DECREASEAGI;
+      sc_end SC_LEECHESEND;
+      sc_end SC_BLEEDING;
+      sc_start SC_STUN,5000,0,100000, SCSTART_NOAVOID;
