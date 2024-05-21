@@ -59,14 +59,14 @@ function	script	calc_def_points	{
 }
 
 dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
-	.@n$ = "^3227cd[√ç√°√à√â √á√°√î√õ√à]^000000";
-	mes "[√á√°√î√õ√à √ç√°√à√â]";
+	.@n$ = "^3227cd[Õ·»… «·‘€»]^000000";
+	mes "[«·‘€» Õ·»…]";
 	if(BaseLevel >= .min_lv) {
-		mes mesAr("√•√° √ä√ë√≠√è √è√é√¶√° √á√°√ç√°√à√â¬ø");
+		mes mesAr("Â·  —Ìœ œŒÊ· «·Õ·»…ø");
 		if(.debuff)
-			mes mesAr("^8b0d1f√ì√≠√ä√£ √Ö√í√á√°√â √å√£√≠√ö √á√°√ç√á√°√á√ä √ö√§√ü √ö√§√è √á√°√è√é√¶√°^000000");
+			mes mesAr("^8b0d1f”Ì „ ≈“«·… Ã„Ì⁄ «·Õ«·«  ⁄‰ﬂ ⁄‰œ «·œŒÊ·^000000");
 		next;
-		.@choice = select("√è√é√¶√° √á√°√ç√°√à√â:√Ö√§√î√á√Å √ç√°√à√â √é√á√ï√â:√è√é√¶√° √ç√°√à√â √é√á√ï√â:√ä√õ√≠√≠√ë √ë√ì√á√Ü√° √á√°√ç√°√à√â:√Ö√°√õ√á√Å");
+		.@choice = select("œŒÊ· «·Õ·»…:≈‰‘«¡ Õ·»… Œ«’…:œŒÊ· Õ·»… Œ«’…: €ÌÌ— —”«∆· «·Õ·»…:≈·€«¡");
 		if(.@choice == 5) close;
 		if(.@choice == 1) { // enter pvp
 			specialeffect2 F_Rand(EF_STORMKICK1,EF_STORMKICK2,EF_STORMKICK3,EF_STORMKICK6,EF_STORMKICK7);
@@ -78,43 +78,43 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 			delitem 515,countitem(515);
 			getitem 515,200;
 			warp .map$,0,0;
-            .@mes$ = #entrance_prefix$ == "" && #entrance_suffix$ == "" ? (strcharinfo(0) + " √è√é√° √Ö√°√¨ √á√°√ç√°√à√â") : (#entrance_prefix$ +" " + strcharinfo(0)+" "+ #entrance_suffix$);
-            .@mes_disc$ = #entrance_prefix$ == "" && #entrance_suffix$ == "" ? ("**"+strcharinfo(0) + "** √è√é√° √Ö√°√¨ √á√°√ç√°√à√â") : (#entrance_prefix$ +" **" + strcharinfo(0)+"** "+ #entrance_suffix$);
+            .@mes$ = #entrance_prefix$ == "" && #entrance_suffix$ == "" ? (strcharinfo(0) + " œŒ· ≈·Ï «·Õ·»…") : (#entrance_prefix$ +" " + strcharinfo(0)+" "+ #entrance_suffix$);
+            .@mes_disc$ = #entrance_prefix$ == "" && #entrance_suffix$ == "" ? ("**"+strcharinfo(0) + "** œŒ· ≈·Ï «·Õ·»…") : (#entrance_prefix$ +" **" + strcharinfo(0)+"** "+ #entrance_suffix$);
             announce .@mes$,bc_map,0xb50505;
             discord(.@mes_disc$, "pvp");
 			end;
 		}
 		if(.@choice == 2) {
 			next;
-			mes "[√á√°√î√õ√à √ç√°√à√â]";
+			mes "[«·‘€» Õ·»…]";
 			if(Zeny < 100000) {
-				mes mesAr("√°√≠√ì √°√è√≠√ü √í√≠√§√≠ √ü√á√ù√≠, √Ö√§√î√á√Å");
-				mes mesAr("√ç√°√à√â √é√á√ï√â √ì√≠√ü√°√ù√ü 100,000 √í√≠√§√≠");
+				mes mesAr("·Ì” ·œÌﬂ “Ì‰Ì ﬂ«›Ì, ≈‰‘«¡");
+				mes mesAr("Õ·»… Œ«’… ”Ìﬂ·›ﬂ 100,000 “Ì‰Ì");
 			}
-			mes mesAr("√Ö√§√î√á√Å √ç√°√à√â √é√á√ï√â √ì√≠√ü√°√ù√ü 100,000 √í√≠√§√≠");
-			mes mesAr("√•√° √É√§√ä √£√ä√É√ü√è √£√§ √á√§√ü √ä√ë√≠√è √Ö√§√î√á√Å √ç√°√à√â √é√á√ï√â¬ø");
+			mes mesAr("≈‰‘«¡ Õ·»… Œ«’… ”Ìﬂ·›ﬂ 100,000 “Ì‰Ì");
+			mes mesAr("Â· √‰  „ √ﬂœ „‰ «‰ﬂ  —Ìœ ≈‰‘«¡ Õ·»… Œ«’…ø");
 			next;
-			select("√§√ö√£ √á√§√á √£√ä√É√ü√è");
+			select("‰⁄„ «‰« „ √ﬂœ");
 			if(.maps_available == 0) {
-				mes "[√á√°√î√õ√à √ç√°√à√â]";
-				mes mesAr("√≠√à√è√¶ √É√§ √ü√° √á√°√ç√°√à√á√ä √á√°√é√á√ï√â √£√î√õ√¶√°√â √ç√á√°√≠√á√∞.");
-				mes mesAr("√ç√á√¶√° √£√ë√â √É√é√ë√¨ √°√á√ç√û√á√∞.");
+				mes "[«·‘€» Õ·»…]";
+				mes mesAr("Ì»œÊ √‰ ﬂ· «·Õ·»«  «·Œ«’… „‘€Ê·… Õ«·Ì«.");
+				mes mesAr("Õ«Ê· „—… √Œ—Ï ·«Õﬁ«.");
 				close;
 			}
-			mes "[√á√°√î√õ√à √ç√°√à√â]";
-			mes mesAr("√á√é√ä√ë √ü√°√£√â √á√°√£√ë√¶√ë √°√°√é√ë√≠√ò√â √á√°√é√á√ï√â");
-			mes mesAr("^ff0000√ü√°√£√â √á√°√£√ë√¶√ë √≠√å√à √É√§ √ä√ü√¶√§ √ö√°√¨ √á√°√É√û√°");
-			mes mesAr("√£√§ √ã√°√á√ã√â √É√ç√ë√ù.^000000");
+			mes "[«·‘€» Õ·»…]";
+			mes mesAr("«Œ — ﬂ·„… «·„—Ê— ··Œ—Ìÿ… «·Œ«’…");
+			mes mesAr("^ff0000ﬂ·„… «·„—Ê— ÌÃ» √‰  ﬂÊ‰ ⁄·Ï «·√ﬁ·");
+			mes mesAr("„‰ À·«À… √Õ—›.^000000");
 			input .@password$,3,20;
 			next;
-			mes "[√á√°√î√õ√à √ç√°√à√â]";
+			mes "[«·‘€» Õ·»…]";
 			if(getstrlen(.@password$) < 3 || getstrlen(.@password$) > 20) {
-				mes mesAr("√ü√°√£√â √á√°√£√ë√¶√ë √≠√å√à √É√§ √ä√ü√¶√§ √£√á√à√≠√§ 3 √¶ 20 √ç√ë√ù√á√∞.");
+				mes mesAr("ﬂ·„… «·„—Ê— ÌÃ» √‰  ﬂÊ‰ „«»Ì‰ 3 Ê 20 Õ—›«.");
 				close;
 			}
-			mes mesAr("√ü√°√£√â √á√°√£√ë√¶√ë √•√≠");
+			mes mesAr("ﬂ·„… «·„—Ê— ÂÌ");
 			mes mesAr(.@password$);
-			mes mesAr("√ì√≠√ä√£ √§√û√°√ü √Ö√°√¨ √õ√ë√ù√â √á√°√î√õ√à √á√°√é√á√ï√â.");
+			mes mesAr("”Ì „ ‰ﬁ·ﬂ ≈·Ï €—›… «·‘€» «·Œ«’….");
 			next;
 			setarray .private_map_passwords$[.maps_available],.@password$;
 			setarray .private_map_owner$[.maps_available],strcharinfo(0);
@@ -125,68 +125,68 @@ dicastes01,198,196,4	script	PVP#0	4_M_SAKRAYROYAL,{
 			end;
 		}
 		if(.@choice == 3) { //enter private match
-			mes "[√á√°√î√õ√à √ç√°√à√â]";
-			mes mesAr("√É√è√é√° √ü√°√£√â √á√°√£√ë√¶√ë √°√°√ç√°√à√â √á√°√ä√≠ √ä√ë√≠√è √è√é√¶√°√•√á");
+			mes "[«·‘€» Õ·»…]";
+			mes mesAr("√œŒ· ﬂ·„… «·„—Ê— ··Õ·»… «· Ì  —Ìœ œŒÊ·Â«");
 			input .@password$,3,20;
 			next;
 			if(inarray(.private_map_passwords$,.@password$) == -1) {
-				mes "[√á√°√î√õ√à √ç√°√à√â]";
-				mes mesAr("√ü√°√£√â √á√°√£√ë√¶√ë √á√°√ä√≠ √É√è√é√°√ä√•√á √é√á√ò√Ü√â.");
+				mes "[«·‘€» Õ·»…]";
+				mes mesAr("ﬂ·„… «·„—Ê— «· Ì √œŒ· Â« Œ«ÿ∆….");
 				close;
 			}
 			warp .private_maps$[inarray(.private_map_passwords$,.@password$)],0,0;
-			mapannounce .private_maps$[inarray(.private_map_passwords$,.@password$)],strcharinfo(0)+" √è√é√° √Ö√°√¨ √á√°√ç√°√à√â",bc_map,0xb50505;
+			mapannounce .private_maps$[inarray(.private_map_passwords$,.@password$)],strcharinfo(0)+" œŒ· ≈·Ï «·Õ·»…",bc_map,0xb50505;
 			end;
 		}
         if(.@choice == 4) {
-			mes "[√á√°√î√õ√à √ç√°√à√â]";
-            mes mesAr("√£√á√°√ê√≠ √ä√ë√≠√è √ä√ö√è√≠√°√•¬ø");
+			mes "[«·‘€» Õ·»…]";
+            mes mesAr("„«·–Ì  —Ìœ  ⁄œÌ·Âø");
 			next;
-            .@choice2 = select("√ä√õ√≠√≠√ë √ë√ì√á√°√â √è√é√¶√° √á√°√ç√°√à√â:√ä√õ√≠√≠√ë √£√ü√à√ë √•√í√≠√£√â √á√°√É√ö√è√á√Å:√ä√õ√≠√≠√ë √ë√ì√á√°√â √•√í√≠√£√â √á√°√É√ö√è√á√Å");
+            .@choice2 = select(" €ÌÌ— —”«·… œŒÊ· «·Õ·»…: €ÌÌ— „ﬂ»— Â“Ì„… «·√⁄œ«¡: €ÌÌ— —”«·… Â“Ì„… «·√⁄œ«¡");
             if(.@choice2 == 1) {
-                mes mesAr("√≠√ë√å√¨ √Ö√è√é√á√° √á√°√ë√ì√á√°√â √á√°√ä√≠ √ä√ô√•√ë √û√à√° √á√ì√£ √á√°√°√á√ö√à");
+                mes mesAr("Ì—ÃÏ ≈œŒ«· «·—”«·… «· Ì  ŸÂ— ﬁ»· «”„ «··«⁄»");
                 next;
                 input .@newmes1$,2, 20;
-                mes "[√á√°√î√õ√à √ç√°√à√â]";
-                mes mesAr("√≠√ë√å√¨ √Ö√è√é√° √á√°√ë√ì√á√°√â √á√°√ä√≠ √ä√ô√•√ë √à√ö√è √á√ì√£ √á√°√°√á√ö√à");
+                mes "[«·‘€» Õ·»…]";
+                mes mesAr("Ì—ÃÏ ≈œŒ· «·—”«·… «· Ì  ŸÂ— »⁄œ «”„ «··«⁄»");
                 input .@newmes2$,2, 20;
                 next;
-                mes "[√á√°√î√õ√à √ç√°√à√â]";
-                mes mesAr("√ì√ä√ï√à√ç √á√°√ë√ì√á√°√â √á√°√å√è√≠√è√â");
+                mes "[«·‘€» Õ·»…]";
+                mes mesAr("” ’»Õ «·—”«·… «·ÃœÌœ…");
                 mes mesAr(.@newmes1$+" "+strcharinfo(0)+" "+.@newmes2$);
-                mes "√á√°√ë√ì√á√°√â √ä√õ√≠√≠√ë¬ø";
+                mes "«·—”«·…  €ÌÌ—ø";
 				next;
-                if(select("√§√ö√£:√°√á") == 2) close;
+                if(select("‰⁄„:·«") == 2) close;
                 #entrance_prefix$ = .@newmes1$;
                 #entrance_suffix$ = .@newmes2$;
-                mes mesAr("√ä√£ √ä√õ√≠√≠√ë √á√°√ë√ì√á√°√â √à√§√å√á√ç");
+                mes mesAr(" „  €ÌÌ— «·—”«·… »‰Ã«Õ");
                 close;
             }
             if(.@choice == 3){
-                mes mesAr("√≠√ë√å√¨ √Ö√è√é√á√° √á√°√ë√ì√á√°√â √á√°√å√è√≠√è√â");
+                mes mesAr("Ì—ÃÏ ≈œŒ«· «·—”«·… «·ÃœÌœ…");
                 next;
                 input .@newmes$, 2,20;
-                mes "[√á√°√î√õ√à √ç√°√à√â]";
-                mes mesAr("√ì√ä√ï√à√ç √á√°√ë√ì√á√°√â √á√°√å√è√≠√è√â");
+                mes "[«·‘€» Õ·»…]";
+                mes mesAr("” ’»Õ «·—”«·… «·ÃœÌœ…");
                 mes .@newmes$;
-                mes mesAr("√ä√õ√≠√≠√ë √á√°√ë√ì√á√°√â¬ø");
+                mes mesAr(" €ÌÌ— «·—”«·…ø");
 				next;
-                if(select("√§√ö√£:√°√á") == 2) close;
+                if(select("‰⁄„:·«") == 2) close;
                 say_on_kill$ = .@newmes$;
-                mes mesAr("√ä√£ √ä√õ√≠√≠√ë √á√°√ë√ì√á√°√â √à√§√å√á√ç");
+                mes mesAr(" „  €ÌÌ— «·—”«·… »‰Ã«Õ");
                 close;
             }
-            mes mesAr("√≠√ë√å√¨ √Ö√è√é√á√° √á√°√ë√ì√á√°√â √á√°√å√è√≠√è√â");
+            mes mesAr("Ì—ÃÏ ≈œŒ«· «·—”«·… «·ÃœÌœ…");
             next;
             input .@newmes$, 2,20;
-            mes "[√á√°√î√õ√à √ç√°√à√â]";
-            mes mesAr("√ì√ä√ï√à√ç √á√°√ë√ì√á√°√â √á√°√å√è√≠√è√â");
-            mes mesAr("√°√û√è √û√á√£ "+strcharinfo(0)+" √à"+.@newmes$+" √°√á√ö√à √ù√≠ √á√°√ç√°√à√â!");
-            mes mesAr("√ä√õ√≠√≠√ë √á√°√ë√ì√á√°√â¬ø");
+            mes "[«·‘€» Õ·»…]";
+            mes mesAr("” ’»Õ «·—”«·… «·ÃœÌœ…");
+            mes mesAr("·ﬁœ ﬁ«„ "+strcharinfo(0)+" »"+.@newmes$+" ·«⁄» ›Ì «·Õ·»…!");
+            mes mesAr(" €ÌÌ— «·—”«·…ø");
 			next;
-            if(select("√§√ö√£:√°√á") == 2) close;
+            if(select("‰⁄„:·«") == 2) close;
             kill_mes$ = .@newmes$;
-            mes mesAr("√ä√£ √ä√õ√≠√≠√ë √á√°√ë√ì√á√°√â √à√§√å√á√ç");
+            mes mesAr(" „  €ÌÌ— «·—”«·… »‰Ã«Õ");
             close;
         }
 	} else {
@@ -280,7 +280,7 @@ OnInit:
 	if(.map$ != .@map$ && .@map$ != "") {
 		mapwarp .@map$,.map$,0,0;
 		sleep 2500;
-		mapannounce .map$,"√°√û√è √ä√£ √ä√õ√≠√≠√ë √õ√ë√ù√â √á√°√ç√°√à√â",bc_npc,0xe53a12;
+		mapannounce .map$,"·ﬁœ  „  €ÌÌ— €—›… «·Õ·»…",bc_npc,0xe53a12;
 	}
 	//donpcevent "PVP#0::OnUpdateCount";
 	freeloop(1);
@@ -301,7 +301,7 @@ OnCommand:
 		if(.debuff)
 			dispell();
 		warp .map$,0,0;
-		announce strcharinfo(0)+" √è√é√° √Ö√°√¨ √á√°√ç√°√à√â",bc_all,0xb50505;
+		announce strcharinfo(0)+" œŒ· ≈·Ï «·Õ·»…",bc_all,0xb50505;
 		end;
     }
     end;
@@ -323,7 +323,7 @@ OnMinute30:
 	if(.map$ != .@map$ && .@map$ != "") {
 		mapwarp .@map$,.map$,0,0;
 		sleep 2500;
-		mapannounce .map$,"√°√û√è √ä√£ √ä√õ√≠√≠√ë √õ√ë√ù√â √á√°√ç√°√à√â",bc_npc,0xe53a12;
+		mapannounce .map$,"·ﬁœ  „  €ÌÌ— €—›… «·Õ·»…",bc_npc,0xe53a12;
 	}
 	//donpcevent "PVP#0::OnUpdateCount";
 	end;
@@ -335,7 +335,7 @@ OnTimer180000:
 		if(getmapusers(.private_maps$[.@i+1]) == 0) {
 			.maps_available++;
 			setarray .private_map_passwords$[.@i+1],"";
-			message .private_map_owner$[.@i+1], "√°√û√è √ä√£ √Ö√õ√°√á√û √á√°√ç√°√à√â √á√°√é√á√ï√â √à√ü.";
+			message .private_map_owner$[.@i+1], "·ﬁœ  „ ≈€·«ﬁ «·Õ·»… «·Œ«’… »ﬂ.";
 			setarray .private_map_owner$[.@i+1],"";
 		}
 	}
@@ -358,8 +358,8 @@ OnPCKillEvent:
         if(rand(1,100) > 70)
             getitem callfunc("F_Rand",12429,12430,12431,12432,12433,12434,22545),rand(1,5);
     if(say_on_kill$ != "") unittalk getcharid(3),say_on_kill$;
-    announce "√°√û√è √û√á√£ "+strcharinfo(0)+" √à"+ (kill_mes$ == "" ? "√è√ö√ì" : kill_mes$) +" "+rid2name(killedrid)+" √ù√≠ √á√°√ç√°√à√â!",bc_all|bc_blue;
-    discord("√°√û√è √û√á√£ **"+strcharinfo(0)+"** √à" + (kill_mes$ == "" ? "√è√ö√ì": kill_mes$) + " **"+rid2name(killedrid)+"** √ù√≠ √á√°√ç√°√à√â", "pvp");
+    announce "·ﬁœ ﬁ«„ "+strcharinfo(0)+" »"+ (kill_mes$ == "" ? "œ⁄”" : kill_mes$) +" "+rid2name(killedrid)+" ›Ì «·Õ·»…!",bc_all|bc_blue;
+    discord("·ﬁœ ﬁ«„ **"+strcharinfo(0)+"** »" + (kill_mes$ == "" ? "œ⁄”": kill_mes$) + " **"+rid2name(killedrid)+"** ›Ì «·Õ·»…", "pvp");
 	.@attackerId = getcharid(0);
 	.@attackerClass = Class;
 	.@defenderId = getcharid(0, rid2name(killedrid));
@@ -381,7 +381,7 @@ OnMinute55:
 	end;
 
 OnInit:
-	setarray .messages$[0],"√£√§ √õ√î√∏√§√á √ù√°√≠√ì √£√§√∏√á";
+	setarray .messages$[0],"„‰ €‘¯‰« ›·Ì” „‰¯«";
 	end;
 }
 
@@ -398,7 +398,7 @@ pvp_n_7-3,99,151,5	script	Leave PVP	678,{
 		message strcharinfo(0),(6 - .@i)+"...";
 		sleep2 990;
 		if(HP+3000 < .@hp) {
-			message strcharinfo(0),"√ä√£ √£√û√á√ò√ö√â √á√°√é√ë√¶√å √£√§ √á√°√ç√°√à√â";
+			message strcharinfo(0)," „ „ﬁ«ÿ⁄… «·Œ—ÊÃ „‰ «·Õ·»…";
 			pcblockmove getcharid(3),false;
 			pcblockskill getcharid(3),false;
 			end;
