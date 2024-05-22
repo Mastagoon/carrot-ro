@@ -122,8 +122,8 @@ int elemental_create(struct map_session_data *sd, int class_, unsigned int lifet
 			ele.atk2 += 25 * i;
 			ele.matk += 25 * i;
 		} else {
-			ele.hp = ele.max_hp += ele.max_hp * 20 * i / 100;
-			ele.sp = ele.max_sp += ele.max_sp * 20 * i / 100;
+			ele.hp = ele.max_hp += ele.max_hp * 100 * i / 100;
+			ele.sp = ele.max_sp += ele.max_sp * 100 * i / 100;
 			ele.atk += 50 * i;
 			ele.atk2 += 50 * i;
 			ele.matk += 50 * i;

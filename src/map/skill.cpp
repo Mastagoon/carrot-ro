@@ -1992,7 +1992,7 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 		sc_start(src,bl,status_skill2sc(skill_id),50,skill_lv,skill_get_time(EL_ROCK_CRUSHER,skill_lv));
 		break;
 	case EL_TYPOON_MIS:
-		sc_start(src,bl,SC_SILENCE,10*skill_lv,skill_lv,skill_get_time(skill_id,skill_lv));
+		sc_start(src,bl,SC_SILENCE,200,skill_lv,skill_get_time(skill_id,skill_lv));
 		break;
 	case KO_JYUMONJIKIRI:
 		sc_start(src,bl,SC_JYUMONJIKIRI,100,skill_lv,skill_get_time(skill_id,skill_lv));
@@ -2300,17 +2300,19 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 		int id = sc->data[SC_RICEBALL]->val1;
 		struct block_list *mbl = map_id2bl(id);
 		if(mbl && !status_isdead(mbl)) {
-			int type = skill_get_casttype(skill_id);
-			switch (type) {
-				case CAST_GROUND:
-					skill_castend_pos2(mbl, bl->x, bl->y, skill_id, skill_lv, tick, 0);
-					break;
-				case CAST_NODAMAGE:
-					skill_castend_nodamage_id(mbl, bl, skill_id, skill_lv, tick, 0);
-					break;
-				case CAST_DAMAGE:
-					skill_castend_damage_id(mbl, bl, skill_id, skill_lv, tick, 0);
-					break;
+			if(check_distance_bl(src, mbl, 6)) {
+				int type = skill_get_casttype(skill_id);
+				switch (type) {
+					case CAST_GROUND:
+						skill_castend_pos2(mbl, bl->x, bl->y, skill_id, skill_lv, tick, 0);
+						break;
+					case CAST_NODAMAGE:
+						skill_castend_nodamage_id(mbl,skill_get_inf(skill_id)&INF_SELF_SKILL ? mbl: bl , skill_id, skill_lv, tick, 0);
+						break;
+					case CAST_DAMAGE:
+						skill_castend_damage_id(mbl, bl, skill_id, skill_lv, tick, 0);
+						break;
+				}
 			}
 		}
 	}
@@ -11198,23 +11200,23 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 
 	case SO_EL_ACTION:
 		if( sd ) {
-				int duration = 3000;
+				// int duration = 1000;
 			if( !sd->ed )
 				break;
-			switch(sd->ed->db->class_) {
-				case 2115:case 2124:
-				case 2118:case 2121:
-					duration = 6000;
-					break;
-				case 2116:case 2119:
-				case 2122:case 2125:
-					duration = 9000;
-					break;
-			}
+			// switch(sd->ed->db->class_) {
+			// 	case 2115:case 2124:
+			// 	case 2118:case 2121:
+			// 		// duration = 6000;
+			// 		break;
+			// 	case 2116:case 2119:
+			// 	case 2122:case 2125:
+			// 		// duration = 9000;
+			// 		break;
+			// }
 			sd->skill_id_old = skill_id;
 			elemental_action(sd->ed, bl, tick);
 			clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
-			skill_blockpc_start(sd, skill_id, duration);
+			// skill_blockpc_start(sd, skill_id, duration);
 		}
 		break;
 

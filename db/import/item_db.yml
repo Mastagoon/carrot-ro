@@ -18,9 +18,9 @@ Body:
 #======================
 #===CarrotRO items=====
 #======================
-  - Id: 100000
-    AegisName: Carrot_Suit
-    Name: Carrot Suit
+  - Id: 15047
+    AegisName: Siege_Suits
+    Name: Siege Suit
     Type: Armor
     Weight: 0
     Defense: 50
@@ -43,12 +43,12 @@ Body:
       if (.@r>8) {
          bonus bMaxHPrate,15;
       }
-  - Id: 100001
-    AegisName: Carrot_Manteau
-    Name: Carrot Manteau
+  - Id: 2586
+    AegisName: Siege_Manteau
+    Name: Siege Manteau
     Type: Armor
     Buy: 10
-    Weight: 0
+    Weight: 600
     Defense: 32
     Slots: 1
     Jobs:
@@ -61,9 +61,9 @@ Body:
       bonus bMdef,1;
       bonus2 bSubRace,RC_Player_Human,2;
       bonus2 bSubRace,RC_Player_Doram,2;
-  - Id: 100002
-    AegisName: Carrot_Boots
-    Name: Carrot Boots
+  - Id: 2484
+    AegisName: Siege_Boots
+    Name: Siege Boots
     Type: Armor
     Buy: 10
     Weight: 0
@@ -79,9 +79,9 @@ Body:
       bonus bMdef,5;
       bonus2 bSubRace,RC_Player_Human,1;
       bonus2 bSubRace,RC_Player_Doram,1;
-  - Id: 100003
-    AegisName: Homunculus_Embryo
-    Name: Homunculus Embryo
+  - Id: 12040
+    AegisName: Stone_Of_Intelligence_
+    Name: Stone of Sage
     Type: Delayconsume
     Buy: 10
     Weight: 1
@@ -298,7 +298,11 @@ Body:
     Refineable: true
     Slots: 2
     Script: |
+      skill "NPC_POWERUP",1;
+      bonus2 bSkillCooldown,"NPC_POWERUP", 40000;
       bonus4 bAutoSpellOnSkill,"BS_HAMMERFALL","NPC_EARTHQUAKE",10,1000;
+    UnEquipScript: |
+      sc_end SC_INCHITRATE;
   - Id: 25188
     AegisName: Handkerchief_of_Girl
     Name: Dirty Handkerchief
@@ -409,7 +413,6 @@ Body:
     EquipLevelMin: 100
     Script: |
       skill "AM_CANNIBALIZE",8;
-      bonus2 bSkillCooldown,"AM_CANNIBALIZE", 120000;
       bonus bInt, -50;
   - Id: 1800
     AegisName: Sinister_Fist

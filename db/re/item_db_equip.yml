@@ -28085,41 +28085,6 @@ Body:
       bonus bMdef,1;
       bonus2 bSubRace,RC_Player_Human,2;
       bonus2 bSubRace,RC_Player_Doram,2;
-  - Id: 2484
-    AegisName: Siege_Boots
-    Name: Siege Boots
-    Type: Armor
-    Buy: 10
-    Weight: 500
-    Defense: 20
-    Slots: 1
-    Jobs:
-      Alchemist: true
-      Archer: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Gunslinger: true
-      Hunter: true
-      KagerouOboro: true
-      Knight: true
-      Merchant: true
-      Ninja: true
-      Rebellion: true
-      Rogue: true
-      StarGladiator: true
-      Swordman: true
-      Taekwon: true
-      Thief: true
-    Locations:
-      Shoes: true
-    EquipLevelMin: 95
-    Refineable: true
-    Script: |
-      bonus bMdef,5;
-      bonus2 bSubRace,RC_Player_Human,1;
-      bonus2 bSubRace,RC_Player_Doram,1;
   - Id: 2485
     AegisName: Siege_Shoes
     Name: Siege Shoes
@@ -30125,26 +30090,6 @@ Body:
       Garment: true
     Script: |
       bonus bSPrecovRate,10;
-  - Id: 2586
-    AegisName: Siege_Manteau
-    Name: Siege Manteau
-    Type: Armor
-    Buy: 10
-    Weight: 600
-    Defense: 32
-    Slots: 1
-    Jobs:
-      All: true
-      Novice: false
-      SuperNovice: false
-    Locations:
-      Garment: true
-    EquipLevelMin: 95
-    Refineable: true
-    Script: |
-      bonus bMdef,1;
-      bonus2 bSubRace,RC_Player_Human,2;
-      bonus2 bSubRace,RC_Player_Doram,2;
   - Id: 2587
     AegisName: Siege_Muffler
     Name: Siege Muffler
@@ -63357,48 +63302,6 @@ Body:
       }
       if (.@r>8) {
          bonus bMaxHPrate,25;
-      }
-  - Id: 15047
-    AegisName: Siege_Suits
-    Name: Siege Suit
-    Type: Armor
-    Weight: 750
-    Defense: 50
-    Slots: 1
-    Jobs:
-      Alchemist: true
-      Archer: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Gunslinger: true
-      Hunter: true
-      KagerouOboro: true
-      Knight: true
-      Merchant: true
-      Ninja: true
-      Rebellion: true
-      Rogue: true
-      StarGladiator: true
-      Swordman: true
-      Taekwon: true
-      Thief: true
-    Locations:
-      Armor: true
-    EquipLevelMin: 95
-    Refineable: true
-    Script: |
-      bonus bMdef,10;
-      bonus2 bSubRace,RC_Player_Doram,2;
-      bonus2 bSubRace,RC_Player_Human,2;
-      .@r = getrefine();
-      if (.@r>5) {
-         bonus bFlee2,5;
-         bonus bLongAtkDef,20;
-      }
-      if (.@r>8) {
-         bonus bMaxHPrate,15;
       }
   - Id: 15048
     AegisName: Siege_Robe
