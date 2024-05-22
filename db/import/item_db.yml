@@ -111,6 +111,8 @@ Body:
     Script: |
       bonus2 bSkillCooldown,"GC_HALLUCINATIONWALK",-60000;
       bonus2 bFixedCastrate,"GC_POISONSMOKE",-2000;
+    UnEquipScript: |
+      sc_end SC_HALLUCINATIONWALK;
   - Id: 21052
     AegisName: Vernan
     Name: Vernan
