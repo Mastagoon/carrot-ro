@@ -5704,7 +5704,7 @@
 2043,Magic Decoy Fire@MG_FIREBOLT,attack,19,10,10000,800,3500,no,target,always,0,,,,,,,
 2043,Magic Decoy Fire@WZ_METEOR,attack,83,10,10000,800,3500,no,target,always,0,,,,,,,
 
-2044,Magic Decoy Water@AL_HEAL,any,28,11,10000,800,3500,no,master,always,0,,,,,,,
+2044,Magic Decoy Water@AL_HEAL,any,28,11,10000,800,20000,no,master,always,0,,,,,,,
 2044,Magic Decoy Water@PR_IMPOSITIO,any,66,5,10000,800,20000,no,master,always,0,,,,,,,
 2044,Magic Decoy Water@PR_KYRIE,any,73,10,10000,800,20000,no,master,always,0,,,,,,,
 2044,Magic Decoy Water@HP_ASSUMPTIO,any,361,5,10000,800,20000,no,master,always,0,,,,,,,
