@@ -110,7 +110,7 @@ Body:
     Refineable: true
     Script: |
       bonus2 bSkillCooldown,"GC_HALLUCINATIONWALK",-60000;
-      bonus2 bFixedCastrate,"GC_POISONSMOKE",-2000;
+      bonus2 bFixedCastrate,"GC_POISONSMOKE",-50;
     UnEquipScript: |
       sc_end SC_HALLUCINATIONWALK;
   - Id: 21052
