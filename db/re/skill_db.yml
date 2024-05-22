@@ -19559,10 +19559,10 @@ Body:
         Time: 16000
       - Level: 5
         Time: 18000
-    FixedCastTime: 2000
-    CastTimeFlags:
-      IgnoreDex: true
-      IgnoreStatus: true
+    FixedCastTime: 4000
+    # CastTimeFlags:
+    #   IgnoreDex: true
+    #   IgnoreStatus: true
       # IgnoreItemBonus: true
     Requires:
       SpCost: 40

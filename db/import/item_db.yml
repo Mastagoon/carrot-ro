@@ -110,7 +110,7 @@ Body:
     Refineable: true
     Script: |
       bonus2 bSkillCooldown,"GC_HALLUCINATIONWALK",-60000;
-      bonus2 bFixedCastrate,"GC_POISONSMOKE",-1000;
+      bonus2 bFixedCastrate,"GC_POISONSMOKE",-2000;
   - Id: 21052
     AegisName: Vernan
     Name: Vernan
@@ -318,10 +318,10 @@ Body:
     Locations:
       Right_Hand: true
     EquipScript: |
-      sc_start SC_POISON,30000,0,100000, SCSTART_NOAVOID;
-      sc_start SC_DECREASEAGI,30000,5,100000, SCSTART_NOAVOID;
-      sc_start SC_LEECHESEND,30000,10,100000, SCSTART_NOAVOID;
-      sc_start SC_BLEEDING,30000,1,100000, SCSTART_NOAVOID;
+      sc_start SC_POISON,45000,0,100000, SCSTART_NOAVOID;
+      sc_start SC_DECREASEAGI,45000,5,100000, SCSTART_NOAVOID;
+      sc_start SC_LEECHESEND,45000,10,100000, SCSTART_NOAVOID;
+      sc_start SC_BLEEDING,45000,1,100000, SCSTART_NOAVOID;
     UnEquipScript: |
       sc_end SC_POISON;
       sc_end SC_DECREASEAGI;
@@ -413,6 +413,7 @@ Body:
     EquipLevelMin: 100
     Script: |
       skill "AM_CANNIBALIZE",8;
+      bonus2 bSkillCooldown,"AM_CANNIBALIZE", 30000;
       bonus bInt, -50;
   - Id: 1800
     AegisName: Sinister_Fist
@@ -435,4 +436,4 @@ Body:
     Script: |
       skill "PR_LEXAETERNA",1;
       bonus2 bSkillCooldown,"PR_LEXAETERNA", 30000;
-      bonus2 bSkillFixedCast,"PR_LEXAETERNA",6000;
+      bonus2 bSkillFixedCast,"PR_LEXAETERNA",8000;
