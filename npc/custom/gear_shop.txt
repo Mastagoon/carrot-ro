@@ -52,7 +52,7 @@ dicastes01,192,187,6	script	„ Ã— «·≈‰” «‰”	648,{
 
 OnInit:
 	waitingroom "„ Ã— «·≈‰” «‰”",0;
-	setarray .instances$[1],"Old Glast Heim","Horror Toy Factory","Geffen Tournament","Ghost Palace","Infinity Space","Sarah Memory","Sarah and Fenrir","Faceworm Nest","Temple of Demon God","Nightmarish Jitterbug","Morse Cave","Charleston Crisis","Last Room","Sealed Shrine";
+	setarray .instances$[1],"Old Glast Heim","Horror Toy Factory","Geffen Tournament","Ghost Palace","Infinity Space","Sarah Memory","Sarah and Fenrir","Faceworm Nest","Temple of Demon God","Nightmarish Jitterbug","Morse Cave","Charleston Crisis","Last Room","Sealed Shrine", "Sky Fortress";
 	end;
 }
 
@@ -66,7 +66,7 @@ dicastes01,192,185,6	script	„ Ã— «·⁄ «œ	648,{
 
 OnInit:
 	waitingroom "„ Ã— «·⁄ «œ",0;
-	setarray .sets$[1],"Crimson Weapons","Vellum Weapons","Quest Weapons","Headgears","Siege Set","Gray Set","Valkyrie Set","Morrigane Set","Morpheus Set","Flattery Robe","Calf Weapons","Mora - Affection Set","Mora - Judgment Set","Mora - Golden Rod Set","Mora - Aqua Set","Mora - Forest Set","Mora - Crimson Set","Mora - Ur Set","Mora - Peuz Set","Mora - Sapha Set","Mora - Nab Set","Mora - White Wing Set","Mora - Black Wing Set","Airship Set","Biolab Gear","Satan Morroc Gear";
+	setarray .sets$[1],"New Items","Crimson Weapons","Vellum Weapons","Quest Weapons","Headgears","Siege Set","Gray Set","Valkyrie Set","Morrigane Set","Morpheus Set","Flattery Robe","Calf Weapons","Mora - Affection Set","Mora - Judgment Set","Mora - Golden Rod Set","Mora - Aqua Set","Mora - Forest Set","Mora - Crimson Set","Mora - Ur Set","Mora - Peuz Set","Mora - Sapha Set","Mora - Nab Set","Mora - White Wing Set","Mora - Black Wing Set","Airship Set","Biolab Gear","Satan Morroc Gear";
 	end;
 }
 
@@ -100,7 +100,7 @@ OnInit:
 -	shop	Quest Weapons	-1,1364:-1,1369:-1,1469:-1,1470:-1,1814:-1,1720:-1,1416:-1,1415:-1,1132:-1,1137:-1,1166:-1,1167:-1,1140:-1,1228:-1,1233:-1,1528:-1,1141:-1,1526:-1,1527:-1,1225:-1,1224:-1,1367:-1,1134:-1,1139:-1,1365:-1
 
 // sets shop
--	shop	Siege Set	-1,100000:50000,100001:50000,100002:50000,15048:500000,2485:500000,2587:500000,2483:500000,2586:500000,15046:500000
+-	shop	Siege Set	-1,15047:50000,2586:50000,2484:50000,15048:500000,2485:500000,2587:500000,2483:500000,2586:500000,15046:500000
 -	shop	Gray Set	-1,15090:-1,22033:-1,20721:-1,18820:-1,15091:-1,2187:-1
 -	shop	Valkyrie Set	-1,2115:50000,2421:50000,2357:50000,2524:50000
 -	shop	Morrigane Set	-1,2650:-1,5127:-1,2519:-1,2651:-1
@@ -138,6 +138,7 @@ OnInit:
 -	shop	Charleston Crisis	-1,15110:-1,20732:-1,22043:-1,2995:-1,15111:-1,20733:-1,22044:-1,2996:-1,20773:-1,15128:-1,16031:-1,16030:-1,16032:-1,28101:-1,21011:-1,16033:-1,4698:-1,4699:-1,27012:-1,27013:-1
 -	shop	Last Room	-1,27018:-1,27019:-1,18997:-1,28326:-1,28327:-1
 -	shop	Sealed Shrine	-1,5518:-1,1181:-1
+-	shop	Sky Fortress	-1,2027:-1,28010:-1,21018:-1,31025:-1,31024:-1
 
 // headgears
 -	shop	Headgears	-1,18601:-1,18600:-1,18561:-15518:-1,18563:-1,5359:-1,5363:-1,5208:-1,5068:-1,5361:-1,5548:-1,18813:-1,5311:-1,18793:-1,5898:-1,18934:50000,2202:-1
@@ -159,3 +160,5 @@ OnInit:
 -	shop	Doram	-1,15156:50000,26155:50000,1697:500000,20790:50000,22085:50000,28424:50000,28422:50000,28423:50000
 // foods
 -	shop	Foods	-1,12429:50000,12430:50000,12431:50000,12432:50000,12433:50000,12434:50000,12247:50000,14601:50000,22553:-1,12016:50000
+
+-	shop	New Items	-1,1239:50000,21052:50000,32001:-2057:50000,28601:50000,18116:50000,1552:50000,1385:50000,25188:50000,1936:50000,1991:50000,1930:50000,1800:50000,2057:50000,13414:50000

@@ -6766,7 +6766,7 @@ Body:
   - Id: 232
     Name: AM_CANNIBALIZE
     Description: Summon Flora
-    MaxLevel: 5
+    MaxLevel: 10
     TargetType: Ground
     DamageFlags:
       NoDamage: true
@@ -6787,6 +6787,12 @@ Body:
         Time: 120000
       - Level: 5
         Time: 60000
+      - Level: 6
+        Time: 40000
+      - Level: 7
+        Time: 20000
+      - Level: 8
+        Time: 10000
     FixedCastTime: 400
     Requires:
       SpCost: 20
@@ -9548,6 +9554,7 @@ Body:
     DamageFlags:
       NoDamage: true
     Flags:
+      AllowOnMado: true
       IsNpc: true
     Hit: Single
     Duration1:
@@ -19556,7 +19563,7 @@ Body:
     CastTimeFlags:
       IgnoreDex: true
       IgnoreStatus: true
-      IgnoreItemBonus: true
+      # IgnoreItemBonus: true
     Requires:
       SpCost: 40
       Status:
@@ -19564,7 +19571,7 @@ Body:
     Unit:
       Id: Poisonsmoke
       Layout: 2
-      Interval: 1000
+      Interval: 500
       Target: Enemy
       Flag:
         NoOverlap: true
@@ -19677,7 +19684,7 @@ Body:
     Hit: Single
     HitCount: 1
     Element: Weapon
-    AfterCastActDelay: 500  
+    AfterCastActDelay: 500
     Requires:
       SpCost:
         - Level: 1
@@ -21101,7 +21108,9 @@ Body:
     MaxLevel: 5
     Type: Misc
     TargetType: Ground
+    Cooldown: 25000
     DamageFlags:
+      NoDamage: true
       Splash: true
       IgnoreFlee: true
     Flags:
@@ -21978,7 +21987,7 @@ Body:
     Range: 2
     Hit: Single
     HitCount: 1
-    ActiveInstance: 2
+    ActiveInstance: 4
     CastCancel: true
     Duration1:
       - Level: 1
@@ -22039,7 +22048,7 @@ Body:
     Range: 2
     Hit: Single
     HitCount: 1
-    ActiveInstance: 2
+    ActiveInstance: 4
     CastCancel: true
     Duration1:
       - Level: 1
@@ -22485,16 +22494,15 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    CastTime: 2000
     AfterCastActDelay: 1000
     Duration1:
       - Level: 1
         Time: 10000
       - Level: 2
-        Time: 15000
+        Time: 10000
       - Level: 3
-        Time: 20000
-    Cooldown: 2000
+        Time: 10000
+    Cooldown: 7000
     Requires:
       SpCost:
         - Level: 1
@@ -22519,16 +22527,15 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    CastTime: 2000
     AfterCastActDelay: 1000
     Duration1:
       - Level: 1
         Time: 10000
       - Level: 2
-        Time: 15000
+        Time: 10000
       - Level: 3
-        Time: 20000
-    Cooldown: 2000
+        Time: 10000
+    Cooldown: 7000
     Requires:
       SpCost:
         - Level: 1
@@ -22553,16 +22560,15 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    CastTime: 2000
     AfterCastActDelay: 1000
     Duration1:
       - Level: 1
-        Time: 20000
+        Time: 10000
       - Level: 2
-        Time: 20000
+        Time: 10000
       - Level: 3
-        Time: 20000
-    Cooldown: 2000
+        Time: 10000
+    Cooldown: 7000
     Requires:
       SpCost:
         - Level: 1
@@ -22587,16 +22593,15 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    CastTime: 2000
     AfterCastActDelay: 1000
     Duration1:
       - Level: 1
         Time: 10000
       - Level: 2
-        Time: 15000
+        Time: 10000
       - Level: 3
-        Time: 20000
-    Cooldown: 2000
+        Time: 10000
+    Cooldown: 7000
     Requires:
       SpCost:
         - Level: 1
@@ -22621,16 +22626,15 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    CastTime: 2000
     AfterCastActDelay: 1000
     Duration1:
       - Level: 1
         Time: 10000
       - Level: 2
-        Time: 15000
+        Time: 10000
       - Level: 3
-        Time: 20000
-    Cooldown: 2000
+        Time: 10000
+    Cooldown: 7000
     Requires:
       SpCost:
         - Level: 1
@@ -22655,16 +22659,15 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    CastTime: 2000
     AfterCastActDelay: 1000
     Duration1:
       - Level: 1
         Time: 10000
       - Level: 2
-        Time: 15000
+        Time: 10000
       - Level: 3
-        Time: 20000
-    Cooldown: 2000
+        Time: 10000
+    Cooldown: 7000
     Requires:
       SpCost:
         - Level: 1
@@ -27234,7 +27237,7 @@ Body:
   - Id: 2463
     Name: SO_EL_SYMPATHY
     Description: Spirit Sympathy
-    MaxLevel: 5
+    MaxLevel: 10
   - Id: 2464
     Name: SO_EL_CURE
     Description: Spirit Recovery

@@ -8484,7 +8484,7 @@ struct Damage battle_calc_misc_attack(struct block_list *src,
     break;
   case RA_CLUSTERBOMB:
   case RA_FIRINGTRAP:
-  case RA_ICEBOUNDTRAP:
+  // case RA_ICEBOUNDTRAP:
     md.damage = skill_lv * status_get_dex(src) + status_get_int(src) * 5;
     RE_LVL_TMDMOD();
     if (sd) {

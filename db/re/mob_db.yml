@@ -21934,18 +21934,18 @@ Body:
     AegisName: BOILED_RICE
     Name: Boiled Rice
     Level: 15
-    Hp: 777
+    Hp: 10
     BaseExp: 3
     JobExp: 3
     Attack: 7
     Attack2: 7
     MagicDefense: 10
-    Str: 7
-    Agi: 7
-    Vit: 7
-    Int: 17
-    Dex: 17
-    Luk: 7
+    Str: 120
+    Agi: 120
+    Vit: 120
+    Int: 120
+    Dex: 120
+    Luk: 120
     AttackRange: 1
     SkillRange: 10
     ChaseRange: 12
@@ -21957,25 +21957,7 @@ Body:
     AttackDelay: 1152
     AttackMotion: 672
     DamageMotion: 672
-    Ai: 01
-    Drops:
-      - Item: Rice_Ball
-        Rate: 2750
-      - Item: Meat_Dumpling_Doll
-        Rate: 1500
-      - Item: Soft_Leaf
-        Rate: 500
-      - Item: Squid
-        Rate: 500
-      - Item: Egg_Yolk
-        Rate: 500
-      - Item: Sweet_Rice
-        Rate: 1000
-      - Item: Lotus_Flower
-        Rate: 500
-      - Item: String
-        Rate: 250
-        StealProtected: true
+    Ai: 10
   - Id: 1521
     AegisName: G_ALICE
     Name: Alice
@@ -37252,7 +37234,7 @@ Body:
     AegisName: BLUE_FLOWER
     Name: Blue Flower
     Level: 98
-    Hp: 10500
+    Hp: 10
     Attack: 1
     Attack2: 1
     Defense: 160
@@ -37263,11 +37245,11 @@ Body:
     Race: Plant
     Element: Earth
     ElementLevel: 1
-    WalkSpeed: 100
+    WalkSpeed: 1000
     AttackDelay: 768
     AttackMotion: 768
     DamageMotion: 576
-    Class: Boss
+    Ai: 10
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true
@@ -41174,7 +41156,7 @@ Body:
     Agi: 60
     Vit: 10
     Int: 10
-    Dex: 120
+    Dex: 220
     Luk: 10
     AttackRange: 9
     SkillRange: 10
@@ -41196,13 +41178,14 @@ Body:
     Name: Magic Decoy
     Level: 100
     Hp: 2500
-    Attack: 195
+    Attack: 300
+    Attack2: 430
     Defense: 16
     MagicDefense: 60
     Str: 10
     Agi: 10
     Vit: 10
-    Int: 100
+    Int: 400
     Dex: 60
     Luk: 10
     AttackRange: 7
@@ -44771,9 +44754,10 @@ Body:
     AegisName: CREEPER
     Name: Creeper
     Level: 100
-    Hp: 1000
+    Hp: 10
     AttackRange: 1
     Size: Medium
+    Dex: 222
     Race: Plant
     Element: Earth
     ElementLevel: 1
@@ -44781,6 +44765,7 @@ Body:
     AttackDelay: 192
     AttackMotion: 192
     DamageMotion: 576
+    Ai: 10
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true

@@ -93,7 +93,7 @@ Body:
     Type: Healing
     Weight: 10
     Script: |
-      
+
   - Id: 501
     AegisName: Red_Potion
     Name: Red Potion
@@ -101,7 +101,7 @@ Body:
     Buy: 10
     Weight: 70
     Script: |
-      
+
   - Id: 502
     AegisName: Orange_Potion
     Name: Orange Potion
@@ -109,7 +109,7 @@ Body:
     Buy: 50
     Weight: 100
     Script: |
-      
+
   - Id: 503
     AegisName: Yellow_Potion
     Name: Yellow Potion
@@ -117,7 +117,7 @@ Body:
     Buy: 180
     Weight: 130
     Script: |
-      
+
   - Id: 504
     AegisName: White_Potion
     Name: White Potion
@@ -125,7 +125,7 @@ Body:
     Buy: 1200
     Weight: 150
     Script: |
-      
+
   - Id: 505
     AegisName: Blue_Potion
     Name: Blue Potion
@@ -133,7 +133,7 @@ Body:
     Buy: 5000
     Weight: 150
     Script: |
-      
+
   - Id: 506
     AegisName: Green_Potion
     Name: Green Potion
@@ -157,7 +157,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 508
     AegisName: Yellow_Herb
     Name: Yellow Herb
@@ -167,7 +167,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 509
     AegisName: White_Herb
     Name: White Herb
@@ -177,7 +177,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 510
     AegisName: Blue_Herb
     Name: Blue Herb
@@ -187,7 +187,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 511
     AegisName: Green_Herb
     Name: Green Herb
@@ -217,7 +217,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 514
     AegisName: Grape
     Name: Grape
@@ -227,7 +227,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 515
     AegisName: Carrot
     Name: Carrot
@@ -247,7 +247,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 517
     AegisName: Meat
     Name: Meat
@@ -257,7 +257,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 518
     AegisName: Honey
     Name: Honey
@@ -267,7 +267,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 519
     AegisName: Milk
     Name: Milk
@@ -277,7 +277,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 520
     AegisName: Leaflet_Of_Hinal
     Name: Hinalle Leaflet
@@ -287,7 +287,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 521
     AegisName: Leaflet_Of_Aloe
     Name: Aloe Leaflet
@@ -297,7 +297,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 522
     AegisName: Fruit_Of_Mastela
     Name: Mastela Fruit
@@ -307,7 +307,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 523
     AegisName: Holy_Water
     Name: Holy Water
@@ -342,7 +342,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
       sc_end SC_POISON;
       sc_end SC_SILENCE;
       sc_end SC_BLIND;
@@ -357,7 +357,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 529
     AegisName: Candy
     Name: Candy
@@ -367,7 +367,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 530
     AegisName: Candy_Striper
     Name: Candy Cane
@@ -377,7 +377,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 531
     AegisName: Apple_Juice
     Name: Apple Juice
@@ -387,7 +387,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 532
     AegisName: Banana_Juice
     Name: Banana Juice
@@ -397,7 +397,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 533
     AegisName: Grape_Juice
     Name: Grape Juice
@@ -407,7 +407,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 534
     AegisName: Carrot_Juice
     Name: Carrot Juice
@@ -417,7 +417,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 535
     AegisName: Pumpkin
     Name: Pumpkin
@@ -427,7 +427,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 536
     AegisName: Ice_Cream
     Name: Ice Cream
@@ -437,7 +437,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
       sc_start SC_FREEZE,10000,0,2500,0;
   - Id: 537
     AegisName: Pet_Food
@@ -448,7 +448,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 538
     AegisName: Well_Baked_Cookie
     Name: Well-baked Cookie
@@ -458,7 +458,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 539
     AegisName: Piece_Of_Cake
     Name: Piece of Cake
@@ -468,7 +468,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 540
     AegisName: Falcon's_Feed
     Name: Falcon Food
@@ -476,7 +476,7 @@ Body:
     Buy: 2000
     Weight: 50
     Script: |
-      
+
   - Id: 541
     AegisName: Pecopeco's_Feed
     Name: PecoPeco Food
@@ -484,7 +484,7 @@ Body:
     Buy: 3000
     Weight: 50
     Script: |
-      
+
   - Id: 542
     AegisName: Festive_Cookie
     Name: Festival Cookie
@@ -492,7 +492,7 @@ Body:
     Buy: 10
     Weight: 10
     Script: |
-      
+
   - Id: 543
     AegisName: Festive_Rainbow_Cake
     Name: Festival Rainbow Cake
@@ -500,7 +500,7 @@ Body:
     Buy: 10
     Weight: 10
     Script: |
-      
+
   - Id: 544
     AegisName: Fish_Slice
     Name: Raw Fish
@@ -510,7 +510,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 545
     AegisName: Red_Slim_Potion
     Name: Condensed Red Potion
@@ -518,7 +518,7 @@ Body:
     Buy: 150
     Weight: 20
     Script: |
-      
+
   - Id: 546
     AegisName: Yellow_Slim_Potion
     Name: Condensed Yellow Potion
@@ -526,7 +526,7 @@ Body:
     Buy: 600
     Weight: 30
     Script: |
-      
+
   - Id: 547
     AegisName: White_Slim_Potion
     Name: Condensed White Potion
@@ -537,7 +537,7 @@ Body:
       Override: 100
       NoSell: true
     Script: |
-      
+
   - Id: 548
     AegisName: Cheese
     Name: Cheese
@@ -547,7 +547,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 549
     AegisName: Nice_Sweet_Potato
     Name: Yam
@@ -557,7 +557,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
       sc_start SC_STUN,3000,0,1500,0;
   - Id: 550
     AegisName: Popped_Rice
@@ -568,7 +568,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 551
     AegisName: Shusi
     Name: Sushi
@@ -578,7 +578,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 552
     AegisName: KETUPAT
     Name: Ketupat
@@ -586,7 +586,7 @@ Body:
     Buy: 1
     Weight: 10
     Script: |
-      
+
   - Id: 553
     AegisName: Bun
     Name: Bao
@@ -596,7 +596,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 554
     AegisName: Mojji
     Name: Mochi
@@ -604,7 +604,7 @@ Body:
     Buy: 100
     Weight: 80
     Script: |
-      
+
       sc_start SC_STUN,3000,0;
       sc_start SC_BLIND,2000,0,1500,0;
   - Id: 555
@@ -614,7 +614,7 @@ Body:
     Buy: 100
     Weight: 20
     Script: |
-      
+
   - Id: 556
     AegisName: Long_Rice_Cake
     Name: Rice Cake Stick
@@ -622,7 +622,7 @@ Body:
     Buy: 10
     Weight: 10
     Script: |
-      
+
   - Id: 557
     AegisName: Hash_Rice_Cake
     Name: Neatly Sliced Rice Cake
@@ -630,7 +630,7 @@ Body:
     Buy: 10
     Weight: 10
     Script: |
-      
+
   - Id: 558
     AegisName: Chocolate
     Name: Chocolate
@@ -638,7 +638,7 @@ Body:
     Buy: 1
     Weight: 20
     Script: |
-      
+
   - Id: 559
     AegisName: HandMade_Chocolate
     Name: Hand-made Chocolate
@@ -646,7 +646,7 @@ Body:
     Buy: 1
     Weight: 80
     Script: |
-      
+
   - Id: 560
     AegisName: HandMade_Chocolate_
     Name: Handmade White Chocolate
@@ -654,7 +654,7 @@ Body:
     Buy: 5000
     Weight: 80
     Script: |
-      
+
   - Id: 561
     AegisName: White_Chocolate
     Name: White Chocolate
@@ -662,7 +662,7 @@ Body:
     Buy: 5000
     Weight: 80
     Script: |
-      
+
   - Id: 562
     AegisName: Pizza
     Name: Doublecrust Swiss Fondue
@@ -670,7 +670,7 @@ Body:
     Buy: 100
     Weight: 150
     Script: |
-      
+
   - Id: 563
     AegisName: Pizza_01
     Name: Doublecrust Swiss Fondue
@@ -678,7 +678,7 @@ Body:
     Buy: 1200
     Weight: 150
     Script: |
-      
+
   - Id: 564
     AegisName: Rice_Ball
     Name: Rice Ball
@@ -688,7 +688,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 565
     AegisName: Vita500_Bottle
     Name: Vita500
@@ -696,7 +696,7 @@ Body:
     Buy: 580
     Weight: 100
     Script: |
-      
+
   - Id: 566
     AegisName: Tomyumkung
     Name: Tom Yum Goong
@@ -706,7 +706,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
       sc_end SC_POISON;
       sc_end SC_SILENCE;
       sc_end SC_BLIND;
@@ -722,7 +722,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 568
     AegisName: Lemon
     Name: Lemon
@@ -732,7 +732,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 569
     AegisName: Novice_Potion
     Name: Novice Potion
@@ -741,7 +741,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 570
     AegisName: Lucky_Candy
     Name: Lucky Candy
@@ -751,7 +751,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 571
     AegisName: Lucky_Candy_Cane
     Name: Lucky Candy Cane
@@ -761,7 +761,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 572
     AegisName: Lucky_Cookie
     Name: Lucky Cookie
@@ -771,7 +771,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 573
     AegisName: Chocolate_Drink
     Name: Chocolate Drink
@@ -779,7 +779,7 @@ Body:
     Buy: 7000
     Weight: 150
     Script: |
-      
+
       sc_end SC_POISON;
       sc_end SC_SILENCE;
       sc_end SC_BLIND;
@@ -795,7 +795,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 575
     AegisName: Piece_Of_Cake_
     Name: 2nd Anniversary Cake
@@ -803,7 +803,7 @@ Body:
     Buy: 10
     Weight: 100
     Script: |
-      
+
   - Id: 576
     AegisName: Prickly_Fruit
     Name: Prickly Fruit
@@ -813,7 +813,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 577
     AegisName: Grain
     Name: Bag of Grain
@@ -823,7 +823,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 578
     AegisName: Strawberry
     Name: Strawberry
@@ -833,7 +833,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 579
     AegisName: Delicious_Fish
     Name: Fresh Fish
@@ -843,7 +843,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 580
     AegisName: Bread
     Name: Bread
@@ -853,7 +853,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 581
     AegisName: Mushroom
     Name: Edible Mushroom
@@ -863,7 +863,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 582
     AegisName: Orange
     Name: Orange
@@ -873,7 +873,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 583
     AegisName: KETUPAT_
     Name: Ketupat Sayur
@@ -881,7 +881,7 @@ Body:
     Buy: 7000
     Weight: 150
     Script: |
-      
+
       sc_end SC_POISON;
       sc_end SC_SILENCE;
       sc_end SC_BLIND;
@@ -897,7 +897,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 585
     AegisName: Wurst
     Name: Brusti
@@ -905,7 +905,7 @@ Body:
     Buy: 2
     Weight: 40
     Script: |
-      
+
       itemskill "PR_MAGNIFICAT",3;
   - Id: 586
     AegisName: Mother's_Cake
@@ -914,7 +914,7 @@ Body:
     Buy: 20
     Weight: 100
     Script: |
-      
+
   - Id: 587
     AegisName: Prickly_Fruit_
     Name: Red Prickly Fruit
@@ -924,7 +924,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 588
     AegisName: Spaghetti
     Name: Spaghetti
@@ -932,7 +932,7 @@ Body:
     Buy: 100
     Weight: 100
     Script: |
-      
+
   - Id: 589
     AegisName: Pizza_02
     Name: Pizza
@@ -940,7 +940,7 @@ Body:
     Buy: 1200
     Weight: 150
     Script: |
-      
+
   - Id: 590
     AegisName: Brezel_
     Name: Pretzel
@@ -948,7 +948,7 @@ Body:
     Buy: 2
     Weight: 20
     Script: |
-      
+
   - Id: 591
     AegisName: Caviar_Pancake
     Name: Caviar Pancake
@@ -957,7 +957,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
       sc_end SC_POISON;
       sc_end SC_SILENCE;
       sc_end SC_BLIND;
@@ -972,7 +972,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
       sc_end SC_POISON;
       sc_end SC_SILENCE;
       sc_end SC_BLIND;
@@ -987,7 +987,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
       sc_end SC_POISON;
       sc_end SC_SILENCE;
       sc_end SC_BLIND;
@@ -1002,7 +1002,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
       sc_end SC_POISON;
       sc_end SC_SILENCE;
       sc_end SC_BLIND;
@@ -1017,7 +1017,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
       sc_end SC_POISON;
       sc_end SC_SILENCE;
       sc_end SC_BLIND;
@@ -1031,7 +1031,7 @@ Body:
     Buy: 20
     Weight: 100
     Script: |
-      
+
   - Id: 597
     AegisName: Lovely_Choco_Tart
     Name: Lovely Choco-Tart
@@ -1039,7 +1039,7 @@ Body:
     Buy: 20
     Weight: 100
     Script: |
-      
+
   - Id: 598
     AegisName: Light_Red_Pot
     Name: Light Red Potion
@@ -1056,7 +1056,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 599
     AegisName: Light_Orange_Pot
     Name: Light Orange Potion
@@ -1073,7 +1073,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 601
     AegisName: Wing_Of_Fly
     Name: Fly Wing
@@ -1154,7 +1154,7 @@ Body:
       Duration: 5000
       Status: Reuse_Limit_F
     Script: |
-      
+
   - Id: 608
     AegisName: Seed_Of_Yggdrasil
     Name: Yggdrasil Seed
@@ -1167,7 +1167,7 @@ Body:
       Duration: 3000
       Status: Reuse_Limit_G
     Script: |
-      
+
   - Id: 609
     AegisName: Amulet
     Name: Amulet
@@ -1743,7 +1743,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 664
     AegisName: Gift_Box_1
     Name: Gift Box
@@ -1806,7 +1806,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 671
     AegisName: Gold_Coin
     Name: Gold Coin
@@ -1859,7 +1859,7 @@ Body:
       if (Class == Job_Assassin_Cross || Class == Job_Guillotine_Cross || Class == Job_Guillotine_Cross_T) {
          sc_start SC_DPOISON,60000,0;
          sc_start SC_ASPDPOTION3,60000,9;
-      }         
+      }
   - Id: 679
     AegisName: Gold_Pill
     Name: Pilule
@@ -1877,7 +1877,7 @@ Body:
     Type: Healing
     Weight: 1000
     Script: |
-      
+
   - Id: 681
     AegisName: Memory_Of_Wedding
     Name: Sweet Memory of Marriage
@@ -1925,7 +1925,7 @@ Body:
     Buy: 5000
     Weight: 300
     Script: |
-      
+
   - Id: 686
     AegisName: Earth_Scroll_1_3
     Name: Level 3 Earth Spike
@@ -2307,7 +2307,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11501
     AegisName: Light_White_Pot
     Name: Light White Potion
@@ -2324,7 +2324,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11502
     AegisName: Light_Blue_Pot
     Name: Light Blue Potion
@@ -2341,7 +2341,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11503
     AegisName: Siege_White_Potion
     Name: WoE White Potion
@@ -2357,7 +2357,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11504
     AegisName: Siege_Blue_Potion
     Name: WoE Blue Potion
@@ -2373,14 +2373,14 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11505
     AegisName: Iris
     Name: Iris
     Type: Healing
     Weight: 30
     Script: |
-      
+
   - Id: 11506
     AegisName: Fanta_Orange
     Name: Fanta Orange
@@ -2388,7 +2388,7 @@ Body:
     Buy: 800
     Weight: 10
     Script: |
-      
+
   - Id: 11507
     AegisName: Fanta_Grape
     Name: Fanta Grape
@@ -2396,7 +2396,7 @@ Body:
     Buy: 800
     Weight: 10
     Script: |
-      
+
   - Id: 11508
     AegisName: Karada_Meguri_Tea
     Name: Karada Meguricha
@@ -2404,7 +2404,7 @@ Body:
     Buy: 800
     Weight: 100
     Script: |
-      
+
   - Id: 11509
     AegisName: Royal_Milk_Tea
     Name: Black Tea Kochakaden
@@ -2412,7 +2412,7 @@ Body:
     Buy: 800
     Weight: 100
     Script: |
-      
+
   - Id: 11510
     AegisName: Coke_Zero
     Name: Coca Cola Zero
@@ -2420,7 +2420,7 @@ Body:
     Buy: 800
     Weight: 100
     Script: |
-      
+
   - Id: 11511
     AegisName: Coke_No_Cal
     Name: Diet Coca Cola
@@ -2428,7 +2428,7 @@ Body:
     Buy: 800
     Weight: 100
     Script: |
-      
+
   - Id: 11512
     AegisName: Coca_Cola
     Name: Coca Cola
@@ -2436,7 +2436,7 @@ Body:
     Buy: 800
     Weight: 100
     Script: |
-      
+
   - Id: 11513
     AegisName: Protect_Neck_Candy
     Name: Protect Neck Candy
@@ -2446,7 +2446,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11514
     AegisName: Enriched_Slim_Pot
     Name: Enriched Slim Pot
@@ -2462,7 +2462,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11515
     AegisName: Coconut
     Name: Coconut
@@ -2472,7 +2472,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11516
     AegisName: Asai_Fruit
     Name: Asai Fruit
@@ -2482,7 +2482,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11517
     AegisName: Puri_Potion
     Name: Puri Potion
@@ -2492,7 +2492,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11518
     AegisName: N_Blue_Potion
     Name: Blue Potion
@@ -2508,7 +2508,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11519
     AegisName: Beef_Toast
     Name: Beef Toast
@@ -2518,7 +2518,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11520
     AegisName: Mora_Mandarin
     Name: Mora Mandar
@@ -2529,7 +2529,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11521
     AegisName: Pingui_Berry_Juice
     Name: Pingui Berry Juice
@@ -2540,7 +2540,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11522
     AegisName: Red_Raffle_Sap
     Name: Red Raffle Sap
@@ -2554,7 +2554,7 @@ Body:
       Duration: 1000
       Status: Reuse_Limit_E
     Script: |
-      
+
   - Id: 11523
     AegisName: Yellow_Raffle_Sap
     Name: Yellow Raffle Sap
@@ -2568,7 +2568,7 @@ Body:
       Duration: 2000
       Status: Reuse_Limit_E
     Script: |
-      
+
   - Id: 11524
     AegisName: White_Raffle_Sap
     Name: White Raffle Sap
@@ -2582,7 +2582,7 @@ Body:
       Duration: 3000
       Status: Reuse_Limit_E
     Script: |
-      
+
   - Id: 11525
     AegisName: Mora_Hip_Tea
     Name: Mora Hip Tea
@@ -2596,7 +2596,7 @@ Body:
       Duration: 5000
       Status: Reuse_Limit_H
     Script: |
-      
+
   - Id: 11526
     AegisName: Rafflecino
     Name: Rafflecino
@@ -2607,7 +2607,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11527
     AegisName: Baklava
     Name: Baklava
@@ -2615,7 +2615,7 @@ Body:
     Buy: 3500
     Weight: 600
     Script: |
-      
+
   - Id: 11528
     AegisName: Kanafeh
     Name: Kanafeh
@@ -2623,7 +2623,7 @@ Body:
     Buy: 1500
     Weight: 200
     Script: |
-      
+
   - Id: 11529
     AegisName: MAAMOUL_
     Name: Maamoul
@@ -2631,7 +2631,7 @@ Body:
     Buy: 500
     Weight: 100
     Script: |
-      
+
   - Id: 11530
     AegisName: Jujube
     Name: Jujube
@@ -2639,7 +2639,7 @@ Body:
     Buy: 10
     Weight: 100
     Script: |
-      
+
   - Id: 11531
     AegisName: Coffee
     Name: Coffee
@@ -2647,7 +2647,7 @@ Body:
     Buy: 10
     Weight: 100
     Script: |
-      
+
   - Id: 11532
     AegisName: Nasi_Goreng
     Name: Nasi Goreng
@@ -2657,7 +2657,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11533
     AegisName: Satay
     Name: Satay
@@ -2667,7 +2667,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11534
     AegisName: Coco_Juice
     Name: Coconut Juice
@@ -2677,7 +2677,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11535
     AegisName: Almond_Chocolate
     Name: Almond Chocolate
@@ -2685,7 +2685,7 @@ Body:
     Buy: 190
     Weight: 200
     Script: |
-      
+
   - Id: 11536
     AegisName: Cat_Hard_Biscuit
     Name: Cat Biscuit
@@ -2694,7 +2694,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
       callfunc "F_Cat_Hard_Biscuit";
   - Id: 11537
     AegisName: Rice_weevil_Bug
@@ -2704,7 +2704,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
       callfunc "F_Rice_Weevil_Bug";
   - Id: 11538
     AegisName: Octupus_Leg
@@ -2713,7 +2713,7 @@ Body:
     Buy: 20
     Weight: 30
     Script: |
-      
+
   - Id: 11539
     AegisName: Athale_Choco
     Name: Athale Choco
@@ -2721,7 +2721,7 @@ Body:
     Buy: 1
     Weight: 80
     Script: |
-      
+
   - Id: 11540
     AegisName: Shyai_Choco
     Name: Shyai Choco
@@ -2729,7 +2729,7 @@ Body:
     Buy: 1
     Weight: 80
     Script: |
-      
+
   - Id: 11541
     AegisName: Mid_Choco
     Name: Mid Choco
@@ -2737,7 +2737,7 @@ Body:
     Buy: 1
     Weight: 80
     Script: |
-      
+
   - Id: 11542
     AegisName: Zonda_Choco
     Name: Zonda Choco
@@ -2745,7 +2745,7 @@ Body:
     Buy: 1
     Weight: 80
     Script: |
-      
+
   - Id: 11543
     AegisName: Goedo_Choco
     Name: Goedo Choco
@@ -2753,7 +2753,7 @@ Body:
     Buy: 1
     Weight: 80
     Script: |
-      
+
   - Id: 11544
     AegisName: Huike_Choco
     Name: Huike Choco
@@ -2761,7 +2761,7 @@ Body:
     Buy: 1
     Weight: 80
     Script: |
-      
+
   - Id: 11545
     AegisName: Rune_Choco
     Name: Rune Choco
@@ -2769,7 +2769,7 @@ Body:
     Buy: 1
     Weight: 80
     Script: |
-      
+
   - Id: 11546
     AegisName: Pope_Choco
     Name: Pope Choco
@@ -2777,7 +2777,7 @@ Body:
     Buy: 1
     Weight: 80
     Script: |
-      
+
   - Id: 11547
     AegisName: Woe_Violet_Potion
     Name: Siege Purple Potion
@@ -2786,7 +2786,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11548
     AegisName: Woe_White_Potion
     Name: Siege White Potion
@@ -2795,7 +2795,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11549
     AegisName: Woe_Blue_Potion
     Name: Siege Blue Potion
@@ -2804,7 +2804,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11550
     AegisName: Pumpkin_Cake
     Name: Pumpkin Cake
@@ -2812,7 +2812,7 @@ Body:
     Buy: 10
     Weight: 40
     Script: |
-      
+
   - Id: 11551
     AegisName: Savory_Herb_Salad
     Name: Savory Herb Salad
@@ -2828,7 +2828,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
       sc_start SC_STRFOOD,180000,1;
   - Id: 11552
     AegisName: Apple_Carrot_Salad
@@ -2845,7 +2845,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
       sc_start SC_AGIFOOD,180000,1;
   - Id: 11553
     AegisName: Casual_Stew
@@ -2862,7 +2862,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
       sc_start SC_VITFOOD,180000,1;
   - Id: 11554
     AegisName: Golden_Roasted_Apple
@@ -2879,7 +2879,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
       sc_start SC_DEXFOOD,180000,1;
   - Id: 11555
     AegisName: Red_Potion_RG
@@ -2887,7 +2887,7 @@ Body:
     Type: Healing
     Weight: 40
     Script: |
-      
+
   - Id: 11557
     AegisName: TE_White_Potion
     Name: TE White Potion
@@ -2897,7 +2897,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11558
     AegisName: TE_White_Slim_Potion
     Name: TE White Slim Potion
@@ -2907,7 +2907,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11563
     AegisName: Hot_Tee
     Name: Hot Tea
@@ -2917,7 +2917,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11564
     AegisName: Sweet_Canape
     Name: Sweet Canape
@@ -2927,7 +2927,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11565
     AegisName: White_Potion_B
     Name: White Potion
@@ -2944,7 +2944,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11566
     AegisName: Yellow_Potion_
     Name: Yellow Potion
@@ -2961,7 +2961,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11567
     AegisName: Novice_Potion_B
     Name: Novice Potion
@@ -2977,7 +2977,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11568
     AegisName: Red_Slim_Potion_B
     Name: Red Slim Potion
@@ -2994,7 +2994,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11569
     AegisName: Orange_Potion_
     Name: Orange Potion
@@ -3011,7 +3011,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11570
     AegisName: Red_Potion_
     Name: Red Potion
@@ -3028,7 +3028,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11571
     AegisName: Green_Potion_
     Name: Green Potion
@@ -3065,7 +3065,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11573
     AegisName: White_Slim_Potion_B
     Name: White Slim Potion
@@ -3082,7 +3082,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11574
     AegisName: Yellow_Slim_Potion_
     Name: Yellow Slim Potion
@@ -3099,7 +3099,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11577
     AegisName: Rice_Ball_B
     Name: Rice Ball
@@ -3116,7 +3116,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11578
     AegisName: Candy_Striper_B
     Name: Candy Bar
@@ -3133,7 +3133,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11580
     AegisName: Candy_B
     Name: Candy
@@ -3150,7 +3150,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11581
     AegisName: Piece_Of_Cake_B
     Name: Piece of Cake
@@ -3167,7 +3167,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11582
     AegisName: Well_Baked_Cookie_B
     Name: Well-baked Cookie
@@ -3184,7 +3184,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11583
     AegisName: Chocolate_Drink_B
     Name: Chocolate Drink
@@ -3201,7 +3201,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
       sc_end SC_POISON;
       sc_end SC_SILENCE;
       sc_end SC_BLIND;
@@ -3224,7 +3224,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11585
     AegisName: HandMade_Chocolate_B
     Name: Hand-made Chocolate
@@ -3241,7 +3241,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11586
     AegisName: HandMade_Chocolate_B_
     Name: Hand-made White Chocolate
@@ -3258,7 +3258,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11587
     AegisName: Chocolate_B
     Name: Chocolate
@@ -3275,7 +3275,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 11588
     AegisName: Fresh_Strawberries
     Name: Fresh Strawberries
@@ -3283,7 +3283,7 @@ Body:
     Buy: 10
     Weight: 10
     Script: |
-      
+
   - Id: 11589
     AegisName: Iceflake
     Name: Cold Snow Cone
@@ -3293,7 +3293,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11590
     AegisName: Meat_Skewer5
     Name: Skewer No.5
@@ -3303,7 +3303,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 11592
     AegisName: Trance_Candy_R
     Name: Trans Candy Red
@@ -3311,7 +3311,7 @@ Body:
     Buy: 20
     Weight: 30
     Script: |
-      
+
       transform 1507,600000,SC_MTF_MHP,20;
       specialeffect2 EF_CLOAKING;
       showscript "Trans-Form-!! Bloody Murderer Fo-rm!!";
@@ -3322,7 +3322,7 @@ Body:
     Buy: 20
     Weight: 30
     Script: |
-      
+
       transform 1102,600000,SC_MTF_MSP,20;
       specialeffect2 EF_CLOAKING;
       showscript "Trans-Form-!!! Bathory Fo-rm!!";
@@ -3333,7 +3333,7 @@ Body:
     Buy: 20
     Weight: 30
     Script: |
-      
+
       transform 1130,600000,SC_MTF_PUMPKIN,2000,100;
       specialeffect2 EF_CLOAKING;
       showscript "Trans-Form-!! Jack Fo-rm!!";
@@ -3344,7 +3344,7 @@ Body:
     Buy: 20
     Weight: 30
     Script: |
-      
+
       transform 1508,600000,SC_MTF_HITFLEE,10,20;
       specialeffect2 EF_CLOAKING;
       showscript "Trans-Form-!! Cube Fo-rm!!";
@@ -3355,7 +3355,7 @@ Body:
     Buy: 20
     Weight: 50
     Script: |
-      
+
   - Id: 11597
     AegisName: Iron_Bug
     Name: Iron Worm
@@ -3399,7 +3399,7 @@ Body:
     Buy: 20
     Weight: 20
     Script: |
-      
+
       specialeffect2 EF_HEAL3;
   - Id: 11602
     AegisName: Nepeta_Cataria
@@ -3408,7 +3408,7 @@ Body:
     Buy: 15
     Weight: 1
     Script: |
-      
+
       specialeffect2 EF_HEAL3;
   - Id: 11605
     AegisName: Cookies_Bat
@@ -3416,7 +3416,7 @@ Body:
     Type: Healing
     Weight: 30
     Script: |
-      
+
       /*TODO*/
   - Id: 11616
     AegisName: Yummy_Meat
@@ -3425,7 +3425,7 @@ Body:
     Buy: 1400
     Weight: 50
     Script: |
-      
+
   - Id: 11621
     AegisName: Red_Syrup
     Name: Red Syrup
@@ -3436,7 +3436,7 @@ Body:
     Delay:
       Duration: 1000
     Script: |
-      
+
   - Id: 11622
     AegisName: Yellow_Syrup
     Name: Yellow Syrup
@@ -3447,7 +3447,7 @@ Body:
     Delay:
       Duration: 1000
     Script: |
-      
+
   - Id: 11623
     AegisName: White_Syrup
     Name: White Syrup
@@ -3458,7 +3458,7 @@ Body:
     Delay:
       Duration: 1000
     Script: |
-      
+
   - Id: 11624
     AegisName: Blue_Syrup
     Name: Blue Syrup
@@ -3469,7 +3469,7 @@ Body:
     Delay:
       Duration: 10000
     Script: |
-      
+
   - Id: 11701
     AegisName: Girl_Bunch_Of_Flower
     Name: Girl's Bouquet
@@ -3477,7 +3477,7 @@ Body:
     Buy: 20
     Weight: 50
     Script: |
-      
+
   - Id: 11702
     AegisName: Moon_Cookie
     Name: Moon Cookie
@@ -3494,7 +3494,7 @@ Body:
     Type: Healing
     Weight: 10
     Script: |
-      
+
   - Id: 11704
     AegisName: KETUPAT_F
     Name: Ketupat
@@ -3502,7 +3502,7 @@ Body:
     Buy: 2
     Weight: 10
     Script: |
-      
+
   - Id: 11705
     AegisName: Special_White_Potion
     Name: Children's Potion
@@ -3510,7 +3510,7 @@ Body:
     Buy: 1
     Weight: 10
     Script: |
-      
+
   - Id: 11706
     AegisName: Steak
     Name: Steak
@@ -3518,7 +3518,7 @@ Body:
     Buy: 1
     Weight: 200
     Script: |
-      
+
   - Id: 11707
     AegisName: Roasted_Beef
     Name: Roast Beef
@@ -3526,7 +3526,7 @@ Body:
     Buy: 1
     Weight: 200
     Script: |
-      
+
   - Id: 11708
     AegisName: Fore_Flank_Sirloin
     Name: Fore Flank Sirloin
@@ -3534,7 +3534,7 @@ Body:
     Buy: 20
     Weight: 100
     Script: |
-      
+
   - Id: 11709
     AegisName: Fanta_Zero_Lemon
     Name: Fanta Zero Lemon
@@ -3542,7 +3542,7 @@ Body:
     Buy: 800
     Weight: 100
     Script: |
-      
+
   - Id: 11710
     AegisName: Sakura_Mist
     Name: Sakura Mist
@@ -3550,7 +3550,7 @@ Body:
     Buy: 800
     Weight: 100
     Script: |
-      
+
   - Id: 11711
     AegisName: Sakura_Milk_Tea
     Name: Sakura Milk Tea
@@ -3558,7 +3558,7 @@ Body:
     Buy: 800
     Weight: 100
     Script: |
-      
+
   - Id: 11712
     AegisName: First_Leaf_Tea
     Name: Flower
@@ -3566,14 +3566,14 @@ Body:
     Buy: 800
     Weight: 100
     Script: |
-      
+
   - Id: 11713
     AegisName: Julia's_Candy
     Name: Julia's Candy
     Type: Healing
     Weight: 30
     Script: |
-      
+
   - Id: 12000
     AegisName: Cold_Scroll_2_5
     Name: Level 5 Frost Diver
@@ -3855,7 +3855,7 @@ Body:
       Override: 100
       Sitting: true
     Script: |
-      
+
       sc_start SC_CURSE,30000,0,3000,0;
   - Id: 12028
     AegisName: Box_Of_Thunder
@@ -3949,7 +3949,7 @@ Body:
       Override: 100
       Sitting: true
     Script: |
-      
+
       sc_start SC_SILENCE,30000,0,3000,0;
   - Id: 12035
     AegisName: Lotto_Box01
@@ -3988,16 +3988,6 @@ Body:
     Weight: 20
     Script: |
       getrandgroupitem(IG_LottoBox5,1);
-  - Id: 12040
-    AegisName: Stone_Of_Intelligence_
-    Name: Stone of Sage
-    Type: Usable
-    Buy: 100000
-    Weight: 300
-    Flags:
-      BuyingStore: true
-    Script: |
-      homevolution;
   - Id: 12041
     AegisName: Str_Dish01
     Name: Fried Grasshopper Legs
@@ -4008,7 +3998,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_STRFOOD,1200000,1;
-      
+
   - Id: 12042
     AegisName: Str_Dish02
     Name: Seasoned Sticky Webfoot
@@ -4019,7 +4009,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_STRFOOD,1200000,2;
-      
+
   - Id: 12043
     AegisName: Str_Dish03
     Name: Bomber Steak
@@ -4030,7 +4020,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_STRFOOD,1200000,3;
-      
+
   - Id: 12044
     AegisName: Str_Dish04
     Name: Herb Marinade Beef
@@ -4041,7 +4031,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_STRFOOD,1200000,4;
-      
+
   - Id: 12045
     AegisName: Str_Dish05
     Name: Lutie Lady's Pancake
@@ -4052,7 +4042,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_STRFOOD,1200000,5;
-      
+
   - Id: 12046
     AegisName: Int_Dish01
     Name: Grape Juice Herbal Tea
@@ -4063,7 +4053,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_INTFOOD,1200000,1;
-      
+
   - Id: 12047
     AegisName: Int_Dish02
     Name: Autumn Red Tea
@@ -4074,7 +4064,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_INTFOOD,1200000,2;
-      
+
   - Id: 12048
     AegisName: Int_Dish03
     Name: Honey Herbal Tea
@@ -4085,7 +4075,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_INTFOOD,1200000,3;
-      
+
   - Id: 12049
     AegisName: Int_Dish04
     Name: Morocc Fruit Wine
@@ -4096,7 +4086,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_INTFOOD,1200000,4;
-      
+
   - Id: 12050
     AegisName: Int_Dish05
     Name: Mastela Fruit Wine
@@ -4107,7 +4097,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_INTFOOD,1200000,5;
-      
+
   - Id: 12051
     AegisName: Vit_Dish01
     Name: Steamed Crab Nippers
@@ -4118,7 +4108,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_VITFOOD,1200000,1;
-      
+
   - Id: 12052
     AegisName: Vit_Dish02
     Name: Assorted Seafood
@@ -4129,7 +4119,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_VITFOOD,1200000,2;
-      
+
   - Id: 12053
     AegisName: Vit_Dish03
     Name: Clam Soup
@@ -4140,7 +4130,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_VITFOOD,1200000,3;
-      
+
   - Id: 12054
     AegisName: Vit_Dish04
     Name: Seasoned Jellyfish
@@ -4151,7 +4141,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_VITFOOD,1200000,4;
-      
+
   - Id: 12055
     AegisName: Vit_Dish05
     Name: Spicy Fried Bao
@@ -4162,7 +4152,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_VITFOOD,1200000,5;
-      
+
   - Id: 12056
     AegisName: Agi_Dish01
     Name: Frog Egg Squid Ink Soup
@@ -4173,7 +4163,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_AGIFOOD,1200000,1;
-      
+
   - Id: 12057
     AegisName: Agi_Dish02
     Name: Smooth Noodle
@@ -4184,7 +4174,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_AGIFOOD,1200000,2;
-      
+
   - Id: 12058
     AegisName: Agi_Dish03
     Name: Tentacle Cheese Gratin
@@ -4195,7 +4185,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_AGIFOOD,1200000,3;
-      
+
   - Id: 12059
     AegisName: Agi_Dish04
     Name: Lutie Cold Noodle
@@ -4206,7 +4196,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_AGIFOOD,1200000,4;
-      
+
   - Id: 12060
     AegisName: Agi_Dish05
     Name: Steamed Bat Wing in Pumpkin
@@ -4217,7 +4207,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_AGIFOOD,1200000,5;
-      
+
   - Id: 12061
     AegisName: Dex_Dish01
     Name: Honey Grape Juice
@@ -4228,7 +4218,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_DEXFOOD,1200000,1;
-      
+
   - Id: 12062
     AegisName: Dex_Dish02
     Name: Chocolate Mousse Cake
@@ -4239,7 +4229,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_DEXFOOD,1200000,2;
-      
+
   - Id: 12063
     AegisName: Dex_Dish03
     Name: Fruit Mix
@@ -4250,7 +4240,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_DEXFOOD,1200000,3;
-      
+
   - Id: 12064
     AegisName: Dex_Dish04
     Name: Cream Sandwich
@@ -4261,7 +4251,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_DEXFOOD,1200000,4;
-      
+
   - Id: 12065
     AegisName: Dex_Dish05
     Name: Green Salad
@@ -4272,7 +4262,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_DEXFOOD,1200000,5;
-      
+
   - Id: 12066
     AegisName: Luk_Dish01
     Name: Fried Monkey Tails
@@ -4283,7 +4273,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_LUKFOOD,1200000,1;
-      
+
   - Id: 12067
     AegisName: Luk_Dish02
     Name: Mixed Juice
@@ -4294,7 +4284,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_LUKFOOD,1200000,2;
-      
+
   - Id: 12068
     AegisName: Luk_Dish03
     Name: Fried Sweet Potato
@@ -4305,7 +4295,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_LUKFOOD,1200000,3;
-      
+
   - Id: 12069
     AegisName: Luk_Dish04
     Name: Steamed Ancient Lips
@@ -4316,7 +4306,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_LUKFOOD,1200000,4;
-      
+
   - Id: 12070
     AegisName: Luk_Dish05
     Name: Fried Scorpion Tails
@@ -4327,7 +4317,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_LUKFOOD,1200000,5;
-      
+
   - Id: 12071
     AegisName: Str_Dish06
     Name: Shiny Marinade Beef
@@ -4338,7 +4328,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_STRFOOD,1200000,6;
-      
+
   - Id: 12072
     AegisName: Str_Dish07
     Name: Whole Roast
@@ -4349,7 +4339,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_STRFOOD,1200000,7;
-      
+
   - Id: 12073
     AegisName: Str_Dish08
     Name: Bearfoot Special
@@ -4360,7 +4350,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_STRFOOD,1200000,8;
-      
+
   - Id: 12074
     AegisName: Str_Dish09
     Name: Tendon Satay
@@ -4371,7 +4361,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_STRFOOD,1200000,9;
-      
+
   - Id: 12075
     AegisName: Str_Dish10
     Name: Steamed Tongue
@@ -4382,7 +4372,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_STRFOOD,1200000,10;
-      
+
   - Id: 12076
     AegisName: Int_Dish06
     Name: Red Mushroom Wine
@@ -4393,7 +4383,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_INTFOOD,1200000,6;
-      
+
   - Id: 12077
     AegisName: Int_Dish07
     Name: Special Royal Jelly Herbal Tea
@@ -4404,7 +4394,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_INTFOOD,1200000,7;
-      
+
   - Id: 12078
     AegisName: Int_Dish08
     Name: Royal Family Tea
@@ -4415,7 +4405,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_INTFOOD,1200000,8;
-      
+
   - Id: 12079
     AegisName: Int_Dish09
     Name: Tristan XII
@@ -4426,7 +4416,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_INTFOOD,1200000,9;
-      
+
   - Id: 12080
     AegisName: Int_Dish10
     Name: Dragon Breath Cocktail
@@ -4437,7 +4427,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_INTFOOD,1200000,10;
-      
+
   - Id: 12081
     AegisName: Vit_Dish06
     Name: Awfully Bitter Bracer
@@ -4448,7 +4438,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_VITFOOD,1200000,6;
-      
+
   - Id: 12082
     AegisName: Vit_Dish07
     Name: Sumptuous Feast
@@ -4459,7 +4449,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_VITFOOD,1200000,7;
-      
+
   - Id: 12083
     AegisName: Vit_Dish08
     Name: Giant Burito
@@ -4470,7 +4460,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_VITFOOD,1200000,8;
-      
+
   - Id: 12084
     AegisName: Vit_Dish09
     Name: Ascending Dragon Soup
@@ -4481,7 +4471,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_VITFOOD,1200000,9;
-      
+
   - Id: 12085
     AegisName: Vit_Dish10
     Name: Immortal Stew
@@ -4492,7 +4482,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_VITFOOD,1200000,10;
-      
+
   - Id: 12086
     AegisName: Agi_Dish06
     Name: Chile Shrimp Gratin
@@ -4503,7 +4493,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_AGIFOOD,1200000,6;
-      
+
   - Id: 12087
     AegisName: Agi_Dish07
     Name: Steamed Alligator with Vegetable
@@ -4514,7 +4504,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_AGIFOOD,1200000,7;
-      
+
   - Id: 12088
     AegisName: Agi_Dish08
     Name: Incredibly Spicy Curry
@@ -4525,7 +4515,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_AGIFOOD,1200000,8;
-      
+
   - Id: 12089
     AegisName: Agi_Dish09
     Name: Special Meat Stew
@@ -4536,7 +4526,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_AGIFOOD,1200000,9;
-      
+
   - Id: 12090
     AegisName: Agi_Dish10
     Name: Steamed Desert Scorpions
@@ -4547,7 +4537,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_AGIFOOD,1200000,10;
-      
+
   - Id: 12091
     AegisName: Dex_Dish06
     Name: Peach Cake
@@ -4558,7 +4548,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_DEXFOOD,1200000,6;
-      
+
   - Id: 12092
     AegisName: Dex_Dish07
     Name: Soul Haunted Bread
@@ -4569,7 +4559,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_DEXFOOD,1200000,7;
-      
+
   - Id: 12093
     AegisName: Dex_Dish08
     Name: Special Toast
@@ -4580,7 +4570,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_DEXFOOD,1200000,8;
-      
+
   - Id: 12094
     AegisName: Dex_Dish09
     Name: Heavenly Fruit Juice
@@ -4591,7 +4581,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_DEXFOOD,1200000,9;
-      
+
   - Id: 12095
     AegisName: Dex_Dish10
     Name: Hwergelmir's Tonic
@@ -4602,7 +4592,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_DEXFOOD,1200000,10;
-      
+
   - Id: 12096
     AegisName: Luk_Dish06
     Name: Lucky Soup
@@ -4613,7 +4603,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_LUKFOOD,1200000,6;
-      
+
   - Id: 12097
     AegisName: Luk_Dish07
     Name: Assorted Shish Kebob
@@ -4624,7 +4614,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_LUKFOOD,1200000,7;
-      
+
   - Id: 12098
     AegisName: Luk_Dish08
     Name: Strawberry Flavored Rice Ball
@@ -4635,7 +4625,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_LUKFOOD,1200000,8;
-      
+
   - Id: 12099
     AegisName: Luk_Dish09
     Name: Blood Flavored Soda
@@ -4646,7 +4636,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_LUKFOOD,1200000,9;
-      
+
   - Id: 12100
     AegisName: Luk_Dish10
     Name: Cooked Nine Tail's Tails
@@ -4657,7 +4647,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start SC_LUKFOOD,1200000,10;
-      
+
   - Id: 12101
     AegisName: Citron
     Name: Citron
@@ -5009,7 +4999,7 @@ Body:
     Script: |
       if (gettime(DT_DAYOFMONTH) != MDiceCone) {
          MDiceCone = gettime(DT_DAYOFMONTH);
-         
+
       }
   - Id: 12134
     AegisName: Red_Envelope
@@ -5029,7 +5019,7 @@ Body:
     Delay:
       Duration: 3000
     Script: |
-      
+
       sc_start SC_CONFUSION,10000,0,1000,0;
   - Id: 12136
     AegisName: Women's_Bundle
@@ -5082,7 +5072,7 @@ Body:
     Buy: 50000
     Weight: 300
     Script: |
-      
+
   - Id: 12144
     AegisName: Sphere_Case_Wind
     Name: Lightning Sphere Pack
@@ -5739,7 +5729,7 @@ Body:
     Buy: 20
     Weight: 300
     Script: |
-      
+
   - Id: 12189
     AegisName: Red_Box_
     Name: Old Red Box
@@ -5774,7 +5764,7 @@ Body:
     Buy: 20
     Weight: 30
     Script: |
-      
+
   - Id: 12193
     AegisName: Brezel
     Name: Pretzel
@@ -5782,7 +5772,7 @@ Body:
     Buy: 20
     Weight: 20
     Script: |
-      
+
   - Id: 12194
     AegisName: Hometown_Gift
     Name: Hometown Gift
@@ -5805,7 +5795,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 12196
     AegisName: Hearty_Rice_Cake
     Name: Hearty Rice Cake
@@ -5815,7 +5805,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 12197
     AegisName: Salty_Rice_Cake
     Name: Salty Rice Cake
@@ -5825,7 +5815,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 12198
     AegisName: Lucky_Rice_Cake
     Name: Lucky Rice Cake
@@ -5857,7 +5847,7 @@ Body:
     Buy: 20
     Weight: 50
     Script: |
-      
+
       itemskill "PR_MAGNIFICAT",3;
   - Id: 12201
     AegisName: Red_Box_C
@@ -5882,7 +5872,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_FOOD_STR_CASH,1800000,10;
-      
+
   - Id: 12203
     AegisName: Agi_Dish10_
     Name: Steamed Scorpion
@@ -5900,7 +5890,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_FOOD_AGI_CASH,1800000,10;
-      
+
   - Id: 12204
     AegisName: Int_Dish10_
     Name: Dragon Breath Cocktail
@@ -5918,7 +5908,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_FOOD_INT_CASH,1800000,10;
-      
+
   - Id: 12205
     AegisName: Dex_Dish10_
     Name: Hwergelmir's Tonic
@@ -5936,7 +5926,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_FOOD_DEX_CASH,1800000,10;
-      
+
   - Id: 12206
     AegisName: Luk_Dish10_
     Name: Cooked Nine Tail's Tails
@@ -5954,7 +5944,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_FOOD_LUK_CASH,1800000,10;
-      
+
   - Id: 12207
     AegisName: Vit_Dish10_
     Name: Stew Of Immortality
@@ -5972,7 +5962,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_FOOD_VIT_CASH,1800000,10;
-      
+
   - Id: 12208
     AegisName: Battle_Manual
     Name: Battle Manual
@@ -6269,7 +6259,7 @@ Body:
     Weight: 50
     Script: |
       sc_start SC_SPEEDUP0,5400000,25;
-      
+
       sc_start SC_STRFOOD,5400000,10;
       sc_start SC_DEXFOOD,5400000,5;
       sc_start SC_ATKPOTION,5400000,22;
@@ -6282,7 +6272,7 @@ Body:
     Weight: 50
     Script: |
       sc_start SC_SPEEDUP0,5400000,25;
-      
+
       sc_start SC_INTFOOD,5400000,8;
       sc_start SC_VITFOOD,5400000,7;
       sc_start SC_LUKFOOD,5400000,7;
@@ -6295,7 +6285,7 @@ Body:
     Weight: 50
     Script: |
       sc_start SC_SPEEDUP0,5400000,25;
-      
+
       sc_start SC_AGIFOOD,5400000,15;
       sc_start SC_ATKPOTION,5400000,52;
       sc_start SC_MATKFOOD,5400000,10;
@@ -6307,7 +6297,7 @@ Body:
     Weight: 50
     Script: |
       sc_start SC_SPEEDUP0,5400000,25;
-      
+
       sc_start SC_STRFOOD,5400000,3;
       sc_start SC_AGIFOOD,5400000,5;
       sc_start SC_VITFOOD,5400000,10;
@@ -6320,7 +6310,7 @@ Body:
     Weight: 50
     Script: |
       sc_start SC_SPEEDUP0,5400000,25;
-      
+
       sc_start SC_INTFOOD,5400000,3;
       sc_start SC_DEXFOOD,5400000,12;
       sc_start SC_ATKPOTION,5400000,20;
@@ -6332,7 +6322,7 @@ Body:
     Buy: 20
     Weight: 50
     Script: |
-      
+
       sc_start SC_SPEEDUP0,5400000,25;
       sc_start SC_STRFOOD,5400000,6;
       sc_start SC_DEXFOOD,5400000,6;
@@ -6358,7 +6348,7 @@ Body:
     Buy: 20
     Weight: 200
     Script: |
-      
+
   - Id: 12234
     AegisName: Cacao99
     Name: Fierce Cacao 99%
@@ -6366,7 +6356,7 @@ Body:
     Buy: 20
     Weight: 100
     Script: |
-      
+
   - Id: 12235
     AegisName: Strawberry_Choco
     Name: Chocolate Strawberry
@@ -6377,7 +6367,7 @@ Body:
       Override: 100
       Sitting: true
     Script: |
-      
+
       skilleffect "AL_BLESSING",0;
       sc_start SC_BLESSING,240000,5;
   - Id: 12236
@@ -6390,7 +6380,7 @@ Body:
       Override: 100
       Sitting: true
     Script: |
-      
+
       itemskill "AL_ANGELUS",5;
   - Id: 12237
     AegisName: Choco_Lump
@@ -6401,7 +6391,7 @@ Body:
       Override: 100
       Sitting: true
     Script: |
-      
+
       sc_start SC_POISON,18000,0;
       sc_start SC_BLEEDING,18000,0;
   - Id: 12238
@@ -6495,7 +6485,7 @@ Body:
     Buy: 5000
     Weight: 500
     Script: |
-      
+
   - Id: 12246
     AegisName: Magic_Card_Album
     Name: Mystical Card Album
@@ -6539,7 +6529,7 @@ Body:
     Weight: 10
     Script: |
       sc_start SC_STRFOOD,3600000,10;
-      
+
   - Id: 12251
     AegisName: Agi_Dish10_M
     Name: Steamed Desert Scorpions
@@ -6547,7 +6537,7 @@ Body:
     Weight: 10
     Script: |
       sc_start SC_AGIFOOD,3600000,10;
-      
+
   - Id: 12252
     AegisName: Int_Dish10_M
     Name: Dragon Breath Cocktail
@@ -6555,7 +6545,7 @@ Body:
     Weight: 10
     Script: |
       sc_start SC_INTFOOD,3600000,10;
-      
+
   - Id: 12253
     AegisName: Dex_Dish10_M
     Name: Hwergelmir's Tonic
@@ -6563,7 +6553,7 @@ Body:
     Weight: 10
     Script: |
       sc_start SC_DEXFOOD,3600000,10;
-      
+
   - Id: 12254
     AegisName: Luk_Dish10_M
     Name: Cooked Nine Tail
@@ -6571,7 +6561,7 @@ Body:
     Weight: 10
     Script: |
       sc_start SC_LUKFOOD,3600000,10;
-      
+
   - Id: 12255
     AegisName: Vit_Dish10_M
     Name: Immortal Stew
@@ -6579,7 +6569,7 @@ Body:
     Weight: 10
     Script: |
       sc_start SC_VITFOOD,3600000,10;
-      
+
   - Id: 12256
     AegisName: PRO_Gift_Box
     Name: PRO Gift Box
@@ -6593,7 +6583,7 @@ Body:
     Weight: 100
     EquipLevelMin: 50
     Script: |
-      
+
   - Id: 12258
     AegisName: Bombring_Box
     Name: Bomb Poring Box
@@ -6824,7 +6814,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 12272
     AegisName: Mre_B
     Name: Military Ration B
@@ -6874,7 +6864,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start2 SC_INCREASE_MAXHP,3600000,5,10;
-      
+
   - Id: 12275
     AegisName: Gold_Pill_2
     Name: Taecheongdan
@@ -6892,7 +6882,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start2 SC_INCREASE_MAXSP,3600000,5,10;
-      
+
   - Id: 12276
     AegisName: Mimic_Scroll
     Name: Mimic Scroll
@@ -7085,7 +7075,7 @@ Body:
       Override: 100
       Sitting: true
     Script: |
-      
+
       skilleffect "AL_BLESSING",0;
       sc_start SC_BLESSING,120000,5;
   - Id: 12291
@@ -7100,7 +7090,7 @@ Body:
       Override: 100
       Sitting: true
     Script: |
-      
+
       skilleffect "AL_INCAGI",0;
       sc_start SC_INCREASEAGI,120000,5;
   - Id: 12292
@@ -7112,7 +7102,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 12293
     AegisName: Dried_Yggdrasilberry
     Name: Dried Yggdrasilberry
@@ -7122,7 +7112,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 12294
     AegisName: PC_Bang_Coin_Box1
     Name: PC-Room Coin Box
@@ -7554,7 +7544,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 12323
     AegisName: N_Fly_Wing
     Name: Novice Fly Wing
@@ -7665,7 +7655,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 12332
     AegisName: Fruit_Juice
     Name: Fruit Juice
@@ -7680,7 +7670,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 12333
     AegisName: Ansila
     Name: Ancilla
@@ -7700,7 +7690,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
       sc_start SC_ANCILLA,60000,1;
   - Id: 12334
     AegisName: Cherish_Box
@@ -7718,7 +7708,7 @@ Body:
     Buy: 1000
     Weight: 350
     Script: |
-      
+
   - Id: 12336
     AegisName: Baked_Mushroom
     Name: Grilled Mushroom
@@ -7726,7 +7716,7 @@ Body:
     Buy: 500
     Weight: 300
     Script: |
-      
+
   - Id: 12337
     AegisName: Grilled_Sausage
     Name: Grilled Sausages
@@ -7734,7 +7724,7 @@ Body:
     Buy: 300
     Weight: 200
     Script: |
-      
+
   - Id: 12338
     AegisName: Grilled_Corn
     Name: Grilled Corn
@@ -8201,7 +8191,7 @@ Body:
       Override: 100
       Sitting: true
     Script: |
-      
+
       itemskill "PR_GLORIA",2;
   - Id: 12377
     AegisName: Mysterious_PET_Bottle2
@@ -8215,7 +8205,7 @@ Body:
       Override: 100
       Sitting: true
     Script: |
-      
+
       itemskill "PR_MAGNIFICAT",1;
   - Id: 12378
     AegisName: 2009_Rice_Cake_Soup
@@ -8224,7 +8214,7 @@ Body:
     Buy: 10
     Weight: 100
     Script: |
-      
+
   - Id: 12379
     AegisName: Pope's_Cookie
     Name: Pope Cookie
@@ -8444,7 +8434,7 @@ Body:
       BuyingStore: true
     Script: |
       if (checkmadogear()) {
-         
+
       }
   - Id: 12393
     AegisName: RepairB
@@ -8460,7 +8450,7 @@ Body:
       BuyingStore: true
     Script: |
       if (checkmadogear()) {
-         
+
       }
   - Id: 12394
     AegisName: RepairC
@@ -8476,7 +8466,7 @@ Body:
       BuyingStore: true
     Script: |
       if (checkmadogear()) {
-         
+
       }
   - Id: 12395
     AegisName: Tantanmen
@@ -8576,7 +8566,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 12403
     AegisName: Lucky_Egg_C2
     Name: Lucky Egg C2
@@ -8630,7 +8620,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
       skilleffect "AL_BLESSING",0;
       sc_start SC_BLESSING,140000,5;
   - Id: 12406
@@ -8812,7 +8802,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start2 SC_PROMOTE_HEALTH_RESERCH,500000,1,1;
-      
+
   - Id: 12423
     AegisName: HP_Increase_PotionM
     Name: HP Increase Potion (Medium)
@@ -8823,7 +8813,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start2 SC_PROMOTE_HEALTH_RESERCH,500000,1,2;
-      
+
   - Id: 12424
     AegisName: HP_Increase_PotionL
     Name: HP Increase Potion (Large)
@@ -8834,7 +8824,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start2 SC_PROMOTE_HEALTH_RESERCH,500000,1,3;
-      
+
   - Id: 12425
     AegisName: SP_Increase_PotionS
     Name: SP Increase Potion (Small)
@@ -8845,7 +8835,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start2 SC_ENERGY_DRINK_RESERCH,500000,1,1;
-      
+
   - Id: 12426
     AegisName: SP_Increase_PotionM
     Name: SP Increase Potion (Medium)
@@ -8856,7 +8846,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start2 SC_ENERGY_DRINK_RESERCH,500000,1,2;
-      
+
   - Id: 12427
     AegisName: SP_Increase_PotionL
     Name: SP Increase Potion (Large)
@@ -8867,7 +8857,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start2 SC_ENERGY_DRINK_RESERCH,500000,1,3;
-      
+
   - Id: 12428
     AegisName: Enrich_White_PotionZ
     Name: Concentrated White Potion Z
@@ -8950,7 +8940,7 @@ Body:
       BuyingStore: true
     Script: |
       sc_start2 SC_VITATA_500,500000,20,5;
-      
+
   - Id: 12437
     AegisName: Enrich_Celermine_Juice
     Name: Concentrated Ceromain Soup
@@ -9023,7 +9013,7 @@ Body:
     Weight: 10
     Script: |
       sc_start SC_STRFOOD,1800000,10;
-      
+
   - Id: 12446
     AegisName: F_Agi_Dish10_
     Name: F Agi Dish10
@@ -9032,7 +9022,7 @@ Body:
     Weight: 10
     Script: |
       sc_start SC_AGIFOOD,1800000,10;
-      
+
   - Id: 12447
     AegisName: F_Int_Dish10_
     Name: F Int Dish10
@@ -9041,7 +9031,7 @@ Body:
     Weight: 10
     Script: |
       sc_start SC_INTFOOD,1800000,10;
-      
+
   - Id: 12448
     AegisName: F_Dex_Dish10_
     Name: F Dex Dish10
@@ -9050,7 +9040,7 @@ Body:
     Weight: 10
     Script: |
       sc_start SC_DEXFOOD,1800000,10;
-      
+
   - Id: 12449
     AegisName: F_Luk_Dish10_
     Name: F Luk Dish10
@@ -9271,7 +9261,7 @@ Body:
       sc_end SC_CURSE;
       sc_end SC_ORCISH;
       sc_end SC_CHANGEUNDEAD;
-      
+
   - Id: 12476
     AegisName: PCBang_Coupon_Box3
     Name: PCBang Coupon Box3
@@ -10043,7 +10033,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 12537
     AegisName: Solo_Gift_Basket
     Name: Solo Gift Basket
@@ -10461,7 +10451,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
       specialeffect2 EF_GUARD;
       bonus_script "{ bonus2 bAddDefMonster,2137,50; bonus2 bAddDefMonster,2136,50; bonus2 bAddDefMonster,2134,50; bonus2 bAddDefMonster,2133,50; bonus2 bAddDefMonster,2132,50; }",120;
   - Id: 12575
@@ -10803,7 +10793,7 @@ Body:
     Buy: 20
     Weight: 100
     Script: |
-      
+
   - Id: 12602
     AegisName: Special_Box1
     Name: Special Box I
@@ -11036,7 +11026,7 @@ Body:
     Buy: 20
     Weight: 50
     Script: |
-      
+
   - Id: 12625
     AegisName: Sapa_Feat_Cert_Pack
     Name: Sapa Feat Cert Pack
@@ -11286,7 +11276,7 @@ Body:
     Buy: 20
     Weight: 30
     Script: |
-      
+
       sc_start SC_LUKFOOD,600000,9;
       sc_start SC_ATKPOTION,600000,20;
       sc_start SC_MATKPOTION,600000,20;
@@ -11990,7 +11980,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 12705
     AegisName: Noble_Nameplate
     Name: Noble Nameplate
@@ -12044,7 +12034,7 @@ Body:
     Type: Healing
     Weight: 150
     Script: |
-      
+
   - Id: 12710
     AegisName: Guyak_Pudding
     Name: Guyak Pudding
@@ -12059,7 +12049,7 @@ Body:
     Buy: 2
     Weight: 100
     Script: |
-      
+
   - Id: 12712
     AegisName: Green_Beer
     Name: Green Beer
@@ -12067,7 +12057,7 @@ Body:
     Buy: 2
     Weight: 100
     Script: |
-      
+
   - Id: 12713
     AegisName: Monster_Extract
     Name: Monster Extract
@@ -12454,7 +12444,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      
+
   - Id: 12740
     AegisName: Inc_Str_Scroll
     Name: Amplification Scroll
@@ -12579,7 +12569,7 @@ Body:
     Type: Usable
     Weight: 10
     Script: |
-      
+
   - Id: 12755
     AegisName: Traditional_Firecrack
     Name: Chinese Fireworks
@@ -13519,7 +13509,7 @@ Body:
     Type: Usable
     Weight: 200
     Script: |
-      
+
       skilleffect "HP_ASSUMPTIO",0;
       sc_start SC_ASSUMPTIO,100000,5;
   - Id: 12863
@@ -32651,7 +32641,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 14523
     AegisName: Pill_
     Name: Pill
@@ -32667,7 +32657,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 14524
     AegisName: Superb_Fish_Slice
     Name: Superb Fish Slice
@@ -32683,7 +32673,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 14525
     AegisName: Chewy_Ricecake
     Name: Chewy Ricecake
@@ -33135,7 +33125,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_STRFOOD,1200000,1;
-      
+
   - Id: 14552
     AegisName: Str_Dish02_
     Name: Seasoned Sticky Webfoot
@@ -33153,7 +33143,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_STRFOOD,1200000,2;
-      
+
   - Id: 14553
     AegisName: Str_Dish03_
     Name: Bomber Steak
@@ -33171,7 +33161,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_STRFOOD,1200000,3;
-      
+
   - Id: 14554
     AegisName: Int_Dish01_
     Name: Grape Juice Herbal Tea
@@ -33189,7 +33179,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_INTFOOD,1200000,1;
-      
+
   - Id: 14555
     AegisName: Int_Dish02_
     Name: Autumn Red Tea
@@ -33207,7 +33197,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_INTFOOD,1200000,2;
-      
+
   - Id: 14556
     AegisName: Int_Dish03_
     Name: Honey Herbal Tea
@@ -33225,7 +33215,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_INTFOOD,1200000,3;
-      
+
   - Id: 14557
     AegisName: Vit_Dish01_
     Name: Steamed Crab Nippers
@@ -33243,7 +33233,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_VITFOOD,1200000,1;
-      
+
   - Id: 14558
     AegisName: Vit_Dish02_
     Name: Assorted Seafood
@@ -33261,7 +33251,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_VITFOOD,1200000,2;
-      
+
   - Id: 14559
     AegisName: Vit_Dish03_
     Name: Clam Soup
@@ -33279,7 +33269,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_VITFOOD,1200000,3;
-      
+
   - Id: 14560
     AegisName: Agi_Dish01_
     Name: Frog Egg Squid Ink Soup
@@ -33297,7 +33287,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_AGIFOOD,1200000,1;
-      
+
   - Id: 14561
     AegisName: Agi_Dish02_
     Name: Smooth Noodle
@@ -33315,7 +33305,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_AGIFOOD,1200000,2;
-      
+
   - Id: 14562
     AegisName: Agi_Dish03_
     Name: Tentacle Cheese Gratin
@@ -33333,7 +33323,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_AGIFOOD,1200000,3;
-      
+
   - Id: 14563
     AegisName: Dex_Dish01_
     Name: Honey Grape Juice
@@ -33351,7 +33341,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_DEXFOOD,1200000,1;
-      
+
   - Id: 14564
     AegisName: Dex_Dish02_
     Name: Chocolate Mousse Cake
@@ -33369,7 +33359,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_DEXFOOD,1200000,2;
-      
+
   - Id: 14565
     AegisName: Dex_Dish03_
     Name: Fruit Mix
@@ -33387,7 +33377,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_DEXFOOD,1200000,3;
-      
+
   - Id: 14566
     AegisName: Luk_Dish01_
     Name: Fried Monkey Tails
@@ -33405,7 +33395,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_LUKFOOD,1200000,1;
-      
+
   - Id: 14567
     AegisName: Luk_Dish02_
     Name: Mixed Juice
@@ -33423,7 +33413,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_LUKFOOD,1200000,2;
-      
+
   - Id: 14568
     AegisName: Luk_Dish03_
     Name: Fried Sweet Potato
@@ -33441,7 +33431,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_LUKFOOD,1200000,3;
-      
+
   - Id: 14569
     AegisName: Knife_Goblin_Ring
     Name: Knife Goblin Ring
@@ -33549,7 +33539,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_STRFOOD,1200000,5;
-      
+
   - Id: 14576
     AegisName: Int_Dish05_
     Name: Mastela Fruit Wine
@@ -33567,7 +33557,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_INTFOOD,1200000,5;
-      
+
   - Id: 14577
     AegisName: Vit_Dish05_
     Name: Spicy Fried Bao
@@ -33585,7 +33575,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_VITFOOD,1200000,5;
-      
+
   - Id: 14578
     AegisName: Agi_Dish05_
     Name: Steamed Bat Wing in Pumpkin
@@ -33603,7 +33593,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_AGIFOOD,1200000,5;
-      
+
   - Id: 14579
     AegisName: Dex_Dish05_
     Name: Green Salad
@@ -33621,7 +33611,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_DEXFOOD,1200000,5;
-      
+
   - Id: 14580
     AegisName: Luk_Dish05_
     Name: Fried Scorpion Tails
@@ -33639,7 +33629,7 @@ Body:
       NoAuction: true
     Script: |
       sc_start SC_LUKFOOD,1200000,5;
-      
+
   - Id: 14581
     AegisName: Dun_Tele_Scroll2
     Name: Dungeon Teleport Scroll II
@@ -34113,7 +34103,7 @@ Body:
     Buy: 5000
     Weight: 300
     Script: |
-      
+
   - Id: 14611
     AegisName: M_Def_Potion
     Name: M Def Potion
@@ -44810,7 +44800,7 @@ Body:
          sc_start SC_DPOISON,60000,0;
          sc_start SC_ASPDPOTION3,60000,9;
       }
-         
+
   - Id: 22550
     AegisName: Cookie_Bag_B
     Name: Sweets Pocket
@@ -44944,7 +44934,7 @@ Body:
       Duration: 3000
       Status: Reuse_Limit_G
     Script: |
-      
+
       itemskill "SM_ENDURE",3;
   - Id: 22563
     AegisName: Lucky_Bag_Of_New_Era
@@ -45165,7 +45155,7 @@ Body:
     Script: |
       specialeffect2 EF_EXIT;
       sc_start SC_JP_EVENT04,300000,25;
-      
+
   - Id: 22623
     AegisName: New_Start_Box
     Name: New Start Box
@@ -45190,7 +45180,7 @@ Body:
     Name: Riesen Bretzel
     Type: Healing
     Script: |
-      
+
   - Id: 22625
     AegisName: Oktoberfest_Bag
     Name: Oktoberfest Bag
@@ -45423,7 +45413,7 @@ Body:
     Buy: 20
     Weight: 200
     Script: |
-      
+
   - Id: 22658
     AegisName: Cow_Steamed_Ribs
     Name: Cow Steamed Ribs
@@ -45584,7 +45574,7 @@ Body:
     Type: Healing
     Weight: 50
     Script: |
-      
+
   - Id: 22687
     AegisName: Pieces_Of_Sentiment
     Name: Sentimental Fragment
@@ -46849,7 +46839,7 @@ Body:
     Type: Usable
     Buy: 10
     Script: |
-      
+
   - Id: 22883
     AegisName: September_Gift_Box_
     Name: September Gift Box
@@ -47180,7 +47170,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      
+
   - Id: 23043
     AegisName: S_Seed_Of_Yggdrasil_Box
     Name: "[Sale] Yggdrasil Seed Box"
@@ -50229,7 +50219,7 @@ Body:
     Weight: 2
     EquipLevelMin: 120
     Script: |
-      
+
   - Id: 1100004
     AegisName: Concentrated_B_P
     Name: Concentrated Blue Potion
@@ -50238,7 +50228,7 @@ Body:
     Weight: 2
     EquipLevelMin: 120
     Script: |
-      
+
   - Id: 1100005
     AegisName: Concentrated_G_P
     Name: Concentrated Gold Potion
@@ -50247,4 +50237,4 @@ Body:
     Weight: 2
     EquipLevelMin: 175
     Script: |
-      
+

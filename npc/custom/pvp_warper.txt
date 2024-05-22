@@ -229,10 +229,9 @@ OnInit:
 	// PvP maps go here. Change them as you wish.//"guild_vs2","guild_vs3","guild_vs5","pvp_y_1-1","guild_vs4","guild_vs1","arena_room";
 	setarray .maps$[0],"pvp_n_7-1", // sandwich
 						"pvp_n_7-5", // compass
-						"pvp_y_7-2", //izlude
 						"guild_vs5", //gvs5
 						"pvp_n_7-3"; //four room
-	
+
 	// Max amount of times mesAr(a map can be repeated. 0 = unlimited);
 	.row = 3;
 
@@ -264,7 +263,7 @@ OnInit:
 			while(.@j--)
 				setmapflag .maps$[.@j],.mapfl[.@i];
 		}
-            
+
 	}
 	.@map$ = .map$;
 	.@r    = rand(.size);
@@ -306,7 +305,7 @@ OnCommand:
 		end;
     }
     end;
-        
+
 OnMinute00:
 OnMinute30:
 	.@map$ = .map$;
@@ -362,11 +361,12 @@ OnPCKillEvent:
     announce "·ﬁœ ﬁ«„ "+strcharinfo(0)+" »"+ (kill_mes$ == "" ? "œ⁄”" : kill_mes$) +" "+rid2name(killedrid)+" ›Ì «·Õ·»…!",bc_all|bc_blue;
     discord("·ﬁœ ﬁ«„ **"+strcharinfo(0)+"** »" + (kill_mes$ == "" ? "œ⁄”": kill_mes$) + " **"+rid2name(killedrid)+"** ›Ì «·Õ·»…", "pvp");
 	.@attackerId = getcharid(0);
+	.@attackerClass = Class;
 	.@defenderId = getcharid(0, rid2name(killedrid));
 	.@attacker_def = callfunc("calc_def_points");
 	if(attachrid(killedrid))
 		.@defender_def = callfunc("calc_def_points");
-	.@sql$ = "INSERT INTO `pvp_balance`(map, player_count, char_id, class, defeated_id, defeated_class, attacker_def, defender_def) VALUES ('"+strcharinfo(3)+"', "+ getmapusers(strcharinfo(3))+", "+.@attackerId+", "+Class+", "+.@defenderId+", "+readparam(Class, .@defenderId)+", "+.@attacker_def+", "+.@defender_def+")";
+	.@sql$ = "INSERT INTO `pvp_balance`(map, player_count, char_id, class, defeated_id, defeated_class, attacker_def, defender_def) VALUES ('"+strcharinfo(3)+"', "+ getmapusers(strcharinfo(3))+", "+.@attackerId+", "+.@attackerClass+", "+.@defenderId+", "+Class+", "+.@attacker_def+", "+.@defender_def+")";
 	query_sql(.@sql$);
     end;
 }

@@ -3847,42 +3847,6 @@ Body:
     Refineable: true
     Script: |
       bonus2 bGetZenyNum,100,40;
-  - Id: 1239
-    AegisName: Poison_Knife
-    Name: Poison Knife
-    Type: Weapon
-    SubType: Dagger
-    Buy: 20
-    Weight: 800
-    Attack: 64
-    Range: 1
-    Jobs:
-      Alchemist: true
-      Archer: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Hunter: true
-      KagerouOboro: true
-      Knight: true
-      Mage: true
-      Merchant: true
-      Ninja: true
-      Rogue: true
-      Sage: true
-      SoulLinker: true
-      Swordman: true
-      Thief: true
-      Wizard: true
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 3
-    EquipLevelMin: 65
-    Refineable: true
-    Script: |
-      bonus bAtkEle,Ele_Poison;
-      bonus2 bAddEff,Eff_Poison,3000;
   - Id: 1240
     AegisName: Princess_Knife
     Name: Princess Knife
@@ -7058,26 +7022,6 @@ Body:
       }
       bonus bVit,2;
       bonus4 bAutoSpellOnSkill,"BS_HAMMERFALL","SM_MAGNUM",3,50;
-  - Id: 1385
-    AegisName: Bradium_Stonehammer
-    Name: Bradium Stone Hammer
-    Type: Weapon
-    SubType: 2hAxe
-    Buy: 20
-    Weight: 2700
-    Attack: 210
-    Range: 1
-    Jobs:
-      Blacksmith: true
-    Classes:
-      All_Upper: true
-    Locations:
-      Both_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 75
-    Refineable: true
-    Script: |
-      bonus3 bAddEffOnSkill,"BS_HAMMERFALL",Eff_Stun,500+(200*getrefine());
   - Id: 1386
     AegisName: Doom_Slayer_I
     Name: Doom Slayer
@@ -11210,25 +11154,6 @@ Body:
     Refineable: true
     Script: |
       bonus bInt,2;
-  - Id: 1552
-    AegisName: Tablet
-    Name: Tablet
-    Type: Weapon
-    SubType: Book
-    Buy: 51000
-    Weight: 800
-    Attack: 125
-    Range: 1
-    Slots: 1
-    Jobs:
-      Priest: true
-      Sage: true
-      StarGladiator: true
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 3
-    EquipLevelMin: 27
-    Refineable: true
   - Id: 1553
     AegisName: Book_Of_Billows
     Name: Book of Billows
@@ -16442,26 +16367,6 @@ Body:
       NoAuction: true
     Script: |
       bonus bDex,2;
-  - Id: 1800
-    AegisName: Sinister_Fist
-    Name: Fist of Vicious Mind
-    Type: Weapon
-    SubType: Knuckle
-    Buy: 20
-    Weight: 1500
-    Attack: 150
-    Range: 1
-    Slots: 1
-    Jobs:
-      Monk: true
-      Priest: true
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 160
-    Refineable: true
-    Script: |
-      bonus bBaseAtk,pow(min(getrefine(),15),2);
   - Id: 1801
     AegisName: Waghnakh
     Name: Waghnak
@@ -18497,35 +18402,6 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bAddSize,Size_All,40;
-  - Id: 1930
-    AegisName: Green_Whistle
-    Name: Green Whistle
-    Type: Weapon
-    SubType: Musical
-    Buy: 20
-    Weight: 800
-    Attack: 170
-    MagicAttack: 50
-    Range: 1
-    Slots: 1
-    Jobs:
-      BardDancer: true
-    Classes:
-      All_Third: true
-    Gender: Male
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 3
-    EquipLevelMin: 102
-    Refineable: true
-    Script: |
-      .@r = getrefine();
-      if (.@r>5) {
-         bonus2 bSkillUseSP,"MI_RUSH_WINDMILL",(.@r-5)*4;
-         bonus2 bSkillUseSP,"WM_LULLABY_DEEPSLEEP",(.@r-5)*4;
-      }
-      bonus2 bSkillVariableCast,"MI_RUSH_WINDMILL",-2000;
-      bonus2 bSkillVariableCast,"WM_LULLABY_DEEPSLEEP",-2000;
   - Id: 1931
     AegisName: P_String_Inst1
     Name: Eden Guitar I
@@ -18631,48 +18507,6 @@ Body:
     Refineable: true
     Script: |
       bonus2 bSkillCooldown,"WM_RANDOMIZESPELL",-2000;
-  - Id: 1935
-    AegisName: Ukulele_Of_Newoz
-    Name: Oz's New Ukulele
-    Type: Weapon
-    SubType: Musical
-    Buy: 20
-    Weight: 1000
-    Attack: 160
-    Range: 1
-    Slots: 2
-    Jobs:
-      BardDancer: true
-    Classes:
-      All_Third: true
-    Gender: Male
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 130
-    Refineable: true
-    Script: |
-      bonus2 bSkillUseSP,"MI_RUSH_WINDMILL",20;
-  - Id: 1936
-    AegisName: Ru_Blue_Violin
-    Name: Blue Violin
-    Type: Weapon
-    SubType: Musical
-    Weight: 1500
-    Attack: 200
-    Range: 2
-    Slots: 1
-    Jobs:
-      BardDancer: true
-    Gender: Male
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 3
-    EquipLevelMin: 100
-    Refineable: true
-    Script: |
-      bonus bDex,5;
-      bonus bVit,5;
   - Id: 1937
     AegisName: Ru_Gold_Violin
     Name: Ru Gold Violin
@@ -19802,49 +19636,6 @@ Body:
     Refineable: true
     Script: |
       bonus bAspdRate,20;
-  - Id: 1990
-    AegisName: Floral_Mic_Of_Igu
-    Name: Bloody Floral Decoration Microphone
-    Type: Weapon
-    SubType: Whip
-    Buy: 20
-    Weight: 1000
-    Attack: 160
-    Range: 2
-    Slots: 2
-    Jobs:
-      BardDancer: true
-    Classes:
-      All_Third: true
-    Gender: Female
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 130
-    Refineable: true
-    Script: |
-      bonus2 bSkillUseSP,"WA_MOONLIT_SERENADE",20;
-  - Id: 1991
-    AegisName: Ru_Blue_Whip
-    Name: Blue Whip
-    Type: Weapon
-    SubType: Whip
-    Buy: 10
-    Weight: 1500
-    Attack: 180
-    Range: 2
-    Slots: 1
-    Jobs:
-      BardDancer: true
-    Gender: Female
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 3
-    EquipLevelMin: 100
-    Refineable: true
-    Script: |
-      bonus bDex,5;
-      bonus bVit,5;
   - Id: 1992
     AegisName: Ru_Gold_Whip
     Name: Ru Gold Whip
@@ -21249,37 +21040,6 @@ Body:
       }
       if (.@r >= 11) {
          bonus2 bSkillCooldown,"HW_GRAVITATION",-2000;
-      }
-  - Id: 2057
-    AegisName: Adorare_Staff
-    Name: Adorare Staff
-    Type: Weapon
-    SubType: 2hStaff
-    Buy: 20
-    Weight: 1200
-    Attack: 100
-    MagicAttack: 240
-    Range: 1
-    Slots: 2
-    Jobs:
-      Priest: true
-    Classes:
-      All_Third: true
-    Locations:
-      Both_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 170
-    Refineable: true
-    Script: |
-      .@r = getrefine();
-      bonus bMatk,4*.@r;
-      bonus bUnbreakableWeapon;
-      bonus2 bMagicAtkEle,Ele_Holy,5;
-      if (.@r >= 9) {
-         bonus2 bSkillAtk,"AB_ADORAMUS",30;
-      }
-      if (.@r >= 11) {
-         bonus2 bSubSize,Size_All,25;
       }
   - Id: 2058
     AegisName: Detecting_Staff
@@ -28325,41 +28085,6 @@ Body:
       bonus bMdef,1;
       bonus2 bSubRace,RC_Player_Human,2;
       bonus2 bSubRace,RC_Player_Doram,2;
-  - Id: 2484
-    AegisName: Siege_Boots
-    Name: Siege Boots
-    Type: Armor
-    Buy: 10
-    Weight: 500
-    Defense: 20
-    Slots: 1
-    Jobs:
-      Alchemist: true
-      Archer: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Gunslinger: true
-      Hunter: true
-      KagerouOboro: true
-      Knight: true
-      Merchant: true
-      Ninja: true
-      Rebellion: true
-      Rogue: true
-      StarGladiator: true
-      Swordman: true
-      Taekwon: true
-      Thief: true
-    Locations:
-      Shoes: true
-    EquipLevelMin: 95
-    Refineable: true
-    Script: |
-      bonus bMdef,5;
-      bonus2 bSubRace,RC_Player_Human,1;
-      bonus2 bSubRace,RC_Player_Doram,1;
   - Id: 2485
     AegisName: Siege_Shoes
     Name: Siege Shoes
@@ -30365,26 +30090,6 @@ Body:
       Garment: true
     Script: |
       bonus bSPrecovRate,10;
-  - Id: 2586
-    AegisName: Siege_Manteau
-    Name: Siege Manteau
-    Type: Armor
-    Buy: 10
-    Weight: 600
-    Defense: 32
-    Slots: 1
-    Jobs:
-      All: true
-      Novice: false
-      SuperNovice: false
-    Locations:
-      Garment: true
-    EquipLevelMin: 95
-    Refineable: true
-    Script: |
-      bonus bMdef,1;
-      bonus2 bSubRace,RC_Player_Human,2;
-      bonus2 bSubRace,RC_Player_Doram,2;
   - Id: 2587
     AegisName: Siege_Muffler
     Name: Siege Muffler
@@ -52453,7 +52158,7 @@ Body:
       bonus2 bSkillVariableCast,"RA_ARROWSTORM",-2000;
       if(getrefine()>=7) {
         bonus bAtk,2*(readparam(bDex)/5);
-      } 
+      }
       if(getrefine()>=9) {
         bonus2 bSkillAtk,"RA_FIRINGTRAP",25;
         bonus2 bSkillAtk,"RA_ICEBOUNDTRAP",25;
@@ -63598,48 +63303,6 @@ Body:
       if (.@r>8) {
          bonus bMaxHPrate,25;
       }
-  - Id: 15047
-    AegisName: Siege_Suits
-    Name: Siege Suit
-    Type: Armor
-    Weight: 750
-    Defense: 50
-    Slots: 1
-    Jobs:
-      Alchemist: true
-      Archer: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Gunslinger: true
-      Hunter: true
-      KagerouOboro: true
-      Knight: true
-      Merchant: true
-      Ninja: true
-      Rebellion: true
-      Rogue: true
-      StarGladiator: true
-      Swordman: true
-      Taekwon: true
-      Thief: true
-    Locations:
-      Armor: true
-    EquipLevelMin: 95
-    Refineable: true
-    Script: |
-      bonus bMdef,10;
-      bonus2 bSubRace,RC_Player_Doram,2;
-      bonus2 bSubRace,RC_Player_Human,2;
-      .@r = getrefine();
-      if (.@r>5) {
-         bonus bFlee2,5;
-         bonus bLongAtkDef,20;
-      }
-      if (.@r>8) {
-         bonus bMaxHPrate,15;
-      }
   - Id: 15048
     AegisName: Siege_Robe
     Name: Siege Robe
@@ -68313,35 +67976,6 @@ Body:
          bonus bBaseAtk,30;
          bonus bHit,5;
       }
-  - Id: 16060
-    AegisName: Bottle
-    Name: Liquor Bottle
-    Type: Weapon
-    SubType: Mace
-    Weight: 700
-    Attack: 120
-    Range: 1
-    Slots: 3
-    Jobs:
-      Acolyte: true
-      Alchemist: true
-      Blacksmith: true
-      Crusader: true
-      Knight: true
-      Merchant: true
-      Monk: true
-      Novice: true
-      Priest: true
-      SuperNovice: true
-      Swordman: true
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 3
-    EquipLevelMin: 100
-    Refineable: true
-    Script: |
-      bonus bUnbreakableWeapon;
-      bonus2 bAddEff,Eff_Stun,(300*getrefine());
   - Id: 16063
     AegisName: Long_Mace_IL
     Name: Illusion Long Mace
@@ -69166,42 +68800,6 @@ Body:
     Refineable: true
     Script: |
       bonus2 bAddMonsterDropItem,1753,200;
-  - Id: 18116
-    AegisName: Metal_Bow
-    Name: Metal Bow
-    Type: Weapon
-    SubType: Bow
-    Buy: 20
-    Attack: 50
-    Range: 5
-    Slots: 1
-    Jobs:
-      Archer: true
-      BardDancer: true
-      Hunter: true
-    Locations:
-      Both_Hand: true
-    WeaponLevel: 3
-    EquipLevelMin: 1
-    Refineable: true
-    Trade:
-      Override: 100
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
-      NoStorage: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
-    Script: |
-      .@r = getrefine();
-      if (BaseJob == Job_Hunter && Upper!=2)
-         bonus bBaseAtk,10;
-      bonus bBaseAtk,(.@r*3);
-      bonus bLongAtkRate,.@r;
-      .@i = min(BaseLevel/10,12);
-      if (.@i>2)
-         bonus bBaseAtk,((.@i-2)*5);
   - Id: 18117
     AegisName: Royal_Bow
     Name: Royal Bow
@@ -94891,36 +94489,6 @@ Body:
          bonus bUnbreakableWeapon;
          bonus2 bSkillAtk,"KN_BOWLINGBASH",20;
       }
-  - Id: 21052
-    AegisName: Vernan
-    Name: Vernan
-    Type: Weapon
-    SubType: 2hSword
-    Buy: 20
-    Weight: 6500
-    Attack: 300
-    Range: 1
-    Slots: 2
-    Jobs:
-      Knight: true
-    Classes:
-      All_Third: true
-    Locations:
-      Both_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 170
-    Refineable: true
-    Script: |
-      .@r = getrefine();
-      bonus bLongAtkRate,.@r;
-      bonus2 bAddClass,Class_All,5;
-      if (.@r>=9) {
-         bonus2 bSkillAtk,"LK_SPIRALPIERCE",30;
-         bonus2 bSkillAtk,"RK_SONICWAVE",30;
-      }
-      if (.@r>=11) {
-         bonus2 bSkillCooldown,"RK_SONICWAVE",-1500;
-      }
   - Id: 21054
     AegisName: Ein_BHSWORD
     Name: Claw Sword
@@ -113709,21 +113277,6 @@ Body:
       bonus2 bSkillAtk,"RG_BACKSTAP",2*BaseLevel;
       bonus2 bAddEff,Eff_Stun,.@r*300;
       autobonus3 "{ bonus2 bSkillAtk,\"SC_TRIANGLESHOT\",BaseLevel/3; }",1000,20000,"SC_ESCAPE";
-  - Id: 28380
-    AegisName: Fresh_G_Necklace
-    Name: Fresh Grass Necklace
-    Type: Armor
-    Buy: 20
-    Weight: 100
-    Slots: 1
-    Jobs:
-      Summoner: true
-    Locations:
-      Both_Accessory: true
-    EquipLevelMin: 100
-    Script: |
-      bonus bFlee2,5;
-      bonus2 bSkillCooldown,"SU_SCAROFTAROU",-5000;
   - Id: 28381
     AegisName: Pretty_G_Necklace
     Name: Cute Grass Necklace
@@ -114225,12 +113778,14 @@ Body:
   - Id: 28433
     AegisName: Luminous_Blue_Stone
     Name: Luminous Blue Stone
-    Type: Armor
+    Type: Weapon
+    SubType: Bow
     Buy: 20
     Weight: 400
-    Slots: 1
+    Attack: 999
+    Range: 5
     Locations:
-      Both_Accessory: true
+      Right_Hand: true
     EquipLevelMin: 90
     Script: |
       bonus bAgi,2;
@@ -115761,25 +115316,6 @@ Body:
     Script: |
       bonus bAgi,5;
       bonus bDex,5;
-  - Id: 28601
-    AegisName: Ru_Gold_Book
-    Name: Ru Gold Book
-    Type: Weapon
-    SubType: Book
-    Weight: 500
-    Attack: 160
-    Range: 1
-    Slots: 2
-    Jobs:
-      Archer: true
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 3
-    EquipLevelMin: 120
-    Refineable: true
-    Script: |
-      bonus bVit,8;
-      bonus bInt,8;
   - Id: 28602
     AegisName: Demon_Hunting_Bible_K
     Name: Demon Hunting Bible
@@ -116369,45 +115905,6 @@ Body:
       }
       if (.@r>=11) {
          bonus2 bSkillAtk,"SJ_SOLARBURST",20;
-      }
-  - Id: 28632
-    AegisName: Evt_D_H_Bible_K
-    Name: Sealed Exorcism Bible
-    Type: Weapon
-    SubType: Book
-    Attack: 165
-    MagicAttack: 160
-    Range: 1
-    Slots: 2
-    Jobs:
-      Priest: true
-    Classes:
-      Third: true
-      Third_Upper: true
-      Third_Baby: true
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 99
-    Refineable: true
-    Trade:
-      Override: 100
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
-      NoStorage: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
-    Script: |
-      .@r = getrefine();
-      bonus bMatk,10*(.@r/2);
-      bonus2 bSkillAtk,"AB_DUPLELIGHT",25*(.@r/3);
-      if (.@r>=7) {
-         bonus bAspdRate,10;
-      }
-      if (.@r>=9) {
-         bonus2 bSkillAtk,"AB_DUPLELIGHT",30;
       }
   - Id: 28633
     AegisName: Boltijin
@@ -124078,36 +123575,6 @@ Body:
     Locations:
       Costume_Head_Low: true
     View: 2070
-  - Id: 32001
-    AegisName: Diva_Spear
-    Name: Diva Spear
-    Type: Weapon
-    SubType: 1hSpear
-    Weight: 1800
-    Attack: 150
-    MagicAttack: 110
-    Range: 3
-    Slots: 1
-    Jobs:
-      Crusader: true
-      Knight: true
-    Classes:
-      All_Third: true
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 150
-    Refineable: true
-    Script: |
-      .@r = getrefine();
-      if (.@r>=7) {
-         bonus bBaseAtk,30;
-         bonus bHit,5;
-      }
-      if (.@r>=9) {
-         bonus bBaseAtk,30;
-         bonus bHit,5;
-      }
   - Id: 32002
     AegisName: Mirage_Spear
     Name: Mirage Spear
@@ -133117,40 +132584,6 @@ Body:
     Refineable: true
     Script: |
       /*Is combo set with 28763 Surudoi Kaze*/
-  - Id: 510032
-    AegisName: Adulter_F_Dagger
-    Name: Adulter Fides Dagger
-    Type: Weapon
-    SubType: Dagger
-    Weight: 1200
-    Attack: 210
-    Range: 1
-    Slots: 2
-    Jobs:
-      Rogue: true
-    Classes:
-      All_Third: true
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 175
-    Refineable: true
-    Script: |
-      .@r = getrefine();
-      bonus2 bSkillAtk,"SC_FATALMENACE",10;
-      bonus bBaseAtk,12*(.@r/3);
-      if (.@r>=7) {
-         bonus2 bSkillAtk,"SC_FATALMENACE",20;
-         if (.@r>=9) {
-            bonus2 bAddSize,Size_All,15;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"SC_FATALMENACE",25;
-               if (.@r>=12) {
-                  bonus bShortAtkRate,15;
-               }
-            }
-         }
-      }
   - Id: 510034
     AegisName: Ancient_Dagger_IL
     Name: Illusion Ancient Dagger
@@ -134984,41 +134417,6 @@ Body:
       if (.@r>=9) {
          bonus2 bAddSize,Size_All,10;
          bonus2 bMagicAddSize,Size_All,10;
-      }
-  - Id: 570002
-    AegisName: Trumpet_Shell_K
-    Name: Trumpet Shell
-    Type: Weapon
-    SubType: Musical
-    Weight: 700
-    Attack: 160
-    MagicAttack: 190
-    Range: 1
-    Slots: 2
-    Jobs:
-      BardDancer: true
-    Classes:
-      All_Third: true
-    Gender: Male
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 100
-    Refineable: true
-    Script: |
-      .@r = getrefine();
-      if (.@r>=2) {
-         bonus bMatk,.@r/2*10;
-      }
-      if (.@r>=3) {
-         bonus2 bMagicAtkEle,Ele_Neutral,.@r/3*4;
-      }
-      if (.@r>=9) {
-         bonus2 bSkillAtk,"WM_REVERBERATION",10;
-         bonus2 bSkillAtk,"WM_METALICSOUND",10;
-      }
-      if (.@r>=11) {
-         bonus2 bSkillFixedCast,"WM_REVERBERATION",-500;
       }
   - Id: 570005
     AegisName: Ep172_1h_Inst

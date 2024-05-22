@@ -273,6 +273,15 @@ struct s_qi_display {
 	e_questinfo_markcolor color;
 };
 
+/// bNthAtkAutoSpell bonus struct
+struct s_nthatkautospell {
+	short id, lv, n, flag, current_n, sk_id;
+	unsigned short card_id;
+	int target_id, cooldown;
+	t_tick last_tick;
+	bool lock;
+};
+
 struct map_session_data {
 	struct block_list bl;
 	struct unit_data ud;
@@ -356,6 +365,7 @@ struct map_session_data {
 		unsigned int bonus_coma : 1;
 		unsigned int no_mado_fuel : 1; // Disable Magic_Gear_Fuel consumption [Secret]
 		unsigned int no_walk_delay : 1;
+		unsigned int no_partner : 1;
 	} special_state;
 	uint32 login_id1, login_id2;
 	unsigned short class_;	//This is the internal job ID used by the map server to simplify comparisons/queries/etc. [Skotlex]
@@ -483,6 +493,7 @@ struct map_session_data {
 	// zeroed arrays end here.
 
 	std::vector<s_autospell> autospell, autospell2, autospell3;
+  std::vector<s_nthatkautospell> nth_atk_autospell;
 	std::vector<s_addeffect> addeff, addeff_atked;
 	std::vector<s_addeffectonskill> addeff_onskill;
 	std::vector<s_item_bonus> skillatk, skillusesprate, skillusesp, skillheal, skillheal2, skillblown, skillcastrate, skillfixcastrate, subskill, skillcooldown, skillfixcast,
@@ -1139,7 +1150,7 @@ public:
 
 extern PlayerStatPointDatabase statpoint_db;
 
-/// Enum of Summoner Power of 
+/// Enum of Summoner Power of
 enum e_summoner_power_type {
 	SUMMONER_POWER_LAND = 0,
 	SUMMONER_POWER_LIFE,

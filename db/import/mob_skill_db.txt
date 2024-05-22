@@ -135,3 +135,10 @@
 //3014,Halloween Whisper@NPC_EMOTION,chase,197,1,200,0,5000,yes,self,always,0,19,0x81,,,,,
 
 // Here you can place your custom mob skills
+2135,CREEPER@RK_DRAGONHOWLING,any,2009,5,10000,2500,20000,no,self,onspawn,0,,,,,,,
+2135,CREEPER@SR_WINDMILL,attack,2337,1,10000,0,5000,no,self,always,0,,,,,,,
+
+1934,BLUEFLOWER@GN_MANDRAGORA,any,2492,5,10000,5000,5000,no,self,onspawn,0,,,,,,,
+1934,BLUEFLOWER@GN_MANDRAGORA,any,2492,5,10000,5000,5000,no,self,always,0,,,,,,,
+
+// MobID,Dummy value (info only),State,SkillID,SkillLv,Rate,CastTime,Delay,Cancelable,Target,Condition type,Condition value,val1,val2,val3,val4,val5,Emotion,Chat
