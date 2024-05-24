@@ -246,6 +246,7 @@ Body:
     EquipLevelMin: 100
     Refineable: true
     Script: |
+      bonus bCritical,90;
       bonus bFixedCast,20000;
       bonus bSpeedAddRate,-50;
       bonus bLongAtkRate,100;
