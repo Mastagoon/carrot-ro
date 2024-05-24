@@ -272,6 +272,8 @@ Body:
     EquipLevelMin: 27
     Refineable: true
     Script: |
+      bonus bMdef,30;
+      bonus bDef,100;
       bonus2 bSubRace,RC_DemiHuman,12;
       bonus2 bSubRace,RC_Player_Human,12;
       bonus bHealPower,50;
