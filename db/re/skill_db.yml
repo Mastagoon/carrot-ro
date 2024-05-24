@@ -22502,7 +22502,7 @@ Body:
         Time: 10000
       - Level: 3
         Time: 10000
-    Cooldown: 7000
+    Cooldown: 2000
     Requires:
       SpCost:
         - Level: 1
@@ -22535,7 +22535,7 @@ Body:
         Time: 10000
       - Level: 3
         Time: 10000
-    Cooldown: 7000
+    Cooldown: 2000
     Requires:
       SpCost:
         - Level: 1
@@ -22568,7 +22568,7 @@ Body:
         Time: 10000
       - Level: 3
         Time: 10000
-    Cooldown: 7000
+    Cooldown: 2000
     Requires:
       SpCost:
         - Level: 1
@@ -22601,7 +22601,7 @@ Body:
         Time: 10000
       - Level: 3
         Time: 10000
-    Cooldown: 7000
+    Cooldown: 2000
     Requires:
       SpCost:
         - Level: 1
@@ -22634,7 +22634,7 @@ Body:
         Time: 10000
       - Level: 3
         Time: 10000
-    Cooldown: 7000
+    Cooldown: 2000
     Requires:
       SpCost:
         - Level: 1
@@ -22667,7 +22667,7 @@ Body:
         Time: 10000
       - Level: 3
         Time: 10000
-    Cooldown: 7000
+    Cooldown: 2000
     Requires:
       SpCost:
         - Level: 1
