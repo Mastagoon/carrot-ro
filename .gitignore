@@ -133,3 +133,4 @@ Thumbs.db
 # CMakeFiles
 /CMakeFiles/
 .cache/
+conf/discord
